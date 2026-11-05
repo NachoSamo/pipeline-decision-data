@@ -109,7 +109,7 @@ diseño acordado; las dudas abiertas están en [`docs/pipeline-arquitectura.html
 ```mermaid
 flowchart TB
     subgraph Datos["1 · Datos"]
-        A["16 fuentes con script<br/>locales e internacionales"] --> B["Scraping por fuente"] --> C["Dataset en Parquet"]
+        A["35 fuentes con script<br/>locales e internacionales"] --> B["Scraping por fuente"] --> C["Dataset en Parquet"]
     end
 
     subgraph Preparacion["2 · Preparación"]
@@ -170,8 +170,8 @@ flowchart TB
 | Boceto de la arquitectura | **Digitalizado**, con dudas abiertas |
 | Relevamiento de fuentes | **Inicial:** falta revisar términos de uso y foros |
 | Medición del volumen | **Parcial:** conteo de menciones por fuente; falta medir utilidad y duplicados entre fuentes |
-| Scraping | **En curso:** 16 scripts. Terminaron 10 fuentes; siguen TN, CBA24N y las internacionales; Futuro Sustentable no tiene datos; Cadena 3 quedó de lado por falta de volumen |
-| Dataset | **En curso:** solo residuos, con 18.989 notas únicas en 10 Parquet |
+| Scraping | **En curso:** scripts para 35 fuentes. Las 19 especializadas nuevas se están descargando; Futuro Sustentable no tiene datos; Cadena 3 quedó de lado por falta de volumen |
+| Dataset | **En curso:** solo residuos, con 32.957 notas únicas en 14 Parquet |
 | Clasificación y segmentación | **No iniciado** |
 | Grafo y análisis | **No iniciado** |
 

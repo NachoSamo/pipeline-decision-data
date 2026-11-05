@@ -4,7 +4,7 @@ Nov 4, 2026 · @Ignacio Samocachan
 
 ## Resumen
 
-Hay 43 fuentes posibles de noticias y redes. La primera tanda sugerida tiene 10: La Nación, Clarín, Infobae, Página/12, El Doce, Cadena 3, Mongabay, Climate Tracker, Futuro Sustentable y Visión Sustentable. Tienen sitemaps y no excluyen bots de IA por nombre. La Voz también importa por ser de Córdoba, pero primero hay que resolver su acceso.
+Hay 43 fuentes posibles de noticias y redes, más 32 candidatas nuevas con API de WordPress en [su propia sección](#más-fuentes-con-api-de-wordpress). La primera tanda sugerida tiene 10: La Nación, Clarín, Infobae, Página/12, El Doce, Cadena 3, Mongabay, Climate Tracker, Futuro Sustentable y Visión Sustentable. Tienen sitemaps y no excluyen bots de IA por nombre. La Voz también importa por ser de Córdoba, pero primero hay que resolver su acceso.
 
 **Las 10.000 notas útiles por track todavía no están comprobadas.** En residuos, 13.633 notas con cuerpo mencionan el tema, pero falta medir cuántas son útiles; los otros tres tracks no se midieron. El detalle por fuente está en la [evaluación de volumen](contexto-pipeline.md#evaluación-de-volumen-4112026-2334-descargas-en-curso). Mirar solo la URL encuentra mucho menos: unas 60 notas por año en La Nación y 56 de 8.000 en Mongabay.
 
@@ -106,6 +106,77 @@ Estas cuatro fuentes tienen API de WordPress abierta y no excluyen bots de IA po
 | [Grist](https://grist.org/) | Clima y ambiente | 391 | No indica |
 
 Los resultados son los que devuelve la búsqueda, así que pueden incluir ruido. [Waste Dive](https://www.wastedive.com/) y [Eco-Business](https://www.eco-business.com/) no tienen esa API; quedan para revisar. La API oficial de The Guardian pide una clave propia, y no pude leer sus condiciones.
+
+## Más fuentes con API de WordPress
+
+El 4/11/2026 probé 264 dominios de cualquier idioma. 97 tienen la API abierta y 83 devolvieron resultados. Las especializadas se descargan con `scrape_especializadas.py`; las generalistas todavía no tienen script.
+
+Cómo leer las tablas:
+
+- **Notas:** resultados de un solo término desde 2024, como "waste" o "residuos". No es un total neto.
+- **Foco:** de las 40 notas más recientes de ese término, cuántas lo mencionan al menos 3 veces con sus palabras afines. Es una muestra chica y puede estar sesgada por eventos recientes.
+- **Términos:** los busqué por palabras clave, sin leerlos completos. "Sin cláusula hallada" no significa permiso.
+
+### Especializadas, con foco de 70 % o más
+
+| Fuente | Idioma | Origen | Notas | Foco | Largo mediano | Términos |
+| --- | --- | --- | ---: | ---: | ---: | --- |
+| [Residuos Profesional](https://www.residuosprofesional.com/) | Español | España | 3.001 | 88 % | 5.166 | Prohíbe distribuir sin autorización |
+| [Eco dalle Città](https://www.ecodallecitta.it/) | Italiano | Italia | 2.190 | 75 % | 3.037 | Sin página hallada; pide 20 s entre pedidos |
+| [Inside Waste](https://www.insidewaste.com.au/) | Inglés | Australia | 1.145 | 70 % | 3.977 | Sin leer; 13 de 40 notas tienen menos de 400 caracteres |
+| [Portal Komunalny](https://portalkomunalny.pl/) | Polaco | Polonia | 943 | 95 % | 5.711 | Prohíbe copiar y distribuir |
+| [Bioplastics News](https://bioplasticsnews.com/) | Inglés | Sin confirmar | 862 | 92 % | 1.573 | Sin página hallada |
+| [320°](https://www.320grad.de/) | Alemán | Alemania | 859 | 80 % | 3.972 | Sin cláusula hallada |
+| [CicloVivo](https://ciclovivo.com.br/) | Portugués | Brasil | 777 | 80 % | 4.753 | Tiene una política de contenido sin leer |
+| [Infrastructure News](https://www.infrastructurenews.co.za/) | Inglés | Sudáfrica | 758 | 72 % | 5.108 | Sin página hallada |
+| [Envirotec](https://www.envirotecmagazine.com/) | Inglés | Reino Unido | 661 | 75 % | 4.641 | Prohíbe reproducir sin permiso |
+| [Abrema](https://www.abrema.org.br/) | Portugués | Brasil, gremio | 639 | 92 % | 4.933 | Sin página hallada |
+| [Recover Web](https://www.recoverweb.it/) | Italiano | Italia | 637 | 80 % | 4.805 | Sin página hallada |
+| [Recycling International](https://recyclinginternational.com/) | Inglés | Países Bajos | 620 | 98 % | 2.690 | Prohíbe reproducir sin permiso escrito |
+| [BioCycle](https://www.biocycle.net/) | Inglés | Estados Unidos | 432 | 98 % | 4.899 | Sin página hallada |
+| [Ecoticias](https://www.ecoticias.com/) | Español | España | 426 | 98 % | 6.329 | Prohíbe reproducir |
+| [Recycling Portal](https://www.recyclingportal.eu/) | Varios | Europa | 394 | 90 % | 3.816 | Sin cláusula hallada; incluye anuncios de empresas |
+| [GAIA](https://www.no-burn.org/) | Inglés | Red global | 290 | 98 % | 7.913 | Sin página hallada |
+| [ISWA](https://www.iswa.org/) | Inglés | Asociación global | 185 | 95 % | 7.516 | Sin cláusula hallada |
+| [Zero Waste Europe](https://zerowasteeurope.eu/) | Inglés | Europa | 104 | 98 % | 5.761 | Sin página hallada |
+| [Global Rec](https://globalrec.org/) | Inglés | Red de recicladores | 60 | 80 % | 2.999 | Sin página hallada; 4 de 40 notas son muy cortas |
+
+Suman 14.983 resultados brutos. Una cuenta aproximada con el foco de cada muestra da unas 12.600 notas con varias menciones, aunque es apenas un orden de magnitud.
+
+### Generalistas, con cobertura regional
+
+Tienen menos foco, pero cubren lugares donde casi no hay fuentes especializadas abiertas.
+
+| Fuente | Idioma | Cobertura | Notas | Foco |
+| --- | --- | --- | ---: | ---: |
+| [Green Savers](https://greensavers.sapo.pt/) | Portugués | Portugal | 1.906 | 55 % |
+| [Rinnovabili](https://www.rinnovabili.it/) | Italiano | Italia | 1.012 | 60 % |
+| [Inside Climate News](https://insideclimatenews.org/) | Inglés | Estados Unidos | 885 | 50 % |
+| [Ecoportal](https://www.ecoportal.net/) | Español | Sin confirmar | 753 | 62 % |
+| [Ambientum](https://www.ambientum.com/) | Español | España; prohíbe reproducir | 690 | 68 % |
+| [Brasil de Fato](https://www.brasildefato.com.br/) | Portugués | Brasil | 665 | 35 % |
+| [Africa Sustainability Matters](https://africasustainabilitymatters.com/) | Inglés | África | 488 | 35 % |
+| [Mongabay India](https://india.mongabay.com/) | Inglés | India | 338 | 40 % |
+| [IPS Noticias](https://www.ipsnoticias.net/) | Español | Global Sur; pide 3 s | 203 | 52 % |
+| [O Eco](https://oeco.org.br/) | Portugués | Brasil | 195 | 52 % |
+| [African Leadership Magazine](https://www.africanleadershipmagazine.co.uk/) | Inglés | África | 185 | 40 % |
+| [Dialogue Earth](https://dialogue.earth/) | Inglés | Sur global | 179 | 48 % |
+| [Actualidad Ambiental](https://www.actualidadambiental.pe/) | Español | Perú | 135 | 60 % |
+| [Climate Tracker América Latina](https://climatetrackerlatam.org/) | Español | América Latina | 65 | 60 % |
+
+### Descartadas o con límites
+
+- **Prohíbe el scraping:** [Waste Managed](https://www.wastemanaged.co.uk/terms-conditions/) prohíbe de forma explícita la minería de textos y el scraping.
+- **Excluyen bots de Claude por nombre:** Ambiente Magazine, Environment Journal, País Circular, EnviroNews Nigeria, The Recycler, Afvalgids, Rappler, InfoRegión, Prime Business Africa, Civil Eats, Yale Climate Connections e InfoNile.
+- **Excluyen otros bots de IA por nombre:** EcoInventos, Climática y Repórter Brasil. Es la misma decisión pendiente que en CBA24N.
+- **API cerrada o excluida:** Waste Dive, Waste360, Waste Today, Recycling Today, Let's Recycle, Eco-Business, Down To Earth, Break Free From Plastic, Retema y Agencia Tierra Viva, entre otras. Respondieron con error, sin JSON, o la excluyen en `robots.txt`; no conviene insistir.
+- **Cuerpo incompleto:** Recyclage Récupération trae una mediana de 897 caracteres y Afvalgids mostró una nota de 309, así que parecen entregar resúmenes.
+
+### Riesgos al sumarlas
+
+- **Duplicados:** la misma historia sobre incendios de baterías apareció entre las primeras notas de Residuos Profesional, Circular Online, Recycling International y Recycling Portal. Sin deduplicar, los comunicados inflarían la medida de medios independientes.
+- **Peso geográfico:** casi toda esta tanda es de fuera de Argentina, y las especializadas son sobre todo de Europa. No resuelve el hueco de Córdoba.
+- **Idiomas:** hoy hay términos en español e inglés. Sumar italiano, portugués, polaco o alemán requiere armar sus términos y raíces.
 
 ## Negocios y ciencia
 

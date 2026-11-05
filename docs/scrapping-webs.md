@@ -20,6 +20,7 @@ Cada fuente tiene su forma de listar y leer notas, porque cada sitio permite y e
 | Cadena 3 | `scrape_cadena3.py` | Sitemap de noticias y lista propia | JSON-LD y bloque `cuerpo-nota` | 4 s |
 | Resource Recycling, Circular Online y Grist | `scrape_internacional.py` | API de WordPress | La misma API | 4 s |
 | Mongabay en inglés | `scrape_internacional.py` | API de WordPress | La misma API | 10 s |
+| 19 especializadas | `scrape_especializadas.py` | API de WordPress | La misma API | 4 s; 20 s en Eco dalle Città |
 
 ## Cómo leer el progreso
 
@@ -49,6 +50,7 @@ Las palabras están en [`scripts/keywords.py`](../scripts/keywords.py):
 - **`BUSQUEDAS_INGLES_RESIDUOS` y `RAICES_INGLES_RESIDUOS`:** términos y raíces para fuentes en inglés.
 - **`TAGS_INFOBAE_*` y `TAGS_CLARIN_*`:** tags de cada medio, separados en residuos y amplios.
 - **`RAICES_RESIDUOS`:** raíces sin tildes para filtrar URLs de sitemaps y priorizar notas.
+- **`RAICES_ITALIANO_RESIDUOS`, `RAICES_PORTUGUES_RESIDUOS`, `RAICES_POLACO_RESIDUOS` y `RAICES_ALEMAN_RESIDUOS`:** raíces para las especializadas en esos idiomas. En esas fuentes, `diccionario_en_texto` guarda estas raíces.
 
 ## Qué guarda
 
@@ -188,6 +190,14 @@ copy([...new Set([...document.querySelectorAll("a.gs-title")].map(a => a.href))]
 - **Cómo:** pide `/wp-json/wp/v2/posts?search=<término>&after=2024-01-01T00:00:00`, con 100 notas completas por pedido.
 - **Límites:** la búsqueda puede traer notas que no contienen la frase exacta. "open dump" trajo 197 notas en Mongabay en inglés, y solo 74 contenían algún término del diccionario.
 - **Permisos:** `robots.txt` no excluye estas rutas ni estos bots de IA. Mongabay en inglés pide 10 segundos entre pedidos.
+
+### Fuentes especializadas
+
+- **Comando:** `python scripts/scrape_especializadas.py`, o con las fuentes elegidas, por ejemplo `zerowasteeurope globalrec`. Las claves están en `FUENTES`, dentro del script.
+- **Busca:** un solo término por idioma, desde el 1/1/2024: "residuos", "waste", "rifiuti", "resíduos", "odpady" o "Abfall".
+- **Cómo:** pide `/wp-json/wp/v2/posts?search=<término>&after=2024-01-01T00:00:00`, con 100 notas completas por pedido. Baja una fuente por vez y, si una falla, sigue con la próxima. Al final indica cuáles quedaron incompletas y el comando para retomarlas.
+- **Límites:** el total del 5/11/2026 era de 14.984 resultados brutos en 170 páginas. Un solo término no encuentra todo lo que usa otras palabras, y Recycling Portal se busca solo con "waste", aunque publica en varios idiomas. En Inside Waste, muchas notas son muy cortas.
+- **Permisos:** `robots.txt` no excluye la API ni a los bots de Claude en estas fuentes. Residuos Profesional, Portal Komunalny, Recycling International, Envirotec y Ecoticias prohíben reproducir o distribuir sin permiso. Los términos se revisaron por palabras clave, sin leerlos completos: el detalle está en [Fuentes para el dataset del pipeline.md](Fuentes%20para%20el%20dataset%20del%20pipeline.md#más-fuentes-con-api-de-wordpress).
 
 ### Bloomberg (sin script)
 

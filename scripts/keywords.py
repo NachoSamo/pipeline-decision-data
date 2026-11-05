@@ -85,6 +85,52 @@ RAICES_INGLES_RESIDUOS = [
     "extended producer responsibility",
 ]
 
+# Sin tildes: `normalizar` las saca, salvo la ł del polaco, que no se descompone.
+RAICES_ITALIANO_RESIDUOS = [
+    "rifiut",
+    "ricicl",
+    "discaric",
+    "raccolta differenziata",
+    "compost",
+    "economia circolare",
+    "termovalorizzator",
+    "inceneritor",
+]
+
+RAICES_PORTUGUES_RESIDUOS = [
+    "residuo",
+    "recicl",
+    "lixo",
+    "lixao",
+    "aterro sanitario",
+    "compost",
+    "economia circular",
+    "logistica reversa",
+    "catador",
+    "coleta seletiva",
+]
+
+RAICES_POLACO_RESIDUOS = [
+    "odpad",
+    "recykl",
+    "smieci",
+    "kompost",
+    "składowisk",
+    "pszok",
+    "obiegu zamknietym",
+]
+
+RAICES_ALEMAN_RESIDUOS = [
+    "abfall",
+    "recycl",
+    "mull",
+    "kompost",
+    "deponie",
+    "kreislaufwirtschaft",
+    "wertstoff",
+    "schrott",
+]
+
 TAGS_INFOBAE_RESIDUOS = [
     "reciclaje",
     "basura",
