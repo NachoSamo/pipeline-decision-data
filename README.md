@@ -6,8 +6,8 @@
 
 Pipeline de análisis de problemáticas · Hack to the Future · Córdoba Tech Week 2026
 
-[![Estado](https://img.shields.io/badge/Estado-En%20dise%C3%B1o-111111?style=for-the-badge)](#estado-del-repositorio)
-[![Código](https://img.shields.io/badge/C%C3%B3digo-Todav%C3%ADa%20no-111111?style=for-the-badge)](#estado-del-repositorio)
+[![Estado](https://img.shields.io/badge/Estado-Scraping%20en%20curso-111111?style=for-the-badge)](#estado-del-repositorio)
+[![Código](https://img.shields.io/badge/C%C3%B3digo-Scraping-111111?style=for-the-badge)](docs/scrapping-webs.md)
 [![Track](https://img.shields.io/badge/Primer%20track-Residuos-111111?style=for-the-badge)](#alcance-objetivo)
 [![Arquitectura](https://img.shields.io/badge/Arquitectura-Boceto-5964F2?style=for-the-badge)](docs/pipeline-arquitectura.html)
 
@@ -43,8 +43,9 @@ Soluciones fallidas:  <planes o anuncios previos>
 > que un problema importe. Las noticias muestran lo que se publica, no todo lo que pasa.
 
 > [!NOTE]
-> **Estado actual:** el proyecto está en diseño. Hay contexto, un boceto digitalizado y un relevamiento
-> inicial de fuentes. Todavía no hay código ni dataset, y el tamaño objetivo no está comprobado.
+> **Estado actual:** el proyecto está en la etapa de scraping del track de residuos. Al 4/11/2026 hay
+> 28.072 notas descargadas, y 13.633 tienen cuerpo y mencionan el tema. Falta medir cuántas son útiles
+> y cuántas están duplicadas entre fuentes. Todavía no hay clasificación ni análisis.
 
 ---
 
@@ -68,11 +69,14 @@ El pipeline busca:
 
 ```mermaid
 flowchart LR
-    A["Fuentes"] --> B["Scraping<br/>¿con Playwright?"]
-    B --> C["Dataset<br/>¿≈ 10.000 notas?"]
-    C --> D["Clasificar y segmentar<br/>¿con LLM?"]
-    D --> E["¿Grafo?"]
-    E --> F["Decisiones en base<br/>al análisis"]
+    A["Fuentes"] --> B["Scraping<br/>por fuente"]
+    B --> C["Dataset"]
+    C --> D["Filtro y<br/>limpieza"]
+    D --> E["Clasificar y<br/>segmentar"]
+    E --> F["Agrupar y medir<br/>en dos ramas"]
+    F --> G["Ranking, grafo<br/>y mapa"]
+    G --> H["Contraste"]
+    H --> I["Decisiones"]
 ```
 
 ### Medidas de recurrencia
@@ -90,7 +94,7 @@ flowchart LR
 
 | Etapa | Qué incluye | Qué tendría que mostrar |
 |---|---|---|
-| **Residuos** | Hasta 10.000 notas | Si el pipeline revela problemas que el equipo no conocía |
+| **Residuos** | Hasta 10.000 notas de medios locales y nacionales, y fuentes internacionales desde 2024 | Si el pipeline revela problemas que el equipo no conocía |
 | **Biodiversidad, agro y movilidad** | El mismo proceso, con hasta 10.000 notas por track, si hay tiempo | Qué problemas se repiten en cada temática |
 
 Si no llegamos a procesar los otros tres tracks, el análisis de residuos sigue siendo válido.
@@ -99,38 +103,35 @@ Si no llegamos a procesar los otros tres tracks, el análisis de residuos sigue 
 
 ## Arquitectura objetivo
 
-La arquitectura todavía es un boceto. Las etapas con `?` siguen en duda.
+Hoy solo están construidas las etapas de fuentes, scraping y dataset, para residuos. El resto es el
+diseño acordado; las dudas abiertas están en [`docs/pipeline-arquitectura.html`](docs/pipeline-arquitectura.html).
 
 ```mermaid
-flowchart LR
-    subgraph Fuentes["1 · Fuentes"]
-        A["Clarín"]
-        B["La Nación"]
-        C["El Doce"]
-        D["La Voz"]
-        E["¿Reddit? ¿X?<br/>¿Comentarios de Instagram?"]
+flowchart TB
+    subgraph Datos["1 · Datos"]
+        A["16 fuentes con script<br/>locales e internacionales"] --> B["Scraping por fuente"] --> C["Dataset en Parquet"]
     end
 
-    subgraph Datos["2 · Datos"]
-        F["Scraping<br/>¿con Playwright?"]
-        G["Dataset<br/>título, fuente, body y fecha"]
+    subgraph Preparacion["2 · Preparación"]
+        D["Filtro y limpieza"] --> E["Clasificar: problema,<br/>solución, ambas u otra"]
     end
 
     subgraph Analisis["3 · Análisis"]
-        H["Clasificar y segmentar<br/>¿con LLM?"]
-        I["¿Grafo?"]
+        F["Problemas: agrupar<br/>y medir recurrencia"]
+        G["Soluciones: agrupar<br/>y registrar evidencia"]
+        H["Ranking, grafo y<br/>mapa de embeddings"]
+        F --> H
+        G --> H
     end
 
     subgraph Decision["4 · Decisión"]
-        J["Decisiones en base<br/>al análisis"]
+        I["Contraste con soluciones<br/>validadas y datos abiertos"] --> J["Decisiones en base<br/>al análisis"]
     end
 
-    A --> F
-    B --> F
-    C --> F
-    D --> F
+    C --> D
     E --> F
-    F --> G --> H --> I --> J
+    E --> G
+    H --> I
 ```
 
 ### Criterios de ponderación
@@ -154,8 +155,9 @@ flowchart LR
 |---|---|---|
 | Objetivo, decisiones y dudas abiertas | [`docs/contexto-pipeline.md`](docs/contexto-pipeline.md) | Leer las secciones de decisiones y "Falta aclarar" |
 | Diseño del pipeline | [`docs/pipeline-arquitectura.html`](docs/pipeline-arquitectura.html) | Abrir el boceto y la lista "Por definir" |
-| Hay 22 fuentes posibles, con su acceso revisado | [Doc de fuentes](https://claude.ai/artifact/Ks4WAtVgcdcGNSxywUQFyw) (privado) | Comparar cada fila con el `robots.txt` del medio |
-| Las 10.000 notas todavía no están comprobadas | [`docs/contexto-pipeline.md`](docs/contexto-pipeline.md) | Leer "Muestra de volumen"; los scripts de esa prueba no están en el repo |
+| Hay 43 fuentes posibles, con su acceso revisado | [`docs/Fuentes para el dataset del pipeline.md`](docs/Fuentes%20para%20el%20dataset%20del%20pipeline.md) | Comparar cada fila con el `robots.txt` del medio |
+| 13.633 notas de residuos tienen cuerpo y mencionan el tema, pero falta medir cuántas son útiles | [`docs/contexto-pipeline.md`](docs/contexto-pipeline.md) y [`data/`](data/) | Leer "Evaluación de volumen" y recontar los Parquet con `relevante`, de [`scripts/progreso.py`](scripts/progreso.py) |
+| Cada fuente se lista por una vía que su `robots.txt` no excluye | [`docs/scrapping-webs.md`](docs/scrapping-webs.md) y [`scripts/`](scripts/) | Comparar la sección "Permisos" de cada fuente con su `robots.txt` |
 | Datos del evento y reglas confirmadas | [`CLAUDE.md`](CLAUDE.md) | Comparar con la [fuente oficial](https://cordobatechweek.com/side-events/hack-to-the-future/) y lo informado por la organización |
 
 ---
@@ -167,9 +169,9 @@ flowchart LR
 | Contexto y decisiones | **Documentado** |
 | Boceto de la arquitectura | **Digitalizado**, con dudas abiertas |
 | Relevamiento de fuentes | **Inicial:** falta revisar términos de uso y foros |
-| Medición del volumen | **Inicial:** solo muestras por URL, sin texto completo |
-| Scraping | **No iniciado** |
-| Dataset | **No iniciado** |
+| Medición del volumen | **Parcial:** conteo de menciones por fuente; falta medir utilidad y duplicados entre fuentes |
+| Scraping | **En curso:** 16 scripts. Terminaron 10 fuentes; siguen TN, CBA24N y las internacionales; Futuro Sustentable no tiene datos; Cadena 3 quedó de lado por falta de volumen |
+| Dataset | **En curso:** solo residuos, con 18.989 notas únicas en 10 Parquet |
 | Clasificación y segmentación | **No iniciado** |
 | Grafo y análisis | **No iniciado** |
 
@@ -177,11 +179,17 @@ flowchart LR
 
 ## Ejecutar localmente
 
-Todavía no hay nada para ejecutar. Para revisar el diseño, cloná el repositorio y abrí
-`docs/pipeline-arquitectura.html` en el navegador.
+Requiere Python con `requests`, `pandas` y `pyarrow`. Los comandos de cada fuente están en
+[`docs/scrapping-webs.md`](docs/scrapping-webs.md). Por ejemplo:
 
 ```bash
-git clone https://github.com/NachoSamo/pipeline-decision-data.git
+python scripts/scrape_internacional.py
+```
+
+Para verificar el código sin descargar nada:
+
+```bash
+python scripts/scrape_infobae.py --selfcheck
 ```
 
 ---
@@ -190,9 +198,15 @@ git clone https://github.com/NachoSamo/pipeline-decision-data.git
 
 ```text
 .
+├── data/                                            Notas descargadas por fuente, en Parquet
 ├── docs/
-│   ├── contexto-pipeline.md        Objetivo, decisiones, hechos y dudas abiertas
-│   └── pipeline-arquitectura.html  Boceto digitalizado del pipeline
+│   ├── analisis-croma.md                            Qué es Croma y cómo podría ayudar
+│   ├── Fuentes para el dataset del pipeline.md      Fuentes posibles y su acceso
+│   ├── contexto-pipeline.md                         Objetivo, decisiones, hechos y dudas abiertas
+│   ├── pipeline-arquitectura.html                   Boceto digitalizado del pipeline
+│   ├── publicaciones-periodistas-ambientales.md     Resumen de 16 publicaciones
+│   └── scrapping-webs.md                            Cómo funciona cada script
+├── scripts/                                         Scraping por fuente y diccionario
 ├── CLAUDE.md                       Datos del evento e indicaciones para Claude
 └── README.md                       Presentación del proyecto
 ```

@@ -42,13 +42,17 @@ body {
 }
 
 main {
-  max-width: 1200px;
+  max-width: 860px;
   margin: 0 auto;
 }
 
 h1 {
   font-size: 1.6rem;
   margin: 0.5rem 0 0.25rem;
+}
+
+a {
+  color: inherit;
 }
 
 .intro {
@@ -59,45 +63,64 @@ h1 {
 /* Flujo del diagrama */
 .flujo {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
+  flex-direction: column;
+  gap: 8px;
   margin-bottom: 2.5rem;
 }
 
-.etapa {
-  flex: 1 1 170px;
+.etapa,
+.rama {
   min-width: 0;
   background: var(--superficie);
-  color: var(--texto);
   border: 2px solid var(--linea);
   border-radius: 4px;
   padding: 12px;
 }
 
-.etapa.duda {
+.duda {
   border-style: dashed;
 }
 
-.etapa h2 {
-  font-size: 1.1rem;
+.etapa h2,
+.rama h3 {
+  font-size: 1.05rem;
   margin: 0 0 8px;
 }
 
-.etapa p {
+.etapa p,
+.rama p {
   margin: 8px 0 4px;
   font-size: 0.95rem;
 }
 
+.etapa ul,
+.rama ul {
+  margin: 4px 0;
+  padding-left: 1.25rem;
+  font-size: 0.95rem;
+}
+
 .flecha {
-  flex: 0 0 auto;
-  font-size: 1.5rem;
+  align-self: center;
+  font-size: 1.4rem;
   line-height: 1;
   color: var(--tenue);
 }
 
 .flecha::after {
-  content: "→";
+  content: "↓";
+}
+
+/* Bloques en paralelo */
+.ramas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.ramas.tres {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 /* Notas dudosas */
@@ -109,31 +132,27 @@ h1 {
   font-size: 0.92rem;
 }
 
-/* Listas de fuentes y campos */
-.fuentes,
+/* Lista de campos */
 .campos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.fuentes li,
 .campos li {
   border: 2px solid var(--linea);
   border-radius: 3px;
-  padding: 4px 8px;
-  margin: 0 0 6px;
-}
-
-.fuentes li.duda {
-  border-style: dashed;
+  padding: 2px 8px;
 }
 
 /* Grafo */
 .grafo {
   display: block;
   width: 100%;
-  max-width: 300px;
+  max-width: 180px;
   height: auto;
   margin: 8px auto 0;
 }
@@ -177,24 +196,10 @@ h1 {
   padding-left: 1.25rem;
 }
 
-/* Pantallas angostas: una columna con flechas hacia abajo */
-@media (max-width: 899px) {
-  .flujo {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .etapa {
-    flex: none;
-    width: 100%;
-  }
-
-  .flecha {
-    align-self: center;
-  }
-
-  .flecha::after {
-    content: "↓";
+@media (max-width: 700px) {
+  .ramas,
+  .ramas.tres {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 </style>
@@ -203,110 +208,172 @@ h1 {
 <main>
 
 <h1>Pipeline de análisis de problemáticas</h1>
-<p class="intro">Digitalización del boceto del equipo. Lo marcado con línea punteada todavía está en duda.</p>
+<p class="intro">Arquitectura acordada por el equipo, a partir del boceto inicial. Lo marcado con línea punteada todavía está en duda. Hoy solo están construidas las etapas 1 a 3, para residuos.</p>
 
 <div class="flujo">
 
   <!-- Etapa 1: Fuentes -->
   <article class="etapa">
-    <h2>Fuentes</h2>
-    <p><strong>Fuentes firmes:</strong></p>
-    <ul class="fuentes">
-      <li>Clarín</li>
-      <li>La Nación</li>
-      <li>El Doce</li>
-      <li>La Voz</li>
-    </ul>
-    <p><strong>Fuentes en duda:</strong></p>
-    <ul class="fuentes">
-      <li class="duda">Reddit?</li>
-      <li class="duda">X?</li>
-      <li class="duda">Comentarios Instagram? Cuáles?</li>
-    </ul>
+    <h2>1. Fuentes</h2>
+    <div class="nota">
+      <p><strong>Con script: 16.</strong> El Doce, CBA24N, Infobae, TN, Clarín, La Nación, Mongabay, Visión Sustentable, Ecomundo, Futuro Sustentable, ECOBIZ, Resource Recycling, Circular Online, Mongabay en inglés, Grist y Cadena 3, esta última dejada de lado.</p>
+      <p><strong>Fuentes posibles: 43.</strong> La Voz sigue pendiente de acceso. Reddit, X e Instagram siguen en duda.</p>
+      <p><a href="Fuentes%20para%20el%20dataset%20del%20pipeline.md">Ver todas las fuentes</a></p>
+    </div>
   </article>
   <span class="flecha" aria-hidden="true"></span>
 
-  <!-- Etapa 2: Scraping con Playwright? (en duda) -->
-  <article class="etapa duda">
-    <h2>Scraping con Playwright?</h2>
+  <!-- Etapa 2: Scraping -->
+  <article class="etapa">
+    <h2>2. Scraping por fuente</h2>
+    <p>Cada script usa la vía que el sitio permite: API, tags, sitemaps o buscador. Hasta ahora ninguno necesitó Playwright.</p>
+    <p><a href="scrapping-webs.md">Ver cómo funciona cada script</a></p>
   </article>
   <span class="flecha" aria-hidden="true"></span>
 
   <!-- Etapa 3: Dataset -->
   <article class="etapa">
-    <h2>Dataset</h2>
+    <h2>3. Dataset</h2>
     <ul class="campos">
       <li>Título</li>
+      <li>Bajada</li>
       <li>Fuente</li>
       <li>Body</li>
       <li>Fecha</li>
+      <li>URL</li>
+      <li>Sección</li>
+      <li>Tags</li>
     </ul>
-    <p class="nota">Tamaño? ≈ 10000</p>
+    <p>Un archivo Parquet por fuente, con la marca de qué términos aparecen en cada nota.</p>
+    <p class="nota">Objetivo ≈ 10.000 notas por track. Todavía no está comprobado.</p>
   </article>
   <span class="flecha" aria-hidden="true"></span>
 
-  <!-- Etapa 4: Clasificar / Segmentar -->
+  <!-- Etapa 4: Filtro -->
   <article class="etapa">
-    <h2>Clasificar / Segmentar</h2>
-    <p class="nota">LLM?</p>
+    <h2>4. Filtro y limpieza</h2>
+    <ul>
+      <li>Quedarse con las notas que mencionan el diccionario del track.</li>
+      <li>Quitar notas duplicadas o replicadas.</li>
+    </ul>
+    <p class="nota">¿Muestra de control de unas 100 notas?</p>
   </article>
   <span class="flecha" aria-hidden="true"></span>
 
-  <!-- Etapa 5: Grafo? (en duda) -->
-  <article class="etapa duda">
-    <h2>Grafo?</h2>
-    <svg class="grafo" viewBox="0 0 300 250" role="img" aria-label="Grafo en estrella: un nodo central unido por líneas a 7 nodos ubicados alrededor del central.">
-      <!-- Aristas: centro (150,125) a cada nodo exterior -->
-      <line class="arista" x1="150" y1="125" x2="150" y2="25"></line>
-      <line class="arista" x1="150" y1="125" x2="228.2" y2="62.7"></line>
-      <line class="arista" x1="150" y1="125" x2="247.5" y2="147.2"></line>
-      <line class="arista" x1="150" y1="125" x2="193.4" y2="215.1"></line>
-      <line class="arista" x1="150" y1="125" x2="106.6" y2="215.1"></line>
-      <line class="arista" x1="150" y1="125" x2="52.5" y2="147.2"></line>
-      <line class="arista" x1="150" y1="125" x2="71.8" y2="62.7"></line>
-      <!-- Nodo central -->
-      <circle class="nodo-central" cx="150" cy="125" r="18"></circle>
-      <!-- Nodos exteriores -->
-      <circle class="nodo" cx="150" cy="25" r="10"></circle>
-      <circle class="nodo" cx="228.2" cy="62.7" r="10"></circle>
-      <circle class="nodo" cx="247.5" cy="147.2" r="10"></circle>
-      <circle class="nodo" cx="193.4" cy="215.1" r="10"></circle>
-      <circle class="nodo" cx="106.6" cy="215.1" r="10"></circle>
-      <circle class="nodo" cx="52.5" cy="147.2" r="10"></circle>
-      <circle class="nodo" cx="71.8" cy="62.7" r="10"></circle>
-    </svg>
-  </article>
-  <span class="flecha" aria-hidden="true"></span>
-
-  <!-- Etapa 6: Decisiones en base al análisis -->
+  <!-- Etapa 5: Clasificar / Segmentar -->
   <article class="etapa">
-    <h2>Decisiones en base al análisis</h2>
+    <h2>5. Clasificar / Segmentar</h2>
+    <p>Cada nota se marca como problema, solución, ambas u otra.</p>
+    <p class="nota">¿Con LLM?</p>
+  </article>
+  <span class="flecha" aria-hidden="true"></span>
+
+  <!-- Etapa 6: Dos ramas -->
+  <article class="etapa">
+    <h2>6. Agrupar y medir en dos ramas</h2>
+    <div class="ramas">
+      <section class="rama">
+        <h3>Problemas</h3>
+        <ul>
+          <li>Agrupar las notas por problema.</li>
+          <li>Calcular las 11 medidas de recurrencia.</li>
+          <li>Dar más peso a lo local y a lo que aparece en varios países.</li>
+        </ul>
+      </section>
+      <section class="rama">
+        <h3>Soluciones</h3>
+        <ul>
+          <li>Agrupar las notas por tipo de solución.</li>
+          <li>Registrar quién la ofrece, dónde y a qué problema apunta.</li>
+          <li>Registrar la evidencia que publica la nota.</li>
+        </ul>
+      </section>
+    </div>
+  </article>
+  <span class="flecha" aria-hidden="true"></span>
+
+  <!-- Etapa 7: Vistas -->
+  <article class="etapa">
+    <h2>7. Vistas del análisis</h2>
+    <div class="ramas tres">
+      <section class="rama">
+        <h3>Ranking</h3>
+        <p>Problemas ordenados y comparados por sus medidas.</p>
+      </section>
+      <section class="rama">
+        <h3>Grafo</h3>
+        <p>Cada problema unido a las soluciones encontradas.</p>
+        <svg class="grafo" viewBox="0 0 300 250" role="img" aria-label="Grafo en estrella: un nodo central unido por líneas a 7 nodos ubicados alrededor del central.">
+          <line class="arista" x1="150" y1="125" x2="150" y2="25"></line>
+          <line class="arista" x1="150" y1="125" x2="228.2" y2="62.7"></line>
+          <line class="arista" x1="150" y1="125" x2="247.5" y2="147.2"></line>
+          <line class="arista" x1="150" y1="125" x2="193.4" y2="215.1"></line>
+          <line class="arista" x1="150" y1="125" x2="106.6" y2="215.1"></line>
+          <line class="arista" x1="150" y1="125" x2="52.5" y2="147.2"></line>
+          <line class="arista" x1="150" y1="125" x2="71.8" y2="62.7"></line>
+          <circle class="nodo-central" cx="150" cy="125" r="18"></circle>
+          <circle class="nodo" cx="150" cy="25" r="10"></circle>
+          <circle class="nodo" cx="228.2" cy="62.7" r="10"></circle>
+          <circle class="nodo" cx="247.5" cy="147.2" r="10"></circle>
+          <circle class="nodo" cx="193.4" cy="215.1" r="10"></circle>
+          <circle class="nodo" cx="106.6" cy="215.1" r="10"></circle>
+          <circle class="nodo" cx="52.5" cy="147.2" r="10"></circle>
+          <circle class="nodo" cx="71.8" cy="62.7" r="10"></circle>
+        </svg>
+      </section>
+      <section class="rama">
+        <h3>Mapa de embeddings</h3>
+        <p>Notas agrupadas por significado, para ver grupos y zonas vacías.</p>
+      </section>
+    </div>
+  </article>
+  <span class="flecha" aria-hidden="true"></span>
+
+  <!-- Etapa 8: Contraste -->
+  <article class="etapa">
+    <h2>8. Contraste</h2>
+    <div class="ramas">
+      <section class="rama">
+        <h3>Soluciones validadas</h3>
+        <p>Comparar lo encontrado con soluciones que ya tienen evidencia.</p>
+      </section>
+      <section class="rama">
+        <h3>Datos abiertos</h3>
+        <p>Comparar lo que dicen los medios con fuentes como datos.gob.ar.</p>
+      </section>
+    </div>
+    <p class="nota">¿Qué evidencia cuenta como solución validada?</p>
+  </article>
+  <span class="flecha" aria-hidden="true"></span>
+
+  <!-- Etapa 9: Decisiones -->
+  <article class="etapa">
+    <h2>9. Decisiones en base al análisis</h2>
+    <p>Elegir la problemática y plantear el producto. Los datos orientan; el equipo decide.</p>
   </article>
 
 </div>
 
 <section class="por-definir">
   <h2>Por definir</h2>
-  <p>Esta lista no está en el boceto: reúne las dudas abiertas del equipo.</p>
+  <p>Dudas abiertas del equipo, por etapa.</p>
 
   <h3>Fuentes</h3>
   <ul>
-    <li>¿Qué medios entran en la primera versión?</li>
+    <li>¿Hacen falta más fuentes de Córdoba o de soluciones?</li>
     <li>¿Se incluyen redes sociales y por qué vía permitida?</li>
     <li>¿Qué permiten los términos de uso de cada medio?</li>
   </ul>
 
-  <h3>Scraping</h3>
-  <ul>
-    <li>¿Alcanza con sitemaps y un extractor genérico?</li>
-    <li>¿En qué casos hace falta Playwright?</li>
-    <li>¿Se puede obtener el texto completo con los muros de pago?</li>
-  </ul>
-
   <h3>Dataset</h3>
   <ul>
-    <li>¿Cuántas notas hay realmente?</li>
-    <li>¿Qué otros campos hacen falta, además de título, fuente, body y fecha?</li>
+    <li>¿Qué se hace si un track no llega a 10.000 notas?</li>
+    <li>¿Se descartan las notas sin cuerpo, como los videos?</li>
+  </ul>
+
+  <h3>Filtro y limpieza</h3>
+  <ul>
+    <li>¿Hace falta una muestra de control o alcanza con el filtro automático?</li>
     <li>¿Cómo se detectan notas duplicadas o replicadas?</li>
   </ul>
 
@@ -314,20 +381,19 @@ h1 {
   <ul>
     <li>¿La unidad de análisis es la nota o el hecho?</li>
     <li>¿Las categorías se definen antes o surgen de los datos?</li>
-    <li>¿Se usan embeddings, clasificación con LLM o ambos?</li>
+    <li>¿Qué modelo se usa y con qué presupuesto?</li>
   </ul>
 
-  <h3>Grafo</h3>
+  <h3>Vistas</h3>
   <ul>
-    <li>¿Qué representa cada nodo y cada conexión?</li>
-    <li>¿Hace falta un grafo o alcanza con otra vista?</li>
+    <li>¿Con cuántas notas el mapa de embeddings muestra zonas vacías confiables?</li>
+    <li>¿Qué tiene que estar listo para el 12/11?</li>
   </ul>
 
-  <h3>Decisiones</h3>
+  <h3>Contraste y decisiones</h3>
   <ul>
-    <li>¿Cómo se combinan las medidas de recurrencia?</li>
-    <li>¿Cómo se ponderan los problemas locales y los que aparecen en varios países?</li>
     <li>¿Qué significa exactamente “sin solución”?</li>
+    <li>¿Cómo se combinan las medidas y los pesos geográficos?</li>
     <li>¿Cómo se valida un resultado con personas del sector?</li>
   </ul>
 </section>

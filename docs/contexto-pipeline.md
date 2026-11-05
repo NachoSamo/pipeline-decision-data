@@ -11,11 +11,64 @@ El resultado es el punto 0 para elegir la problemática y plantear el producto. 
 ## Decisiones tomadas
 
 - **Orden de los tracks:** primero residuos y, si funciona, el mismo proceso con los otros tres. No llegar a los otros tres es aceptable.
-- **Tamaño del dataset:** el objetivo es 10.000 notas por track. Todavía no está comprobado que existan.
+- **Tamaño del dataset:** el objetivo es 10.000 notas por track. En residuos, más de 10.000 notas mencionan el tema, pero falta medir cuántas son útiles. Los otros tres tracks no se midieron.
 - **Fecha:** se guarda para filtrar y comparar, no como peso fijo desde el inicio. Un problema que persiste de 2021 a 2026 es justo lo que se busca.
 - **Geografía:** tienen más peso los problemas que aparecen en varios países y los locales. Faltan los valores y definir qué cuenta como local.
-- **Fuentes y arquitectura:** las posibles fuentes están en [este doc](https://claude.ai/artifact/Ks4WAtVgcdcGNSxywUQFyw) y el boceto digitalizado, en [pipeline-arquitectura.html](pipeline-arquitectura.html).
+- **Fuentes y arquitectura:** las posibles fuentes están en [Fuentes para el dataset del pipeline.md](Fuentes%20para%20el%20dataset%20del%20pipeline.md) y el boceto digitalizado, en [pipeline-arquitectura.html](pipeline-arquitectura.html).
 - **Función de los resultados:** son un insumo para decidir. No prueban por sí solos que un problema importe.
+
+- **Notas de soluciones:** son las más valiosas para encontrar patrones y contrastar con soluciones ya validadas, como [Reaquila en Visión Sustentable](https://www.visionsustentable.com/2026/06/24/reaquila-plataforma-gestion-residuos-reciclaje-empresas/). Una nota así prueba que la solución existe, no que esté validada. Falta definir qué evidencia cuenta como validación.
+
+- **Arquitectura:** después del dataset van filtro y limpieza, clasificación en problema, solución, ambas u otra, dos ramas de análisis, tres vistas (ranking, grafo y mapa de embeddings) y contraste con soluciones validadas y datos abiertos. Sigue en duda si hace falta una muestra de control.
+
+### Evaluación de volumen (4/11/2026, 23:34, descargas en curso)
+
+Hay 28.072 notas descargadas de residuos, y 13.633 tienen cuerpo y mencionan el tema. Mencionarlo no vuelve útil a una nota: en una muestra informal de 56 títulos, cerca de la mitad parecía útil. Si esa proporción se mantuviera, serían unas 6.800, pero es una lectura rápida, no una medición.
+
+| Fuente | Notas únicas | Con cuerpo | Con cuerpo y mención | Estado |
+|---|---:|---:|---:|---|
+| TN | 8.245 | 5.018 | 1.592 | En curso, sin Parquet |
+| El Doce | 6.194 | 3.835 | 877 | Terminada |
+| Resource Recycling | 2.681 | 2.681 | 2.591 | Terminada |
+| Infobae | 2.641 | 2.640 | 2.217 | Terminada, solo prioritarias |
+| Clarín | 2.609 | 2.604 | 1.553 | Terminada, solo prioritarias |
+| Mongabay | 1.718 | 1.718 | 1.076 | Terminada |
+| Circular Online | 1.081 | 1.081 | 1.063 | Terminada |
+| Visión Sustentable | 829 | 829 | 743 | Terminada |
+| Mongabay en inglés | 529 | 529 | 521 | En curso, sin Parquet |
+| Ecomundo | 468 | 468 | 333 | Terminada |
+| ECOBIZ | 398 | 398 | 395 | Terminada |
+| La Nación | 370 | 366 | 364 | Terminada |
+| CBA24N | 309 | 308 | 308 | En curso, sin Parquet |
+| Grist | Sin datos | Sin datos | Sin datos | Pendiente, después de Mongabay en inglés |
+| Futuro Sustentable | Sin datos | Sin datos | Sin datos | Sin archivo en `data/` |
+| **Total** | **28.072** | **22.475** | **13.633** | |
+
+Los 10 Parquet ya generados suman 18.989 notas únicas, y 11.212 tienen cuerpo y mención.
+
+Cómo leer la tabla:
+
+- **Mención:** usa `relevante` de `scripts/progreso.py`, con `RAICES_RESIDUOS` en español y `RAICES_INGLES_RESIDUOS` en inglés. Es más estricta que el diccionario completo: en El Doce da 877 notas, contra 1.331 con `diccionario_en_texto`.
+- **Duplicados:** las notas son únicas dentro de cada fuente. No se midieron los duplicados entre fuentes.
+- **Fuentes en inglés:** aportan 4.175 de las 13.633 notas con mención y cubren desde 2024. Quedan 9.458 en español, no todas de Argentina.
+- **Córdoba:** El Doce y CBA24N suman 1.185 notas con mención. La Voz sigue sin acceso resuelto.
+
+Conviene decidir si hacen falta más fuentes cuando terminen las descargas, mirando los huecos y no solo el total: Córdoba y soluciones.
+
+En Infobae y Clarín se decidió bajar solo lo prioritario: tags de residuos y notas de tags amplios con el tema en título, bajada o URL. Quedan sin bajar 5.781 notas en Infobae y 1.894 en Clarín, que se pueden retomar si hace falta.
+
+### Plan de scraping
+
+Cómo funciona cada script: [scrapping-webs.md](scrapping-webs.md).
+
+Este es el plan que planteó Ignacio:
+
+1. Identificar 10 fuentes relevantes, medir cuántos datos aportan y sumar otras si faltan.
+2. Catalogar las secciones de cada fuente, como ecología o sustentabilidad.
+3. Armar un diccionario amplio de palabras clave por track, que funcione como primer filtro.
+4. Lanzar agentes de IA en paralelo, uno por fuente, que ejecuten Playwright en bucle.
+5. Escribir una guía de scraping por fuente.
+6. Guardar el dataset, quizá en Parquet.
 
 ### Medidas de recurrencia
 
@@ -95,7 +148,10 @@ Esto da unas 60 notas relevantes por año si se mira solo la URL. La muestra es 
 
 ### Datos
 
-- [ ] ¿Cuántas notas hay realmente? ¿Qué se hace si un track no llega a 10.000?
+- [ ] ¿Cuántas de las notas que mencionan residuos son útiles? ¿Qué se hace si un track no llega a 10.000?
+- [ ] ¿Alcanza con recorrer secciones ambientales o hay notas de residuos en otras secciones?
+- [ ] ¿Los agentes recorren cada página o generan un script por fuente que después se repite?
+- [ ] ¿Qué palabras entran en el diccionario de cada track?
 - [ ] ¿Se puede obtener el texto completo con los muros de pago?
 - [ ] ¿Qué campos se guardan de cada nota, además de título, fecha y texto?
 - [ ] ¿Cómo se detectan las notas duplicadas o replicadas?
