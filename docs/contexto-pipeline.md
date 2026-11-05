@@ -23,6 +23,8 @@ El resultado es el punto 0 para elegir la problemática y plantear el producto. 
 
 ### Evaluación de volumen (4/11/2026, 23:34, descargas en curso)
 
+**Actualización del 5/11/2026, 00:49:** terminaron todas las descargas salvo Futuro Sustentable, que no tiene datos. Hay 47.944 notas únicas en 33 Parquet: 41.140 con cuerpo, 29.413 con cuerpo y mención, y 20.045 que además mencionan el tema en título o bajada. De las 29.413, 9.028 son de medios argentinos, 1.076 de Mongabay, 3.284 de medios de España y 16.025 de otros países e idiomas. Unas 1.555 de las notas argentinas son de secciones de Infobae de otros países. La tabla de abajo es la medición anterior, sin las 19 fuentes especializadas.
+
 Hay 28.072 notas descargadas de residuos, y 13.633 tienen cuerpo y mencionan el tema. Mencionarlo no vuelve útil a una nota: en una muestra informal de 56 títulos, cerca de la mitad parecía útil. Si esa proporción se mantuviera, serían unas 6.800, pero es una lectura rápida, no una medición.
 
 | Fuente | Notas únicas | Con cuerpo | Con cuerpo y mención | Estado |

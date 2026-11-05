@@ -43,9 +43,9 @@ Soluciones fallidas:  <planes o anuncios previos>
 > que un problema importe. Las noticias muestran lo que se publica, no todo lo que pasa.
 
 > [!NOTE]
-> **Estado actual:** el proyecto está en la etapa de scraping del track de residuos. Al 4/11/2026 hay
-> 28.072 notas descargadas, y 13.633 tienen cuerpo y mencionan el tema. Falta medir cuántas son útiles
-> y cuántas están duplicadas entre fuentes. Todavía no hay clasificación ni análisis.
+> **Estado actual:** el scraping del track de residuos está casi completo. Al 5/11/2026 hay 47.944 notas
+> descargadas, y 29.413 tienen cuerpo y mencionan el tema. Falta medir cuántas son útiles y cuántas están
+> duplicadas entre fuentes. Todavía no hay clasificación ni análisis.
 
 ---
 
@@ -156,7 +156,7 @@ flowchart TB
 | Objetivo, decisiones y dudas abiertas | [`docs/contexto-pipeline.md`](docs/contexto-pipeline.md) | Leer las secciones de decisiones y "Falta aclarar" |
 | Diseño del pipeline | [`docs/pipeline-arquitectura.html`](docs/pipeline-arquitectura.html) | Abrir el boceto y la lista "Por definir" |
 | Hay 43 fuentes posibles, con su acceso revisado | [`docs/Fuentes para el dataset del pipeline.md`](docs/Fuentes%20para%20el%20dataset%20del%20pipeline.md) | Comparar cada fila con el `robots.txt` del medio |
-| 13.633 notas de residuos tienen cuerpo y mencionan el tema, pero falta medir cuántas son útiles | [`docs/contexto-pipeline.md`](docs/contexto-pipeline.md) y [`data/`](data/) | Leer "Evaluación de volumen" y recontar los Parquet con `relevante`, de [`scripts/progreso.py`](scripts/progreso.py) |
+| 29.413 notas de residuos tienen cuerpo y mencionan el tema, pero falta medir cuántas son útiles | [`docs/contexto-pipeline.md`](docs/contexto-pipeline.md) y [`data/`](data/) | Leer "Evaluación de volumen" y recontar los Parquet con `relevante`, de [`scripts/progreso.py`](scripts/progreso.py) |
 | Cada fuente se lista por una vía que su `robots.txt` no excluye | [`docs/scrapping-webs.md`](docs/scrapping-webs.md) y [`scripts/`](scripts/) | Comparar la sección "Permisos" de cada fuente con su `robots.txt` |
 | Datos del evento y reglas confirmadas | [`CLAUDE.md`](CLAUDE.md) | Comparar con la [fuente oficial](https://cordobatechweek.com/side-events/hack-to-the-future/) y lo informado por la organización |
 
@@ -170,8 +170,8 @@ flowchart TB
 | Boceto de la arquitectura | **Digitalizado**, con dudas abiertas |
 | Relevamiento de fuentes | **Inicial:** falta revisar términos de uso y foros |
 | Medición del volumen | **Parcial:** conteo de menciones por fuente; falta medir utilidad y duplicados entre fuentes |
-| Scraping | **En curso:** scripts para 35 fuentes. Las 19 especializadas nuevas se están descargando; Futuro Sustentable no tiene datos; Cadena 3 quedó de lado por falta de volumen |
-| Dataset | **En curso:** solo residuos, con 32.957 notas únicas en 14 Parquet |
+| Scraping | **Casi completo:** scripts para 35 fuentes y 33 con Parquet. Futuro Sustentable no tiene datos; Cadena 3 quedó de lado por falta de volumen |
+| Dataset | **Descargado para residuos:** 47.944 notas únicas en 33 Parquet; falta filtrar y deduplicar |
 | Clasificación y segmentación | **No iniciado** |
 | Grafo y análisis | **No iniciado** |
 
