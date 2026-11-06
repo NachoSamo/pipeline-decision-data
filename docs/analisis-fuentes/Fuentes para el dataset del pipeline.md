@@ -6,7 +6,7 @@ Nov 4, 2026 · @Ignacio Samocachan
 
 Hay 43 fuentes posibles de noticias y redes, más 32 candidatas nuevas con API de WordPress en [su propia sección](#más-fuentes-con-api-de-wordpress). La primera tanda sugerida tiene 10: La Nación, Clarín, Infobae, Página/12, El Doce, Cadena 3, Mongabay, Climate Tracker, Futuro Sustentable y Visión Sustentable. Tienen sitemaps y no excluyen bots de IA por nombre. La Voz también importa por ser de Córdoba, pero primero hay que resolver su acceso.
 
-**Las 10.000 notas útiles por track todavía no están comprobadas.** En residuos, 13.633 notas con cuerpo mencionan el tema, pero falta medir cuántas son útiles; los otros tres tracks no se midieron. El detalle por fuente está en la [evaluación de volumen](contexto-pipeline.md#evaluación-de-volumen-4112026-2334-descargas-en-curso). Mirar solo la URL encuentra mucho menos: unas 60 notas por año en La Nación y 56 de 8.000 en Mongabay.
+**Las 10.000 notas útiles por track todavía no están comprobadas.** En residuos, 13.633 notas con cuerpo mencionan el tema, pero falta medir cuántas son útiles; los otros tres tracks no se midieron. El detalle por fuente está en la [evaluación de volumen](../analisis-datasets/contexto-pipeline.md#evaluación-de-volumen-4112026-2334-descargas-en-curso). Mirar solo la URL encuentra mucho menos: unas 60 notas por año en La Nación y 56 de 8.000 en Mongabay.
 
 El 4/11/2026 revisé `robots.txt` y sitemaps, no los términos de uso. Que un `robots.txt` no excluya a un bot no implica permiso para reutilizar el contenido. Los focos de cada medio salen de la investigación de Ignacio y no los verifiqué.
 
@@ -76,7 +76,7 @@ Mongabay es la fuente regional con más volumen, aunque solo 0,7 % de sus URLs r
 | --- | --- | --- | --- |
 | [Mongabay Latam](https://es.mongabay.com/) | Conservación, bosques y biodiversidad | 8.000, en 8 de sus 10 sitemaps | 56 |
 | [Climate Tracker América Latina](https://climatetrackerlatam.org/) | Clima y transición energética | 722 | 9 |
-| [Periodistas Ambientales](https://periodistasambientales.org/) ([resumen](publicaciones-periodistas-ambientales.md)) | Red y recursos sobre crisis climática | 16 | 1 |
+| [Periodistas Ambientales](https://periodistasambientales.org/) ([resumen](otras-random/publicaciones-periodistas-ambientales.md)) | Red y recursos sobre crisis climática | 16 | 1 |
 
 La búsqueda miró solo la URL, así que puede omitir notas relevantes e incluir falsos positivos.
 
@@ -177,6 +177,20 @@ Tienen menos foco, pero cubren lugares donde casi no hay fuentes especializadas 
 - **Duplicados:** la misma historia sobre incendios de baterías apareció entre las primeras notas de Residuos Profesional, Circular Online, Recycling International y Recycling Portal. Sin deduplicar, los comunicados inflarían la medida de medios independientes.
 - **Peso geográfico:** casi toda esta tanda es de fuera de Argentina, y las especializadas son sobre todo de Europa. No resuelve el hueco de Córdoba.
 - **Idiomas:** hoy hay términos en español e inglés. Sumar italiano, portugués, polaco o alemán requiere armar sus términos y raíces.
+
+## Fuentes del dataset de soluciones
+
+Aprobadas el 5/11/2026 para soluciones, con al menos 15 % de una muestra de 40 notas sobre algún track. Los términos se revisaron por palabras clave.
+
+- **Tecnología:** EconomyUp y MamStartup.
+- **Agro:** Infocampo, TodoAgro, AgroTendencia, AgFunderNews, AgFeed y Agrofakt.
+- **Movilidad:** Mobilidade Sampa, Movilidad Eléctrica, The Driven, Bus and Coach Buyer y HDmotori.
+- **Biodiversidad:** Carbon Brief, InfoAmazonia y Naturschutz.ch.
+- **Generalistas:** Green Savers, Rinnovabili, Inside Climate News, Ecoportal, Ambientum, Africa Sustainability Matters, Mongabay India, IPS Noticias, O Eco, African Leadership Magazine, Dialogue Earth, Actualidad Ambiental y Climate Tracker.
+- **Restringen reproducir o copiar:** Movilidad Eléctrica, HDmotori, AgFeed, Ambientum, Mongabay India e Inside Climate News.
+- **Descartadas por sus términos:** AgDaily, bioGraphic y Earth.org.
+- **Excluyen bots de Claude por nombre:** Electrek, Electrive, MIT Technology Review, E27, Canal Rural, NeoFeed, Ventureburn, Deutsche Startups, Tecnoblog, Innovation News Network y Reasons to be Cheerful.
+- **Excluyen la API en `robots.txt`:** TechCrunch, Modern Farmer y Springwise, entre otras.
 
 ## Negocios y ciencia
 

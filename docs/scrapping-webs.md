@@ -1,8 +1,8 @@
 # Scraping de webs
 
-Última actualización: 4/11/2026.
+Última actualización: 6/11/2026.
 
-Cada fuente tiene su forma de listar y leer notas, porque cada sitio permite y expone cosas distintas. Todos los scripts corren desde la raíz del repo, guardan en `data/` y se pueden cortar y retomar volviendo a ejecutar el mismo comando. Cuántas notas trajo cada fuente está en la [evaluación de volumen](contexto-pipeline.md#evaluación-de-volumen-4112026-2334-descargas-en-curso).
+Cada fuente tiene su forma de listar y leer notas, porque cada sitio permite y expone cosas distintas. Todos los scripts corren desde la raíz del repo, guardan en `data/` y se pueden cortar y retomar volviendo a ejecutar el mismo comando. Cuántas notas trajo cada fuente está en la [evaluación de volumen](analisis-datasets/contexto-pipeline.md#evaluación-de-volumen-4112026-2334-descargas-en-curso).
 
 | Fuente | Script | Cómo lista | Cómo lee la nota | Pausa |
 |---|---|---|---|---|
@@ -42,7 +42,7 @@ Los términos ya completos muestran "ya estaba descargado". Los scripts que esta
 
 ## Qué busca cada script
 
-Las palabras están en [`scripts/keywords.py`](../scripts/keywords.py):
+Las palabras están en [`scripts/diccionarios/keywords_residuos.py`](../scripts/diccionarios/keywords_residuos.py) y [`keywords_soluciones.py`](../scripts/diccionarios/keywords_soluciones.py):
 
 - **`BUSQUEDAS_RESIDUOS`:** términos para buscadores.
 - **`CORE_KEYWORDS_RESIDUOS`:** expresiones regulares que marcan temas específicos.
@@ -54,7 +54,7 @@ Las palabras están en [`scripts/keywords.py`](../scripts/keywords.py):
 
 ## Qué guarda
 
-Cada script deja estos archivos en `data/`:
+Cada script deja estos archivos en `data/residuos/`, o en `data/soluciones/crudo/` para soluciones:
 
 | Archivo | Contenido | ¿En Git? |
 |---|---|---|
@@ -197,11 +197,23 @@ copy([...new Set([...document.querySelectorAll("a.gs-title")].map(a => a.href))]
 - **Busca:** un solo término por idioma, desde el 1/1/2024: "residuos", "waste", "rifiuti", "resíduos", "odpady" o "Abfall".
 - **Cómo:** pide `/wp-json/wp/v2/posts?search=<término>&after=2024-01-01T00:00:00`, con 100 notas completas por pedido. Baja una fuente por vez y, si una falla, sigue con la próxima. Al final indica cuáles quedaron incompletas y el comando para retomarlas.
 - **Límites:** el total del 5/11/2026 era de 14.984 resultados brutos en 170 páginas. Un solo término no encuentra todo lo que usa otras palabras, y Recycling Portal se busca solo con "waste", aunque publica en varios idiomas. En Inside Waste, muchas notas son muy cortas.
-- **Permisos:** `robots.txt` no excluye la API ni a los bots de Claude en estas fuentes. Residuos Profesional, Portal Komunalny, Recycling International, Envirotec y Ecoticias prohíben reproducir o distribuir sin permiso. Los términos se revisaron por palabras clave, sin leerlos completos: el detalle está en [Fuentes para el dataset del pipeline.md](Fuentes%20para%20el%20dataset%20del%20pipeline.md#más-fuentes-con-api-de-wordpress).
+- **Permisos:** `robots.txt` no excluye la API ni a los bots de Claude en estas fuentes. Residuos Profesional, Portal Komunalny, Recycling International, Envirotec y Ecoticias prohíben reproducir o distribuir sin permiso. Los términos se revisaron por palabras clave, sin leerlos completos: el detalle está en [Fuentes para el dataset del pipeline.md](analisis-fuentes/Fuentes%20para%20el%20dataset%20del%20pipeline.md#más-fuentes-con-api-de-wordpress).
 
 ### Bloomberg (sin script)
 
 No se scrapea. Sus términos prohíben scrapers, bots, minería de datos y crear bases de datos sin consentimiento escrito, y su `robots.txt` excluye `/search`.
+
+## Dataset de soluciones
+
+Reutiliza estos scripts con otro diccionario, solo desde 2024. Lo activa [`scripts/soluciones.py`](../scripts/soluciones.py), y los términos están en [`keywords_soluciones.py`](../scripts/diccionarios/keywords_soluciones.py).
+
+- **Todas las fuentes en paralelo:** `python scripts/soluciones.py todas`. Deja un log por fuente en `data/soluciones/crudo/logs/`.
+- **Una fuente:** `python scripts/soluciones.py tn`.
+- **Fallos:** relanza una fuente solo si falló la red, y nunca insiste ante un 403 o 429.
+- **Separar:** `python scripts/separar_por_track.py` escribe `data/soluciones/<track>/<fuente>.parquet`. Asigna tracks por raíces en título o bajada, deja afuera lo anterior a 2024 y descarta las notas sin track.
+- **Límites:** Infobae y Clarín bajan solo las notas prioritarias. El tag `tecnologia` de Infobae tiene un tope de 10.000 notas y llega hasta febrero de 2025. "drones" y "sensores" traen mucho ruido en TN y El Doce.
+
+Los temporales de residuos se borraron: volver a correr un script de residuos empieza de cero y, al terminar, reescribe su Parquet.
 
 ## Pendiente de revisar
 

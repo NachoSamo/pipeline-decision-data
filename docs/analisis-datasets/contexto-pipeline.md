@@ -1,6 +1,6 @@
 # Pipeline de problemáticas: contexto
 
-Última actualización: 4/11/2026. Equipo: Ignacio, Lauti y Diego.
+Última actualización: 6/11/2026. Equipo: Ignacio, Lauti y Diego.
 
 ## Objetivo
 
@@ -14,7 +14,7 @@ El resultado es el punto 0 para elegir la problemática y plantear el producto. 
 - **Tamaño del dataset:** el objetivo es 10.000 notas por track. En residuos, más de 10.000 notas mencionan el tema, pero falta medir cuántas son útiles. Los otros tres tracks no se midieron.
 - **Fecha:** se guarda para filtrar y comparar, no como peso fijo desde el inicio. Un problema que persiste de 2021 a 2026 es justo lo que se busca.
 - **Geografía:** tienen más peso los problemas que aparecen en varios países y los locales. Faltan los valores y definir qué cuenta como local.
-- **Fuentes y arquitectura:** las posibles fuentes están en [Fuentes para el dataset del pipeline.md](Fuentes%20para%20el%20dataset%20del%20pipeline.md) y el boceto digitalizado, en [pipeline-arquitectura.html](pipeline-arquitectura.html).
+- **Fuentes y arquitectura:** las posibles fuentes están en [Fuentes para el dataset del pipeline.md](../analisis-fuentes/Fuentes%20para%20el%20dataset%20del%20pipeline.md) y el boceto digitalizado, en [pipeline-arquitectura.html](../pipeline-arquitectura.html).
 - **Función de los resultados:** son un insumo para decidir. No prueban por sí solos que un problema importe.
 
 - **Notas de soluciones:** son las más valiosas para encontrar patrones y contrastar con soluciones ya validadas, como [Reaquila en Visión Sustentable](https://www.visionsustentable.com/2026/06/24/reaquila-plataforma-gestion-residuos-reciclaje-empresas/). Una nota así prueba que la solución existe, no que esté validada. Falta definir qué evidencia cuenta como validación.
@@ -59,9 +59,19 @@ Conviene decidir si hacen falta más fuentes cuando terminen las descargas, mira
 
 En Infobae y Clarín se decidió bajar solo lo prioritario: tags de residuos y notas de tags amplios con el tema en título, bajada o URL. Quedan sin bajar 5.781 notas en Infobae y 1.894 en Clarín, que se pueden retomar si hace falta.
 
+### Dataset de soluciones (5/11/2026)
+
+Busca notas desde 2024 sobre productos, startups o proyectos tecnológicos aplicados a un problema, para contrastarlas con los problemas de cada track. Una nota no equivale a una solución: contarlas requiere extraerlas después.
+
+- **Volumen:** lo fija la medición, no la meta inicial de 500.000. Desde 2024, las 26 fuentes WordPress que había entonces suman 75.759 notas de todos los temas.
+- **Fuentes:** las actuales más 29 nuevas de tecnología, agro, movilidad, biodiversidad y ambiente, para no sesgar la comparación hacia residuos.
+- **Salida:** un Parquet por track y fuente. Una nota puede estar en varios tracks, y las que no tienen track se descartan.
+- **Asignación de tracks:** por raíces en título o bajada. Con menciones en el cuerpo resultaba demasiado laxa.
+- **Resultado (6/11/2026):** 94.768 notas descargadas de 62 fuentes y 20.131 únicas con track desde 2024. Los pros y contras de ambos datasets están en [el análisis](analisis-residuos-y-soluciones.md).
+
 ### Plan de scraping
 
-Cómo funciona cada script: [scrapping-webs.md](scrapping-webs.md).
+Cómo funciona cada script: [scrapping-webs.md](../scrapping-webs.md).
 
 Este es el plan que planteó Ignacio:
 
