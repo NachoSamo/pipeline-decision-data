@@ -1,4 +1,5 @@
 __pycache__/
-data/*.jsonl
-data/*.tmp
-data/*.progreso.json
+data/**/*.jsonl
+data/**/*.tmp
+data/**/*.progreso.json
+data/soluciones/crudo/

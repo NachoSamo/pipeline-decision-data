@@ -18,7 +18,8 @@ import time
 
 import requests
 
-from keywords import RAICES_RESIDUOS, TAGS_CLARIN_AMPLIOS, TAGS_CLARIN_RESIDUOS
+from dataset import NOMBRE
+from diccionarios.keywords_residuos import PRIORITARIAS_URL, RAICES, TAGS_CLARIN_AMPLIOS, TAGS_CLARIN_PRINCIPALES
 from progreso import Avance, relevante
 from scrape_eldoce import DATA, consolidar, limpiar, resumir
 from scrape_infobae import PAUSA_LISTADO, PAUSA_NOTA, pedir
@@ -30,19 +31,19 @@ NOMBRES = {"clarin": "Clarín", "lanacion": "La Nación"}
 
 def rutas(fuente):
     return (
-        DATA / f"{fuente}_residuos.listado.jsonl",
-        DATA / f"{fuente}_residuos.jsonl",
-        DATA / f"{fuente}_residuos.parquet",
+        DATA / f"{fuente}_{NOMBRE}.listado.jsonl",
+        DATA / f"{fuente}_{NOMBRE}.jsonl",
+        DATA / f"{fuente}_{NOMBRE}.parquet",
     )
 
 
-def raices_en(url):
+def raices_en(url, raices=RAICES):
     texto = url.rstrip("/").split("/")[-1].replace("-", " ").replace("_", " ").lower()
-    return [r for r in RAICES_RESIDUOS if r in texto]
+    return [r for r in raices if r in texto]
 
 
 def listar_clarin(sesion, archivo):
-    for tag in TAGS_CLARIN_RESIDUOS + TAGS_CLARIN_AMPLIOS:
+    for tag in TAGS_CLARIN_PRINCIPALES + TAGS_CLARIN_AMPLIOS:
         vistas, pagina = set(), 1
         while True:
             sufijo = f"{tag}.html" if pagina == 1 else f"{tag}/page/{pagina}"
@@ -134,12 +135,12 @@ def pendientes(fuente):
             hechas = {json.loads(linea)["url"] for linea in archivo}
     faltan = [(url, ts) for url, ts in notas.items() if url not in hechas]
     amplios = set(TAGS_CLARIN_AMPLIOS)
-    orden = lambda nota: (not (nota[1] - amplios), not raices_en(nota[0]))
+    orden = lambda nota: (not (nota[1] - amplios), not raices_en(nota[0], PRIORITARIAS_URL))
     return sorted(faltan, key=orden), len(notas)
 
 
 def es_prioritaria(terminos, url):
-    return bool(terminos - set(TAGS_CLARIN_AMPLIOS)) or bool(raices_en(url))
+    return bool(terminos - set(TAGS_CLARIN_AMPLIOS)) or bool(raices_en(url, PRIORITARIAS_URL))
 
 
 def descargar(fuente, sesion, limite, solo_prioritarias=False):

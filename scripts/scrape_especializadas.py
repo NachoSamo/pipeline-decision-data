@@ -1,6 +1,6 @@
 """Descarga 19 fuentes especializadas en residuos con la API de WordPress.
 
-Cada fuente se busca con un solo término en su idioma, desde 2024. Sin argumentos
+Cada fuente se busca con los términos de su idioma, desde 2024. Sin argumentos
 baja todas, una después de otra. Si una falla, sigue con la próxima. Se puede
 cortar y retomar volviendo a ejecutar el mismo comando.
 
@@ -12,31 +12,19 @@ Uso:
 
 import argparse
 
-from keywords import (
-    BUSQUEDAS_INGLES_RESIDUOS,
-    BUSQUEDAS_RESIDUOS,
+from dataset import NOMBRE
+from diccionarios.keywords_residuos import (
+    POR_IDIOMA,
     RAICES_ALEMAN_RESIDUOS,
-    RAICES_INGLES_RESIDUOS,
     RAICES_ITALIANO_RESIDUOS,
     RAICES_POLACO_RESIDUOS,
     RAICES_PORTUGUES_RESIDUOS,
-    RAICES_RESIDUOS,
 )
 from progreso import relevante
 from scrape_wordpress import descargar
 
 DESDE = "2024-01-01T00:00:00"
 PAUSA = 4
-
-# idioma: (término de búsqueda, raíces para el log, diccionario para el Parquet)
-IDIOMAS = {
-    "es": ("residuos", RAICES_RESIDUOS, BUSQUEDAS_RESIDUOS),
-    "en": ("waste", RAICES_INGLES_RESIDUOS, BUSQUEDAS_INGLES_RESIDUOS),
-    "it": ("rifiuti", RAICES_ITALIANO_RESIDUOS, RAICES_ITALIANO_RESIDUOS),
-    "pt": ("resíduos", RAICES_PORTUGUES_RESIDUOS, RAICES_PORTUGUES_RESIDUOS),
-    "pl": ("odpady", RAICES_POLACO_RESIDUOS, RAICES_POLACO_RESIDUOS),
-    "de": ("Abfall", RAICES_ALEMAN_RESIDUOS, RAICES_ALEMAN_RESIDUOS),
-}
 
 # clave: (nombre, sitio, idioma, segundos entre pedidos)
 FUENTES = {
@@ -61,17 +49,52 @@ FUENTES = {
     "globalrec": ("Global Rec", "https://globalrec.org", "en", PAUSA),
 }
 
+# Fuentes aprobadas solo para el dataset de soluciones.
+_NUEVAS = {
+    "economyup": ("EconomyUp", "https://www.economyup.it", "it", PAUSA),
+    "mamstartup": ("MamStartup", "https://mamstartup.pl", "pl", PAUSA),
+    "infocampo": ("Infocampo", "https://www.infocampo.com.ar", "es", PAUSA),
+    "todoagro": ("TodoAgro", "https://www.todoagro.com.ar", "es", PAUSA),
+    "agrotendencia": ("AgroTendencia", "https://www.agrotendencia.tv", "es", PAUSA),
+    "agfundernews": ("AgFunderNews", "https://agfundernews.com", "en", PAUSA),
+    "agfeed": ("AgFeed", "https://agfeed.com.br", "pt", PAUSA),
+    "agrofakt": ("Agrofakt", "https://agrofakt.pl", "pl", PAUSA),
+    "mobilidadesampa": ("Mobilidade Sampa", "https://mobilidadesampa.com.br", "pt", PAUSA),
+    "movilidadelectrica": ("Movilidad Eléctrica", "https://www.movilidadelectrica.com", "es", PAUSA),
+    "thedriven": ("The Driven", "https://thedriven.io", "en", PAUSA),
+    "busandcoachbuyer": ("Bus and Coach Buyer", "https://www.busandcoachbuyer.com", "en", PAUSA),
+    "hdmotori": ("HDmotori", "https://www.hdmotori.it", "it", PAUSA),
+    "carbonbrief": ("Carbon Brief", "https://www.carbonbrief.org", "en", PAUSA),
+    "infoamazonia": ("InfoAmazonia", "https://infoamazonia.org", "pt", PAUSA),
+    "naturschutz": ("Naturschutz.ch", "https://www.naturschutz.ch", "de", PAUSA),
+    "greensavers": ("Green Savers", "https://greensavers.sapo.pt", "pt", PAUSA),
+    "rinnovabili": ("Rinnovabili", "https://www.rinnovabili.it", "it", PAUSA),
+    "insideclimatenews": ("Inside Climate News", "https://insideclimatenews.org", "en", PAUSA),
+    "ecoportal": ("Ecoportal", "https://www.ecoportal.net", "es", PAUSA),
+    "ambientum": ("Ambientum", "https://www.ambientum.com", "es", PAUSA),
+    "africasustainability": ("Africa Sustainability Matters", "https://africasustainabilitymatters.com", "en", PAUSA),
+    "mongabayindia": ("Mongabay India", "https://india.mongabay.com", "en", PAUSA),
+    "ipsnoticias": ("IPS Noticias", "https://www.ipsnoticias.net", "es", 4),
+    "oeco": ("O Eco", "https://oeco.org.br", "pt", PAUSA),
+    "africanleadership": ("African Leadership Magazine", "https://www.africanleadershipmagazine.co.uk", "en", PAUSA),
+    "dialogueearth": ("Dialogue Earth", "https://dialogue.earth", "en", PAUSA),
+    "actualidadambiental": ("Actualidad Ambiental", "https://www.actualidadambiental.pe", "es", PAUSA),
+    "climatetracker": ("Climate Tracker", "https://climatetrackerlatam.org", "es", PAUSA),
+}
+if NOMBRE == "soluciones":
+    FUENTES = {**FUENTES, **_NUEVAS}
+
 
 def bajar(clave):
     nombre, sitio, idioma, pausa = FUENTES[clave]
-    termino, raices, diccionario = IDIOMAS[idioma]
-    consultas = [(termino, {"search": termino, "after": DESDE})]
+    terminos, raices, diccionario = POR_IDIOMA[idioma]
+    consultas = [(t, {"search": t, "after": DESDE}) for t in terminos]
     descargar(clave, nombre, sitio, consultas, pausa=pausa, raices=raices, diccionario=diccionario)
 
 
 def selfcheck():
-    assert len(FUENTES) == 19
-    assert all(idioma in IDIOMAS for _, _, idioma, _ in FUENTES.values())
+    assert len(_NUEVAS) == 29 and len(FUENTES) == 19
+    assert all(idioma in POR_IDIOMA for _, _, idioma, _ in FUENTES.values())
     assert relevante({"titulo": "La raccolta dei RIFIUTI"}, RAICES_ITALIANO_RESIDUOS)
     assert relevante({"titulo": "Gestão de resíduos"}, RAICES_PORTUGUES_RESIDUOS)
     assert relevante({"titulo": "Nowe składowisko i śmieci"}, RAICES_POLACO_RESIDUOS)

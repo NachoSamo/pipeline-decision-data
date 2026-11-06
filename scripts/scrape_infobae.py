@@ -20,7 +20,8 @@ import time
 
 import requests
 
-from keywords import BUSQUEDAS_RESIDUOS, TAGS_INFOBAE_AMPLIOS, TAGS_INFOBAE_RESIDUOS
+from dataset import DESDE_ANIO, NOMBRE
+from diccionarios.keywords_residuos import PRIORITARIAS_TEXTO, TAGS_INFOBAE_AMPLIOS, TAGS_INFOBAE_PRINCIPALES
 from progreso import Avance, relevante
 from scrape_eldoce import DATA, a_fila, consolidar, normalizar, resumir
 
@@ -31,9 +32,9 @@ TAM_LISTADO = 100
 PAUSA_LISTADO = 4
 PAUSA_NOTA = 2
 
-LISTADO = DATA / "infobae_residuos.listado.jsonl"
-CRUDO = DATA / "infobae_residuos.jsonl"
-SALIDA = DATA / "infobae_residuos.parquet"
+LISTADO = DATA / f"infobae_{NOMBRE}.listado.jsonl"
+CRUDO = DATA / f"infobae_{NOMBRE}.jsonl"
+SALIDA = DATA / f"infobae_{NOMBRE}.parquet"
 
 
 def pedir(sesion, url, **kwargs):
@@ -52,12 +53,17 @@ def pedir(sesion, url, **kwargs):
     sys.exit(f"Fallaron 3 intentos en {url}; el avance quedó guardado.")
 
 
+def anterior_al_corte(url):
+    fecha = re.search(r"/(20\d{2})/\d{2}/\d{2}/", url or "")
+    return bool(DESDE_ANIO and fecha and int(fecha.group(1)) < DESDE_ANIO)
+
+
 def listar(sesion):
     if LISTADO.exists():
         return
     temporal = LISTADO.with_suffix(".tmp")
     with temporal.open("w", encoding="utf-8") as archivo:
-        for tag in TAGS_INFOBAE_RESIDUOS + TAGS_INFOBAE_AMPLIOS:
+        for tag in TAGS_INFOBAE_PRINCIPALES + TAGS_INFOBAE_AMPLIOS:
             offset = 0
             while offset is not None:
                 consulta = {
@@ -74,7 +80,8 @@ def listar(sesion):
                 }
                 parametros = {"query": json.dumps(consulta, separators=(",", ":")), "_website": "infobae"}
                 datos = pedir(sesion, API, params=parametros).json()
-                for nota in datos.get("content_elements") or []:
+                notas = datos.get("content_elements") or []
+                for nota in notas:
                     fila = {
                         "id": nota.get("_id"),
                         "url": nota.get("website_url"),
@@ -84,7 +91,9 @@ def listar(sesion):
                     }
                     archivo.write(json.dumps(fila, ensure_ascii=False) + "\n")
                 print(f"{tag}: offset {offset} de {datos.get('count')}", flush=True)
-                offset = datos.get("next")
+                # El listado va de la más nueva a la más vieja: corta al pasar la fecha.
+                viejas = notas and all(anterior_al_corte(n.get("website_url")) for n in notas)
+                offset = None if viejas else datos.get("next")
                 time.sleep(PAUSA_LISTADO)
     temporal.replace(LISTADO)
 
@@ -99,7 +108,7 @@ def edicion(url):
 
 
 def prioridad(nota, diccionario):
-    if nota["tags"] & set(TAGS_INFOBAE_RESIDUOS):
+    if nota["tags"] & set(TAGS_INFOBAE_PRINCIPALES):
         return 0
     texto = normalizar(f"{nota['titulo']} {nota['bajada']}")
     return 1 if any(t in texto for t in diccionario) else 2
@@ -117,7 +126,8 @@ def pendientes():
     if CRUDO.exists():
         with CRUDO.open(encoding="utf-8") as archivo:
             hechas = {json.loads(linea)["ruta"] for linea in archivo}
-    diccionario = [normalizar(t) for t in BUSQUEDAS_RESIDUOS]
+    diccionario = [normalizar(t) for t in PRIORITARIAS_TEXTO]
+    notas = {url: n for url, n in notas.items() if not anterior_al_corte(url)}
     faltan = [n for url, n in notas.items() if url not in hechas]
     return sorted(faltan, key=lambda n: prioridad(n, diccionario)), len(notas)
 
@@ -125,7 +135,7 @@ def pendientes():
 def descargar_notas(sesion, limite, solo_prioritarias=False):
     faltan, total = pendientes()
     if solo_prioritarias:
-        diccionario = [normalizar(t) for t in BUSQUEDAS_RESIDUOS]
+        diccionario = [normalizar(t) for t in PRIORITARIAS_TEXTO]
         total -= sum(prioridad(n, diccionario) == 2 for n in faltan)
         faltan = [n for n in faltan if prioridad(n, diccionario) < 2]
     print(f"Notas únicas: {total}. Faltan: {len(faltan)}", flush=True)
@@ -158,7 +168,8 @@ def selfcheck():
     assert contenido_global(pagina)["_id"] == "A"
     assert contenido_global("sin datos") is None
     assert edicion("/mexico/2026/11/04/nota/") == "mexico"
-    dic = [normalizar(t) for t in BUSQUEDAS_RESIDUOS]
+    assert not anterior_al_corte("/america/2019/01/01/nota/")
+    dic = [normalizar(t) for t in PRIORITARIAS_TEXTO]
     assert prioridad({"tags": {"basura"}, "titulo": "", "bajada": ""}, dic) == 0
     assert prioridad({"tags": {"ambiente"}, "titulo": "Un basural", "bajada": ""}, dic) == 1
     assert prioridad({"tags": {"ambiente"}, "titulo": "Bosques", "bajada": None}, dic) == 2

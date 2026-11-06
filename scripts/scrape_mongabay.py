@@ -10,12 +10,12 @@ Uso:
 
 import argparse
 
-from keywords import BUSQUEDAS_PRECISAS_RESIDUOS
+from diccionarios.keywords_residuos import BUSQUEDAS_PRECISAS
 from scrape_wordpress import descargar, selfcheck
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--terminos", nargs="+", default=BUSQUEDAS_PRECISAS_RESIDUOS)
+    parser.add_argument("--terminos", nargs="+", default=BUSQUEDAS_PRECISAS)
     parser.add_argument("--selfcheck", action="store_true")
     args = parser.parse_args()
     if args.selfcheck:

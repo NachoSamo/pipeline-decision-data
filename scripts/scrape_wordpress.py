@@ -6,7 +6,8 @@ import time
 
 import requests
 
-from keywords import BUSQUEDAS_RESIDUOS, RAICES_RESIDUOS
+from dataset import DESDE_ANIO, NOMBRE
+from diccionarios.keywords_residuos import BUSQUEDAS, RAICES
 from progreso import Avance, relevante
 from scrape_eldoce import DATA, consolidar, limpiar, resumir
 
@@ -53,10 +54,10 @@ def pedir(sesion, url, parametros, pausa, intentos=3):
     raise SystemExit(f"Fallaron {intentos} intentos en {url}; el avance quedó guardado.")
 
 
-def descargar(clave, nombre, base, consultas, pausa=PAUSA, raices=RAICES_RESIDUOS, diccionario=BUSQUEDAS_RESIDUOS):
+def descargar(clave, nombre, base, consultas, pausa=PAUSA, raices=RAICES, diccionario=BUSQUEDAS):
     DATA.mkdir(exist_ok=True)
-    crudo = DATA / f"{clave}_residuos.jsonl"
-    progreso_ruta = DATA / f"{clave}_residuos.progreso.json"
+    crudo = DATA / f"{clave}_{NOMBRE}.jsonl"
+    progreso_ruta = DATA / f"{clave}_{NOMBRE}.progreso.json"
     progreso = json.loads(progreso_ruta.read_text(encoding="utf-8")) if progreso_ruta.exists() else {}
     sesion = requests.Session()
     sesion.headers["User-Agent"] = "pipeline-decision-data/0.1"
@@ -69,6 +70,8 @@ def descargar(clave, nombre, base, consultas, pausa=PAUSA, raices=RAICES_RESIDUO
         avance = Avance(f"{nombre} [{numero}/{len(consultas)}] {termino}", inicio=(pagina - 1) * TAM_PAGINA)
         while pagina is not None:
             parametros = {**filtro, "per_page": TAM_PAGINA, "page": pagina, "_fields": campos, "_embed": "wp:term"}
+            if DESDE_ANIO:
+                parametros["after"] = f"{DESDE_ANIO}-01-01T00:00:00"
             respuesta = pedir(sesion, f"{base}/wp-json/wp/v2/posts", parametros, pausa)
             filas = [a_fila(nombre, post, termino) for post in respuesta.json()]
             with crudo.open("a", encoding="utf-8") as archivo:
@@ -82,7 +85,7 @@ def descargar(clave, nombre, base, consultas, pausa=PAUSA, raices=RAICES_RESIDUO
             progreso_ruta.write_text(json.dumps(progreso, ensure_ascii=False), encoding="utf-8")
             time.sleep(pausa)
     if crudo.exists():
-        resumir(consolidar(crudo, DATA / f"{clave}_residuos.parquet", diccionario))
+        resumir(consolidar(crudo, DATA / f"{clave}_{NOMBRE}.parquet", diccionario))
     else:
         print("No se encontraron notas.")
 

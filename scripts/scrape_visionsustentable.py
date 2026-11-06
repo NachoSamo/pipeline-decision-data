@@ -8,12 +8,12 @@ Uso:
 
 import argparse
 
-from keywords import BUSQUEDAS_RESIDUOS
+from diccionarios.keywords_residuos import BUSQUEDAS
 from scrape_wordpress import descargar, selfcheck
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--terminos", nargs="+", default=BUSQUEDAS_RESIDUOS)
+    parser.add_argument("--terminos", nargs="+", default=BUSQUEDAS)
     parser.add_argument("--selfcheck", action="store_true")
     args = parser.parse_args()
     if args.selfcheck:

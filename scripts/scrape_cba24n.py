@@ -16,6 +16,7 @@ import time
 
 import requests
 
+from dataset import DESDE_ANIO, NOMBRE
 from html_texto import texto_de_bloque
 from progreso import Avance, relevante
 from scrape_eldoce import DATA, consolidar, resumir
@@ -26,9 +27,9 @@ SITE = "https://www.cba24n.com.ar"
 # ponytail: el sitio respondió 429 con 4 s de pausa; subir si vuelve a pasar.
 PAUSA = 12
 
-LISTADO = DATA / "cba24n_residuos.listado.jsonl"
-CRUDO = DATA / "cba24n_residuos.jsonl"
-SALIDA = DATA / "cba24n_residuos.parquet"
+LISTADO = DATA / f"cba24n_{NOMBRE}.listado.jsonl"
+CRUDO = DATA / f"cba24n_{NOMBRE}.jsonl"
+SALIDA = DATA / f"cba24n_{NOMBRE}.parquet"
 
 
 def urls_de(xml):
@@ -39,12 +40,16 @@ def seccion_de(url):
     return url.split("/")[3]
 
 
+def desde_el_corte(sitemaps, anio=DESDE_ANIO):
+    return [u for u in sitemaps if not anio or int(re.search(r"sitemap-(\d{4})", u).group(1)) >= anio]
+
+
 def listar(sesion):
     if LISTADO.exists():
         return
     DATA.mkdir(exist_ok=True)
-    sitemaps = urls_de(pedir(sesion, f"{SITE}/sitemap.xml").text)
-    avance = Avance("CBA24N sitemaps", total=len(sitemaps), mide_residuos=False)
+    sitemaps = desde_el_corte(urls_de(pedir(sesion, f"{SITE}/sitemap.xml").text))
+    avance = Avance("CBA24N sitemaps", total=len(sitemaps), mide_tema=False)
     filas = []
     for sitemap in sitemaps:
         time.sleep(PAUSA)
@@ -88,6 +93,7 @@ if __name__ == "__main__":
         url = "https://www.cba24n.com.ar/cordoba/recicladores-protestan_a6ae"
         assert urls_de(f"<loc>{url}</loc>") == [url]
         assert seccion_de(url) == "cordoba"
+        assert desde_el_corte(["https://x/sitemap-2026-11.xml", "https://x/sitemap-1900-01.xml"], 2024) == ["https://x/sitemap-2026-11.xml"]
         assert raices_en(url) == ["recicl"]
         assert texto_de_bloque("<div class=article-body-content><p>Hola</p></div>", "article-body-content") == "Hola"
         print("selfcheck ok")

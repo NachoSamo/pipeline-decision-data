@@ -19,17 +19,18 @@ import time
 import requests
 
 from html_texto import texto_de_bloque
-from keywords import BUSQUEDAS_RESIDUOS
+from dataset import NOMBRE
+from diccionarios.keywords_residuos import BUSQUEDAS
 from progreso import Avance, relevante
 from scrape_eldoce import DATA, consolidar, limpiar, resumir
 
 SITE = "https://ecobiz.com.ar"
 PAUSA = 4
 
-LISTADO = DATA / "ecobiz_residuos.listado.jsonl"
-PROGRESO = DATA / "ecobiz_residuos.progreso.json"
-CRUDO = DATA / "ecobiz_residuos.jsonl"
-SALIDA = DATA / "ecobiz_residuos.parquet"
+LISTADO = DATA / f"ecobiz_{NOMBRE}.listado.jsonl"
+PROGRESO = DATA / f"ecobiz_{NOMBRE}.progreso.json"
+CRUDO = DATA / f"ecobiz_{NOMBRE}.jsonl"
+SALIDA = DATA / f"ecobiz_{NOMBRE}.parquet"
 
 
 def pedir(sesion, url):
@@ -133,7 +134,7 @@ def selfcheck():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--terminos", nargs="+", default=BUSQUEDAS_RESIDUOS)
+    parser.add_argument("--terminos", nargs="+", default=BUSQUEDAS)
     parser.add_argument("--limite", type=int)
     parser.add_argument("--selfcheck", action="store_true")
     args = parser.parse_args()

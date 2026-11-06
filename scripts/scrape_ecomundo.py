@@ -10,7 +10,8 @@ Uso:
 
 import argparse
 
-from keywords import BUSQUEDAS_RESIDUOS
+from dataset import NOMBRE
+from diccionarios.keywords_residuos import BUSQUEDAS
 from scrape_wordpress import descargar, selfcheck
 
 CATEGORIA_RECICLADO = 36
@@ -23,7 +24,7 @@ if __name__ == "__main__":
     if args.selfcheck:
         selfcheck()
     else:
-        consultas = [(t, {"search": t}) for t in args.terminos or BUSQUEDAS_RESIDUOS]
-        if not args.terminos:
+        consultas = [(t, {"search": t}) for t in args.terminos or BUSQUEDAS]
+        if not args.terminos and NOMBRE == "residuos":
             consultas.insert(0, ("categoría Reciclado", {"categories": CATEGORIA_RECICLADO}))
         descargar("ecomundo", "Ecomundo", "https://www.ecomundo.com.ar", consultas)

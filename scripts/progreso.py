@@ -1,10 +1,11 @@
-"""Muestra el avance de una descarga y cuántas notas mencionan residuos."""
+"""Muestra el avance de una descarga y cuántas notas mencionan el tema del dataset."""
 
 import time
 import unicodedata
 from datetime import datetime
 
-from keywords import RAICES_RESIDUOS
+from dataset import ETIQUETA
+from diccionarios.keywords_residuos import RAICES
 
 
 def normalizar(texto):
@@ -12,7 +13,7 @@ def normalizar(texto):
     return "".join(c for c in sin_tildes if unicodedata.category(c) != "Mn").lower()
 
 
-def relevante(fila, raices=RAICES_RESIDUOS):
+def relevante(fila, raices=RAICES):
     texto = normalizar(f"{fila.get('titulo')} {fila.get('bajada')} {fila.get('body')}")
     return any(raiz in texto for raiz in raices)
 
@@ -23,9 +24,9 @@ def _duracion(segundos):
 
 
 class Avance:
-    def __init__(self, etiqueta, total=None, inicio=0, cada=15, mide_residuos=True):
+    def __init__(self, etiqueta, total=None, inicio=0, cada=15, mide_tema=True):
         self.etiqueta = etiqueta
-        self.mide_residuos = mide_residuos
+        self.mide_tema = mide_tema
         self.total = total
         self.hecho = inicio
         self.nuevas = 0
@@ -38,8 +39,8 @@ class Avance:
         partes = [f"[{datetime.now():%H:%M:%S}] {self.etiqueta}: {self.hecho}"]
         if self.total:
             partes[0] += f" de {self.total} ({min(self.hecho / self.total, 1):.0%})"
-        if self.nuevas and self.mide_residuos:
-            partes.append(f"mencionan residuos {self.utiles} ({self.utiles / self.nuevas:.0%})")
+        if self.nuevas and self.mide_tema:
+            partes.append(f"mencionan {ETIQUETA} {self.utiles} ({self.utiles / self.nuevas:.0%})")
         transcurrido = time.monotonic() - self.comienzo
         if self.nuevas and transcurrido > 0:
             ritmo = self.nuevas / transcurrido

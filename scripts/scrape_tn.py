@@ -15,7 +15,8 @@ import time
 
 import requests
 
-from keywords import BUSQUEDAS_PRECISAS_RESIDUOS
+from dataset import NOMBRE
+from diccionarios.keywords_residuos import BUSQUEDAS_PRECISAS
 from progreso import Avance, relevante
 from scrape_eldoce import DATA, a_fila, consolidar, resumir
 
@@ -26,9 +27,9 @@ PAUSA = 4
 # El buscador ordena por relevancia: tras tantas páginas sin aporte, sigue el próximo término.
 PAGINAS_SIN_APORTE = 10
 
-CRUDO = DATA / "tn_residuos.jsonl"
-PROGRESO = DATA / "tn_residuos.progreso.json"
-SALIDA = DATA / "tn_residuos.parquet"
+CRUDO = DATA / f"tn_{NOMBRE}.jsonl"
+PROGRESO = DATA / f"tn_{NOMBRE}.progreso.json"
+SALIDA = DATA / f"tn_{NOMBRE}.parquet"
 
 
 def a_fila_tn(nota, termino):
@@ -99,7 +100,7 @@ def descargar(terminos):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--terminos", nargs="+", default=BUSQUEDAS_PRECISAS_RESIDUOS)
+    parser.add_argument("--terminos", nargs="+", default=BUSQUEDAS_PRECISAS)
     parser.add_argument("--selfcheck", action="store_true")
     args = parser.parse_args()
     if args.selfcheck:

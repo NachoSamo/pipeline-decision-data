@@ -14,12 +14,12 @@ import json
 import re
 import sys
 import time
-from pathlib import Path
 
 import pandas as pd
 import requests
 
-from keywords import BUSQUEDAS_RESIDUOS, CORE_KEYWORDS_RESIDUOS
+from dataset import DATA, NOMBRE
+from diccionarios.keywords_residuos import BUSQUEDAS, CORE_KEYWORDS
 from progreso import Avance, normalizar, relevante
 
 API = "https://eldoce.tv/pf/api/v3/content/fetch/search-api"
@@ -28,10 +28,9 @@ TAM_PAGINA = 20
 # ponytail: un solo hilo y 4 s entre pedidos por sus términos de uso; no paralelizar.
 PAUSA = 4
 
-DATA = Path(__file__).resolve().parent.parent / "data"
-CRUDO = DATA / "eldoce_residuos.jsonl"
-PROGRESO = DATA / "eldoce_residuos.progreso.json"
-SALIDA = DATA / "eldoce_residuos.parquet"
+CRUDO = DATA / f"eldoce_{NOMBRE}.jsonl"
+PROGRESO = DATA / f"eldoce_{NOMBRE}.progreso.json"
+SALIDA = DATA / f"eldoce_{NOMBRE}.parquet"
 
 
 def limpiar(texto):
@@ -106,7 +105,7 @@ def descargar(terminos):
             time.sleep(PAUSA)
 
 
-def consolidar(crudo=CRUDO, salida=SALIDA, diccionario=BUSQUEDAS_RESIDUOS):
+def consolidar(crudo=CRUDO, salida=SALIDA, diccionario=BUSQUEDAS):
     filas = pd.read_json(crudo, lines=True, dtype={"id": str}, convert_dates=False)
     terminos = filas.groupby("id")["termino"].agg(lambda t: sorted(set(t)))
     notas = filas.drop_duplicates("id").drop(columns="termino").set_index("id")
@@ -120,7 +119,7 @@ def consolidar(crudo=CRUDO, salida=SALIDA, diccionario=BUSQUEDAS_RESIDUOS):
         [t for t in diccionario if normalizar(t) in n] for n in normalizado
     ]
     notas["keywords_core"] = [
-        [k for k in CORE_KEYWORDS_RESIDUOS if re.search(k, t, re.I)] for t in texto
+        [k for k in CORE_KEYWORDS if re.search(k, t, re.I)] for t in texto
     ]
     notas["fecha"] = pd.to_datetime(notas["fecha"], utc=True, format="ISO8601")
     notas = notas.reset_index().sort_values("fecha", ascending=False)
@@ -164,7 +163,7 @@ def selfcheck():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--terminos", nargs="+", default=BUSQUEDAS_RESIDUOS)
+    parser.add_argument("--terminos", nargs="+", default=BUSQUEDAS)
     parser.add_argument("--selfcheck", action="store_true")
     args = parser.parse_args()
     if args.selfcheck:

@@ -12,7 +12,7 @@ Uso:
 
 import argparse
 
-from keywords import BUSQUEDAS_INGLES_RESIDUOS, RAICES_INGLES_RESIDUOS
+from diccionarios.keywords_residuos import BUSQUEDAS_INGLES, RAICES_INGLES
 from progreso import relevante
 from scrape_wordpress import descargar
 
@@ -33,15 +33,15 @@ def consultas(terminos):
 
 def selfcheck():
     assert consultas(["recycling"]) == [("recycling", {"search": "recycling", "after": DESDE})]
-    assert relevante({"titulo": "New Landfill rules"}, RAICES_INGLES_RESIDUOS)
-    assert not relevante({"titulo": "Elections today"}, RAICES_INGLES_RESIDUOS)
+    assert relevante({"titulo": "New Landfill rules"}, RAICES_INGLES)
+    assert not relevante({"titulo": "Elections today"}, RAICES_INGLES)
     print("selfcheck ok")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("fuentes", nargs="*", help=", ".join(FUENTES))
-    parser.add_argument("--terminos", nargs="+", default=BUSQUEDAS_INGLES_RESIDUOS)
+    parser.add_argument("--terminos", nargs="+", default=BUSQUEDAS_INGLES)
     parser.add_argument("--selfcheck", action="store_true")
     args = parser.parse_args()
     desconocidas = set(args.fuentes) - set(FUENTES)
@@ -59,8 +59,8 @@ if __name__ == "__main__":
                     sitio,
                     consultas(args.terminos),
                     pausa=pausa,
-                    raices=RAICES_INGLES_RESIDUOS,
-                    diccionario=BUSQUEDAS_INGLES_RESIDUOS,
+                    raices=RAICES_INGLES,
+                    diccionario=BUSQUEDAS_INGLES,
                 )
             except SystemExit as motivo:
                 print(f"{nombre}: quedó incompleta. {motivo} Sigo con la próxima fuente.", flush=True)
