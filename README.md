@@ -6,7 +6,7 @@
 
 Pipeline de análisis de problemáticas · Hack to the Future · Córdoba Tech Week 2026
 
-[![Estado](https://img.shields.io/badge/Estado-Scraping%20en%20curso-111111?style=for-the-badge)](#estado-del-repositorio)
+[![Estado](https://img.shields.io/badge/Estado-Datasets%20descargados-111111?style=for-the-badge)](#estado-del-repositorio)
 [![Código](https://img.shields.io/badge/C%C3%B3digo-Scraping-111111?style=for-the-badge)](docs/scrapping-webs.md)
 [![Track](https://img.shields.io/badge/Primer%20track-Residuos-111111?style=for-the-badge)](#alcance-objetivo)
 [![Arquitectura](https://img.shields.io/badge/Arquitectura-Boceto-5964F2?style=for-the-badge)](docs/pipeline-arquitectura.html)
@@ -43,8 +43,8 @@ Soluciones fallidas:  <planes o anuncios previos>
 > que un problema importe. Las noticias muestran lo que se publica, no todo lo que pasa.
 
 > [!NOTE]
-> **Estado actual:** el scraping del track de residuos está casi completo. Al 5/11/2026 hay 47.944 notas
-> descargadas, y 29.413 tienen cuerpo y mencionan el tema. Falta medir cuántas son útiles y cuántas están
+> **Estado actual:** al 6/11/2026 hay 47.944 notas de residuos y 20.131 de soluciones tecnológicas en los
+> cuatro tracks. Sus pros y contras están en [el análisis](docs/analisis-datasets/analisis-residuos-y-soluciones.md). Falta medir cuántas son útiles y cuántas están
 > duplicadas entre fuentes. Todavía no hay clasificación ni análisis.
 
 ---
@@ -103,13 +103,13 @@ Si no llegamos a procesar los otros tres tracks, el análisis de residuos sigue 
 
 ## Arquitectura objetivo
 
-Hoy solo están construidas las etapas de fuentes, scraping y dataset, para residuos. El resto es el
+Hoy solo están construidas las etapas de fuentes, scraping y dataset, para residuos y soluciones. El resto es el
 diseño acordado; las dudas abiertas están en [`docs/pipeline-arquitectura.html`](docs/pipeline-arquitectura.html).
 
 ```mermaid
 flowchart TB
     subgraph Datos["1 · Datos"]
-        A["35 fuentes con script<br/>locales e internacionales"] --> B["Scraping por fuente"] --> C["Dataset en Parquet"]
+        A["33 fuentes en residuos y<br/>62 en soluciones"] --> B["Scraping por fuente"] --> C["Dataset en Parquet"]
     end
 
     subgraph Preparacion["2 · Preparación"]
@@ -153,10 +153,10 @@ flowchart TB
 
 | Afirmación | Dónde está | Cómo revisarla |
 |---|---|---|
-| Objetivo, decisiones y dudas abiertas | [`docs/contexto-pipeline.md`](docs/contexto-pipeline.md) | Leer las secciones de decisiones y "Falta aclarar" |
+| Objetivo, decisiones y dudas abiertas | [`docs/analisis-datasets/contexto-pipeline.md`](docs/analisis-datasets/contexto-pipeline.md) | Leer las secciones de decisiones y "Falta aclarar" |
 | Diseño del pipeline | [`docs/pipeline-arquitectura.html`](docs/pipeline-arquitectura.html) | Abrir el boceto y la lista "Por definir" |
-| Hay 43 fuentes posibles, con su acceso revisado | [`docs/Fuentes para el dataset del pipeline.md`](docs/Fuentes%20para%20el%20dataset%20del%20pipeline.md) | Comparar cada fila con el `robots.txt` del medio |
-| 29.413 notas de residuos tienen cuerpo y mencionan el tema, pero falta medir cuántas son útiles | [`docs/contexto-pipeline.md`](docs/contexto-pipeline.md) y [`data/`](data/) | Leer "Evaluación de volumen" y recontar los Parquet con `relevante`, de [`scripts/progreso.py`](scripts/progreso.py) |
+| Hay 43 fuentes posibles, con su acceso revisado | [`docs/analisis-fuentes/Fuentes para el dataset del pipeline.md`](docs/analisis-fuentes/Fuentes%20para%20el%20dataset%20del%20pipeline.md) | Comparar cada fila con el `robots.txt` del medio |
+| Hay 47.944 notas de residuos y 20.131 de soluciones, con ruido sin filtrar | [`docs/analisis-datasets/analisis-residuos-y-soluciones.md`](docs/analisis-datasets/analisis-residuos-y-soluciones.md) y [`data/`](data/) | Leer el análisis y recontar los Parquet; los títulos permiten repetir la lectura de muestra |
 | Cada fuente se lista por una vía que su `robots.txt` no excluye | [`docs/scrapping-webs.md`](docs/scrapping-webs.md) y [`scripts/`](scripts/) | Comparar la sección "Permisos" de cada fuente con su `robots.txt` |
 | Datos del evento y reglas confirmadas | [`CLAUDE.md`](CLAUDE.md) | Comparar con la [fuente oficial](https://cordobatechweek.com/side-events/hack-to-the-future/) y lo informado por la organización |
 
@@ -169,9 +169,9 @@ flowchart TB
 | Contexto y decisiones | **Documentado** |
 | Boceto de la arquitectura | **Digitalizado**, con dudas abiertas |
 | Relevamiento de fuentes | **Inicial:** falta revisar términos de uso y foros |
-| Medición del volumen | **Parcial:** conteo de menciones por fuente; falta medir utilidad y duplicados entre fuentes |
-| Scraping | **Casi completo:** scripts para 35 fuentes y 33 con Parquet. Futuro Sustentable no tiene datos; Cadena 3 quedó de lado por falta de volumen |
-| Dataset | **Descargado para residuos:** 47.944 notas únicas en 33 Parquet; falta filtrar y deduplicar |
+| Medición del volumen | **Parcial:** hay conteos por fuente y track; falta medir utilidad y duplicados entre fuentes |
+| Scraping | **Completo por ahora:** 33 fuentes con Parquet en residuos y 62 en soluciones. Infobae y Clarín bajaron solo lo prioritario. Futuro Sustentable no tiene datos; Cadena 3 quedó de lado por falta de volumen |
+| Dataset | **Descargado:** residuos con 47.944 notas en 33 Parquet y soluciones con 20.131 notas en 225 Parquet; falta filtrar y deduplicar |
 | Clasificación y segmentación | **No iniciado** |
 | Grafo y análisis | **No iniciado** |
 
@@ -198,15 +198,20 @@ python scripts/scrape_infobae.py --selfcheck
 
 ```text
 .
-├── data/                                            Notas descargadas por fuente, en Parquet
+├── data/
+│   ├── residuos/                                    Notas de residuos por fuente, en Parquet
+│   └── soluciones/                                  Soluciones por track y fuente; crudo/ queda fuera de Git
 ├── docs/
-│   ├── analisis-croma.md                            Qué es Croma y cómo podría ayudar
-│   ├── Fuentes para el dataset del pipeline.md      Fuentes posibles y su acceso
-│   ├── contexto-pipeline.md                         Objetivo, decisiones, hechos y dudas abiertas
+│   ├── analisis-datasets/
+│   │   ├── analisis-residuos-y-soluciones.md        Pros y contras de los dos datasets
+│   │   └── contexto-pipeline.md                     Objetivo, decisiones, hechos y dudas abiertas
+│   ├── analisis-fuentes/
+│   │   ├── Fuentes para el dataset del pipeline.md  Fuentes posibles y su acceso
+│   │   └── otras-random/                            Análisis de Croma y resumen de 16 publicaciones
 │   ├── pipeline-arquitectura.html                   Boceto digitalizado del pipeline
-│   ├── publicaciones-periodistas-ambientales.md     Resumen de 16 publicaciones
 │   └── scrapping-webs.md                            Cómo funciona cada script
-├── scripts/                                         Scraping por fuente y diccionario
+├── scripts/                                         Scraping por fuente
+│   └── diccionarios/                                Términos de residuos y de soluciones
 ├── CLAUDE.md                       Datos del evento e indicaciones para Claude
 └── README.md                       Presentación del proyecto
 ```
