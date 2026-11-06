@@ -67,7 +67,7 @@ Busca notas desde 2024 sobre productos, startups o proyectos tecnológicos aplic
 - **Fuentes:** las actuales más 29 nuevas de tecnología, agro, movilidad, biodiversidad y ambiente, para no sesgar la comparación hacia residuos.
 - **Salida:** un Parquet por track y fuente. Una nota puede estar en varios tracks, y las que no tienen track se descartan.
 - **Asignación de tracks:** por raíces en título o bajada. Con menciones en el cuerpo resultaba demasiado laxa.
-- **Resultado (6/11/2026):** 94.768 notas descargadas de 62 fuentes y 20.131 únicas con track desde 2024. Los pros y contras de ambos datasets están en [el análisis](analisis-residuos-y-soluciones.md).
+- **Resultado (6/11/2026):** 94.768 notas descargadas de 62 fuentes y 20.131 únicas con track desde 2024. Los pros y contras están en [el análisis de residuos](analisis-dataset-residuos.md) y en [el de soluciones](analisis-dataset-soluciones.md).
 
 ### Plan de scraping
 

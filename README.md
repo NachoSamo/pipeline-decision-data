@@ -44,7 +44,7 @@ Soluciones fallidas:  <planes o anuncios previos>
 
 > [!NOTE]
 > **Estado actual:** al 6/11/2026 hay 47.944 notas de residuos y 20.131 de soluciones tecnológicas en los
-> cuatro tracks. Sus pros y contras están en [el análisis](docs/analisis-datasets/analisis-residuos-y-soluciones.md). Falta medir cuántas son útiles y cuántas están
+> cuatro tracks. Sus pros y contras están en el [análisis de residuos](docs/analisis-datasets/analisis-dataset-residuos.md) y en el [análisis de soluciones](docs/analisis-datasets/analisis-dataset-soluciones.md). Falta medir cuántas son útiles y cuántas están
 > duplicadas entre fuentes. Todavía no hay clasificación ni análisis.
 
 ---
@@ -156,7 +156,7 @@ flowchart TB
 | Objetivo, decisiones y dudas abiertas | [`docs/analisis-datasets/contexto-pipeline.md`](docs/analisis-datasets/contexto-pipeline.md) | Leer las secciones de decisiones y "Falta aclarar" |
 | Diseño del pipeline | [`docs/pipeline-arquitectura.html`](docs/pipeline-arquitectura.html) | Abrir el boceto y la lista "Por definir" |
 | Hay 43 fuentes posibles, con su acceso revisado | [`docs/analisis-fuentes/Fuentes para el dataset del pipeline.md`](docs/analisis-fuentes/Fuentes%20para%20el%20dataset%20del%20pipeline.md) | Comparar cada fila con el `robots.txt` del medio |
-| Hay 47.944 notas de residuos y 20.131 de soluciones, con ruido sin filtrar | [`docs/analisis-datasets/analisis-residuos-y-soluciones.md`](docs/analisis-datasets/analisis-residuos-y-soluciones.md) y [`data/`](data/) | Leer el análisis y recontar los Parquet; los títulos permiten repetir la lectura de muestra |
+| Hay 47.944 notas de residuos y 20.131 de soluciones, con ruido sin filtrar | [`residuos`](docs/analisis-datasets/analisis-dataset-residuos.md) y [`soluciones`](docs/analisis-datasets/analisis-dataset-soluciones.md) y [`data/`](data/) | Leer el análisis y recontar los Parquet; los títulos permiten repetir la lectura de muestra |
 | Cada fuente se lista por una vía que su `robots.txt` no excluye | [`docs/scrapping-webs.md`](docs/scrapping-webs.md) y [`scripts/`](scripts/) | Comparar la sección "Permisos" de cada fuente con su `robots.txt` |
 | Datos del evento y reglas confirmadas | [`CLAUDE.md`](CLAUDE.md) | Comparar con la [fuente oficial](https://cordobatechweek.com/side-events/hack-to-the-future/) y lo informado por la organización |
 
@@ -203,7 +203,8 @@ python scripts/scrape_infobae.py --selfcheck
 │   └── soluciones/                                  Soluciones por track y fuente; crudo/ queda fuera de Git
 ├── docs/
 │   ├── analisis-datasets/
-│   │   ├── analisis-residuos-y-soluciones.md        Pros y contras de los dos datasets
+│   │   ├── analisis-dataset-residuos.md            Pros y contras del dataset de residuos
+│   │   ├── analisis-dataset-soluciones.md          Pros y contras del dataset de soluciones
 │   │   └── contexto-pipeline.md                     Objetivo, decisiones, hechos y dudas abiertas
 │   ├── analisis-fuentes/
 │   │   ├── Fuentes para el dataset del pipeline.md  Fuentes posibles y su acceso
