@@ -31,11 +31,54 @@ Según informó Ignacio el 4/11/2026:
 - Se puede llevar trabajo hecho a la hackathon.
 - Se pueden enviar textos de diarios a una API de IA. Esto no reemplaza revisar los términos de uso de cada medio.
 
+## Criterios de evaluación (confirmados)
+
+Según una placa oficial compartida el 6/11/2026:
+
+- **Jurado:** 12 personas, 3 por vertical. Evalúa el viernes 13/11.
+- **Escala:** cada criterio se puntúa de 1 a 5, con estos pesos:
+
+| Criterio | Peso |
+|---|---:|
+| Impacto social y ambiental | 25 % |
+| Innovación y originalidad | 20 % |
+| Factibilidad técnica y económica | 20 % |
+| Escalabilidad y sostenibilidad | 15 % |
+| Vínculo con el ecosistema | 10 % |
+| Pitch y equipo | 10 % |
+
+La placa lleva los logos de Global Gateway, "Financiado por la Unión Europea",
+Centro de Comercio Internacional (ITC) y Córdoba Cluster.
+
+## Facilitadores
+
+Según información del equipo, sin fuente pública: los facilitadores trabajan en
+ciencia política.
+
+## Quién está detrás y qué foco tiene
+
+- **Centro de Comercio Internacional (ITC):** agencia conjunta de la ONU y la OMC.
+  Se describe como la única agencia de desarrollo dedicada por completo a que las
+  pymes vendan al exterior.
+  - En Argentina tiene el hub SheTrades, para emprendedoras, con la Agencia de
+    Inversiones y Comercio Internacional (AAICI) hasta fines de 2026.
+  - Hace el Deforestation-Free Trade Gateway, una herramienta gratuita para la EUDR.
+- **Licitación del ITC (julio-agosto de 2026):** organización de una hackathon en
+  Argentina dentro del proyecto "Social Investment and Innovation (Social
+  Accelerator)".
+
+### Dónde podrían incidir más (inferencia, no confirmado)
+
+- **ITC:** su foco en pymes, comercio exterior e inclusión de jóvenes y mujeres
+  podría pesar en impacto, escalabilidad y vínculo con el ecosistema.
+- **Facilitadores de ciencia política:** podrían prestar atención a actores,
+  políticas públicas y gobernanza, sobre todo en impacto y vínculo con el
+  ecosistema.
+
 ## Datos no especificados por la organización
 
 Estos puntos figuran como abiertos en la información pública. No asumir respuestas:
 
-- Criterios de evaluación y peso de cada uno.
 - Reglas adicionales (hardware, cruce de temáticas, trabajo entre días).
 - Duración del pitch y horario efectivo del Demo Day.
 - Costos, transporte y alojamiento.
