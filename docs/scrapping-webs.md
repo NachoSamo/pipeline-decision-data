@@ -42,7 +42,7 @@ Los términos ya completos muestran "ya estaba descargado". Los scripts que esta
 
 ## Qué busca cada script
 
-Las palabras están en [`scripts/diccionarios/keywords_residuos.py`](../scripts/diccionarios/keywords_residuos.py) y [`keywords_soluciones.py`](../scripts/diccionarios/keywords_soluciones.py):
+Las palabras están en [`scripts/diccionarios/keywords_residuos.py`](../scripts/diccionarios/keywords_residuos.py) y [`keywords_soluciones.py`](../scripts/diccionarios/keywords_soluciones.py). Las de problemáticas están en [`keywords_biodiversidad.py`](../scripts/diccionarios/keywords_biodiversidad.py), [`keywords_movilidad.py`](../scripts/diccionarios/keywords_movilidad.py) y [`keywords_senales.py`](../scripts/diccionarios/keywords_senales.py) y se describen en [su sección](#dataset-de-problemáticas-biodiversidad-y-movilidad). Las de residuos son:
 
 - **`BUSQUEDAS_RESIDUOS`:** términos para buscadores.
 - **`CORE_KEYWORDS_RESIDUOS`:** expresiones regulares que marcan temas específicos.
@@ -214,6 +214,73 @@ Reutiliza estos scripts con otro diccionario, solo desde 2024. Lo activa [`scrip
 - **Límites:** Infobae y Clarín bajan solo las notas prioritarias. El tag `tecnologia` de Infobae tiene un tope de 10.000 notas y llega hasta febrero de 2025. "drones" y "sensores" traen mucho ruido en TN y El Doce.
 
 Los temporales de residuos se borraron: volver a correr un script de residuos empieza de cero y, al terminar, reescribe su Parquet.
+
+## Dataset de problemáticas (biodiversidad y movilidad)
+
+Reutiliza estos scripts para buscar problemas, no soluciones, en dos verticales. El porqué está en [`circuito-problematicas.md`](circuito-problematicas.md) y las cifras, en el [análisis de biodiversidad](analisis-datasets/analisis-dataset-biodiversidad.md). Los términos están en [`keywords_biodiversidad.py`](../scripts/diccionarios/keywords_biodiversidad.py), [`keywords_movilidad.py`](../scripts/diccionarios/keywords_movilidad.py) y [`keywords_senales.py`](../scripts/diccionarios/keywords_senales.py), que tiene las señales comunes.
+
+No usa la variable `DATASET`. Lo activan dos scripts propios, que aceptan `--vertical biodiversidad` (por defecto) o `--vertical movilidad`:
+
+- **[`scrape_problematicas.py`](../scripts/scrape_problematicas.py):** fuentes con API de WordPress. Llama a `scrape_wordpress.descargar` con otra carpeta y sin sufijo.
+- **[`scrape_diarios_problematicas.py`](../scripts/scrape_diarios_problematicas.py):** los 6 diarios. Antes de llamar a sus scripts, reemplaza en memoria el diccionario, las etiquetas y las rutas de residuos por los de la vertical, sin modificar esos archivos.
+
+Una terminal por fuente, y nunca la misma fuente en dos verticales a la vez, ni al mismo tiempo que una descarga de residuos o soluciones.
+
+| Fuente | Script | Vertical | Cómo lista | Pausa |
+|---|---|---|---|---|
+| Mongabay | `scrape_problematicas.py mongabay` | Biodiversidad | API de WordPress, desde 2021 | 10 s |
+| Mongabay en inglés | `scrape_problematicas.py mongabayen` | Biodiversidad | API de WordPress, desde 2021 | 10 s |
+| Grist, Ecoticias, CicloVivo, Visión Sustentable y Ecomundo | `scrape_problematicas.py <fuente>` | Las dos | API de WordPress, desde 2021 | 4 s |
+| El Doce | `scrape_diarios_problematicas.py eldoce` | Las dos | API del buscador | 4 s |
+| TN | `scrape_diarios_problematicas.py tn` | Las dos | API del buscador | 4 s |
+| Infobae | `scrape_diarios_problematicas.py infobae` | Biodiversidad | API de tags, solo prioritarias | 2 s por nota, 4 s en el listado |
+| Clarín | `scrape_diarios_problematicas.py clarin` | Las dos | Páginas de tags, solo prioritarias | 2 s por nota, 4 s en el listado |
+| La Nación | `scrape_diarios_problematicas.py lanacion` | Las dos | Sitemap histórico, por `RAICES_<VERTICAL>` | 2 s |
+| CBA24N | `scrape_diarios_problematicas.py cba24n` | Las dos | Sitemaps mensuales, por `RAICES_<VERTICAL>` | 20 s |
+
+Cómo correrlo:
+
+```bash
+python scripts/scrape_problematicas.py --selfcheck
+python scripts/scrape_problematicas.py --listar --vertical movilidad
+python scripts/scrape_problematicas.py mongabay
+python scripts/scrape_problematicas.py grist --vertical movilidad
+python scripts/scrape_diarios_problematicas.py --selfcheck
+python scripts/scrape_diarios_problematicas.py clarin --limite 5
+python scripts/scrape_diarios_problematicas.py tn --vertical movilidad
+```
+
+### Qué busca
+
+- **`BUSQUEDAS_<VERTICAL>`, `BUSQUEDAS_INGLES_<VERTICAL>` y `BUSQUEDAS_PORTUGUES_<VERTICAL>`:** términos del tema, por idioma de la fuente.
+- **`RAICES_<VERTICAL>`:** raíces sin tildes, en español, para filtrar URLs de sitemaps y medir el ruido en el progreso.
+- **`TAGS_INFOBAE_*_<VERTICAL>` y `TAGS_CLARIN_*_<VERTICAL>`:** etiquetas probadas el 5/11 y el 6/11/2026. De las amplias solo se bajan notas con el tema en título o bajada.
+- **`SENALES_PROBLEMA` y `SENALES_OPINION`:** palabras en español, inglés y portugués que marcan cada nota. No filtran.
+
+### Qué guarda
+
+Cada fuente deja sus archivos en `data/biodiversidad/` o `data/movilidad/`, sin sufijo: `<fuente>.parquet`, y fuera de Git `<fuente>.jsonl`, `<fuente>.listado.jsonl` y `<fuente>.progreso.json`. Los mismos campos que en residuos, más estos:
+
+| Columna | Qué indica |
+|---|---|
+| `vertical` | `biodiversidad` o `movilidad` |
+| `tipo_voz` | `diario`, `medio_especializado` u `opinion`. Es `opinion` si la sección o las etiquetas lo indican |
+| `senal_problema` | Señales de problema encontradas en el texto, vacía si no hay |
+| `senal_opinion` | Señales de opinión o voz especializada encontradas, vacía si no hay |
+
+Las señales se buscan como palabra completa, con hasta 3 letras de más para plurales y femeninos. Así "ong" no coincide con "ongoing". `keywords_core` usa las expresiones de residuos y no sirve en este dataset.
+
+### Diferencias con residuos
+
+- **El Doce:** el buscador falla en páginas profundas (502 en la 111 de "colectivos", 504 en la 81 de "veredas"). Pasada la página 20, un error del servidor da el término por terminado. Un 403 o 429 corta siempre.
+- **TN:** el buscador responde 400 desde la página 501, como en "trenes". Se trata igual que en El Doce. Como en residuos, TN deja un término tras 10 páginas seguidas sin notas que mencionen el tema; acá se mide con `RAICES_<VERTICAL>`.
+- **Clarín, Infobae y CBA24N:** se saltea una nota solo si redirige en círculo. Cualquier otra falla sigue cortando.
+- **CBA24N:** usa 20 segundos de pausa, porque respondió 429 con 12 segundos en movilidad.
+- **Infobae en movilidad:** no se corrió (decisión del 6/11). Sus etiquetas de movilidad son muy amplias y tardaría más de 8 horas.
+- **CBA24N en movilidad:** baja solo las 1.083 notas con raíces específicas. La lista completa quedó en `cba24n.listado.completo.jsonl`, fuera de Git.
+- **Para sumar términos:** se vuelve a correr la fuente y solo busca los nuevos. En La Nación y CBA24N hay que borrar `<fuente>.listado.jsonl` para que vuelva a listar con las raíces nuevas.
+
+Los permisos de cada fuente son los mismos que en residuos, descritos arriba.
 
 ## Pendiente de revisar
 

@@ -61,7 +61,7 @@ Para el dataset de residuos, ver [el análisis de residuos](analisis-dataset-res
 
 ## Limitaciones de usarlos juntos
 
-- **El contraste completo hoy solo se puede hacer en residuos:** agro, movilidad y biodiversidad tienen notas de soluciones, pero no un dataset de problemas equivalente.
+- **El contraste completo hoy solo se puede hacer en residuos:** agro, movilidad y biodiversidad tienen notas de soluciones, pero no un dataset de problemas equivalente. Desde el 6/11 hay uno de [biodiversidad](analisis-dataset-biodiversidad.md), armado con otro criterio (señales de problema) y sin fecha mínima en los diarios.
 - **Se pisan:** 4.878 de las 7.002 filas del track de residuos también están en el dataset de residuos. Una misma nota no debería contarse como evidencia independiente en los dos lados.
 - **Comparten sesgos:** muchas fuentes son las mismas, con los mismos intereses editoriales.
 - **Comparten período solo desde 2024:** antes de ese año no hay soluciones para comparar.

@@ -54,10 +54,19 @@ def pedir(sesion, url, parametros, pausa, intentos=3):
     raise SystemExit(f"Fallaron {intentos} intentos en {url}; el avance quedó guardado.")
 
 
-def descargar(clave, nombre, base, consultas, pausa=PAUSA, raices=RAICES, diccionario=BUSQUEDAS):
-    DATA.mkdir(exist_ok=True)
-    crudo = DATA / f"{clave}_{NOMBRE}.jsonl"
-    progreso_ruta = DATA / f"{clave}_{NOMBRE}.progreso.json"
+def descargar(
+    clave, nombre, base, consultas, pausa=PAUSA, raices=RAICES, diccionario=BUSQUEDAS,
+    carpeta=None, sufijo=None, al_terminar=None,
+):
+    """carpeta y sufijo permiten guardar en otro lugar, como data/biodiversidad/ o data/movilidad/.
+
+    al_terminar recibe el DataFrame consolidado y devuelve otro, antes de guardar el Parquet.
+    """
+    carpeta = carpeta or DATA
+    sufijo = f"_{NOMBRE}" if sufijo is None else sufijo
+    carpeta.mkdir(parents=True, exist_ok=True)
+    crudo = carpeta / f"{clave}{sufijo}.jsonl"
+    progreso_ruta = carpeta / f"{clave}{sufijo}.progreso.json"
     progreso = json.loads(progreso_ruta.read_text(encoding="utf-8")) if progreso_ruta.exists() else {}
     sesion = requests.Session()
     sesion.headers["User-Agent"] = "pipeline-decision-data/0.1"
@@ -85,7 +94,12 @@ def descargar(clave, nombre, base, consultas, pausa=PAUSA, raices=RAICES, diccio
             progreso_ruta.write_text(json.dumps(progreso, ensure_ascii=False), encoding="utf-8")
             time.sleep(pausa)
     if crudo.exists():
-        resumir(consolidar(crudo, DATA / f"{clave}_{NOMBRE}.parquet", diccionario))
+        salida = carpeta / f"{clave}{sufijo}.parquet"
+        notas = consolidar(crudo, salida, diccionario)
+        if al_terminar:
+            notas = al_terminar(notas)
+            notas.to_parquet(salida, index=False)
+        resumir(notas)
     else:
         print("No se encontraron notas.")
 

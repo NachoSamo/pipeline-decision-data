@@ -43,8 +43,8 @@ Soluciones fallidas:  <planes o anuncios previos>
 > que un problema importe. Las noticias muestran lo que se publica, no todo lo que pasa.
 
 > [!NOTE]
-> **Estado actual:** al 6/11/2026 hay 47.944 notas de residuos y 20.131 de soluciones tecnológicas en los
-> cuatro tracks. Sus pros y contras están en el [análisis de residuos](docs/analisis-datasets/analisis-dataset-residuos.md) y en el [análisis de soluciones](docs/analisis-datasets/analisis-dataset-soluciones.md). Falta medir cuántas son útiles y cuántas están
+> **Estado actual:** al 6/11/2026 hay 47.944 notas de residuos, 20.131 de soluciones tecnológicas en los
+> cuatro tracks, y 35.951 de problemáticas de biodiversidad. Sus pros y contras están en el [análisis de residuos](docs/analisis-datasets/analisis-dataset-residuos.md), el [de soluciones](docs/analisis-datasets/analisis-dataset-soluciones.md) y el [de biodiversidad](docs/analisis-datasets/analisis-dataset-biodiversidad.md). Falta medir cuántas son útiles y cuántas están
 > duplicadas entre fuentes. Todavía no hay clasificación ni análisis.
 
 ---
@@ -172,6 +172,7 @@ flowchart TB
 | Medición del volumen | **Parcial:** hay conteos por fuente y track; falta medir utilidad y duplicados entre fuentes |
 | Scraping | **Completo por ahora:** 33 fuentes con Parquet en residuos y 62 en soluciones. Infobae y Clarín bajaron solo lo prioritario. Futuro Sustentable no tiene datos; Cadena 3 quedó de lado por falta de volumen |
 | Dataset | **Descargado:** residuos con 47.944 notas en 33 Parquet y soluciones con 20.131 notas en 225 Parquet; falta filtrar y deduplicar |
+| Problemáticas de biodiversidad | **Descargado:** 35.951 notas en 13 Parquet, con señales de problema y de opinión. Movilidad está en curso. El circuito está en [`docs/circuito-problematicas.md`](docs/circuito-problematicas.md) |
 | Clasificación y segmentación | **No iniciado** |
 | Grafo y análisis | **No iniciado** |
 
@@ -199,20 +200,23 @@ python scripts/scrape_infobae.py --selfcheck
 ```text
 .
 ├── data/
+│   ├── biodiversidad/                               Problemas de biodiversidad por fuente, en Parquet
 │   ├── residuos/                                    Notas de residuos por fuente, en Parquet
 │   └── soluciones/                                  Soluciones por track y fuente; crudo/ queda fuera de Git
 ├── docs/
 │   ├── analisis-datasets/
+│   │   ├── analisis-dataset-biodiversidad.md       Pros y contras de las problemáticas de biodiversidad
 │   │   ├── analisis-dataset-residuos.md            Pros y contras del dataset de residuos
 │   │   ├── analisis-dataset-soluciones.md          Pros y contras del dataset de soluciones
 │   │   └── contexto-pipeline.md                     Objetivo, decisiones, hechos y dudas abiertas
 │   ├── analisis-fuentes/
 │   │   ├── Fuentes para el dataset del pipeline.md  Fuentes posibles y su acceso
 │   │   └── otras-random/                            Análisis de Croma y resumen de 16 publicaciones
+│   ├── circuito-problematicas.md                    Circuito y decisiones del scraping de problemáticas
 │   ├── pipeline-arquitectura.html                   Boceto digitalizado del pipeline
 │   └── scrapping-webs.md                            Cómo funciona cada script
 ├── scripts/                                         Scraping por fuente
-│   └── diccionarios/                                Términos de residuos y de soluciones
+│   └── diccionarios/                                Términos de residuos, soluciones, biodiversidad y movilidad
 ├── CLAUDE.md                       Datos del evento e indicaciones para Claude
 └── README.md                       Presentación del proyecto
 ```
