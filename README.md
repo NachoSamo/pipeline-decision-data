@@ -44,7 +44,7 @@ Soluciones fallidas:  <planes o anuncios previos>
 
 > [!NOTE]
 > **Estado actual:** al 6/11/2026 hay 47.944 notas de residuos, 20.131 de soluciones tecnológicas en los
-> cuatro tracks, y 35.951 de problemáticas de biodiversidad. Sus pros y contras están en el [análisis de residuos](docs/analisis-datasets/analisis-dataset-residuos.md), el [de soluciones](docs/analisis-datasets/analisis-dataset-soluciones.md) y el [de biodiversidad](docs/analisis-datasets/analisis-dataset-biodiversidad.md). Falta medir cuántas son útiles y cuántas están
+> cuatro tracks, 35.951 de problemáticas de biodiversidad y 67.399 de problemáticas de movilidad. Sus pros y contras están en el [análisis de residuos](docs/analisis-datasets/analisis-dataset-residuos.md), el [de soluciones](docs/analisis-datasets/analisis-dataset-soluciones.md), el [de biodiversidad](docs/analisis-datasets/analisis-dataset-biodiversidad.md) y el [de movilidad](docs/analisis-datasets/analisis-dataset-movilidad.md). Falta medir cuántas son útiles y cuántas están
 > duplicadas entre fuentes. Todavía no hay clasificación ni análisis.
 
 ---
@@ -172,7 +172,7 @@ flowchart TB
 | Medición del volumen | **Parcial:** hay conteos por fuente y track; falta medir utilidad y duplicados entre fuentes |
 | Scraping | **Completo por ahora:** 33 fuentes con Parquet en residuos y 62 en soluciones. Infobae y Clarín bajaron solo lo prioritario. Futuro Sustentable no tiene datos; Cadena 3 quedó de lado por falta de volumen |
 | Dataset | **Descargado:** residuos con 47.944 notas en 33 Parquet y soluciones con 20.131 notas en 225 Parquet; falta filtrar y deduplicar |
-| Problemáticas de biodiversidad | **Descargado:** 35.951 notas en 13 Parquet, con señales de problema y de opinión. Movilidad está en curso. El circuito está en [`docs/circuito-problematicas.md`](docs/circuito-problematicas.md) |
+| Problemáticas de biodiversidad y movilidad | **Descargado:** biodiversidad con 35.951 notas en 13 Parquet y movilidad con 67.399 en 10, con señales de problema y de opinión. El circuito está en [`docs/circuito-problematicas.md`](docs/circuito-problematicas.md) |
 | Clasificación y segmentación | **No iniciado** |
 | Grafo y análisis | **No iniciado** |
 
@@ -201,11 +201,13 @@ python scripts/scrape_infobae.py --selfcheck
 .
 ├── data/
 │   ├── biodiversidad/                               Problemas de biodiversidad por fuente, en Parquet
+│   ├── movilidad/                                   Problemas de movilidad sustentable por fuente, en Parquet
 │   ├── residuos/                                    Notas de residuos por fuente, en Parquet
 │   └── soluciones/                                  Soluciones por track y fuente; crudo/ queda fuera de Git
 ├── docs/
 │   ├── analisis-datasets/
 │   │   ├── analisis-dataset-biodiversidad.md       Pros y contras de las problemáticas de biodiversidad
+│   │   ├── analisis-dataset-movilidad.md           Pros y contras de las problemáticas de movilidad
 │   │   ├── analisis-dataset-residuos.md            Pros y contras del dataset de residuos
 │   │   ├── analisis-dataset-soluciones.md          Pros y contras del dataset de soluciones
 │   │   └── contexto-pipeline.md                     Objetivo, decisiones, hechos y dudas abiertas

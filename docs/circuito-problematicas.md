@@ -213,6 +213,7 @@ las mismas que en biodiversidad.
 - CBA24N movilidad baja solo las 1.083 notas con raíces específicas. Se sacaron las que solo tenían
   "transporte", "colectivo", "tránsito", "boleto", "congestión" o "calidad del aire"; la lista completa
   quedó en `cba24n.listado.completo.jsonl`. Pausa de 20 s porque el sitio respondió 429 con 12 s.
+  Con 20 s volvió a responder 429, así que se paró en 731 notas (6/11).
 - Límites de los buscadores: El Doce falla en páginas profundas (desde la 81 o la 111) y TN no pasa de
   la página 500. Pasada la página 20, un error del servidor da el término por terminado.
 

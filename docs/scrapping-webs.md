@@ -277,7 +277,7 @@ Las señales se buscan como palabra completa, con hasta 3 letras de más para pl
 - **Clarín, Infobae y CBA24N:** se saltea una nota solo si redirige en círculo. Cualquier otra falla sigue cortando.
 - **CBA24N:** usa 20 segundos de pausa, porque respondió 429 con 12 segundos en movilidad.
 - **Infobae en movilidad:** no se corrió (decisión del 6/11). Sus etiquetas de movilidad son muy amplias y tardaría más de 8 horas.
-- **CBA24N en movilidad:** baja solo las 1.083 notas con raíces específicas. La lista completa quedó en `cba24n.listado.completo.jsonl`, fuera de Git.
+- **CBA24N en movilidad:** lista solo las 1.083 notas con raíces específicas. La lista completa quedó en `cba24n.listado.completo.jsonl`, fuera de Git. Se bajaron 731: el sitio respondió 429 dos veces, también con 20 segundos, y se decidió parar el 6/11. Se puede retomar volviendo a correr el mismo comando.
 - **Para sumar términos:** se vuelve a correr la fuente y solo busca los nuevos. En La Nación y CBA24N hay que borrar `<fuente>.listado.jsonl` para que vuelva a listar con las raíces nuevas.
 
 Los permisos de cada fuente son los mismos que en residuos, descritos arriba.
