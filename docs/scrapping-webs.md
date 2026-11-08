@@ -79,6 +79,8 @@ Columnas del Parquet:
 
 Para descartar ruido, conviene filtrar por `diccionario_en_texto`. Solo busca frases exactas sin distinguir tildes: "residuos" no encuentra "residuo".
 
+Estos son los Parquet por fuente que deja cada descarga. Desde el 8/11/2026 se consolidan en un archivo por dataset, con otro esquema: ver [Limpieza y consolidación](#limpieza-y-consolidación).
+
 ## Por fuente
 
 ### El Doce
@@ -210,7 +212,7 @@ Reutiliza estos scripts con otro diccionario, solo desde 2024. Lo activa [`scrip
 - **Todas las fuentes en paralelo:** `python scripts/soluciones.py todas`. Deja un log por fuente en `data/soluciones/crudo/logs/`.
 - **Una fuente:** `python scripts/soluciones.py tn`.
 - **Fallos:** relanza una fuente solo si falló la red, y nunca insiste ante un 403 o 429.
-- **Separar:** `python scripts/separar_por_track.py` escribe `data/soluciones/<track>/<fuente>.parquet`. Asigna tracks por raíces en título o bajada, deja afuera lo anterior a 2024 y descarta las notas sin track.
+- **Separar:** `python scripts/separar_por_track.py` escribe `data/soluciones/<track>/<fuente>.parquet`. Asigna tracks por raíces en título o bajada, deja afuera lo anterior a 2024 y descarta las notas sin track. Después, `limpiar.py` une esas carpetas en `data/soluciones.parquet`.
 - **Límites:** Infobae y Clarín bajan solo las notas prioritarias. El tag `tecnologia` de Infobae tiene un tope de 10.000 notas y llega hasta febrero de 2025. "drones" y "sensores" traen mucho ruido en TN y El Doce.
 
 Los temporales de residuos se borraron: volver a correr un script de residuos empieza de cero y, al terminar, reescribe su Parquet.
@@ -270,6 +272,8 @@ Cada fuente deja sus archivos en `data/biodiversidad/` o `data/movilidad/`, sin 
 
 Las señales se buscan como palabra completa, con hasta 3 letras de más para plurales y femeninos. Así "ong" no coincide con "ongoing". `keywords_core` usa las expresiones de residuos y no sirve en este dataset.
 
+La limpieza del 8/11/2026 elimina `senal_problema` y `senal_opinion`, y reemplaza `vertical` por `tracks` en el archivo consolidado.
+
 ### Diferencias con residuos
 
 - **El Doce:** el buscador falla en páginas profundas (502 en la 111 de "colectivos", 504 en la 81 de "veredas"). Pasada la página 20, un error del servidor da el término por terminado. Un 403 o 429 corta siempre.
@@ -281,6 +285,21 @@ Las señales se buscan como palabra completa, con hasta 3 letras de más para pl
 - **Para sumar términos:** se vuelve a correr la fuente y solo busca los nuevos. En La Nación y CBA24N hay que borrar `<fuente>.listado.jsonl` para que vuelva a listar con las raíces nuevas.
 
 Los permisos de cada fuente son los mismos que en residuos, descritos arriba.
+
+## Limpieza y consolidación
+
+[`scripts/limpiar.py`](../scripts/limpiar.py) une los Parquet por fuente en `data/biodiversidad.parquet`, `data/movilidad.parquet`, `data/residuos.parquet` y `data/soluciones.parquet`, con el mismo esquema. Recorta el pie de suscripción, descarta notas sin cuerpo, sin fecha, de título corto o seriado, deduplica por `id`, título normalizado y cuerpo, y después borra los Parquet por fuente. Los criterios y las cifras están en [`contexto-pipeline.md`](analisis-datasets/contexto-pipeline.md#limpieza-y-consolidación-8112026).
+
+```bash
+python scripts/limpiar.py --selfcheck
+python scripts/limpiar.py --simular
+python scripts/limpiar.py
+```
+
+- **`--simular`:** muestra cuántas notas saldrían por cada motivo, sin escribir ni borrar nada.
+- **Guarda con zstd nivel 19:** tarda unos minutos, pero deja cada archivo debajo de los 100 MB que acepta GitHub.
+- **Frena si faltan Parquet por fuente:** así una segunda corrida no pisa los archivos consolidados.
+- **Antes de retomar una descarga:** las carpetas por fuente ya no tienen los Parquet anteriores. Hay que recuperarlos de Git (commit `afe111c`), descargar y volver a correr `limpiar.py`. En soluciones, después de `separar_por_track.py`.
 
 ## Pendiente de revisar
 

@@ -244,7 +244,7 @@ a {
       <li>Sección</li>
       <li>Tags</li>
     </ul>
-    <p>Un archivo Parquet por fuente, con la marca de qué términos aparecen en cada nota.</p>
+    <p>Un archivo Parquet por dataset (biodiversidad, movilidad, residuos y soluciones), con el mismo esquema y la marca de qué términos aparecen en cada nota.</p>
     <p class="nota">Objetivo ≈ 10.000 notas por track. Todavía no está comprobado.</p>
   </article>
   <span class="flecha" aria-hidden="true"></span>
@@ -254,7 +254,7 @@ a {
     <h2>4. Filtro y limpieza</h2>
     <ul>
       <li>Quedarse con las notas que mencionan el diccionario del track.</li>
-      <li>Quitar notas duplicadas o replicadas.</li>
+      <li>Quitar notas duplicadas o replicadas. Hecho el 8/11 dentro de cada dataset, con <code>limpiar.py</code>.</li>
     </ul>
     <p class="nota">¿Muestra de control de unas 100 notas?</p>
   </article>
@@ -368,13 +368,13 @@ a {
   <h3>Dataset</h3>
   <ul>
     <li>¿Qué se hace si un track no llega a 10.000 notas?</li>
-    <li>¿Se descartan las notas sin cuerpo, como los videos?</li>
+    <li>¿Se descartan las notas sin cuerpo, como los videos? Sí, desde el 8/11.</li>
   </ul>
 
   <h3>Filtro y limpieza</h3>
   <ul>
     <li>¿Hace falta una muestra de control o alcanza con el filtro automático?</li>
-    <li>¿Cómo se detectan notas duplicadas o replicadas?</li>
+    <li>¿Cómo se detectan notas reescritas o traducidas? Las copias exactas por título o cuerpo ya se quitan.</li>
   </ul>
 
   <h3>Clasificar / Segmentar</h3>

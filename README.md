@@ -6,10 +6,10 @@
 
 Pipeline de análisis de problemáticas · Hack to the Future · Córdoba Tech Week 2026
 
-[![Estado](https://img.shields.io/badge/Estado-Datasets%20descargados-111111?style=for-the-badge)](#estado-del-repositorio)
-[![Código](https://img.shields.io/badge/C%C3%B3digo-Scraping-111111?style=for-the-badge)](docs/scrapping-webs.md)
-[![Track](https://img.shields.io/badge/Primer%20track-Residuos-111111?style=for-the-badge)](#alcance-objetivo)
-[![Arquitectura](https://img.shields.io/badge/Arquitectura-Boceto-5964F2?style=for-the-badge)](docs/pipeline-arquitectura.html)
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![pandas](https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+[![PyArrow](https://img.shields.io/badge/PyArrow-Parquet-111111?style=for-the-badge&logo=apache&logoColor=white)](https://arrow.apache.org/docs/python/)
+[![Requests](https://img.shields.io/badge/Requests-111111?style=for-the-badge&logo=python&logoColor=white)](https://requests.readthedocs.io/)
 
 **Ignacio, Lauti y Diego**
 
@@ -43,9 +43,12 @@ Soluciones fallidas:  <planes o anuncios previos>
 > que un problema importe. Las noticias muestran lo que se publica, no todo lo que pasa.
 
 > [!NOTE]
-> **Estado actual:** al 6/11/2026 hay 47.944 notas de residuos, 20.131 de soluciones tecnológicas en los
-> cuatro tracks, 35.951 de problemáticas de biodiversidad y 67.399 de problemáticas de movilidad. Sus pros y contras están en el [análisis de residuos](docs/analisis-datasets/analisis-dataset-residuos.md), el [de soluciones](docs/analisis-datasets/analisis-dataset-soluciones.md), el [de biodiversidad](docs/analisis-datasets/analisis-dataset-biodiversidad.md) y el [de movilidad](docs/analisis-datasets/analisis-dataset-movilidad.md). Falta medir cuántas son útiles y cuántas están
-> duplicadas entre fuentes. Todavía no hay clasificación ni análisis.
+> **Estado actual:** al 8/11/2026 los datasets están descargados, limpios y deduplicados, en un Parquet por
+> dataset: 40.232 notas de residuos, 33.620 de problemáticas de biodiversidad, 53.029 de problemáticas de
+> movilidad y 19.817 de soluciones tecnológicas en los cuatro tracks. Sus pros y contras están en el
+> [análisis de residuos](docs/analisis-datasets/analisis-dataset-residuos.md), el [de soluciones](docs/analisis-datasets/analisis-dataset-soluciones.md),
+> el [de biodiversidad](docs/analisis-datasets/analisis-dataset-biodiversidad.md) y el [de movilidad](docs/analisis-datasets/analisis-dataset-movilidad.md).
+> Falta medir cuántas notas son útiles. Todavía no hay clasificación ni análisis.
 
 ---
 
@@ -103,17 +106,18 @@ Si no llegamos a procesar los otros tres tracks, el análisis de residuos sigue 
 
 ## Arquitectura objetivo
 
-Hoy solo están construidas las etapas de fuentes, scraping y dataset, para residuos y soluciones. El resto es el
-diseño acordado; las dudas abiertas están en [`docs/pipeline-arquitectura.html`](docs/pipeline-arquitectura.html).
+Hoy están construidas las etapas de fuentes, scraping, dataset y limpieza, para residuos, biodiversidad,
+movilidad y soluciones. Falta el filtro por utilidad. El resto es el diseño acordado; las dudas abiertas están en
+[`docs/pipeline-arquitectura.html`](docs/pipeline-arquitectura.html).
 
 ```mermaid
 flowchart TB
     subgraph Datos["1 · Datos"]
-        A["33 fuentes en residuos y<br/>62 en soluciones"] --> B["Scraping por fuente"] --> C["Dataset en Parquet"]
+        A["Fuentes por dataset:<br/>33 en residuos, 13 en biodiversidad,<br/>10 en movilidad y 62 en soluciones"] --> B["Scraping por fuente"] --> C["Un Parquet por dataset,<br/>limpio y con el mismo esquema"]
     end
 
     subgraph Preparacion["2 · Preparación"]
-        D["Filtro y limpieza"] --> E["Clasificar: problema,<br/>solución, ambas u otra"]
+        D["Filtro por utilidad"] --> E["Clasificar: problema,<br/>solución, ambas u otra"]
     end
 
     subgraph Analisis["3 · Análisis"]
@@ -156,7 +160,8 @@ flowchart TB
 | Objetivo, decisiones y dudas abiertas | [`docs/analisis-datasets/contexto-pipeline.md`](docs/analisis-datasets/contexto-pipeline.md) | Leer las secciones de decisiones y "Falta aclarar" |
 | Diseño del pipeline | [`docs/pipeline-arquitectura.html`](docs/pipeline-arquitectura.html) | Abrir el boceto y la lista "Por definir" |
 | Hay 43 fuentes posibles, con su acceso revisado | [`docs/analisis-fuentes/Fuentes para el dataset del pipeline.md`](docs/analisis-fuentes/Fuentes%20para%20el%20dataset%20del%20pipeline.md) | Comparar cada fila con el `robots.txt` del medio |
-| Hay 47.944 notas de residuos y 20.131 de soluciones, con ruido sin filtrar | [`residuos`](docs/analisis-datasets/analisis-dataset-residuos.md) y [`soluciones`](docs/analisis-datasets/analisis-dataset-soluciones.md) y [`data/`](data/) | Leer el análisis y recontar los Parquet; los títulos permiten repetir la lectura de muestra |
+| Hay 4 datasets limpios y deduplicados, con ruido de tema sin filtrar | Análisis de [residuos](docs/analisis-datasets/analisis-dataset-residuos.md), [biodiversidad](docs/analisis-datasets/analisis-dataset-biodiversidad.md), [movilidad](docs/analisis-datasets/analisis-dataset-movilidad.md) y [soluciones](docs/analisis-datasets/analisis-dataset-soluciones.md), y [`data/`](data/) | Leer el análisis y recontar los Parquet; los títulos permiten repetir la lectura de muestra |
+| Cómo se limpió y qué se descartó | [`contexto-pipeline.md`](docs/analisis-datasets/contexto-pipeline.md#limpieza-y-consolidación-8112026) y [`scripts/limpiar.py`](scripts/limpiar.py) | Correr `python scripts/limpiar.py --selfcheck` y leer la tabla de descartes |
 | Cada fuente se lista por una vía que su `robots.txt` no excluye | [`docs/scrapping-webs.md`](docs/scrapping-webs.md) y [`scripts/`](scripts/) | Comparar la sección "Permisos" de cada fuente con su `robots.txt` |
 | Datos del evento y reglas confirmadas | [`CLAUDE.md`](CLAUDE.md) | Comparar con la [fuente oficial](https://cordobatechweek.com/side-events/hack-to-the-future/) y lo informado por la organización |
 
@@ -169,10 +174,10 @@ flowchart TB
 | Contexto y decisiones | **Documentado** |
 | Boceto de la arquitectura | **Digitalizado**, con dudas abiertas |
 | Relevamiento de fuentes | **Inicial:** falta revisar términos de uso y foros |
-| Medición del volumen | **Parcial:** hay conteos por fuente y track; falta medir utilidad y duplicados entre fuentes |
-| Scraping | **Completo por ahora:** 33 fuentes con Parquet en residuos y 62 en soluciones. Infobae y Clarín bajaron solo lo prioritario. Futuro Sustentable no tiene datos; Cadena 3 quedó de lado por falta de volumen |
-| Dataset | **Descargado:** residuos con 47.944 notas en 33 Parquet y soluciones con 20.131 notas en 225 Parquet; falta filtrar y deduplicar |
-| Problemáticas de biodiversidad y movilidad | **Descargado:** biodiversidad con 35.951 notas en 13 Parquet y movilidad con 67.399 en 10, con señales de problema y de opinión. El circuito está en [`docs/circuito-problematicas.md`](docs/circuito-problematicas.md) |
+| Medición del volumen | **Parcial:** hay conteos por fuente y track; falta medir utilidad y notas reescritas entre medios |
+| Scraping | **Completo por ahora:** 33 fuentes en residuos, 13 en biodiversidad, 10 en movilidad y 62 en soluciones. Infobae y Clarín bajaron solo lo prioritario. Futuro Sustentable no tiene datos; Cadena 3 quedó de lado por falta de volumen |
+| Dataset | **Limpio y consolidado (8/11):** un Parquet por dataset, con el mismo esquema: residuos 40.232 notas, biodiversidad 33.620, movilidad 53.029 y soluciones 19.817 con su columna `tracks`. Falta filtrar por utilidad |
+| Limpieza | **Hecha:** [`limpiar.py`](scripts/limpiar.py) quitó pies de suscripción, notas sin cuerpo, títulos seriados y duplicados por `id`, título y cuerpo. Se eliminaron las señales de problema y de opinión, poco precisas. El circuito de problemáticas está en [`docs/circuito-problematicas.md`](docs/circuito-problematicas.md) |
 | Clasificación y segmentación | **No iniciado** |
 | Grafo y análisis | **No iniciado** |
 
@@ -193,6 +198,21 @@ Para verificar el código sin descargar nada:
 python scripts/scrape_infobae.py --selfcheck
 ```
 
+Para limpiar y consolidar después de una descarga (los Parquet por fuente tienen que estar en `data/`):
+
+```bash
+python scripts/limpiar.py --simular
+python scripts/limpiar.py
+```
+
+Para leer un dataset:
+
+```python
+import pandas as pd
+notas = pd.read_parquet("data/soluciones.parquet")
+notas[notas["tracks"].map(lambda t: "agro" in t)]
+```
+
 ---
 
 ## Mapa del repositorio
@@ -200,10 +220,11 @@ python scripts/scrape_infobae.py --selfcheck
 ```text
 .
 ├── data/
-│   ├── biodiversidad/                               Problemas de biodiversidad por fuente, en Parquet
-│   ├── movilidad/                                   Problemas de movilidad sustentable por fuente, en Parquet
-│   ├── residuos/                                    Notas de residuos por fuente, en Parquet
-│   └── soluciones/                                  Soluciones por track y fuente; crudo/ queda fuera de Git
+│   ├── biodiversidad.parquet                        Problemas de biodiversidad, limpios
+│   ├── movilidad.parquet                            Problemas de movilidad sustentable, limpios
+│   ├── residuos.parquet                             Notas de residuos, limpias
+│   ├── soluciones.parquet                           Soluciones de los cuatro tracks, con la columna tracks
+│   └── soluciones/crudo/                            Descarga cruda de soluciones, fuera de Git
 ├── docs/
 │   ├── analisis-datasets/
 │   │   ├── analisis-dataset-biodiversidad.md       Pros y contras de las problemáticas de biodiversidad
@@ -217,7 +238,7 @@ python scripts/scrape_infobae.py --selfcheck
 │   ├── circuito-problematicas.md                    Circuito y decisiones del scraping de problemáticas
 │   ├── pipeline-arquitectura.html                   Boceto digitalizado del pipeline
 │   └── scrapping-webs.md                            Cómo funciona cada script
-├── scripts/                                         Scraping por fuente
+├── scripts/                                         Scraping por fuente y limpieza (limpiar.py)
 │   └── diccionarios/                                Términos de residuos, soluciones, biodiversidad y movilidad
 ├── CLAUDE.md                       Datos del evento e indicaciones para Claude
 └── README.md                       Presentación del proyecto

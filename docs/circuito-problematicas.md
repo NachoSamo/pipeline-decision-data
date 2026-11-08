@@ -149,6 +149,12 @@ descargado sin volver a bajar nada.
 Carpeta de salida: `data/<vertical>/<fuente>.parquet`, por ejemplo `data/biodiversidad/tn.parquet`. Los Parquet de residuos que ya
 están en `data/residuos/` no se tocan.
 
+> [!NOTE]
+> **Limpieza (8/11/2026):** [`limpiar.py`](../scripts/limpiar.py) consolidó esos Parquet en `data/biodiversidad.parquet` y
+> `data/movilidad.parquet`. Se eliminaron `senal_problema` y `senal_opinion`, porque marcaban casi todas las notas con
+> palabras genéricas, y `vertical` pasó a ser `tracks`. `tipo_voz` se conserva con la misma regla. El detalle está en
+> [`contexto-pipeline.md`](analisis-datasets/contexto-pipeline.md#limpieza-y-consolidación-8112026).
+
 ## 4 · Cómo se corre en paralelo
 
 Cada script es un programa aparte. Si abrís varias terminales y en cada una corrés un script distinto,

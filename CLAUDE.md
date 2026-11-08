@@ -84,6 +84,34 @@ Estos puntos figuran como abiertos en la información pública. No asumir respue
 - Costos, transporte y alojamiento.
 - Quién conduce el programa de incubación 2027 y en qué consiste.
 
+## Documentación: actualizarla siempre
+
+Regla para cualquier agente o persona que trabaje en este repositorio. **Todo cambio que toque código, datos,
+esquemas, fuentes o decisiones incluye, en el mismo commit, la actualización de la documentación afectada.** No
+hace falta que nadie lo pida, y no se deja "para después".
+
+| Si cambia… | Actualizar |
+|---|---|
+| Un script, un comando o un flag | [`docs/scrapping-webs.md`](docs/scrapping-webs.md) y "Ejecutar localmente" del [`README.md`](README.md) |
+| Los datos de `data/` (descarga, limpieza, filtro, clasificación) | El análisis del dataset en [`docs/analisis-datasets/`](docs/analisis-datasets/), con cifras medidas y la fecha de la foto, y "Estado actual" y "Estado del repositorio" del README |
+| Las columnas o el esquema de un Parquet | [`docs/scrapping-webs.md`](docs/scrapping-webs.md) y [`contexto-pipeline.md`](docs/analisis-datasets/contexto-pipeline.md) |
+| Una decisión, un criterio o una duda resuelta | [`contexto-pipeline.md`](docs/analisis-datasets/contexto-pipeline.md): "Decisiones tomadas" o "Falta aclarar" |
+| Las fuentes de problemáticas o su circuito | [`docs/circuito-problematicas.md`](docs/circuito-problematicas.md) |
+| Las fuentes posibles o su acceso | [`docs/analisis-fuentes/Fuentes para el dataset del pipeline.md`](docs/analisis-fuentes/Fuentes%20para%20el%20dataset%20del%20pipeline.md) |
+| Un archivo o una carpeta nueva, movida o borrada | "Mapa del repositorio" del README |
+| Una etapa del pipeline | "Arquitectura objetivo" del README y [`docs/pipeline-arquitectura.html`](docs/pipeline-arquitectura.html) |
+
+Cómo hacerlo:
+
+- **Medir, no estimar.** Las cifras salen de contar sobre los archivos. Si algo no se midió, se dice.
+- **Fechas absolutas** (8/11/2026), nunca "hoy" o "ayer".
+- **Separar lo hecho de lo planeado.** No presentar como implementado algo que no lo está.
+- **Buscar referencias viejas** (`grep` del número, la ruta o la columna que cambió) y corregirlas todas, no solo la primera.
+- **Mantener el estilo:** español, frases cortas y la estructura que ya tiene cada archivo. El README sigue la estructura acordada.
+- **Al terminar, decir qué documentos se actualizaron**, y si alguno quedó pendiente, por qué.
+
+Los Parquet de `data/` tienen que quedar debajo de 100 MB por archivo, el límite de GitHub. `limpiar.py` guarda con zstd nivel 19 por eso.
+
 ## Preferencias de trabajo
 
 - Las sesiones son introspectivas: ideas que surgen de a poco, y cómo impactar con la experiencia de cada integrante del equipo.

@@ -1,6 +1,6 @@
 # Pipeline de problemáticas: contexto
 
-Última actualización: 6/11/2026. Equipo: Ignacio, Lauti y Diego.
+Última actualización: 8/11/2026. Equipo: Ignacio, Lauti y Diego.
 
 ## Objetivo
 
@@ -68,6 +68,43 @@ Busca notas desde 2024 sobre productos, startups o proyectos tecnológicos aplic
 - **Salida:** un Parquet por track y fuente. Una nota puede estar en varios tracks, y las que no tienen track se descartan.
 - **Asignación de tracks:** por raíces en título o bajada. Con menciones en el cuerpo resultaba demasiado laxa.
 - **Resultado (6/11/2026):** 94.768 notas descargadas de 62 fuentes y 20.131 únicas con track desde 2024. Los pros y contras están en [el análisis de residuos](analisis-dataset-residuos.md) y en [el de soluciones](analisis-dataset-soluciones.md).
+
+### Limpieza y consolidación (8/11/2026)
+
+[`scripts/limpiar.py`](../../scripts/limpiar.py) une los Parquet por fuente en un archivo por dataset, con el mismo esquema en los cuatro:
+
+```text
+data/biodiversidad.parquet   data/movilidad.parquet   data/residuos.parquet   data/soluciones.parquet
+```
+
+Pasos, en este orden:
+
+1. **Recorta el pie de suscripción** del cuerpo: el boletín de Mongabay Latam, el muro de pago de Bioplastics News, el formulario de 320°, los newsletters de Inside Climate News, el glosario en JavaScript de Grist y líneas cortas de "Sign up for the … newsletter".
+2. **Descarta** las notas con título de menos de 15 caracteres, sin cuerpo (casi todas videos), sin fecha o con título seriado. Los seriados son notas de servicio que se repiten con el mismo comienzo, como "Cronograma de pagos", "Dólar oficial y dólar…", "Cortes de luz", "Los cortes de calles", "Lo más leído", "Pocos lo saben" u horóscopos.
+3. **Deduplica** dentro de cada dataset por `id`, por título normalizado (sin tildes, mayúsculas ni espacios de más) y por cuerpo. Se queda con la versión de cuerpo más largo y, si empatan, con la más vieja. Así, entre la versión de video y la de texto de TN, queda la de texto.
+4. **Une los tracks:** en soluciones, una nota repetida entre tracks queda una sola vez, con todos sus tracks en la columna `tracks`.
+5. **Recalcula `tipo_voz`:** `diario` para CBA24N, Clarín, El Doce, Infobae, La Nación y TN; `medio_especializado` para el resto; `opinion` si la sección o las etiquetas lo indican. Las organizaciones, como GAIA o ISWA, quedan como `medio_especializado`.
+6. **Guarda** con zstd nivel 19, para quedar debajo de los 100 MB por archivo de GitHub, y borra los Parquet por fuente.
+
+| Dataset | Iniciales | Título corto | Sin cuerpo | Seriado | `id` repetido | Título repetido | Cuerpo repetido | Finales |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Biodiversidad | 35.951 | 40 | 1.957 | 173 | 0 | 97 | 64 | 33.620 |
+| Movilidad | 67.399 | 75 | 12.449 | 1.573 | 0 | 187 | 86 | 53.029 |
+| Residuos | 47.944 | 87 | 7.325 | 63 | 0 | 209 | 28 | 40.232 |
+| Soluciones (filas de los 4 tracks) | 20.914 | 4 | 190 | 57 | 777 | 68 | 1 | 19.817 |
+
+Ninguna nota se descartó por falta de fecha.
+
+**Esquema común:** `id`, `url`, `fuente`, `titulo`, `bajada`, `fecha`, `seccion`, `tags`, `tipo`, `body`, `acceso_libre`, `terminos_busqueda`, `terminos_en_texto`, `diccionario_en_texto`, `keywords_core`, `tipo_voz` y `tracks`.
+
+- **Se eliminaron `senal_problema` y `senal_opinion`.** Marcaban el 78 % y el 67 % de las notas de biodiversidad con palabras genéricas como "impacto" o "riesgo", así que no separaban. Distinguir problemas queda para la clasificación.
+- **`vertical` se reemplazó por `tracks`**, una lista, para que problemáticas y soluciones compartan esquema.
+- **Se eliminaron `edicion` y `ruta`**, que solo traía Infobae y se pueden sacar de la URL.
+- **`acceso_libre`** pasó a ser booleano en todas las fuentes, con nulo si el medio no lo informa.
+
+**Lo que no hace:** no filtra por tema ni por año, no saca las coberturas en vivo y no detecta la misma noticia reescrita o traducida por otro medio. Tampoco deduplica entre datasets: una nota puede estar en residuos y en soluciones.
+
+**Para volver a descargar:** los scrapers siguen escribiendo un Parquet por fuente en `data/<dataset>/`, pero esas carpetas ya no tienen los archivos anteriores. Recuperarlos de Git (commit `afe111c`) antes de retomar una descarga, y volver a correr `limpiar.py` después. En soluciones, el orden es `crudo/` → `separar_por_track.py` → `limpiar.py`.
 
 ### Plan de scraping
 
@@ -166,7 +203,7 @@ Esto da unas 60 notas relevantes por año si se mira solo la URL. La muestra es 
 - [ ] ¿Qué palabras entran en el diccionario de cada track?
 - [ ] ¿Se puede obtener el texto completo con los muros de pago?
 - [ ] ¿Qué campos se guardan de cada nota, además de título, fecha y texto?
-- [ ] ¿Cómo se detectan las notas duplicadas o replicadas?
+- [x] ¿Cómo se detectan las notas duplicadas o replicadas? Dentro de cada dataset, por `id`, título normalizado y cuerpo (8/11). Falta detectar las reescritas o traducidas.
 
 ### Método
 
