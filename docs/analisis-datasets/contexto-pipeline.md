@@ -106,6 +106,17 @@ Ninguna nota se descartó por falta de fecha.
 
 **Para volver a descargar:** los scrapers siguen escribiendo un Parquet por fuente en `data/<dataset>/`, pero esas carpetas ya no tienen los archivos anteriores. Recuperarlos de Git (commit `afe111c`) antes de retomar una descarga, y volver a correr `limpiar.py` después. En soluciones, el orden es `crudo/` → `separar_por_track.py` → `limpiar.py`.
 
+### Etiquetado manual antes de reclasificar (25/11/2026)
+
+El piloto de residuos con LLM (Qwen 2.5 3B en Kaggle, 10/11) dejó categorías cortadas o inventadas: la respuesta se cortaba a los 220 tokens, el modelo leía solo 500 caracteres del cuerpo y nada verificaba que la categoría fuera válida. Antes de repetir la clasificación, se arma un set etiquetado a mano.
+
+- **Quién:** Ignacio y Lauti etiquetan las mismas notas de los dos tracks, cada uno por su lado, para medir cuánto coinciden.
+- **Muestra:** 25 notas por track de `data/movilidad.parquet` y `data/residuos.parquet`, con cuerpo de 300 caracteres o más, repartidas entre fuentes por turnos (semilla 42). Movilidad quedó con 10 fuentes (2 o 3 notas cada una) y residuos con 25 (una nota por fuente). Se mide con [`etiquetado/muestrear.py`](../../etiquetado/muestrear.py).
+- **Qué se etiqueta:** si es relevante; si es problema, solución, ambas o ninguna; la categoría; el alcance geográfico, y un comentario opcional. Las categorías son las de `TAXONOMIAS` en [`kaggle_pipeline.py`](../../scripts/clasificacion/kaggle_pipeline.py), y sus categorías "otro" (`OTRO_PROBLEMA_*`, `OTRA_SOLUCION_*`) piden texto libre.
+- **Guardado:** un JSON por persona y track en `etiquetado/etiquetas/`, para que los dos puedan commitear sin conflictos.
+- **Para qué:** medir el acuerdo entre personas y, después, evaluar al LLM contra estas etiquetas. Las notas que se usen como ejemplos dentro del prompt no cuentan para la evaluación.
+- **Falta:** el script que une los JSON y mide el acuerdo.
+
 ### Plan de scraping
 
 Cómo funciona cada script: [scrapping-webs.md](../scrapping-webs.md).
@@ -208,7 +219,7 @@ Esto da unas 60 notas relevantes por año si se mira solo la URL. La muestra es 
 ### Método
 
 - [ ] ¿La unidad de análisis es la nota o el hecho?
-- [ ] ¿Las categorías se definen antes o surgen de los datos?
+- [ ] ¿Las categorías se definen antes o surgen de los datos? Por ahora se parte de las de `kaggle_pipeline.py`, con texto libre en las categorías "otro" para que aparezcan las que faltan (25/11).
 - [ ] ¿Se usan embeddings, clasificación con LLM o ambos?
 - [ ] ¿Cómo se combinan las 11 medidas? ¿O se muestran por separado?
 - [ ] ¿Qué significa exactamente "sin solución"?

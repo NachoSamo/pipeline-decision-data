@@ -301,6 +301,18 @@ python scripts/limpiar.py
 - **Frena si faltan Parquet por fuente:** así una segunda corrida no pisa los archivos consolidados.
 - **Antes de retomar una descarga:** las carpetas por fuente ya no tienen los Parquet anteriores. Hay que recuperarlos de Git (commit `afe111c`), descargar y volver a correr `limpiar.py`. En soluciones, después de `separar_por_track.py`.
 
+## Muestra para etiquetado manual
+
+[`etiquetado/muestrear.py`](../etiquetado/muestrear.py) toma 25 notas por track de `data/movilidad.parquet` y `data/residuos.parquet` y las escribe en `etiquetado/muestra.js`, que carga [`etiquetado/index.html`](../etiquetado/index.html).
+
+```bash
+python etiquetado/muestrear.py
+```
+
+- **Descarta los cuerpos de menos de 300 caracteres** y recorta el cuerpo a 15.000.
+- **Reparte entre fuentes:** mezcla con semilla 42 y toma de a una nota por fuente, por turnos, hasta llegar a 25.
+- **Es determinística:** con los mismos Parquet sale la misma muestra. Si los Parquet cambian, cambia la muestra; por eso se commitea `muestra.js` antes de etiquetar.
+
 ## Pendiente de revisar
 
 - Los términos de uso de Visión Sustentable, Ecomundo, Futuro Sustentable, ECOBIZ, TN, Mongabay, CBA24N, Cadena 3, Resource Recycling, Circular Online, Mongabay en inglés y Grist.
