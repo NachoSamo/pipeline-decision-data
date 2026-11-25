@@ -8,14 +8,19 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import pandas as pd
+import pytest
 from prelimpieza import evaluar_descarte_heuristico, preparar_registro_para_llm
 from clasificador_llm import ClasificadorLLM, MockLLMBackend
 from transformacion import consolidar_resultados
 
+# La muestra vive fuera del repo (máquina local). En CI no existe y el test se omite.
+RUTA_MUESTRA = Path(r"C:\Users\Lautaro\.gemini\antigravity\brain\59fdb650-9d36-4235-814e-334e91d7b56e\scratch\sample_20_residuos.json")
 
+
+@pytest.mark.skipif(not RUTA_MUESTRA.exists(), reason="requiere la muestra local sample_20_residuos.json (fuera del repo)")
 def test_tubería_modular():
     raiz = Path(__file__).resolve().parent.parent.parent
-    ruta_muestra = Path(r"C:\Users\Lautaro\.gemini\antigravity\brain\59fdb650-9d36-4235-814e-334e91d7b56e\scratch\sample_20_residuos.json")
+    ruta_muestra = RUTA_MUESTRA
 
     with open(ruta_muestra, "r", encoding="utf-8") as f:
         registros = json.load(f)
