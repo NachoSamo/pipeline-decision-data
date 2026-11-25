@@ -178,6 +178,7 @@ flowchart TB
 | Scraping | **Completo por ahora:** 33 fuentes en residuos, 13 en biodiversidad, 10 en movilidad y 62 en soluciones. Infobae y Clarín bajaron solo lo prioritario. Futuro Sustentable no tiene datos; Cadena 3 quedó de lado por falta de volumen |
 | Dataset | **Limpio y consolidado (8/11):** un Parquet por dataset, con el mismo esquema: residuos 40.232 notas, biodiversidad 33.620, movilidad 53.029 y soluciones 19.817 con su columna `tracks`. Falta filtrar por utilidad |
 | Limpieza | **Hecha:** [`limpiar.py`](scripts/limpiar.py) quitó pies de suscripción, notas sin cuerpo, títulos seriados y duplicados por `id`, título y cuerpo. Se eliminaron las señales de problema y de opinión, poco precisas. El circuito de problemáticas está en [`docs/circuito-problematicas.md`](docs/circuito-problematicas.md) |
+| CI de Python | **Implementado:** en cada PR corre lint de errores graves, el límite de 100 MB por Parquet y los tests de [`scripts/clasificacion/`](scripts/clasificacion). El test de integración se omite si falta la muestra local. Lean no iniciado |
 | Clasificación y segmentación | **No iniciado** |
 | Grafo y análisis | **No iniciado** |
 
@@ -203,6 +204,13 @@ Para limpiar y consolidar después de una descarga (los Parquet por fuente tiene
 ```bash
 python scripts/limpiar.py --simular
 python scripts/limpiar.py
+```
+
+Para correr los mismos chequeos que el CI (requiere `pip install -r requirements-ci.txt`):
+
+```bash
+ruff check --select E9,F63,F7,F82 scripts
+pytest scripts/clasificacion -v
 ```
 
 Para leer un dataset:
@@ -238,9 +246,13 @@ notas[notas["tracks"].map(lambda t: "agro" in t)]
 │   ├── circuito-problematicas.md                    Circuito y decisiones del scraping de problemáticas
 │   ├── pipeline-arquitectura.html                   Boceto digitalizado del pipeline
 │   └── scrapping-webs.md                            Cómo funciona cada script
+├── .github/workflows/
+│   └── python-ci.yml                                CI de Python en cada PR: lint, límite de 100 MB y tests
 ├── scripts/                                         Scraping por fuente y limpieza (limpiar.py)
+│   ├── clasificacion/                               Pipeline de clasificación y sus tests (test_*.py)
 │   └── diccionarios/                                Términos de residuos, soluciones, biodiversidad y movilidad
 ├── CLAUDE.md                       Datos del evento e indicaciones para Claude
+├── requirements-ci.txt             Dependencias mínimas del job de CI
 └── README.md                       Presentación del proyecto
 ```
 
