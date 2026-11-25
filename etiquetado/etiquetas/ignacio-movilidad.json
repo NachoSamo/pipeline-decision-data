@@ -1,0 +1,311 @@
+{
+  "persona": "ignacio",
+  "track": "movilidad",
+  "muestra_version": "2026-11-25-s42",
+  "exportado": "2026-11-25T15:43:55.921Z",
+  "etiquetas": [
+    {
+      "id": "RCTKVBJSMVBOBHJKO2HK72ZXQA",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "No habla de movilidad",
+      "etiquetado_en": "2026-11-25T15:14:02.441Z"
+    },
+    {
+      "id": "DVHKT2CSP5C6LHTJMCHSX2AIWU",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "Accidente vial",
+      "etiquetado_en": "2026-11-25T15:14:28.589Z"
+    },
+    {
+      "id": "https://www.lanacion.com.ar/seguridad/caos-de-transito-en-la-autopista-9-de-julio-sur-por-un-choque-a-la-altura-de-barracas-nid23112024/",
+      "relevante": true,
+      "tipo": "ninguna",
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": "ARGENTINA_NACIONAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:18:51.591Z"
+    },
+    {
+      "id": "https://www.clarin.com/autos/manual-del-buen-conductor-9-cosas-que-hay-que-saber-para-manejar-en-la-ciudad_0_yJg2h0NpK.html",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:18:55.363Z"
+    },
+    {
+      "id": "https://www.visionsustentable.com/2025/12/10/zurich-avanza-en-un-modelo-de-negocio-cada-vez-mas-sustentable/",
+      "relevante": true,
+      "tipo": "ambas",
+      "categorias_problema": [
+        "EMISIONES_Y_FLOTA_OBSOLETA",
+        "OTRO_PROBLEMA_MOVILIDAD"
+      ],
+      "categorias_solucion": [
+        "OTRA_SOLUCION_MOVILIDAD"
+      ],
+      "categoria_otra": "Habla de como zurich esta intentando ser mas sustentable para 2030",
+      "alcance": "INTERNACIONAL_GLOBAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:22:50.158Z"
+    },
+    {
+      "id": "https://www.ecoticias.com/sostenibilidad/el-alcalde-de-valladolid-suspende-en-movilidad-sostenible",
+      "relevante": true,
+      "tipo": "problema",
+      "categorias_problema": [
+        "EMISIONES_Y_FLOTA_OBSOLETA",
+        "DEFICIT_TRANSPORTE_PUBLICO",
+        "FALTA_INFRAESTRUCTURA_CICLISTA_PEATONAL",
+        "OTRO_PROBLEMA_MOVILIDAD"
+      ],
+      "categorias_solucion": [],
+      "categoria_otra": "Falta de responsabilidad en la sustentabilidad por parte del gobierno",
+      "alcance": "INTERNACIONAL_GLOBAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:23:53.870Z"
+    },
+    {
+      "id": "https://grist.org/sponsored/reinventing-coal-country-reclaiming-americas-abandoned-mine-lands/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "Trata sobre Residuos mineros",
+      "etiquetado_en": "2026-11-25T15:27:56.869Z"
+    },
+    {
+      "id": "https://www.cba24n.com.ar/argentina/caputo-amenazo-con-un-ajuste-a-las-provincias-si-no-se-aprueba-la-ley-omnibus_a65b161e16c6ae410c98879e3",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "Trata sobre politica argentina",
+      "etiquetado_en": "2026-11-25T15:28:44.681Z"
+    },
+    {
+      "id": "https://ciclovivo.com.br/sem-categoria/triciclo-movido-a-energia-solar-e-opcao-para-servicos-de-entrega/",
+      "relevante": true,
+      "tipo": "solucion",
+      "categorias_problema": [],
+      "categorias_solucion": [
+        "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+      ],
+      "categoria_otra": null,
+      "alcance": "LATAM_REGIONAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:29:55.279Z"
+    },
+    {
+      "id": "https://www.ecomundo.com.ar/el-70-de-los-ultimos-brotes-epidemicos-han-comenzado-con-la-deforestacion/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "Trata sobre deforestación y como esto desencadena brotes epidémicos",
+      "etiquetado_en": "2026-11-25T15:31:28.218Z"
+    },
+    {
+      "id": "FHW47KDD5FHWVI44OAAYPN76FQ",
+      "relevante": true,
+      "tipo": "problema",
+      "categorias_problema": [
+        "SINIESTRALIDAD_VIAL"
+      ],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": "CORDOBA_LOCAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:31:58.931Z"
+    },
+    {
+      "id": "GZ6EODNMOBAFZD3YCZ433RPPEQ",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "El artículo aborda temas de política económica, fiscal, monetaria y comercio exterior que se debaten en la Cámara de Diputados de Argentina",
+      "etiquetado_en": "2026-11-25T15:32:40.743Z"
+    },
+    {
+      "id": "https://www.clarin.com/policiales/chocaron-camioneta-abandonaron-plena-panamericana-llevaban-tonelada-hojas-coca_0_mi2WLIMCYR.html",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:33:02.673Z"
+    },
+    {
+      "id": "https://www.lanacion.com.ar/el-mundo/video-una-argentina-increpo-con-insultos-racistas-a-un-agente-de-transito-en-mexico-nid07072025/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:33:23.530Z"
+    },
+    {
+      "id": "https://grist.org/energy/after-a-four-year-campaign-new-york-says-yes-to-publicly-owned-renewables-strong/",
+      "relevante": true,
+      "tipo": "ninguna",
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": "INTERNACIONAL_GLOBAL",
+      "comentario": "El artículo aborda política energética, transición hacia energías renovables y derechos laborales en el estado de Nueva York",
+      "etiquetado_en": "2026-11-25T15:34:14.185Z"
+    },
+    {
+      "id": "https://www.cba24n.com.ar/cordoba/transporte--las-lineas-30-y-34-pasan-a-formar-parte-de-la-empresa-sibus_a68630bc18d20d6a19f70005e",
+      "relevante": true,
+      "tipo": "ninguna",
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": "CORDOBA_LOCAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:34:31.638Z"
+    },
+    {
+      "id": "https://www.ecoticias.com/movilidad-electrica/el-configurador-online-del-silence-s04-revoluciona-la-movilidad-electrica-urbana",
+      "relevante": true,
+      "tipo": "solucion",
+      "categorias_problema": [],
+      "categorias_solucion": [
+        "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+      ],
+      "categoria_otra": null,
+      "alcance": "INTERNACIONAL_GLOBAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:36:20.740Z"
+    },
+    {
+      "id": "https://ciclovivo.com.br/planeta/desenvolvimento/conheca-startups-do-hub-green-sampa-e-suas-tecnologias/",
+      "relevante": true,
+      "tipo": "solucion",
+      "categorias_problema": [],
+      "categorias_solucion": [
+        "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS",
+        "SISTEMAS_INTELIGENTES_TRANSITO_ITS",
+        "OTRA_SOLUCION_MOVILIDAD"
+      ],
+      "categoria_otra": "Reciclado de bicicletas",
+      "alcance": "LATAM_REGIONAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:37:56.485Z"
+    },
+    {
+      "id": "https://www.visionsustentable.com/2021/09/02/santander-y-san-miguel-lideran-la-primera-obligacion-negociable-vinculada-a-la-sustentabilidad-de-argentina/",
+      "relevante": true,
+      "tipo": "ninguna",
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": "ARGENTINA_NACIONAL",
+      "comentario": "Economia",
+      "etiquetado_en": "2026-11-25T15:39:04.696Z"
+    },
+    {
+      "id": "https://www.ecomundo.com.ar/las-poblaciones-de-aves-mamiferos-y-peces-cayeron-un-69-entre-1970-y-2018/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "Biodiversidad",
+      "etiquetado_en": "2026-11-25T15:39:23.124Z"
+    },
+    {
+      "id": "3CEHBXFDVFHXPAVYEDZNBLG5HM",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "Nota viral/color sobre una sorpresa familiar que simula un control de tránsito en Funes (Santa Fe); no aborda problemáticas ni soluciones reales de movilidad urbana, transporte o seguridad vial.",
+      "etiquetado_en": "2026-11-25T15:39:55.051Z"
+    },
+    {
+      "id": "CIO2ZCEHW5G6HGUOFC7P47Q6UI",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "Videojuegos",
+      "etiquetado_en": "2026-11-25T15:40:37.907Z"
+    },
+    {
+      "id": "https://www.clarin.com/de-autos/videos-pasa-nino-accidente-proteccion-adecuada_0_BkGfynySG.html",
+      "relevante": true,
+      "tipo": "ambas",
+      "categorias_problema": [
+        "SINIESTRALIDAD_VIAL"
+      ],
+      "categorias_solucion": [
+        "OTRA_SOLUCION_MOVILIDAD"
+      ],
+      "categoria_otra": "uso correcto de Sistemas de Retención Infantil Vehicular",
+      "alcance": "ARGENTINA_NACIONAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:42:24.286Z"
+    },
+    {
+      "id": "https://www.lanacion.com.ar/sociedad/un-teleferico-y-un-subte-en-la-plata-el-proyecto-de-estilo-parisino-para-aliviar-el-transito-de-la-nid23072026/",
+      "relevante": true,
+      "tipo": "ambas",
+      "categorias_problema": [
+        "CONGESTION_Y_DEMORAS"
+      ],
+      "categorias_solucion": [
+        "REDES_FERROVIARIAS_Y_SUBTE"
+      ],
+      "categoria_otra": null,
+      "alcance": "ARGENTINA_NACIONAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:42:57.413Z"
+    },
+    {
+      "id": "https://grist.org/accountability/la-county-lawsuit-pepsi-coca-cola-plastic-pollution/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "Nota sobre contaminación por plásticos de un solo uso",
+      "etiquetado_en": "2026-11-25T15:43:55.141Z"
+    }
+  ]
+}
