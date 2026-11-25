@@ -100,7 +100,6 @@
           <label class="opcion"><input type="radio" name="tipo" value="problema"> Problema</label>
           <label class="opcion"><input type="radio" name="tipo" value="solucion"> Solución</label>
           <label class="opcion"><input type="radio" name="tipo" value="ambas"> Ambas</label>
-          <label class="opcion"><input type="radio" name="tipo" value="ninguna"> Ninguna</label>
         </fieldset>
 
         <fieldset id="fila-problema">
@@ -118,10 +117,6 @@
           <input type="text" id="categoria_otra">
         </div>
 
-        <div class="campo">
-          <label for="alcance">Alcance geográfico</label>
-          <select id="alcance"></select>
-        </div>
       </div>
 
       <div class="campo">
@@ -142,18 +137,18 @@
 <script src="muestra.js"></script>
 <script>
 const $ = (id) => document.getElementById(id);
-const CAMPOS = ["relevante", "tipo", "categorias_problema", "categorias_solucion", "categoria_otra", "alcance", "comentario"];
+const CAMPOS = ["relevante", "tipo", "categorias_problema", "categorias_solucion", "categoria_otra", "comentario"];
 let persona = null, track = null, notas = [], estado = null, indice = 0;
 
 function vacia() {
   return { relevante: null, tipo: null, categorias_problema: [], categorias_solucion: [],
-           categoria_otra: null, alcance: null, comentario: null, etiquetado_en: null };
+           categoria_otra: null, comentario: null, etiquetado_en: null };
 }
 function tieneDatos(e) {
   return !!e && CAMPOS.some((c) => Array.isArray(e[c]) ? e[c].length > 0 : e[c] !== null && e[c] !== "");
 }
 function hecha(e) {
-  return !!e && (e.relevante === false || (e.relevante === true && !!e.tipo && !!e.alcance));
+  return !!e && (e.relevante === false || (e.relevante === true && !!e.tipo));
 }
 function contarHechas(est, lista) { return lista.filter((n) => hecha(est.etiquetas[n.id])).length; }
 function tipoProb(t) { return t === "problema" || t === "ambas"; }
@@ -230,9 +225,6 @@ function actualizarInicio() {
   $("empezar").disabled = !(p && leerRadio("track"));
 }
 
-function llenar(id, valores) {
-  $(id).replaceChildren(new Option("— elegir —", ""), ...valores.map((v) => new Option(v, v)));
-}
 function empezar() {
   persona = leerRadio("persona");
   track = leerRadio("track");
@@ -241,7 +233,6 @@ function empezar() {
   indice = Math.min(Math.max(Number(estado.indice_actual) || 0, 0), notas.length - 1);
   $("categorias_problema").replaceChildren(...CONFIG.tracks[track].problemas.map((v) => opcion("categorias_problema", v, v, "checkbox")));
   $("categorias_solucion").replaceChildren(...CONFIG.tracks[track].soluciones.map((v) => opcion("categorias_solucion", v, v, "checkbox")));
-  llenar("alcance", CONFIG.alcances);
   mostrarPantalla("etiquetado");
   mostrarNota();
 }
@@ -261,7 +252,6 @@ function mostrarNota() {
   ponerChecks("categorias_problema", e.categorias_problema || []);
   ponerChecks("categorias_solucion", e.categorias_solucion || []);
   $("categoria_otra").value = e.categoria_otra || "";
-  $("alcance").value = e.alcance || "";
   $("comentario").value = e.comentario || "";
   $("aviso").hidden = true;
   $("anterior").disabled = indice === 0;
@@ -278,7 +268,6 @@ function actualizarVisibilidad() {
   const no = leerRadio("relevante") === "no";
   if (no) {
     ponerRadio("tipo", null);
-    $("alcance").value = "";
   }
   const tipo = leerRadio("tipo");
   $("campos").hidden = no;
@@ -301,7 +290,6 @@ function leerFormulario() {
   e.categorias_solucion = tipoSol(e.tipo) ? leerChecks("categorias_solucion") : [];
   const otra = e.categorias_problema.concat(e.categorias_solucion).some(esOtra);
   e.categoria_otra = otra ? ($("categoria_otra").value.trim() || null) : null;
-  e.alcance = $("alcance").value || null;
   return e;
 }
 function alCambiar() {
@@ -339,7 +327,7 @@ function exportarEtiquetas() {
     etiquetas.push({
       id: n.id, relevante: e.relevante, tipo: e.tipo,
       categorias_problema: e.categorias_problema || [], categorias_solucion: e.categorias_solucion || [],
-      categoria_otra: e.categoria_otra, alcance: e.alcance,
+      categoria_otra: e.categoria_otra,
       comentario: e.comentario || "", etiquetado_en: e.etiquetado_en
     });
   });

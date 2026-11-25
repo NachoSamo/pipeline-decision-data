@@ -1,0 +1,432 @@
+{
+  "track": "residuos",
+  "muestra_version": "2026-11-25-s42",
+  "personas": [
+    "Ignacio",
+    "Lauti"
+  ],
+  "etiquetas": [
+    {
+      "id": "CGRXVLK3ORAIPESZDM5WU2ITSQ",
+      "relevante": true,
+      "tipo": "solucion",
+      "categorias_problema": [],
+      "categorias_solucion": [
+        "COMPOSTAJE_Y_BIOTRANSFORMACION"
+      ],
+      "categoria_otra": null,
+      "origen": "acuerdo",
+      "nota_reconciliacion": "",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": "Reutilizacion de cascaras de naranja"
+      }
+    },
+    {
+      "id": "E7AZXVKEVFF63JDZ4ZECHUTV7E",
+      "relevante": true,
+      "tipo": "problema",
+      "categorias_problema": [
+        "CONTAMINACION_ECOSISTEMICA_Y_PLASTICOS",
+        "FALLA_REGULATORIA_Y_FISCALIZACION"
+      ],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "lauti",
+      "nota_reconciliacion": "",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": "Contaminacion de pharma"
+      }
+    },
+    {
+      "id": "https://resource-recycling.com/recycling/2024/05/07/unilever-misses-recyclability-goals-calls-for-policy-action/",
+      "relevante": true,
+      "tipo": "ambas",
+      "categorias_problema": [
+        "ESTANCAMIENTO_SEPARACION_Y_RECICLAJE",
+        "CONTAMINACION_ECOSISTEMICA_Y_PLASTICOS",
+        "FALLA_REGULATORIA_Y_FISCALIZACION"
+      ],
+      "categorias_solucion": [
+        "MODELOS_CIRCULARES_Y_REUTILIZACION",
+        "ECO_DISENO_Y_BIOMATERIALES"
+      ],
+      "categoria_otra": null,
+      "origen": "ignacio",
+      "nota_reconciliacion": "",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": "Noticia sobre avances de una empresa particular en sus politicas"
+      }
+    },
+    {
+      "id": "https://www.ecodallecitta.it/bando-anci-conai-comunicazione-locale/",
+      "relevante": true,
+      "tipo": "solucion",
+      "categorias_problema": [],
+      "categorias_solucion": [
+        "OTRA_SOLUCION_RESIDUOS"
+      ],
+      "categoria_otra": "Financiamiento público para campañas de separación y reciclaje",
+      "origen": "ignacio",
+      "nota_reconciliacion": "Medida concreta con presupuesto entra, aunque financie comunicación (25/11)",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": "Postulacion para bonos verdes, no aporta nada util"
+      }
+    },
+    {
+      "id": "https://www.abrema.org.br/2025/05/13/usinas-sustentaveis-viram-exemplo-para-possiveis-solucoes-de-residuos-em-criciuma/",
+      "relevante": true,
+      "tipo": "ambas",
+      "categorias_problema": [
+        "COLAPSO_Y_SATURACION_DISPOSICION_FINAL"
+      ],
+      "categorias_solucion": [
+        "UPCYCLING_Y_VALORIZACION_MATERIAL",
+        "VALORIZACION_ENERGETICA_BIOGAS",
+        "COMPOSTAJE_Y_BIOTRANSFORMACION"
+      ],
+      "categoria_otra": null,
+      "origen": "ignacio",
+      "nota_reconciliacion": "Habla del problema y una solucion a la vez",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": "lixiviados, es mas politico pero posee informacion relevante"
+      }
+    },
+    {
+      "id": "https://www.insidewaste.com.au/epa-victoria-going-after-rogue-skip-bin-operators/",
+      "relevante": true,
+      "tipo": "ambas",
+      "categorias_problema": [
+        "GESTION_DEFICIENTE_RESIDUOS",
+        "FALLA_REGULATORIA_Y_FISCALIZACION"
+      ],
+      "categorias_solucion": [
+        "TRAZABILIDAD_DIGITAL_Y_SOFTWARE"
+      ],
+      "categoria_otra": null,
+      "origen": "nueva",
+      "nota_reconciliacion": "Habla del problema y de la solucion",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": ""
+      }
+    },
+    {
+      "id": "https://www.clarin.com/crimenes/asesinos-angeles-conocian-residuos-ceamse_0_SJ0IGBPsPQx.html",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "acuerdo",
+      "nota_reconciliacion": "",
+      "comentarios": {
+        "ignacio": "Asesinato",
+        "lauti": "no tiene nada que ver con residuos"
+      }
+    },
+    {
+      "id": "https://ciclovivo.com.br/planeta/desenvolvimento/mundo-desperdica-e-200-bilhoes-por-ano-em-materiais-reciclaveis/",
+      "relevante": true,
+      "tipo": "ambas",
+      "categorias_problema": [
+        "ESTANCAMIENTO_SEPARACION_Y_RECICLAJE",
+        "CONTAMINACION_ECOSISTEMICA_Y_PLASTICOS",
+        "BARRERAS_DE_MERCADO_Y_ECONOMICAS"
+      ],
+      "categorias_solucion": [
+        "MODELOS_CIRCULARES_Y_REUTILIZACION"
+      ],
+      "categoria_otra": null,
+      "origen": "ignacio",
+      "nota_reconciliacion": "Habla del problema y de la solucion",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": ""
+      }
+    },
+    {
+      "id": "https://www.ecomundo.com.ar/peritos-la-corte-confirmaron-agua-pergamino-contiene-18-agrotoxicos/",
+      "relevante": true,
+      "tipo": "problema",
+      "categorias_problema": [
+        "CONTAMINACION_ECOSISTEMICA_Y_PLASTICOS"
+      ],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "ignacio",
+      "nota_reconciliacion": "",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": ""
+      }
+    },
+    {
+      "id": "https://www.circularonline.co.uk/news/lincoln-council-awards-50-million-contract-to-biffa/",
+      "relevante": true,
+      "tipo": "solucion",
+      "categorias_problema": [],
+      "categorias_solucion": [
+        "LOGISTICA_INVERSA_Y_RECOLECCION_INTELIGENTE"
+      ],
+      "categoria_otra": null,
+      "origen": "ignacio",
+      "nota_reconciliacion": "Medida concreta de gobierno entra: contrato de recolección y reciclaje (25/11)",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": "politico"
+      }
+    },
+    {
+      "id": "https://www.biocycle.net/letter-to-the-editor-from-city-of-nelson-bc/",
+      "relevante": true,
+      "tipo": "ambas",
+      "categorias_problema": [
+        "DESPERDICIO_ALIMENTARIO_Y_ORGANICOS"
+      ],
+      "categorias_solucion": [
+        "VALORIZACION_ENERGETICA_BIOGAS",
+        "COMPOSTAJE_Y_BIOTRANSFORMACION"
+      ],
+      "categoria_otra": null,
+      "origen": "lauti",
+      "nota_reconciliacion": "Habla del problema y de la solucion",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": ""
+      }
+    },
+    {
+      "id": "https://www.cba24n.com.ar/cordoba/cordoba--un-recolector-de-residuos-resbalo-y-murio-aplastado-por-el-camion_a6849c128ab9024591a8038c7",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "acuerdo",
+      "nota_reconciliacion": "",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": "muerte"
+      }
+    },
+    {
+      "id": "https://recyclingportal.eu/archive/90260",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "lauti",
+      "nota_reconciliacion": "Muy superficial, no detalla solucion puntual",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": "no dice nada relevante"
+      }
+    },
+    {
+      "id": "https://grist.org/solutions/wood-vaulting-carbon-storage-solution/",
+      "relevante": true,
+      "tipo": "solucion",
+      "categorias_problema": [],
+      "categorias_solucion": [
+        "COMPOSTAJE_Y_BIOTRANSFORMACION"
+      ],
+      "categoria_otra": null,
+      "origen": "ignacio",
+      "nota_reconciliacion": "",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": ""
+      }
+    },
+    {
+      "id": "https://www.ecoticias.com/residuos-reciclaje/circom-construccion-metalurgia-residuos-circularidad-valorizarlos",
+      "relevante": true,
+      "tipo": "ambas",
+      "categorias_problema": [
+        "GESTION_DEFICIENTE_RESIDUOS"
+      ],
+      "categorias_solucion": [
+        "MODELOS_CIRCULARES_Y_REUTILIZACION"
+      ],
+      "categoria_otra": null,
+      "origen": "lauti",
+      "nota_reconciliacion": "Habla del problema y de la solucion",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": ""
+      }
+    },
+    {
+      "id": "https://320grad.de/2025/11/20/warum-abfall-schon-bald-wertvoller-sein-koennte-als-oel/",
+      "relevante": true,
+      "tipo": "ambas",
+      "categorias_problema": [
+        "ESTANCAMIENTO_SEPARACION_Y_RECICLAJE",
+        "GESTION_DEFICIENTE_RESIDUOS",
+        "BARRERAS_DE_MERCADO_Y_ECONOMICAS"
+      ],
+      "categorias_solucion": [
+        "UPCYCLING_Y_VALORIZACION_MATERIAL",
+        "MODELOS_CIRCULARES_Y_REUTILIZACION"
+      ],
+      "categoria_otra": null,
+      "origen": "ignacio",
+      "nota_reconciliacion": "",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": "politicas"
+      }
+    },
+    {
+      "id": "EBRWAT23PVDFVMTIQYVIVYOFXU",
+      "relevante": true,
+      "tipo": "problema",
+      "categorias_problema": [
+        "ESTANCAMIENTO_SEPARACION_Y_RECICLAJE",
+        "CONTAMINACION_ECOSISTEMICA_Y_PLASTICOS",
+        "GESTION_DEFICIENTE_RESIDUOS"
+      ],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "nueva",
+      "nota_reconciliacion": "",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": ""
+      }
+    },
+    {
+      "id": "https://www.recoverweb.it/mostri-del-riciclo-1-000-classi-coinvolte-nella-raccolta-raee/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "lauti",
+      "nota_reconciliacion": "No declara una solucion en particular",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": "concurso, no dice nada mas"
+      }
+    },
+    {
+      "id": "https://infrastructurenews.co.za/2026/04/07/gauteng-learners-turn-bottles-into-big-wins/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "lauti",
+      "nota_reconciliacion": "Campañas escolares y de sensibilización no son una solución concreta (25/11)",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": "concurso, problema de botellas pero no explica mas que la cantidad de botellas"
+      }
+    },
+    {
+      "id": "https://bioplasticsnews.com/2026/08/21/philippines-cracks-down-on-155-companies-over-plastic-epr-compliance/",
+      "relevante": true,
+      "tipo": "problema",
+      "categorias_problema": [
+        "CONTAMINACION_ECOSISTEMICA_Y_PLASTICOS",
+        "FALLA_REGULATORIA_Y_FISCALIZACION"
+      ],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "ignacio",
+      "nota_reconciliacion": "Habla de un problema explicito",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": "politico, problema de gestion de plasticos pero no dice que ni como"
+      }
+    },
+    {
+      "id": "https://www.residuosprofesional.com/efectos-rebote-economia-circular/",
+      "relevante": true,
+      "tipo": "ambas",
+      "categorias_problema": [
+        "BARRERAS_DE_MERCADO_Y_ECONOMICAS"
+      ],
+      "categorias_solucion": [
+        "MODELOS_CIRCULARES_Y_REUTILIZACION"
+      ],
+      "categoria_otra": null,
+      "origen": "nueva",
+      "nota_reconciliacion": "Habla del problema y la solucion",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": ""
+      }
+    },
+    {
+      "id": "https://es.mongabay.com/2025/07/reformas-para-descentralizar-las-republicas-andinas-libro/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "acuerdo",
+      "nota_reconciliacion": "",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": "politico de peru"
+      }
+    },
+    {
+      "id": "https://news.mongabay.com/2025/03/smallholder-agriculture-blossoming-with-the-use-of-renewables-in-africa/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "ignacio",
+      "nota_reconciliacion": "Tiene que haber un residuo: riego solar es agro y energía (25/11)",
+      "comentarios": {
+        "ignacio": "Agro",
+        "lauti": ""
+      }
+    },
+    {
+      "id": "https://ecobiz.com.ar/nota/1215-El-hotel-cinco-estrellas-que-se-volvio-un-mini-farmer-",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "ignacio",
+      "nota_reconciliacion": "Habla exclusivamente de agro",
+      "comentarios": {
+        "ignacio": "Agro",
+        "lauti": ""
+      }
+    },
+    {
+      "id": "https://portalkomunalny.pl/kryzys-gospodarki-odpadami-brak-rop-stanowisko-zmp-596190/",
+      "relevante": true,
+      "tipo": "ambas",
+      "categorias_problema": [
+        "ESTANCAMIENTO_SEPARACION_Y_RECICLAJE",
+        "BARRERAS_DE_MERCADO_Y_ECONOMICAS",
+        "FALLA_REGULATORIA_Y_FISCALIZACION"
+      ],
+      "categorias_solucion": [
+        "MODELOS_CIRCULARES_Y_REUTILIZACION"
+      ],
+      "categoria_otra": null,
+      "origen": "ignacio",
+      "nota_reconciliacion": "Habla del problema y de la solucion",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": ""
+      }
+    }
+  ],
+  "actualizado": "2026-11-25T20:26:58+00:00",
+  "nota": "Revisado el 25/11/2026 con las reglas de etiquetado/guia-residuos.md. GESTION_DEFICIENTE_RESIDUOS_ESPECIALES_RAEE se renombró a GESTION_DEFICIENTE_RESIDUOS."
+}

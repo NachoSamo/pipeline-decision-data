@@ -112,10 +112,45 @@ El piloto de residuos con LLM (Qwen 2.5 3B en Kaggle, 10/11) dejó categorías c
 
 - **Quién:** Ignacio y Lauti etiquetan las mismas notas de los dos tracks, cada uno por su lado, para medir cuánto coinciden.
 - **Muestra:** 25 notas por track de `data/movilidad.parquet` y `data/residuos.parquet`, con cuerpo de 300 caracteres o más, repartidas entre fuentes por turnos (semilla 42). Movilidad quedó con 10 fuentes (2 o 3 notas cada una) y residuos con 25 (una nota por fuente). Se mide con [`etiquetado/muestrear.py`](../../etiquetado/muestrear.py).
-- **Qué se etiqueta:** si es relevante; si es problema, solución, ambas o ninguna; una o más categorías de problema y de solución; el alcance geográfico, y un comentario opcional. Las categorías son las de `TAXONOMIAS` en [`kaggle_pipeline.py`](../../scripts/clasificacion/kaggle_pipeline.py), y sus categorías "otro" (`OTRO_PROBLEMA_*`, `OTRA_SOLUCION_*`) piden texto libre.
+- **Qué se etiqueta:** si es relevante; si es problema, solución, ambas o ninguna; una o más categorías de problema y de solución; el alcance geográfico, y un comentario opcional. Las categorías son las de `TAXONOMIAS` en [`kaggle_pipeline.py`](../../scripts/clasificacion/kaggle_pipeline.py), y sus categorías "otro" (`OTRO_PROBLEMA_*`, `OTRA_SOLUCION_*`) piden texto libre. El alcance se etiquetó en la primera tanda; desde el 25/11 sale de la fuente.
 - **Guardado:** un JSON por persona y track en `etiquetado/etiquetas/`, para que los dos puedan commitear sin conflictos.
 - **Para qué:** medir el acuerdo entre personas y, después, evaluar al LLM contra estas etiquetas. Las notas que se usen como ejemplos dentro del prompt no cuentan para la evaluación.
-- **Falta:** el script que une los JSON y mide el acuerdo.
+- **Acuerdo medido (25/11/2026, con [`etiquetado/reconciliar.py`](../../etiquetado/reconciliar.py)):**
+
+| Medida | Movilidad | Residuos |
+|---|---|---|
+| Acuerdo en todos los campos | 12 de 25 | 3 de 25 |
+| Relevancia: acuerdo / kappa | 16 de 25 / 0,27 | 15 de 25 / 0,14 |
+| Relevantes para Ignacio / para Lauti | 12 / 7 | 20 / 14 |
+| Tipo, en las relevantes para los dos: acuerdo / kappa | 3 de 5 / 0,00 | 5 de 12 / 0,13 |
+| Superposición media de categorías (Jaccard) | 0,57 | 0,26 |
+
+  El acuerdo es bajo, sobre todo en qué cuenta como relevante: Ignacio marcó más notas relevantes que Lauti en los dos tracks. Con 25 notas las cifras son orientativas.
+- **Reconciliación de movilidad (25/11/2026):** quedaron 4 notas relevantes de 25. Las reglas están en [`etiquetado/guia-movilidad.md`](../../etiquetado/guia-movilidad.md). Al cerrarla, se decidió:
+  - **La seguridad vial queda afuera del track,** aunque sea educativa o hable de causas. Se sacó `SINIESTRALIDAD_VIAL` de [`etiquetado/config.js`](../../etiquetado/config.js); el piloto en `kaggle_pipeline.py` todavía la tiene.
+  - **Una nota relevante exige un problema o una solución concretos.** Se sacó el tipo "ninguna". La nota del pase de las líneas 30 y 34 a SiBuS pasó a no relevante.
+  - **Lo político entra solo con una medida de transporte concreta:** una obra, un servicio o una medida. La crítica o la disputa sin medida queda afuera.
+  - **El alcance sale del origen del medio,** con [`scripts/diccionarios/alcance_fuentes.py`](../../scripts/diccionarios/alcance_fuentes.py), y ya no se etiqueta. En el gold, eso corrigió el Silence S04 (Ecoticias, España), que había quedado como nacional.
+- **Reconciliación de residuos (25/11/2026):** quedaron 17 notas relevantes de 25, 9 de ellas de tipo "ambas". Las reglas están en [`etiquetado/guia-residuos.md`](../../etiquetado/guia-residuos.md). Al cerrarla, se decidió:
+  - **Tiene que haber un residuo en el centro de la nota.** Entra la contaminación por desechos, como los fármacos o los agrotóxicos en el agua; el agro y la energía sin residuo quedan afuera. El riego solar en Ruanda pasó a no relevante.
+  - **La medida concreta de gobierno entra,** incluidos los contratos y los fondos. El contrato de Lincoln y la convocatoria Anci-Conai pasaron a relevantes.
+  - **La crítica a un gobierno sin una medida entra en residuos,** como falla regulatoria, y sigue afuera en movilidad. Cada track tiene su regla.
+  - **Las campañas escolares y de sensibilización quedan afuera,** aunque informen cantidades. El concurso de Gauteng pasó a no relevante.
+  - **`GESTION_DEFICIENTE_RESIDUOS_ESPECIALES_RAEE` pasó a llamarse `GESTION_DEFICIENTE_RESIDUOS`** y abarca cualquier residuo, como ya se usaba. Se cambió en `config.js` y en el gold; el piloto en `kaggle_pipeline.py` y `taxonomia.py` todavía tiene el nombre viejo.
+- **Falta:** escribir el prompt a partir de las dos guías, y etiquetar otra tanda de movilidad, porque 4 relevantes no alcanzan para darle ejemplos al LLM y además evaluarlo.
+
+### Filtro determinístico de ruido en movilidad (25/11/2026)
+
+El gold de movilidad tiene 4 relevantes de 25, y 1 de 14 en diarios. Para no gastar LLM en lo que la [guía](../../etiquetado/guia-movilidad.md) ya deja afuera, [`filtrar_movilidad.py`](../../scripts/clasificacion/filtrar_movilidad.py) corta antes con reglas fijas. Es la Fase 0 del [plan de Kaggle](../plan-kaggle-antipatrones-(INICIAL).md).
+
+- **Solo diarios:** TN, El Doce, Clarín, La Nación y CBA24N. Los especializados pasan enteros: las raíces están en español, y 3 de las 4 relevantes del gold son de esos medios.
+- **Reglas, en orden:** sección fuera del track (deportes, espectáculos, famosos, policiales, redes sociales y similares); vocabulario de choque o accidente en título o bajada (`choc*`, `accidente*`, `atropell*`, `volc*`, `siniestro*`, `tragedia`, `alcoholemia`, `picadas`); y ninguna raíz de `RAICES_MOVILIDAD` en título, bajada ni tags.
+- **Seguridad vial con corte agresivo:** cualquier vocabulario de choque en título o bajada descarta la nota, aunque mencione transporte. Sigue la decisión de dejar la seguridad vial fuera del track.
+- **Sin corte por largo del cuerpo:** puede haber notas útiles cortas.
+- **No se guardan los descartes:** se pueden recalcular en un minuto, y `--muestra N` los muestra para auditar.
+- **Resultado:** quedan 18.709 de 53.029 notas (35 %). Las cifras por motivo y fuente están en el [análisis de movilidad](analisis-dataset-movilidad.md#filtro-de-ruido-25112026).
+- **Esquema:** `data/movilidad_filtrado.parquet` tiene las mismas columnas que `data/movilidad.parquet`.
+- **Falta:** que el equipo audite una muestra por motivo. Las reglas no sacan la política sin medida ni las notas de otros tracks.
 
 ### Plan de scraping
 

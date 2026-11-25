@@ -11,7 +11,7 @@ Pipeline de análisis de problemáticas · Hack to the Future · Córdoba Tech W
 [![PyArrow](https://img.shields.io/badge/PyArrow-Parquet-111111?style=for-the-badge&logo=apache&logoColor=white)](https://arrow.apache.org/docs/python/)
 [![Requests](https://img.shields.io/badge/Requests-111111?style=for-the-badge&logo=python&logoColor=white)](https://requests.readthedocs.io/)
 
-**Ignacio, Lauti y Diego**
+**Ignacio, Lauti y Gina**
 
 </div>
 
@@ -107,7 +107,7 @@ Si no llegamos a procesar los otros tres tracks, el análisis de residuos sigue 
 ## Arquitectura objetivo
 
 Hoy están construidas las etapas de fuentes, scraping, dataset y limpieza, para residuos, biodiversidad,
-movilidad y soluciones. Falta el filtro por utilidad. El resto es el diseño acordado; las dudas abiertas están en
+movilidad y soluciones. El filtro de ruido sin LLM está hecho para movilidad (25/11); falta en los otros tracks. El resto es el diseño acordado; las dudas abiertas están en
 [`docs/pipeline-arquitectura.html`](docs/pipeline-arquitectura.html).
 
 ```mermaid
@@ -160,7 +160,7 @@ flowchart TB
 | Objetivo, decisiones y dudas abiertas | [`docs/analisis-datasets/contexto-pipeline.md`](docs/analisis-datasets/contexto-pipeline.md) | Leer las secciones de decisiones y "Falta aclarar" |
 | Diseño del pipeline | [`docs/pipeline-arquitectura.html`](docs/pipeline-arquitectura.html) | Abrir el boceto y la lista "Por definir" |
 | Hay 43 fuentes posibles, con su acceso revisado | [`docs/analisis-fuentes/Fuentes para el dataset del pipeline.md`](docs/analisis-fuentes/Fuentes%20para%20el%20dataset%20del%20pipeline.md) | Comparar cada fila con el `robots.txt` del medio |
-| Hay 4 datasets limpios y deduplicados, con ruido de tema sin filtrar | Análisis de [residuos](docs/analisis-datasets/analisis-dataset-residuos.md), [biodiversidad](docs/analisis-datasets/analisis-dataset-biodiversidad.md), [movilidad](docs/analisis-datasets/analisis-dataset-movilidad.md) y [soluciones](docs/analisis-datasets/analisis-dataset-soluciones.md), y [`data/`](data/) | Leer el análisis y recontar los Parquet; los títulos permiten repetir la lectura de muestra |
+| Hay 4 datasets limpios y deduplicados; movilidad además tiene una versión sin el ruido obvio de diarios | Análisis de [residuos](docs/analisis-datasets/analisis-dataset-residuos.md), [biodiversidad](docs/analisis-datasets/analisis-dataset-biodiversidad.md), [movilidad](docs/analisis-datasets/analisis-dataset-movilidad.md) y [soluciones](docs/analisis-datasets/analisis-dataset-soluciones.md), y [`data/`](data/) | Leer el análisis y recontar los Parquet; los títulos permiten repetir la lectura de muestra |
 | Cómo se limpió y qué se descartó | [`contexto-pipeline.md`](docs/analisis-datasets/contexto-pipeline.md#limpieza-y-consolidación-8112026) y [`scripts/limpiar.py`](scripts/limpiar.py) | Correr `python scripts/limpiar.py --selfcheck` y leer la tabla de descartes |
 | Cada fuente se lista por una vía que su `robots.txt` no excluye | [`docs/scrapping-webs.md`](docs/scrapping-webs.md) y [`scripts/`](scripts/) | Comparar la sección "Permisos" de cada fuente con su `robots.txt` |
 | Datos del evento y reglas confirmadas | [`CLAUDE.md`](CLAUDE.md) | Comparar con la [fuente oficial](https://cordobatechweek.com/side-events/hack-to-the-future/) y lo informado por la organización |
@@ -176,10 +176,10 @@ flowchart TB
 | Relevamiento de fuentes | **Inicial:** falta revisar términos de uso y foros |
 | Medición del volumen | **Parcial:** hay conteos por fuente y track; falta medir utilidad y notas reescritas entre medios |
 | Scraping | **Completo por ahora:** 33 fuentes en residuos, 13 en biodiversidad, 10 en movilidad y 62 en soluciones. Infobae y Clarín bajaron solo lo prioritario. Futuro Sustentable no tiene datos; Cadena 3 quedó de lado por falta de volumen |
-| Dataset | **Limpio y consolidado (8/11):** un Parquet por dataset, con el mismo esquema: residuos 40.232 notas, biodiversidad 33.620, movilidad 53.029 y soluciones 19.817 con su columna `tracks`. Falta filtrar por utilidad |
+| Dataset | **Limpio y consolidado (8/11):** un Parquet por dataset, con el mismo esquema: residuos 40.232 notas, biodiversidad 33.620, movilidad 53.029 y soluciones 19.817 con su columna `tracks`. **Movilidad filtrada (25/11):** [`filtrar_movilidad.py`](scripts/clasificacion/filtrar_movilidad.py) deja 18.709 notas sin el ruido obvio de diarios (secciones fuera del track, seguridad vial y notas sin raíces del tema). Falta auditarlo y filtrar los otros tracks |
 | Limpieza | **Hecha:** [`limpiar.py`](scripts/limpiar.py) quitó pies de suscripción, notas sin cuerpo, títulos seriados y duplicados por `id`, título y cuerpo. Se eliminaron las señales de problema y de opinión, poco precisas. El circuito de problemáticas está en [`docs/circuito-problematicas.md`](docs/circuito-problematicas.md) |
 | CI de Python | **Implementado:** en cada PR corre lint de errores graves, el límite de 100 MB por Parquet y los tests de [`scripts/clasificacion/`](scripts/clasificacion). El test de integración se omite si falta la muestra local. Lean no iniciado |
-| Clasificación y segmentación | **Piloto de residuos (10/11):** Qwen 2.5 3B en Kaggle, en [`scripts/clasificacion/`](scripts/clasificacion), con resultados flojos. **Etiquetado manual en curso (25/11):** 25 notas por track de movilidad y residuos, en [`etiquetado/`](etiquetado), para medir al LLM antes de repetir la clasificación |
+| Clasificación y segmentación | **Piloto de residuos (10/11):** Qwen 2.5 3B en Kaggle, en [`scripts/clasificacion/`](scripts/clasificacion), con resultados flojos. **Etiquetado manual hecho (25/11):** Ignacio y Lauti etiquetaron 25 notas por track de movilidad y residuos, en [`etiquetado/`](etiquetado). Coincidieron en todos los campos en 12 de 25 notas de movilidad y en 3 de 25 de residuos. Los dos tracks ya están reconciliados: 4 de 25 notas son relevantes en movilidad y 17 de 25 en residuos. Las reglas están en las guías de [movilidad](etiquetado/guia-movilidad.md) y [residuos](etiquetado/guia-residuos.md), que son la base del prompt. Falta escribir el prompt y evaluar al LLM contra el gold |
 | Grafo y análisis | **No iniciado** |
 
 ---
@@ -206,6 +206,13 @@ python scripts/limpiar.py --simular
 python scripts/limpiar.py
 ```
 
+Para sacar el ruido obvio de movilidad antes del LLM (escribe `data/movilidad_filtrado.parquet` y deja el log en `data/logs/`):
+
+```bash
+python scripts/clasificacion/filtrar_movilidad.py --selfcheck
+python scripts/clasificacion/filtrar_movilidad.py
+```
+
 Para correr los mismos chequeos que el CI (requiere `pip install -r requirements-ci.txt`):
 
 ```bash
@@ -219,7 +226,16 @@ Para etiquetar notas a mano (movilidad y residuos):
 python etiquetado/muestrear.py
 ```
 
-El script arma la muestra fija en `etiquetado/muestra.js`. Se corre una sola vez y la muestra se commitea antes de etiquetar, para que todos vean las mismas notas. Después se abre `etiquetado/index.html` con doble clic, se elige persona y track, y al terminar se descarga `<persona>-<track>.json` y se copia a `etiquetado/etiquetas/`.
+El script arma la muestra fija en `etiquetado/muestra.js`. Se corre una sola vez y la muestra se commitea antes de etiquetar, para que todos vean las mismas notas. Después se abre `etiquetado/index.html` con doble clic, se elige persona y track (el alcance no se etiqueta: sale de la fuente), y al terminar se descarga `<persona>-<track>.json` y se copia a `etiquetado/etiquetas/`.
+
+Cuando las dos personas terminaron, la reconciliación las guía nota por nota por los desacuerdos y guarda la etiqueta final:
+
+```bash
+python etiquetado/reconciliar.py movilidad
+python etiquetado/reconciliar.py residuos --informe
+```
+
+Sin `--informe`, abre la sesión interactiva, que se puede cortar con `q` y retomar. Con `--informe`, solo escribe las métricas de acuerdo. Todo queda en `etiquetado/reconciliacion/`. Para verificar el código: `python etiquetado/reconciliar.py --selfcheck`.
 
 Para leer un dataset:
 
@@ -238,9 +254,11 @@ notas[notas["tracks"].map(lambda t: "agro" in t)]
 ├── data/
 │   ├── biodiversidad.parquet                        Problemas de biodiversidad, limpios
 │   ├── movilidad.parquet                            Problemas de movilidad sustentable, limpios
+│   ├── movilidad_filtrado.parquet                   Movilidad sin el ruido obvio de diarios, lista para el LLM
 │   ├── residuos.parquet                             Notas de residuos, limpias
 │   ├── soluciones.parquet                           Soluciones de los cuatro tracks, con la columna tracks
-│   └── soluciones/crudo/                            Descarga cruda de soluciones, fuera de Git
+│   ├── soluciones/crudo/                            Descarga cruda de soluciones, fuera de Git
+│   └── logs/                                        Logs de los scripts, fuera de Git
 ├── docs/
 │   ├── analisis-datasets/
 │   │   ├── analisis-dataset-biodiversidad.md       Pros y contras de las problemáticas de biodiversidad
@@ -259,12 +277,16 @@ notas[notas["tracks"].map(lambda t: "agro" in t)]
 │   ├── muestra.js                                   Muestra generada, la que ven todos los que etiquetan
 │   ├── config.js                                    Personas, categorías y alcances, editable a mano
 │   ├── index.html                                   App de etiquetado manual, sin servidor
-│   └── etiquetas/                                   Un JSON por persona y track
+│   ├── etiquetas/                                   Un JSON por persona y track
+│   ├── reconciliar.py                               Mide el acuerdo y guía la reconciliación
+│   ├── guia-movilidad.md                            Reglas de relevancia y clasificación de movilidad, base del prompt
+│   ├── guia-residuos.md                             Lo mismo para residuos
+│   └── reconciliacion/                              Gold e informe de acuerdo por track
 ├── .github/workflows/
 │   └── python-ci.yml                                CI de Python en cada PR: lint, límite de 100 MB y tests
 ├── scripts/                                         Scraping por fuente y limpieza (limpiar.py)
-│   ├── clasificacion/                               Pipeline de clasificación y sus tests (test_*.py)
-│   └── diccionarios/                                Términos de residuos, soluciones, biodiversidad y movilidad
+│   ├── clasificacion/                               Filtro de ruido de movilidad, pipeline de clasificación y sus tests (test_*.py)
+│   └── diccionarios/                                Términos por track y alcance geográfico por fuente (alcance_fuentes.py)
 ├── CLAUDE.md                       Datos del evento e indicaciones para Claude
 ├── requirements-ci.txt             Dependencias mínimas del job de CI
 └── README.md                       Presentación del proyecto
@@ -284,11 +306,6 @@ notas[notas["tracks"].map(lambda t: "agro" in t)]
 
 ## Equipo
 
-| Integrante | Foco |
-|---|---|
-| **Ignacio** | Idea inicial y diseño del pipeline |
-| **Lauti** | Perfil técnico; tareas por definir |
-| **Diego** | Perfil técnico; tareas por definir |
 
 Preparado en Córdoba para **Hack to the Future**, la hackathon de innovación sostenible de la
 **Córdoba Tech Week**, organizada por **Córdoba Cluster**.

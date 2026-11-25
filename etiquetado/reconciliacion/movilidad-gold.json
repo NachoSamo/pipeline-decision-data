@@ -1,0 +1,374 @@
+{
+  "track": "movilidad",
+  "muestra_version": "2026-11-25-s42",
+  "personas": [
+    "Ignacio",
+    "Lauti"
+  ],
+  "etiquetas": [
+    {
+      "id": "RCTKVBJSMVBOBHJKO2HK72ZXQA",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "acuerdo",
+      "nota_reconciliacion": "",
+      "comentarios": {
+        "ignacio": "No habla de movilidad",
+        "lauti": "messi"
+      }
+    },
+    {
+      "id": "DVHKT2CSP5C6LHTJMCHSX2AIWU",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "acuerdo",
+      "nota_reconciliacion": "",
+      "comentarios": {
+        "ignacio": "Accidente vial",
+        "lauti": "choque especifico, muerte"
+      }
+    },
+    {
+      "id": "https://www.lanacion.com.ar/seguridad/caos-de-transito-en-la-autopista-9-de-julio-sur-por-un-choque-a-la-altura-de-barracas-nid23112024/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "lauti",
+      "nota_reconciliacion": "Accidentes viales no se tienen en cuenta",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": "choque"
+      }
+    },
+    {
+      "id": "https://www.clarin.com/autos/manual-del-buen-conductor-9-cosas-que-hay-que-saber-para-manejar-en-la-ciudad_0_yJg2h0NpK.html",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "ignacio",
+      "nota_reconciliacion": "No declara un problema o solucion especifico",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": "por el lado de regulaciones, quizas no es tan util"
+      }
+    },
+    {
+      "id": "https://www.visionsustentable.com/2025/12/10/zurich-avanza-en-un-modelo-de-negocio-cada-vez-mas-sustentable/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "lauti",
+      "nota_reconciliacion": "Politica, Gobierno, Inversiones",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": "politica, inversiones"
+      }
+    },
+    {
+      "id": "https://www.ecoticias.com/sostenibilidad/el-alcalde-de-valladolid-suspende-en-movilidad-sostenible",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "lauti",
+      "nota_reconciliacion": "Política sin medida concreta de transporte: crítica a un alcalde (25/11)",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": "politico"
+      }
+    },
+    {
+      "id": "https://grist.org/sponsored/reinventing-coal-country-reclaiming-americas-abandoned-mine-lands/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "acuerdo",
+      "nota_reconciliacion": "",
+      "comentarios": {
+        "ignacio": "Trata sobre Residuos mineros",
+        "lauti": ""
+      }
+    },
+    {
+      "id": "https://www.cba24n.com.ar/argentina/caputo-amenazo-con-un-ajuste-a-las-provincias-si-no-se-aprueba-la-ley-omnibus_a65b161e16c6ae410c98879e3",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "acuerdo",
+      "nota_reconciliacion": "",
+      "comentarios": {
+        "ignacio": "Trata sobre politica argentina",
+        "lauti": "politica"
+      }
+    },
+    {
+      "id": "https://ciclovivo.com.br/sem-categoria/triciclo-movido-a-energia-solar-e-opcao-para-servicos-de-entrega/",
+      "relevante": true,
+      "tipo": "solucion",
+      "categorias_problema": [],
+      "categorias_solucion": [
+        "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+      ],
+      "categoria_otra": null,
+      "origen": "acuerdo",
+      "nota_reconciliacion": "",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": ""
+      }
+    },
+    {
+      "id": "https://www.ecomundo.com.ar/el-70-de-los-ultimos-brotes-epidemicos-han-comenzado-con-la-deforestacion/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "ignacio",
+      "nota_reconciliacion": "No trata sobre el track analizado",
+      "comentarios": {
+        "ignacio": "Trata sobre deforestación y como esto desencadena brotes epidémicos",
+        "lauti": ""
+      }
+    },
+    {
+      "id": "FHW47KDD5FHWVI44OAAYPN76FQ",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "lauti",
+      "nota_reconciliacion": "Accidente vial no se adopta",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": "siniestro"
+      }
+    },
+    {
+      "id": "GZ6EODNMOBAFZD3YCZ433RPPEQ",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "acuerdo",
+      "nota_reconciliacion": "",
+      "comentarios": {
+        "ignacio": "El artículo aborda temas de política económica, fiscal, monetaria y comercio exterior que se debaten en la Cámara de Diputados de Argentina",
+        "lauti": "politico"
+      }
+    },
+    {
+      "id": "https://www.clarin.com/policiales/chocaron-camioneta-abandonaron-plena-panamericana-llevaban-tonelada-hojas-coca_0_mi2WLIMCYR.html",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "acuerdo",
+      "nota_reconciliacion": "",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": "siniestro"
+      }
+    },
+    {
+      "id": "https://www.lanacion.com.ar/el-mundo/video-una-argentina-increpo-con-insultos-racistas-a-un-agente-de-transito-en-mexico-nid07072025/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "acuerdo",
+      "nota_reconciliacion": "",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": "racismo"
+      }
+    },
+    {
+      "id": "https://grist.org/energy/after-a-four-year-campaign-new-york-says-yes-to-publicly-owned-renewables-strong/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "lauti",
+      "nota_reconciliacion": "Politica, gobierno y decisiones",
+      "comentarios": {
+        "ignacio": "El artículo aborda política energética, transición hacia energías renovables y derechos laborales en el estado de Nueva York",
+        "lauti": "politico"
+      }
+    },
+    {
+      "id": "https://www.cba24n.com.ar/cordoba/transporte--las-lineas-30-y-34-pasan-a-formar-parte-de-la-empresa-sibus_a68630bc18d20d6a19f70005e",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "nueva",
+      "nota_reconciliacion": "Relevante exige problema o solución: un cambio de operador es noticia de gestión, no una solución (25/11)",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": "nuevas lineas de colectivos"
+      }
+    },
+    {
+      "id": "https://www.ecoticias.com/movilidad-electrica/el-configurador-online-del-silence-s04-revoluciona-la-movilidad-electrica-urbana",
+      "relevante": true,
+      "tipo": "solucion",
+      "categorias_problema": [],
+      "categorias_solucion": [
+        "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+      ],
+      "categoria_otra": null,
+      "origen": "acuerdo",
+      "nota_reconciliacion": "Solo diferían en alcance, que ahora sale de la fuente (25/11)",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": ""
+      }
+    },
+    {
+      "id": "https://ciclovivo.com.br/planeta/desenvolvimento/conheca-startups-do-hub-green-sampa-e-suas-tecnologias/",
+      "relevante": true,
+      "tipo": "solucion",
+      "categorias_problema": [],
+      "categorias_solucion": [
+        "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS",
+        "INFRAESTRUCTURA_BICICLETAS_Y_PEATONAL",
+        "SISTEMAS_INTELIGENTES_TRANSITO_ITS"
+      ],
+      "categoria_otra": null,
+      "origen": "lauti",
+      "nota_reconciliacion": "",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": ""
+      }
+    },
+    {
+      "id": "https://www.visionsustentable.com/2021/09/02/santander-y-san-miguel-lideran-la-primera-obligacion-negociable-vinculada-a-la-sustentabilidad-de-argentina/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "lauti",
+      "nota_reconciliacion": "Economia",
+      "comentarios": {
+        "ignacio": "Economia",
+        "lauti": ""
+      }
+    },
+    {
+      "id": "https://www.ecomundo.com.ar/las-poblaciones-de-aves-mamiferos-y-peces-cayeron-un-69-entre-1970-y-2018/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "acuerdo",
+      "nota_reconciliacion": "",
+      "comentarios": {
+        "ignacio": "Biodiversidad",
+        "lauti": ""
+      }
+    },
+    {
+      "id": "3CEHBXFDVFHXPAVYEDZNBLG5HM",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "acuerdo",
+      "nota_reconciliacion": "",
+      "comentarios": {
+        "ignacio": "Nota viral/color sobre una sorpresa familiar que simula un control de tránsito en Funes (Santa Fe); no aborda problemáticas ni soluciones reales de movilidad urbana, transporte o seguridad vial.",
+        "lauti": ""
+      }
+    },
+    {
+      "id": "CIO2ZCEHW5G6HGUOFC7P47Q6UI",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "acuerdo",
+      "nota_reconciliacion": "",
+      "comentarios": {
+        "ignacio": "Videojuegos",
+        "lauti": ""
+      }
+    },
+    {
+      "id": "https://www.clarin.com/de-autos/videos-pasa-nino-accidente-proteccion-adecuada_0_BkGfynySG.html",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "lauti",
+      "nota_reconciliacion": "accidente vial",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": ""
+      }
+    },
+    {
+      "id": "https://www.lanacion.com.ar/sociedad/un-teleferico-y-un-subte-en-la-plata-el-proyecto-de-estilo-parisino-para-aliviar-el-transito-de-la-nid23072026/",
+      "relevante": true,
+      "tipo": "ambas",
+      "categorias_problema": [
+        "CONGESTION_Y_DEMORAS"
+      ],
+      "categorias_solucion": [
+        "REDES_FERROVIARIAS_Y_SUBTE"
+      ],
+      "categoria_otra": null,
+      "origen": "ignacio",
+      "nota_reconciliacion": "Habla de como la solucion ataca al problema",
+      "comentarios": {
+        "ignacio": "",
+        "lauti": ""
+      }
+    },
+    {
+      "id": "https://grist.org/accountability/la-county-lawsuit-pepsi-coca-cola-plastic-pollution/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "origen": "acuerdo",
+      "nota_reconciliacion": "",
+      "comentarios": {
+        "ignacio": "Nota sobre contaminación por plásticos de un solo uso",
+        "lauti": "plasticos"
+      }
+    }
+  ],
+  "actualizado": "2026-11-25T19:25:34+00:00",
+  "nota": "Revisado el 25/11/2026 con las reglas de etiquetado/guia-movilidad.md: el alcance sale de la fuente y SiBuS pasó a no relevante."
+}
