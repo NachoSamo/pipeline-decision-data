@@ -1,0 +1,303 @@
+{
+  "persona": "lauti",
+  "track": "movilidad",
+  "muestra_version": "2026-11-25-s42",
+  "exportado": "2026-11-25T16:07:31.250Z",
+  "etiquetas": [
+    {
+      "id": "RCTKVBJSMVBOBHJKO2HK72ZXQA",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "messi",
+      "etiquetado_en": "2026-11-25T15:51:55.014Z"
+    },
+    {
+      "id": "DVHKT2CSP5C6LHTJMCHSX2AIWU",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "choque especifico, muerte",
+      "etiquetado_en": "2026-11-25T15:52:09.583Z"
+    },
+    {
+      "id": "https://www.lanacion.com.ar/seguridad/caos-de-transito-en-la-autopista-9-de-julio-sur-por-un-choque-a-la-altura-de-barracas-nid23112024/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "choque",
+      "etiquetado_en": "2026-11-25T15:52:20.545Z"
+    },
+    {
+      "id": "https://www.clarin.com/autos/manual-del-buen-conductor-9-cosas-que-hay-que-saber-para-manejar-en-la-ciudad_0_yJg2h0NpK.html",
+      "relevante": true,
+      "tipo": "problema",
+      "categorias_problema": [
+        "SINIESTRALIDAD_VIAL"
+      ],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": "ARGENTINA_NACIONAL",
+      "comentario": "por el lado de regulaciones, quizas no es tan util",
+      "etiquetado_en": "2026-11-25T15:53:08.108Z"
+    },
+    {
+      "id": "https://www.visionsustentable.com/2025/12/10/zurich-avanza-en-un-modelo-de-negocio-cada-vez-mas-sustentable/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "politica, inversiones",
+      "etiquetado_en": "2026-11-25T15:55:15.002Z"
+    },
+    {
+      "id": "https://www.ecoticias.com/sostenibilidad/el-alcalde-de-valladolid-suspende-en-movilidad-sostenible",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "politico",
+      "etiquetado_en": "2026-11-25T15:57:18.036Z"
+    },
+    {
+      "id": "https://grist.org/sponsored/reinventing-coal-country-reclaiming-americas-abandoned-mine-lands/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:58:19.302Z"
+    },
+    {
+      "id": "https://www.cba24n.com.ar/argentina/caputo-amenazo-con-un-ajuste-a-las-provincias-si-no-se-aprueba-la-ley-omnibus_a65b161e16c6ae410c98879e3",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "politica",
+      "etiquetado_en": "2026-11-25T15:58:48.823Z"
+    },
+    {
+      "id": "https://ciclovivo.com.br/sem-categoria/triciclo-movido-a-energia-solar-e-opcao-para-servicos-de-entrega/",
+      "relevante": true,
+      "tipo": "solucion",
+      "categorias_problema": [],
+      "categorias_solucion": [
+        "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+      ],
+      "categoria_otra": null,
+      "alcance": "LATAM_REGIONAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:59:20.688Z"
+    },
+    {
+      "id": "https://www.ecomundo.com.ar/el-70-de-los-ultimos-brotes-epidemicos-han-comenzado-con-la-deforestacion/",
+      "relevante": true,
+      "tipo": "ambas",
+      "categorias_problema": [
+        "EMISIONES_Y_FLOTA_OBSOLETA",
+        "DEFICIT_TRANSPORTE_PUBLICO"
+      ],
+      "categorias_solucion": [
+        "INFRAESTRUCTURA_BICICLETAS_Y_PEATONAL"
+      ],
+      "categoria_otra": null,
+      "alcance": "ARGENTINA_NACIONAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T16:00:20.721Z"
+    },
+    {
+      "id": "FHW47KDD5FHWVI44OAAYPN76FQ",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "siniestro",
+      "etiquetado_en": "2026-11-25T16:00:31.109Z"
+    },
+    {
+      "id": "GZ6EODNMOBAFZD3YCZ433RPPEQ",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "politico",
+      "etiquetado_en": "2026-11-25T16:01:23.033Z"
+    },
+    {
+      "id": "https://www.clarin.com/policiales/chocaron-camioneta-abandonaron-plena-panamericana-llevaban-tonelada-hojas-coca_0_mi2WLIMCYR.html",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "siniestro",
+      "etiquetado_en": "2026-11-25T16:01:34.090Z"
+    },
+    {
+      "id": "https://www.lanacion.com.ar/el-mundo/video-una-argentina-increpo-con-insultos-racistas-a-un-agente-de-transito-en-mexico-nid07072025/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "racismo",
+      "etiquetado_en": "2026-11-25T16:02:05.204Z"
+    },
+    {
+      "id": "https://grist.org/energy/after-a-four-year-campaign-new-york-says-yes-to-publicly-owned-renewables-strong/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "politico",
+      "etiquetado_en": "2026-11-25T16:02:35.381Z"
+    },
+    {
+      "id": "https://www.cba24n.com.ar/cordoba/transporte--las-lineas-30-y-34-pasan-a-formar-parte-de-la-empresa-sibus_a68630bc18d20d6a19f70005e",
+      "relevante": true,
+      "tipo": "solucion",
+      "categorias_problema": [],
+      "categorias_solucion": [
+        "OTRA_SOLUCION_MOVILIDAD"
+      ],
+      "categoria_otra": "fortalecimiento_transporte_publico",
+      "alcance": "CORDOBA_LOCAL",
+      "comentario": "nuevas lineas de colectivos",
+      "etiquetado_en": "2026-11-25T16:03:41.742Z"
+    },
+    {
+      "id": "https://www.ecoticias.com/movilidad-electrica/el-configurador-online-del-silence-s04-revoluciona-la-movilidad-electrica-urbana",
+      "relevante": true,
+      "tipo": "solucion",
+      "categorias_problema": [],
+      "categorias_solucion": [
+        "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+      ],
+      "categoria_otra": null,
+      "alcance": "ARGENTINA_NACIONAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T16:04:14.661Z"
+    },
+    {
+      "id": "https://ciclovivo.com.br/planeta/desenvolvimento/conheca-startups-do-hub-green-sampa-e-suas-tecnologias/",
+      "relevante": true,
+      "tipo": "solucion",
+      "categorias_problema": [],
+      "categorias_solucion": [
+        "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS",
+        "INFRAESTRUCTURA_BICICLETAS_Y_PEATONAL",
+        "SISTEMAS_INTELIGENTES_TRANSITO_ITS"
+      ],
+      "categoria_otra": null,
+      "alcance": "LATAM_REGIONAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T16:05:00.636Z"
+    },
+    {
+      "id": "https://www.visionsustentable.com/2021/09/02/santander-y-san-miguel-lideran-la-primera-obligacion-negociable-vinculada-a-la-sustentabilidad-de-argentina/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T16:05:15.991Z"
+    },
+    {
+      "id": "https://www.ecomundo.com.ar/las-poblaciones-de-aves-mamiferos-y-peces-cayeron-un-69-entre-1970-y-2018/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T16:05:37.900Z"
+    },
+    {
+      "id": "3CEHBXFDVFHXPAVYEDZNBLG5HM",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T16:05:50.086Z"
+    },
+    {
+      "id": "CIO2ZCEHW5G6HGUOFC7P47Q6UI",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T16:06:06.064Z"
+    },
+    {
+      "id": "https://www.clarin.com/de-autos/videos-pasa-nino-accidente-proteccion-adecuada_0_BkGfynySG.html",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T16:06:18.292Z"
+    },
+    {
+      "id": "https://www.lanacion.com.ar/sociedad/un-teleferico-y-un-subte-en-la-plata-el-proyecto-de-estilo-parisino-para-aliviar-el-transito-de-la-nid23072026/",
+      "relevante": true,
+      "tipo": "solucion",
+      "categorias_problema": [],
+      "categorias_solucion": [
+        "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS",
+        "REDES_FERROVIARIAS_Y_SUBTE"
+      ],
+      "categoria_otra": null,
+      "alcance": "INTERNACIONAL_GLOBAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T16:06:54.989Z"
+    },
+    {
+      "id": "https://grist.org/accountability/la-county-lawsuit-pepsi-coca-cola-plastic-pollution/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "plasticos",
+      "etiquetado_en": "2026-11-25T16:07:29.525Z"
+    }
+  ]
+}
