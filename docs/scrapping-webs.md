@@ -313,6 +313,50 @@ python etiquetado/muestrear.py
 - **Reparte entre fuentes:** mezcla con semilla 42 y toma de a una nota por fuente, por turnos, hasta llegar a 25.
 - **Es determinística:** con los mismos Parquet sale la misma muestra. Si los Parquet cambian, cambia la muestra; por eso se commitea `muestra.js` antes de etiquetar.
 
+## Reconciliación del etiquetado
+
+[`etiquetado/reconciliar.py`](../etiquetado/reconciliar.py) lee los dos `etiquetado/etiquetas/*-<track>.json` y escribe en `etiquetado/reconciliacion/`:
+
+- **`<track>-informe.md`:** acuerdo en todos los campos; acuerdo y kappa en relevancia y tipo; acuerdo en alcance; superposición de categorías (Jaccard); uso de cada categoría por persona; textos libres de las categorías "otro", y la lista de desacuerdos.
+- **`<track>-gold.json`:** la etiqueta final de cada nota, con `origen` (`acuerdo`, la persona elegida o `nueva`), `nota_reconciliacion` (el porqué, que alimenta la guía) y los comentarios de los dos.
+
+```bash
+python etiquetado/reconciliar.py --selfcheck
+python etiquetado/reconciliar.py movilidad --informe
+python etiquetado/reconciliar.py movilidad
+```
+
+- **Desacuerdo es cualquier diferencia:** relevancia, tipo, categorías o texto libre (sin distinguir mayúsculas). El comentario no cuenta, y el alcance tampoco, porque desde el 25/11 sale de la fuente.
+- **Orden de la sesión:** primero las notas que difieren en relevancia, después en tipo y al final el resto. Las notas en las que coinciden pasan directo al gold.
+- **Se puede cortar y retomar:** guarda después de cada decisión, y al volver a correr salta las ya decididas.
+- **Frena si los JSON son de otra muestra** que la de `muestra.js`.
+- **Lee las categorías renombradas con el nombre nuevo:** `RENOMBRADAS` traduce `GESTION_DEFICIENTE_RESIDUOS_ESPECIALES_RAEE` a `GESTION_DEFICIENTE_RESIDUOS` al cargar los JSON. Los JSON originales no se modifican.
+
+## Alcance por fuente
+
+[`scripts/diccionarios/alcance_fuentes.py`](../scripts/diccionarios/alcance_fuentes.py) asigna el alcance geográfico según el origen del medio: Córdoba, resto de Argentina, resto de América Latina o resto del mundo. Cubre todas las fuentes de movilidad y residuos. Si aparece una fuente nueva, hay que sumarla, y el chequeo falla hasta que eso pase.
+
+```bash
+python scripts/diccionarios/alcance_fuentes.py
+```
+
+## Filtro de ruido de movilidad
+
+[`scripts/clasificacion/filtrar_movilidad.py`](../scripts/clasificacion/filtrar_movilidad.py) saca de `data/movilidad.parquet` el ruido que la [guía de movilidad](../etiquetado/guia-movilidad.md) ya deja afuera, sin usar un LLM. Escribe solo las notas que pasan en `data/movilidad_filtrado.parquet`, con las mismas columnas. Los descartes no se guardan. Los criterios y las cifras están en [`contexto-pipeline.md`](analisis-datasets/contexto-pipeline.md#filtro-determinístico-de-ruido-en-movilidad-25112026).
+
+```bash
+python scripts/clasificacion/filtrar_movilidad.py --selfcheck
+python scripts/clasificacion/filtrar_movilidad.py --muestra 20
+python scripts/clasificacion/filtrar_movilidad.py
+```
+
+- **Solo filtra diarios:** TN, El Doce, Clarín, La Nación y CBA24N. Los medios especializados pasan enteros.
+- **Tres reglas, en orden:** sección fuera del track (deportes, espectáculos, policiales y similares), vocabulario de choque o accidente en título o bajada, y ninguna raíz de `RAICES_MOVILIDAD` en título, bajada ni tags. La primera que coincide es el motivo.
+- **No corta por largo del cuerpo:** puede haber notas útiles cortas.
+- **`--muestra N`:** imprime N títulos al azar por motivo (semilla 42) para auditar a mano. No escribe nada.
+- **`--selfcheck`:** casos de prueba y verifica que las 4 notas relevantes del gold pasan.
+- **Log:** las líneas llevan la hora, como en el scraping, y se agregan a `data/logs/filtrar_movilidad.log`, que queda fuera de Git.
+
 ## Pendiente de revisar
 
 - Los términos de uso de Visión Sustentable, Ecomundo, Futuro Sustentable, ECOBIZ, TN, Mongabay, CBA24N, Cadena 3, Resource Recycling, Circular Online, Mongabay en inglés y Grist.

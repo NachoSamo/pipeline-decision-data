@@ -4,3 +4,4 @@ data/**/*.tmp
 data/**/*.progreso.json
 data/soluciones/crudo/
 .pytest_cache/
+data/**/*.log
