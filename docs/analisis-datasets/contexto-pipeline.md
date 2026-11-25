@@ -112,7 +112,7 @@ El piloto de residuos con LLM (Qwen 2.5 3B en Kaggle, 10/11) dejó categorías c
 
 - **Quién:** Ignacio y Lauti etiquetan las mismas notas de los dos tracks, cada uno por su lado, para medir cuánto coinciden.
 - **Muestra:** 25 notas por track de `data/movilidad.parquet` y `data/residuos.parquet`, con cuerpo de 300 caracteres o más, repartidas entre fuentes por turnos (semilla 42). Movilidad quedó con 10 fuentes (2 o 3 notas cada una) y residuos con 25 (una nota por fuente). Se mide con [`etiquetado/muestrear.py`](../../etiquetado/muestrear.py).
-- **Qué se etiqueta:** si es relevante; si es problema, solución, ambas o ninguna; la categoría; el alcance geográfico, y un comentario opcional. Las categorías son las de `TAXONOMIAS` en [`kaggle_pipeline.py`](../../scripts/clasificacion/kaggle_pipeline.py), y sus categorías "otro" (`OTRO_PROBLEMA_*`, `OTRA_SOLUCION_*`) piden texto libre.
+- **Qué se etiqueta:** si es relevante; si es problema, solución, ambas o ninguna; una o más categorías de problema y de solución; el alcance geográfico, y un comentario opcional. Las categorías son las de `TAXONOMIAS` en [`kaggle_pipeline.py`](../../scripts/clasificacion/kaggle_pipeline.py), y sus categorías "otro" (`OTRO_PROBLEMA_*`, `OTRA_SOLUCION_*`) piden texto libre.
 - **Guardado:** un JSON por persona y track en `etiquetado/etiquetas/`, para que los dos puedan commitear sin conflictos.
 - **Para qué:** medir el acuerdo entre personas y, después, evaluar al LLM contra estas etiquetas. Las notas que se usen como ejemplos dentro del prompt no cuentan para la evaluación.
 - **Falta:** el script que une los JSON y mide el acuerdo.
