@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Etiquetado manual</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 17px; line-height: 1.5; color: #1a1a1a; background: #fff;
+  }
+  main { max-width: 900px; margin: 0 auto; padding: 24px 16px 48px; }
+  h1 { font-size: 1.8rem; margin: 0 0 16px; }
+  h2 { font-size: 1.4rem; margin: 8px 0; }
+  fieldset { border: 1px solid #c9c9c9; border-radius: 8px; margin: 0 0 16px; padding: 12px 16px; }
+  legend { font-weight: 600; padding: 0 6px; }
+  [hidden] { display: none !important; }
+  button {
+    font: inherit; min-height: 44px; padding: 10px 18px; border-radius: 8px;
+    border: 2px solid #1f4e9a; background: #fff; color: #1f4e9a; cursor: pointer;
+  }
+  button.primario { background: #1f4e9a; color: #fff; }
+  button:disabled { opacity: 0.45; cursor: not-allowed; }
+  select, input[type=text], textarea {
+    font: inherit; width: 100%; min-height: 44px; padding: 8px 10px;
+    border: 1px solid #777; border-radius: 6px; background: #fff; color: #1a1a1a;
+  }
+  textarea { min-height: 90px; resize: vertical; }
+  .opcion { display: flex; align-items: center; gap: 8px; padding: 6px 0; }
+  .opcion input { width: 22px; height: 22px; margin: 0; }
+  .campo { margin: 14px 0; }
+  .campo > label { display: block; font-weight: 600; margin-bottom: 6px; }
+  .barra {
+    display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;
+    padding-bottom: 12px; margin-bottom: 16px; border-bottom: 1px solid #c9c9c9;
+  }
+  .barra .botones { display: flex; flex-wrap: wrap; gap: 8px; }
+  .aviso { padding: 12px 16px; border-radius: 8px; border: 1px solid #1f4e9a; background: #eef4ff; margin: 12px 0; }
+  .aviso.error { border-color: #b00020; background: #fdecec; }
+  .meta { color: #444; margin: 4px 0; }
+  .bajada { font-style: italic; color: #333; }
+  .body {
+    white-space: pre-wrap; max-height: 50vh; overflow-y: auto; margin: 12px 0;
+    border: 1px solid #c9c9c9; border-radius: 8px; padding: 12px 14px; background: #fafafa;
+  }
+  .nav { display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; margin-top: 16px; }
+  :focus-visible { outline: 3px solid #ffbf47; outline-offset: 2px; }
+</style>
+</head>
+<body>
+<main>
+  <div id="error" class="aviso error" hidden></div>
+
+  <section id="inicio" hidden>
+    <h1>Etiquetado manual</h1>
+    <fieldset>
+      <legend>¿Quién sos?</legend>
+      <div id="personas"></div>
+    </fieldset>
+    <fieldset>
+      <legend>¿Qué track vas a clasificar?</legend>
+      <div id="tracks"></div>
+    </fieldset>
+    <button id="empezar" class="primario" type="button" disabled>Empezar</button>
+  </section>
+
+  <section id="etiquetado" hidden>
+    <div class="barra">
+      <div>
+        <strong id="cab"></strong><br>
+        <span id="progreso"></span>
+      </div>
+      <div class="botones">
+        <button id="cambiar" type="button">Cambiar persona/track</button>
+        <button id="descargar" type="button">Descargar JSON</button>
+      </div>
+    </div>
+
+    <div id="aviso" class="aviso" hidden></div>
+
+    <article>
+      <h2 id="titulo"></h2>
+      <p class="meta" id="meta"></p>
+      <p class="meta"><a id="link" href="#" target="_blank" rel="noopener">Ver original</a></p>
+      <p class="bajada" id="bajada"></p>
+      <div class="body" id="body"></div>
+    </article>
+
+    <form id="form" onsubmit="return false">
+      <fieldset>
+        <legend>¿Es relevante para el track?</legend>
+        <label class="opcion"><input type="radio" name="relevante" value="si"> Sí</label>
+        <label class="opcion"><input type="radio" name="relevante" value="no"> No</label>
+      </fieldset>
+
+      <div id="campos">
+        <fieldset>
+          <legend>Tipo</legend>
+          <label class="opcion"><input type="radio" name="tipo" value="problema"> Problema</label>
+          <label class="opcion"><input type="radio" name="tipo" value="solucion"> Solución</label>
+          <label class="opcion"><input type="radio" name="tipo" value="ambas"> Ambas</label>
+          <label class="opcion"><input type="radio" name="tipo" value="ninguna"> Ninguna</label>
+        </fieldset>
+
+        <div class="campo" id="fila-problema">
+          <label for="categoria_problema">Categoría de problema</label>
+          <select id="categoria_problema"></select>
+        </div>
+
+        <div class="campo" id="fila-solucion">
+          <label for="categoria_solucion">Categoría de solución</label>
+          <select id="categoria_solucion"></select>
+        </div>
+
+        <div class="campo" id="fila-otra">
+          <label for="categoria_otra">¿Cuál?</label>
+          <input type="text" id="categoria_otra">
+        </div>
+
+        <div class="campo">
+          <label for="alcance">Alcance geográfico</label>
+          <select id="alcance"></select>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="comentario">Comentario (opcional; si no es relevante, por qué)</label>
+        <textarea id="comentario"></textarea>
+      </div>
+    </form>
+
+    <div class="nav">
+      <button id="anterior" type="button">← Anterior</button>
+      <button id="proxima" type="button">Ir a la próxima pendiente</button>
+      <button id="siguiente" type="button">Siguiente →</button>
+    </div>
+  </section>
+</main>
+
+<script src="config.js"></script>
+<script src="muestra.js"></script>
+<script>
+const $ = (id) => document.getElementById(id);
+const CAMPOS = ["relevante", "tipo", "categoria_problema", "categoria_solucion", "categoria_otra", "alcance", "comentario"];
+let persona = null, track = null, notas = [], estado = null, indice = 0;
+
+function vacia() {
+  return { relevante: null, tipo: null, categoria_problema: null, categoria_solucion: null,
+           categoria_otra: null, alcance: null, comentario: null, etiquetado_en: null };
+}
+function tieneDatos(e) { return !!e && CAMPOS.some((c) => e[c] !== null && e[c] !== ""); }
+function hecha(e) {
+  return !!e && (e.relevante === false || (e.relevante === true && !!e.tipo && !!e.alcance));
+}
+function contarHechas(est, lista) { return lista.filter((n) => hecha(est.etiquetas[n.id])).length; }
+function tipoProb(t) { return t === "problema" || t === "ambas"; }
+function tipoSol(t) { return t === "solucion" || t === "ambas"; }
+// Las categorías "otro" de la taxonomía (OTRO_PROBLEMA_*, OTRA_SOLUCION_*) piden texto libre.
+function esOtra(v) { return /^OTR[OA]_/.test(v || ""); }
+
+function leerRadio(grupo) {
+  const r = document.querySelector(`input[name="${grupo}"]:checked`);
+  return r ? r.value : null;
+}
+function ponerRadio(grupo, valor) {
+  document.querySelectorAll(`input[name="${grupo}"]`).forEach((r) => { r.checked = r.value === valor; });
+}
+
+function clave(p, t) { return "etiquetado:" + p.toLowerCase() + ":" + t; }
+function leerGuardado(p, t) {
+  try {
+    const obj = JSON.parse(localStorage.getItem(clave(p, t)));
+    if (obj && obj.etiquetas) return obj;
+  } catch (e) { /* sin localStorage o dato corrupto: arrancamos vacío */ }
+  return { indice_actual: 0, etiquetas: {} };
+}
+function guardar() {
+  try { localStorage.setItem(clave(persona, track), JSON.stringify(estado)); }
+  catch (e) { mostrarAviso("No se pudo guardar el avance en este navegador. Descargá el JSON antes de cerrar.", true); }
+}
+
+function mostrarAviso(texto, error) {
+  const a = $("aviso");
+  a.textContent = texto;
+  a.className = "aviso" + (error ? " error" : "");
+  a.hidden = false;
+}
+function mostrarPantalla(id) {
+  $("inicio").hidden = id !== "inicio";
+  $("etiquetado").hidden = id !== "etiquetado";
+}
+
+function opcion(grupo, valor, texto) {
+  const lab = document.createElement("label");
+  lab.className = "opcion";
+  const inp = document.createElement("input");
+  inp.type = "radio"; inp.name = grupo; inp.value = valor;
+  lab.append(inp, " " + texto);
+  return lab;
+}
+function construirInicio() {
+  CONFIG.personas.forEach((p) => $("personas").append(opcion("persona", p, p)));
+  Object.keys(CONFIG.tracks).filter((t) => Array.isArray(MUESTRA[t])).forEach((t) => {
+    const lab = opcion("track", t, t.charAt(0).toUpperCase() + t.slice(1));
+    const cont = document.createElement("span");
+    cont.className = "cont"; cont.dataset.track = t;
+    lab.append(cont);
+    $("tracks").append(lab);
+  });
+  document.querySelectorAll('input[name="persona"], input[name="track"]')
+    .forEach((r) => r.addEventListener("change", actualizarInicio));
+}
+function actualizarInicio() {
+  const p = leerRadio("persona");
+  document.querySelectorAll(".cont").forEach((s) => {
+    const lista = MUESTRA[s.dataset.track];
+    const est = p ? leerGuardado(p, s.dataset.track) : null;
+    const hay = !!est && Object.values(est.etiquetas).some(tieneDatos);
+    s.textContent = hay ? ` · ${contarHechas(est, lista)}/${lista.length} hechas` : "";
+  });
+  $("empezar").disabled = !(p && leerRadio("track"));
+}
+
+function llenar(id, valores) {
+  $(id).replaceChildren(new Option("— elegir —", ""), ...valores.map((v) => new Option(v, v)));
+}
+function empezar() {
+  persona = leerRadio("persona");
+  track = leerRadio("track");
+  notas = MUESTRA[track];
+  estado = leerGuardado(persona, track);
+  indice = Math.min(Math.max(Number(estado.indice_actual) || 0, 0), notas.length - 1);
+  llenar("categoria_problema", CONFIG.tracks[track].problemas);
+  llenar("categoria_solucion", CONFIG.tracks[track].soluciones);
+  llenar("alcance", CONFIG.alcances);
+  mostrarPantalla("etiquetado");
+  mostrarNota();
+}
+
+function mostrarNota() {
+  const n = notas[indice];
+  const e = estado.etiquetas[n.id] || vacia();
+  $("cab").textContent = `${persona} · ${track}`;
+  $("titulo").textContent = n.titulo || "";
+  $("meta").textContent = `${n.fuente || ""} · ${n.fecha || ""}`;
+  $("link").href = /^https?:\/\//.test(n.url) ? n.url : "#";
+  $("bajada").textContent = n.bajada || "";
+  $("body").textContent = n.body || "";
+  $("body").scrollTop = 0;
+  ponerRadio("relevante", e.relevante === null ? null : (e.relevante ? "si" : "no"));
+  ponerRadio("tipo", e.tipo);
+  $("categoria_problema").value = e.categoria_problema || "";
+  $("categoria_solucion").value = e.categoria_solucion || "";
+  $("categoria_otra").value = e.categoria_otra || "";
+  $("alcance").value = e.alcance || "";
+  $("comentario").value = e.comentario || "";
+  $("aviso").hidden = true;
+  $("anterior").disabled = indice === 0;
+  $("siguiente").disabled = indice >= notas.length - 1;
+  actualizarVisibilidad();
+  pintarProgreso();
+}
+function pintarProgreso() {
+  $("progreso").textContent = `Nota ${indice + 1} de ${notas.length} · ${contarHechas(estado, notas)} etiquetadas`;
+}
+
+// Oculta campos que no aplican y vacía sus valores, así el DOM coincide con lo guardado.
+function actualizarVisibilidad() {
+  const no = leerRadio("relevante") === "no";
+  if (no) {
+    ponerRadio("tipo", null);
+    $("alcance").value = "";
+  }
+  const tipo = leerRadio("tipo");
+  $("campos").hidden = no;
+  $("fila-problema").hidden = !tipoProb(tipo);
+  $("fila-solucion").hidden = !tipoSol(tipo);
+  if (!tipoProb(tipo)) $("categoria_problema").value = "";
+  if (!tipoSol(tipo)) $("categoria_solucion").value = "";
+  const otra = !no && (esOtra($("categoria_problema").value) || esOtra($("categoria_solucion").value));
+  $("fila-otra").hidden = !otra;
+  if (!otra) $("categoria_otra").value = "";
+}
+function leerFormulario() {
+  const e = vacia();
+  const rel = leerRadio("relevante");
+  e.relevante = rel === null ? null : rel === "si";
+  e.comentario = $("comentario").value.trim() || null;
+  if (e.relevante === false) return e;
+  e.tipo = leerRadio("tipo");
+  e.categoria_problema = tipoProb(e.tipo) ? ($("categoria_problema").value || null) : null;
+  e.categoria_solucion = tipoSol(e.tipo) ? ($("categoria_solucion").value || null) : null;
+  const otra = esOtra(e.categoria_problema) || esOtra(e.categoria_solucion);
+  e.categoria_otra = otra ? ($("categoria_otra").value.trim() || null) : null;
+  e.alcance = $("alcance").value || null;
+  return e;
+}
+function alCambiar() {
+  if (!estado) return;
+  actualizarVisibilidad();
+  const e = leerFormulario();
+  e.etiquetado_en = new Date().toISOString();
+  const id = notas[indice].id;
+  if (tieneDatos(e)) estado.etiquetas[id] = e; else delete estado.etiquetas[id];
+  guardar();
+  pintarProgreso();
+  if (hecha(e) && contarHechas(estado, notas) === notas.length) mostrarAviso("¡Listo! Descargá el JSON.");
+}
+
+function irA(i) {
+  indice = Math.min(Math.max(i, 0), notas.length - 1);
+  estado.indice_actual = indice;
+  guardar();
+  mostrarNota();
+}
+function irProximaPendiente() {
+  for (let k = 1; k <= notas.length; k++) {
+    const j = (indice + k) % notas.length;
+    if (!hecha(estado.etiquetas[notas[j].id])) return irA(j);
+  }
+  mostrarAviso("No quedan notas pendientes.");
+}
+
+function exportarEtiquetas() {
+  if (!estado) return null;
+  const etiquetas = [];
+  notas.forEach((n) => {
+    const e = estado.etiquetas[n.id];
+    if (!tieneDatos(e)) return;
+    etiquetas.push({
+      id: n.id, relevante: e.relevante, tipo: e.tipo,
+      categoria_problema: e.categoria_problema, categoria_solucion: e.categoria_solucion,
+      categoria_otra: e.categoria_otra, alcance: e.alcance,
+      comentario: e.comentario || "", etiquetado_en: e.etiquetado_en
+    });
+  });
+  return {
+    persona: persona.toLowerCase(), track, muestra_version: MUESTRA.version,
+    exportado: new Date().toISOString(), etiquetas
+  };
+}
+window.exportarEtiquetas = exportarEtiquetas;
+
+function descargar() {
+  const faltan = notas.length - contarHechas(estado, notas);
+  if (faltan > 0 && !confirm(`Faltan ${faltan} notas. ¿Descargar igual?`)) return;
+  const blob = new Blob([JSON.stringify(exportarEtiquetas(), null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `${persona.toLowerCase()}-${track}.json`;
+  document.body.append(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  mostrarAviso("Copiá el archivo a etiquetado/etiquetas/ del repo y commitealo.");
+}
+
+function init() {
+  if (!window.MUESTRA) {
+    $("error").textContent = "Falta muestra.js: corré python etiquetado/muestrear.py";
+    $("error").hidden = false;
+    return;
+  }
+  construirInicio();
+  $("empezar").addEventListener("click", empezar);
+  $("cambiar").addEventListener("click", () => { actualizarInicio(); mostrarPantalla("inicio"); });
+  $("descargar").addEventListener("click", descargar);
+  $("anterior").addEventListener("click", () => irA(indice - 1));
+  $("siguiente").addEventListener("click", () => irA(indice + 1));
+  $("proxima").addEventListener("click", irProximaPendiente);
+  $("form").addEventListener("input", alCambiar);
+  $("form").addEventListener("change", alCambiar);
+  mostrarPantalla("inicio");
+  actualizarInicio();
+}
+init();
+</script>
+</body>
+</html>

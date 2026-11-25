@@ -179,7 +179,7 @@ flowchart TB
 | Dataset | **Limpio y consolidado (8/11):** un Parquet por dataset, con el mismo esquema: residuos 40.232 notas, biodiversidad 33.620, movilidad 53.029 y soluciones 19.817 con su columna `tracks`. Falta filtrar por utilidad |
 | Limpieza | **Hecha:** [`limpiar.py`](scripts/limpiar.py) quitó pies de suscripción, notas sin cuerpo, títulos seriados y duplicados por `id`, título y cuerpo. Se eliminaron las señales de problema y de opinión, poco precisas. El circuito de problemáticas está en [`docs/circuito-problematicas.md`](docs/circuito-problematicas.md) |
 | CI de Python | **Implementado:** en cada PR corre lint de errores graves, el límite de 100 MB por Parquet y los tests de [`scripts/clasificacion/`](scripts/clasificacion). El test de integración se omite si falta la muestra local. Lean no iniciado |
-| Clasificación y segmentación | **No iniciado** |
+| Clasificación y segmentación | **Piloto de residuos (10/11):** Qwen 2.5 3B en Kaggle, en [`scripts/clasificacion/`](scripts/clasificacion), con resultados flojos. **Etiquetado manual en curso (25/11):** 25 notas por track de movilidad y residuos, en [`etiquetado/`](etiquetado), para medir al LLM antes de repetir la clasificación |
 | Grafo y análisis | **No iniciado** |
 
 ---
@@ -212,6 +212,14 @@ Para correr los mismos chequeos que el CI (requiere `pip install -r requirements
 ruff check --select E9,F63,F7,F82 scripts
 pytest scripts/clasificacion -v
 ```
+
+Para etiquetar notas a mano (movilidad y residuos):
+
+```bash
+python etiquetado/muestrear.py
+```
+
+El script arma la muestra fija en `etiquetado/muestra.js`. Se corre una sola vez y la muestra se commitea antes de etiquetar, para que todos vean las mismas notas. Después se abre `etiquetado/index.html` con doble clic, se elige persona y track, y al terminar se descarga `<persona>-<track>.json` y se copia a `etiquetado/etiquetas/`.
 
 Para leer un dataset:
 
@@ -246,6 +254,12 @@ notas[notas["tracks"].map(lambda t: "agro" in t)]
 │   ├── circuito-problematicas.md                    Circuito y decisiones del scraping de problemáticas
 │   ├── pipeline-arquitectura.html                   Boceto digitalizado del pipeline
 │   └── scrapping-webs.md                            Cómo funciona cada script
+├── etiquetado/
+│   ├── muestrear.py                                 Arma la muestra fija de 25 notas por track
+│   ├── muestra.js                                   Muestra generada, la que ven todos los que etiquetan
+│   ├── config.js                                    Personas, categorías y alcances, editable a mano
+│   ├── index.html                                   App de etiquetado manual, sin servidor
+│   └── etiquetas/                                   Un JSON por persona y track
 ├── .github/workflows/
 │   └── python-ci.yml                                CI de Python en cada PR: lint, límite de 100 MB y tests
 ├── scripts/                                         Scraping por fuente y limpieza (limpiar.py)
