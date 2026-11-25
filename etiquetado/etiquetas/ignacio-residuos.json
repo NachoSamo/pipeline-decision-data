@@ -1,0 +1,352 @@
+{
+  "persona": "ignacio",
+  "track": "residuos",
+  "muestra_version": "2026-11-25-s42",
+  "exportado": "2026-11-25T16:02:01.978Z",
+  "etiquetas": [
+    {
+      "id": "CGRXVLK3ORAIPESZDM5WU2ITSQ",
+      "relevante": true,
+      "tipo": "solucion",
+      "categorias_problema": [],
+      "categorias_solucion": [
+        "COMPOSTAJE_Y_BIOTRANSFORMACION"
+      ],
+      "categoria_otra": null,
+      "alcance": "ARGENTINA_NACIONAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:45:44.221Z"
+    },
+    {
+      "id": "E7AZXVKEVFF63JDZ4ZECHUTV7E",
+      "relevante": true,
+      "tipo": "problema",
+      "categorias_problema": [
+        "CONTAMINACION_ECOSISTEMICA_Y_PLASTICOS"
+      ],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": "ARGENTINA_NACIONAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:46:21.278Z"
+    },
+    {
+      "id": "https://resource-recycling.com/recycling/2024/05/07/unilever-misses-recyclability-goals-calls-for-policy-action/",
+      "relevante": true,
+      "tipo": "ambas",
+      "categorias_problema": [
+        "ESTANCAMIENTO_SEPARACION_Y_RECICLAJE",
+        "CONTAMINACION_ECOSISTEMICA_Y_PLASTICOS",
+        "FALLA_REGULATORIA_Y_FISCALIZACION"
+      ],
+      "categorias_solucion": [
+        "MODELOS_CIRCULARES_Y_REUTILIZACION",
+        "ECO_DISENO_Y_BIOMATERIALES"
+      ],
+      "categoria_otra": null,
+      "alcance": "INTERNACIONAL_GLOBAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:47:42.952Z"
+    },
+    {
+      "id": "https://www.ecodallecitta.it/bando-anci-conai-comunicazione-locale/",
+      "relevante": true,
+      "tipo": "solucion",
+      "categorias_problema": [],
+      "categorias_solucion": [
+        "OTRA_SOLUCION_RESIDUOS"
+      ],
+      "categoria_otra": "Financiamiento publico",
+      "alcance": "INTERNACIONAL_GLOBAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T16:01:52.453Z"
+    },
+    {
+      "id": "https://www.abrema.org.br/2025/05/13/usinas-sustentaveis-viram-exemplo-para-possiveis-solucoes-de-residuos-em-criciuma/",
+      "relevante": true,
+      "tipo": "ambas",
+      "categorias_problema": [
+        "COLAPSO_Y_SATURACION_DISPOSICION_FINAL"
+      ],
+      "categorias_solucion": [
+        "UPCYCLING_Y_VALORIZACION_MATERIAL",
+        "VALORIZACION_ENERGETICA_BIOGAS",
+        "COMPOSTAJE_Y_BIOTRANSFORMACION"
+      ],
+      "categoria_otra": null,
+      "alcance": "LATAM_REGIONAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T16:01:57.500Z"
+    },
+    {
+      "id": "https://www.insidewaste.com.au/epa-victoria-going-after-rogue-skip-bin-operators/",
+      "relevante": true,
+      "tipo": "ambas",
+      "categorias_problema": [
+        "GESTION_DEFICIENTE_RESIDUOS_ESPECIALES_RAEE",
+        "FALLA_REGULATORIA_Y_FISCALIZACION"
+      ],
+      "categorias_solucion": [
+        "TRAZABILIDAD_DIGITAL_Y_SOFTWARE"
+      ],
+      "categoria_otra": null,
+      "alcance": "INTERNACIONAL_GLOBAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:50:31.778Z"
+    },
+    {
+      "id": "https://www.clarin.com/crimenes/asesinos-angeles-conocian-residuos-ceamse_0_SJ0IGBPsPQx.html",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "Asesinato",
+      "etiquetado_en": "2026-11-25T15:50:52.095Z"
+    },
+    {
+      "id": "https://ciclovivo.com.br/planeta/desenvolvimento/mundo-desperdica-e-200-bilhoes-por-ano-em-materiais-reciclaveis/",
+      "relevante": true,
+      "tipo": "ambas",
+      "categorias_problema": [
+        "ESTANCAMIENTO_SEPARACION_Y_RECICLAJE",
+        "CONTAMINACION_ECOSISTEMICA_Y_PLASTICOS",
+        "BARRERAS_DE_MERCADO_Y_ECONOMICAS"
+      ],
+      "categorias_solucion": [
+        "MODELOS_CIRCULARES_Y_REUTILIZACION"
+      ],
+      "categoria_otra": null,
+      "alcance": "LATAM_REGIONAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:51:52.087Z"
+    },
+    {
+      "id": "https://www.ecomundo.com.ar/peritos-la-corte-confirmaron-agua-pergamino-contiene-18-agrotoxicos/",
+      "relevante": true,
+      "tipo": "problema",
+      "categorias_problema": [
+        "CONTAMINACION_ECOSISTEMICA_Y_PLASTICOS"
+      ],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": "ARGENTINA_NACIONAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:52:14.490Z"
+    },
+    {
+      "id": "https://www.circularonline.co.uk/news/lincoln-council-awards-50-million-contract-to-biffa/",
+      "relevante": true,
+      "tipo": "solucion",
+      "categorias_problema": [],
+      "categorias_solucion": [
+        "LOGISTICA_INVERSA_Y_RECOLECCION_INTELIGENTE"
+      ],
+      "categoria_otra": null,
+      "alcance": "INTERNACIONAL_GLOBAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:52:48.900Z"
+    },
+    {
+      "id": "https://www.biocycle.net/letter-to-the-editor-from-city-of-nelson-bc/",
+      "relevante": true,
+      "tipo": "solucion",
+      "categorias_problema": [],
+      "categorias_solucion": [
+        "LOGISTICA_INVERSA_Y_RECOLECCION_INTELIGENTE",
+        "COMPOSTAJE_Y_BIOTRANSFORMACION",
+        "TRAZABILIDAD_DIGITAL_Y_SOFTWARE"
+      ],
+      "categoria_otra": null,
+      "alcance": "INTERNACIONAL_GLOBAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:53:56.032Z"
+    },
+    {
+      "id": "https://www.cba24n.com.ar/cordoba/cordoba--un-recolector-de-residuos-resbalo-y-murio-aplastado-por-el-camion_a6849c128ab9024591a8038c7",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:54:23.968Z"
+    },
+    {
+      "id": "https://recyclingportal.eu/archive/90260",
+      "relevante": true,
+      "tipo": "solucion",
+      "categorias_problema": [],
+      "categorias_solucion": [
+        "UPCYCLING_Y_VALORIZACION_MATERIAL"
+      ],
+      "categoria_otra": null,
+      "alcance": "INTERNACIONAL_GLOBAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:54:57.914Z"
+    },
+    {
+      "id": "https://grist.org/solutions/wood-vaulting-carbon-storage-solution/",
+      "relevante": true,
+      "tipo": "solucion",
+      "categorias_problema": [],
+      "categorias_solucion": [
+        "COMPOSTAJE_Y_BIOTRANSFORMACION"
+      ],
+      "categoria_otra": null,
+      "alcance": "INTERNACIONAL_GLOBAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:55:28.484Z"
+    },
+    {
+      "id": "https://www.ecoticias.com/residuos-reciclaje/circom-construccion-metalurgia-residuos-circularidad-valorizarlos",
+      "relevante": true,
+      "tipo": "solucion",
+      "categorias_problema": [],
+      "categorias_solucion": [
+        "MODELOS_CIRCULARES_Y_REUTILIZACION"
+      ],
+      "categoria_otra": null,
+      "alcance": "ARGENTINA_NACIONAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:56:11.617Z"
+    },
+    {
+      "id": "https://320grad.de/2025/11/20/warum-abfall-schon-bald-wertvoller-sein-koennte-als-oel/",
+      "relevante": true,
+      "tipo": "ambas",
+      "categorias_problema": [
+        "ESTANCAMIENTO_SEPARACION_Y_RECICLAJE",
+        "GESTION_DEFICIENTE_RESIDUOS_ESPECIALES_RAEE",
+        "BARRERAS_DE_MERCADO_Y_ECONOMICAS"
+      ],
+      "categorias_solucion": [
+        "UPCYCLING_Y_VALORIZACION_MATERIAL",
+        "MODELOS_CIRCULARES_Y_REUTILIZACION"
+      ],
+      "categoria_otra": null,
+      "alcance": "INTERNACIONAL_GLOBAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:57:13.529Z"
+    },
+    {
+      "id": "EBRWAT23PVDFVMTIQYVIVYOFXU",
+      "relevante": true,
+      "tipo": "problema",
+      "categorias_problema": [
+        "ESTANCAMIENTO_SEPARACION_Y_RECICLAJE",
+        "CONTAMINACION_ECOSISTEMICA_Y_PLASTICOS"
+      ],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": "CORDOBA_LOCAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:57:52.229Z"
+    },
+    {
+      "id": "https://www.recoverweb.it/mostri-del-riciclo-1-000-classi-coinvolte-nella-raccolta-raee/",
+      "relevante": true,
+      "tipo": "solucion",
+      "categorias_problema": [],
+      "categorias_solucion": [
+        "OTRA_SOLUCION_RESIDUOS"
+      ],
+      "categoria_otra": "programa nacional de educación ambiental",
+      "alcance": "INTERNACIONAL_GLOBAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:58:19.859Z"
+    },
+    {
+      "id": "https://infrastructurenews.co.za/2026/04/07/gauteng-learners-turn-bottles-into-big-wins/",
+      "relevante": true,
+      "tipo": "solucion",
+      "categorias_problema": [],
+      "categorias_solucion": [
+        "LOGISTICA_INVERSA_Y_RECOLECCION_INTELIGENTE"
+      ],
+      "categoria_otra": null,
+      "alcance": "INTERNACIONAL_GLOBAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:58:59.264Z"
+    },
+    {
+      "id": "https://bioplasticsnews.com/2026/08/21/philippines-cracks-down-on-155-companies-over-plastic-epr-compliance/",
+      "relevante": true,
+      "tipo": "problema",
+      "categorias_problema": [
+        "CONTAMINACION_ECOSISTEMICA_Y_PLASTICOS",
+        "FALLA_REGULATORIA_Y_FISCALIZACION"
+      ],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": "INTERNACIONAL_GLOBAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:59:24.208Z"
+    },
+    {
+      "id": "https://www.residuosprofesional.com/efectos-rebote-economia-circular/",
+      "relevante": true,
+      "tipo": "problema",
+      "categorias_problema": [
+        "BARRERAS_DE_MERCADO_Y_ECONOMICAS"
+      ],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": "ARGENTINA_NACIONAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T15:59:56.690Z"
+    },
+    {
+      "id": "https://es.mongabay.com/2025/07/reformas-para-descentralizar-las-republicas-andinas-libro/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T16:00:23.390Z"
+    },
+    {
+      "id": "https://news.mongabay.com/2025/03/smallholder-agriculture-blossoming-with-the-use-of-renewables-in-africa/",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "Agro",
+      "etiquetado_en": "2026-11-25T16:00:55.250Z"
+    },
+    {
+      "id": "https://ecobiz.com.ar/nota/1215-El-hotel-cinco-estrellas-que-se-volvio-un-mini-farmer-",
+      "relevante": false,
+      "tipo": null,
+      "categorias_problema": [],
+      "categorias_solucion": [],
+      "categoria_otra": null,
+      "alcance": null,
+      "comentario": "Agro",
+      "etiquetado_en": "2026-11-25T16:01:10.370Z"
+    },
+    {
+      "id": "https://portalkomunalny.pl/kryzys-gospodarki-odpadami-brak-rop-stanowisko-zmp-596190/",
+      "relevante": true,
+      "tipo": "ambas",
+      "categorias_problema": [
+        "ESTANCAMIENTO_SEPARACION_Y_RECICLAJE",
+        "BARRERAS_DE_MERCADO_Y_ECONOMICAS",
+        "FALLA_REGULATORIA_Y_FISCALIZACION"
+      ],
+      "categorias_solucion": [
+        "MODELOS_CIRCULARES_Y_REUTILIZACION"
+      ],
+      "categoria_otra": null,
+      "alcance": "INTERNACIONAL_GLOBAL",
+      "comentario": "",
+      "etiquetado_en": "2026-11-25T16:01:41.465Z"
+    }
+  ]
+}
