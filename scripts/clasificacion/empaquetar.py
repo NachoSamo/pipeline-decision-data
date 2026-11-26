@@ -17,6 +17,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import pandas as pd
 from prelimpieza import prefiltrar_dataframe
+from version import carpeta_resultados
 
 
 def empaquetar_por_tema(tema: str = "residuos", max_chars_cuerpo: int = 2500, long_minima_cuerpo: int = 150):
@@ -67,8 +68,8 @@ def empaquetar_por_tema(tema: str = "residuos", max_chars_cuerpo: int = 2500, lo
     print(f"- Descartados por heurística (0$ tokens): {len(df_descartados)} ({len(df_descartados)/total_original:.1%})")
     print(f"- Registros APTOS para el LLM:           {len(df_aptos)} ({len(df_aptos)/total_original:.1%})")
 
-    # Guardar en data/resultados/{tema}/
-    carpeta_destino = raiz / "data" / "resultados" / tema
+    # Guardar en data/resultados/<VERSION>-{tema}/
+    carpeta_destino = carpeta_resultados(tema)
     carpeta_destino.mkdir(parents=True, exist_ok=True)
     ruta_salida = carpeta_destino / f"{tema}_listo_para_kaggle.parquet"
 

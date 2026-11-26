@@ -26,6 +26,7 @@ import pandas as pd
 # Importamos utilidades de taxonomía del proyecto
 sys.path.append(str(Path(__file__).resolve().parent))
 from taxonomia import TAXONOMIAS_POR_TEMA, TipoCausaRaiz, AlcanceGeografico, EstadoMadurezSolucion
+from version import carpeta_resultados
 
 try:
     from llama_cpp import Llama
@@ -261,8 +262,7 @@ def ejecutar_pipeline_llamacpp(
     n_threads: Optional[int] = None,
     checkpoint_cada: int = 25
 ):
-    raiz = Path(__file__).resolve().parent.parent.parent
-    ruta_input = raiz / "data" / "resultados" / tema / f"{tema}_listo_para_kaggle.parquet"
+    ruta_input = carpeta_resultados(tema) / f"{tema}_listo_para_kaggle.parquet"
 
     if not ruta_input.exists():
         print(f"ERROR: No se encontró el dataset empaquetado en:\n{ruta_input}")
@@ -309,7 +309,7 @@ def ejecutar_pipeline_llamacpp(
         print(f"Procesando el dataset completo ({len(df)} notas)...")
 
     # Carpetas de salida y reanudación
-    dir_salida = raiz / "data" / "resultados" / tema
+    dir_salida = carpeta_resultados(tema)
     dir_salida.mkdir(parents=True, exist_ok=True)
     ruta_salida = dir_salida / f"{tema}_clasificado.parquet"
     ruta_checkpoint = dir_salida / f"{tema}_checkpoint.parquet"

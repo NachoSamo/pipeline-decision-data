@@ -12,7 +12,7 @@ Foto del 8/11/2026, después de la limpieza con [`limpiar.py`](../../scripts/lim
 | **Criterio para quedar** | Coincidir con la búsqueda, ser de 2024 en adelante, tener un track en título o bajada y pasar la limpieza |
 | **Tamaño aproximado** | 36 MB |
 
-Para el dataset de residuos, ver [el análisis de residuos](analisis-dataset-residuos.md). Los criterios de limpieza están en [`contexto-pipeline.md`](contexto-pipeline.md#limpieza-y-consolidación-8112026).
+Para el dataset de residuos, ver [el análisis de residuos](../v1-residuos/analisis-dataset-residuos.md). Los criterios de limpieza están en [`contexto-pipeline.md`](contexto-pipeline.md#limpieza-y-consolidación-8112026).
 
 ## Cifras
 

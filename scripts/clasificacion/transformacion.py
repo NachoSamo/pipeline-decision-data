@@ -1,12 +1,13 @@
 """Módulo de Transformación y Consolidación de Resultados.
 
 Aplana registros analizados, calcula el score ponderado (Fuente x Fecha)
-y los almacena organizadamente en data/resultados/{tema}/{tema}_clasificado.parquet.
+y los almacena en data/resultados/<VERSION>-{tema}/{tema}_clasificado.parquet (ver version.py).
 """
 
 from pathlib import Path
 from typing import List, Dict, Any, Optional
 import pandas as pd
+from version import carpeta_resultados
 
 
 PESOS_FUENTE = {
@@ -135,10 +136,9 @@ def consolidar_resultados(
     tema: str = "residuos",
     directorio_base: Optional[Path] = None
 ) -> Path:
-    """Guarda los registros analizados en data/resultados/{tema}/{tema}_clasificado.parquet."""
+    """Guarda los registros analizados en data/resultados/<VERSION>-{tema}/{tema}_clasificado.parquet."""
     if directorio_base is None:
-        raiz = Path(__file__).resolve().parent.parent.parent
-        directorio_base = raiz / "data" / "resultados" / tema
+        directorio_base = carpeta_resultados(tema)
     
     directorio_base.mkdir(parents=True, exist_ok=True)
     ruta_salida = directorio_base / f"{tema}_clasificado.parquet"

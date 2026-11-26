@@ -67,7 +67,7 @@ Busca notas desde 2024 sobre productos, startups o proyectos tecnológicos aplic
 - **Fuentes:** las actuales más 29 nuevas de tecnología, agro, movilidad, biodiversidad y ambiente, para no sesgar la comparación hacia residuos.
 - **Salida:** un Parquet por track y fuente. Una nota puede estar en varios tracks, y las que no tienen track se descartan.
 - **Asignación de tracks:** por raíces en título o bajada. Con menciones en el cuerpo resultaba demasiado laxa.
-- **Resultado (6/11/2026):** 94.768 notas descargadas de 62 fuentes y 20.131 únicas con track desde 2024. Los pros y contras están en [el análisis de residuos](analisis-dataset-residuos.md) y en [el de soluciones](analisis-dataset-soluciones.md).
+- **Resultado (6/11/2026):** 94.768 notas descargadas de 62 fuentes y 20.131 únicas con track desde 2024. Los pros y contras están en [el análisis de residuos](../v1-residuos/analisis-dataset-residuos.md) y en [el de soluciones](analisis-dataset-soluciones.md).
 
 ### Limpieza y consolidación (8/11/2026)
 
@@ -151,6 +151,12 @@ El gold de movilidad tiene 4 relevantes de 25, y 1 de 14 en diarios. Para no gas
 - **Resultado:** quedan 18.709 de 53.029 notas (35 %). Las cifras por motivo y fuente están en el [análisis de movilidad](analisis-dataset-movilidad.md#filtro-de-ruido-25112026).
 - **Esquema:** `data/movilidad_filtrado.parquet` tiene las mismas columnas que `data/movilidad.parquet`.
 - **Falta:** que el equipo audite una muestra por motivo. Las reglas no sacan la política sin medida ni las notas de otros tracks.
+
+### Versionado de resultados (26/11/2026)
+
+- **Qué se decidió:** los resultados de la clasificación van por versión. La v1 (piloto de Qwen 2.5 3B del 10/11) queda en [`data/resultados/v1-residuos/`](../../data/resultados/v1-residuos/) y su análisis en [`docs/v1-residuos/`](../v1-residuos/). Se conserva para comparar, no se borra.
+- **Cómo:** la versión vigente es `VERSION` en [`scripts/clasificacion/version.py`](../../scripts/clasificacion/version.py). Cada versión escribe en `data/resultados/<version>-<tema>/`, así que la v2 no pisa la v1.
+- **Qué no se versiona:** los Parquet limpios de `data/` (`residuos.parquet`, etc.) son la entrada compartida y quedan en su lugar.
 
 ### Plan de scraping
 

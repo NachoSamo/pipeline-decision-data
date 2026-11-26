@@ -27,6 +27,7 @@ import json_repair
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
 TEMA_ACTUAL = os.environ.get("TEMA", "residuos").lower()
+VERSION = "v1"  # Mantener igual que scripts/clasificacion/version.py
 
 TAXONOMIAS = {
     "residuos": {
@@ -380,7 +381,7 @@ def ejecutar_pipeline_kaggle(tema: str = TEMA_ACTUAL):
         bnb_4bit_use_double_quant=True
     )
 
-    dir_salida = Path(f"/kaggle/working/resultados/{tema}")
+    dir_salida = Path(f"/kaggle/working/resultados/{VERSION}-{tema}")
     dir_salida.mkdir(parents=True, exist_ok=True)
     ruta_salida = dir_salida / f"{tema}_clasificado_final.parquet"
 

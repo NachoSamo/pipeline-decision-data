@@ -27,6 +27,7 @@ from google import genai
 from google.genai import types
 
 from taxonomia import TAXONOMIAS_POR_TEMA, TipoCausaRaiz, AlcanceGeografico, EstadoMadurezSolucion
+from version import carpeta_resultados
 
 load_dotenv()
 
@@ -202,8 +203,7 @@ def ejecutar_pipeline_local_gemini(
         print("  python scripts/clasificacion/local_gemini_pipeline.py --api-key TU_API_KEY")
         return
 
-    raiz = Path(__file__).resolve().parent.parent.parent
-    ruta_input = raiz / "data" / "resultados" / tema / f"{tema}_listo_para_kaggle.parquet"
+    ruta_input = carpeta_resultados(tema) / f"{tema}_listo_para_kaggle.parquet"
 
     if not ruta_input.exists():
         print(f"ERROR: No se encontró el dataset empaquetado en:\n{ruta_input}")
@@ -240,7 +240,7 @@ def ejecutar_pipeline_local_gemini(
         print(f"Procesando el dataset completo ({len(df)} notas)...")
 
     # Carpetas de salida y reanudación
-    dir_salida = raiz / "data" / "resultados" / tema
+    dir_salida = carpeta_resultados(tema)
     dir_salida.mkdir(parents=True, exist_ok=True)
     ruta_salida = dir_salida / f"{tema}_clasificado.parquet"
     ruta_checkpoint = dir_salida / f"{tema}_checkpoint.parquet"
