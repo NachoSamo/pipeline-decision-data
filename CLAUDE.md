@@ -93,7 +93,8 @@ hace falta que nadie lo pida, y no se deja "para después".
 | Si cambia… | Actualizar |
 |---|---|
 | Un script, un comando o un flag | [`docs/scrapping-webs.md`](docs/scrapping-webs.md) y "Ejecutar localmente" del [`README.md`](README.md) |
-| Los datos de `data/` (descarga, limpieza, filtro, clasificación) | El análisis del dataset en [`docs/analisis-datasets/`](docs/analisis-datasets/), con cifras medidas y la fecha de la foto, y "Estado actual" y "Estado del repositorio" del README |
+| Los datos de `data/` (descarga, limpieza, filtro, clasificación) | El análisis del dataset en [`docs/analisis-datasets/`](docs/analisis-datasets/) (el de residuos está en [`docs/v1-residuos/`](docs/v1-residuos/), por ser la v1), con cifras medidas y la fecha de la foto, y "Estado actual" y "Estado del repositorio" del README |
+| Resultados de una versión de la clasificación o de su análisis | Carpeta `data/resultados/<version>-<tema>/` y `docs/<version>-residuos/`, con su README. Ver "Versiones de la clasificación" |
 | Las columnas o el esquema de un Parquet | [`docs/scrapping-webs.md`](docs/scrapping-webs.md) y [`contexto-pipeline.md`](docs/analisis-datasets/contexto-pipeline.md) |
 | Una decisión, un criterio o una duda resuelta | [`contexto-pipeline.md`](docs/analisis-datasets/contexto-pipeline.md): "Decisiones tomadas" o "Falta aclarar" |
 | Las fuentes de problemáticas o su circuito | [`docs/circuito-problematicas.md`](docs/circuito-problematicas.md) |
@@ -111,6 +112,12 @@ Cómo hacerlo:
 - **Al terminar, decir qué documentos se actualizaron**, y si alguno quedó pendiente, por qué.
 
 Los Parquet de `data/` tienen que quedar debajo de 100 MB por archivo, el límite de GitHub. `limpiar.py` guarda con zstd nivel 19 por eso.
+
+## Versiones de la clasificación
+
+- La versión vigente es `VERSION` en [`scripts/clasificacion/version.py`](scripts/clasificacion/version.py). La misma constante está en [`kaggle_pipeline.py`](scripts/clasificacion/kaggle_pipeline.py) y en el notebook de Kaggle, y tiene que quedar igual.
+- Cada versión tiene su carpeta `data/resultados/<version>-<tema>/` y `docs/<version>-residuos/`, con un README que dice qué es y si está vigente. Una versión nueva se suma; no reemplaza la anterior.
+- Para empezar una versión nueva: cambiar `VERSION`, crear las dos carpetas con su README, actualizar la entrada de `ejecutar_analisis.py` si cambia, y registrar la decisión en "Decisiones tomadas" de [`contexto-pipeline.md`](docs/analisis-datasets/contexto-pipeline.md).
 
 ## Preferencias de trabajo
 

@@ -12,7 +12,7 @@ Foto del 8/11/2026, después de la limpieza con [`limpiar.py`](../../scripts/lim
 | **Criterio para quedar** | Coincidir con la búsqueda y pasar la limpieza. No hay filtro por tema |
 | **Tamaño aproximado** | 57 MB |
 
-Para el dataset de soluciones y la comparación entre ambos, ver [el análisis de soluciones](analisis-dataset-soluciones.md). Los criterios de limpieza están en [`contexto-pipeline.md`](contexto-pipeline.md#limpieza-y-consolidación-8112026).
+Para el dataset de soluciones y la comparación entre ambos, ver [el análisis de soluciones](../analisis-datasets/analisis-dataset-soluciones.md). Los criterios de limpieza están en [`contexto-pipeline.md`](../analisis-datasets/contexto-pipeline.md#limpieza-y-consolidación-8112026).
 
 ## Limpieza
 
@@ -53,7 +53,7 @@ De las 7.325 notas sin cuerpo, 6.804 ya venían vacías, casi todas videos de TN
 
 ## Cómo se midió
 
-- **Conteos:** directos sobre `data/residuos.parquet` del 8/11/2026. Las notas sin bajar de Infobae y Clarín vienen de [`contexto-pipeline.md`](contexto-pipeline.md).
+- **Conteos:** directos sobre `data/residuos.parquet` del 8/11/2026. Las notas sin bajar de Infobae y Clarín vienen de [`contexto-pipeline.md`](../analisis-datasets/contexto-pipeline.md).
 - **Raíces:** se contaron con las raíces de todos los idiomas juntas, así que es una aproximación.
 - **Idioma:** es el de la fuente, no el detectado en cada nota.
 - **Medios argentinos:** se asignaron a mano por dominio o medio, sin un campo de país en los datos.

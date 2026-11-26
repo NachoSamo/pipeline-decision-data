@@ -1,7 +1,8 @@
 """CLI Orquestador del Pipeline de Grafo de Conocimiento y No-Patrones.
 
 Uso:
-    python scripts/grafo/ejecutar_analisis.py --entrada scripts/data/kaggle_procesado/residuos_clasificado_final.parquet
+    python scripts/grafo/ejecutar_analisis.py --entrada data/resultados/v1-residuos/residuos_clasificado_final.parquet --dir-salida data/resultados/v1-residuos/no_patrones
+    Para una versión nueva, cambiar VERSION en scripts/clasificacion/version.py o pasar las rutas de la nueva versión.
 """
 
 import sys
@@ -15,6 +16,9 @@ import networkx as nx
 from const_grafo import construir_grafo_conocimiento
 from motor_no_patrones import ejecutar_analisis_no_patrones
 from visualizador import generar_mapa_umap_2d, generar_grafo_html_interactivo
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "clasificacion"))
+from version import VERSION
 
 
 def generar_reporte_markdown(
@@ -74,10 +78,11 @@ def generar_reporte_markdown(
         
     md.append("\n---")
     md.append("## 5. Archivos de Visualización Generados")
-    md.append("- **Grafo Web Interactivo:** `data/resultados/no_patrones/grafo_interactivo.html` (Abrir en cualquier navegador para explorar nodos).")
-    md.append("- **Mapa 2D de Desiertos (UMAP):** `data/resultados/no_patrones/mapa_desiertos_2d.png`.")
-    md.append("- **Exportación estándar de Red:** `data/resultados/no_patrones/grafo_residuos.gexf`.")
-    md.append("- **Dataset de No-Patrones JSON:** `data/resultados/no_patrones/reporte_no_patrones.json`.")
+    carpeta_md = f"data/resultados/{VERSION}-residuos/no_patrones"
+    md.append(f"- **Grafo Web Interactivo:** `{carpeta_md}/grafo_interactivo.html` (Abrir en cualquier navegador para explorar nodos).")
+    md.append(f"- **Mapa 2D de Desiertos (UMAP):** `{carpeta_md}/mapa_desiertos_2d.png`.")
+    md.append(f"- **Exportación estándar de Red:** `{carpeta_md}/grafo_residuos.gexf`.")
+    md.append(f"- **Dataset de No-Patrones JSON:** `{carpeta_md}/reporte_no_patrones.json`.")
 
     with open(ruta_reporte, "w", encoding="utf-8") as f:
         f.write("\n".join(md))
@@ -89,13 +94,13 @@ def main():
     parser.add_argument(
         "--entrada",
         type=str,
-        default="scripts/data/kaggle_procesado/residuos_clasificado_final.parquet",
+        default=f"data/resultados/{VERSION}-residuos/residuos_clasificado_final.parquet",
         help="Ruta al archivo Parquet clasificado"
     )
     parser.add_argument(
         "--dir-salida",
         type=str,
-        default="data/resultados/no_patrones",
+        default=f"data/resultados/{VERSION}-residuos/no_patrones",
         help="Directorio de destino para reportes y visualizaciones"
     )
     args = parser.parse_args()

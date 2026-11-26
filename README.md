@@ -46,7 +46,7 @@ Soluciones fallidas:  <planes o anuncios previos>
 > **Estado actual:** al 8/11/2026 los datasets están descargados, limpios y deduplicados, en un Parquet por
 > dataset: 40.232 notas de residuos, 33.620 de problemáticas de biodiversidad, 53.029 de problemáticas de
 > movilidad y 19.817 de soluciones tecnológicas en los cuatro tracks. Sus pros y contras están en el
-> [análisis de residuos](docs/analisis-datasets/analisis-dataset-residuos.md), el [de soluciones](docs/analisis-datasets/analisis-dataset-soluciones.md),
+> [análisis de residuos](docs/v1-residuos/analisis-dataset-residuos.md), el [de soluciones](docs/analisis-datasets/analisis-dataset-soluciones.md),
 > el [de biodiversidad](docs/analisis-datasets/analisis-dataset-biodiversidad.md) y el [de movilidad](docs/analisis-datasets/analisis-dataset-movilidad.md).
 > Falta medir cuántas notas son útiles. Todavía no hay clasificación ni análisis.
 
@@ -160,7 +160,7 @@ flowchart TB
 | Objetivo, decisiones y dudas abiertas | [`docs/analisis-datasets/contexto-pipeline.md`](docs/analisis-datasets/contexto-pipeline.md) | Leer las secciones de decisiones y "Falta aclarar" |
 | Diseño del pipeline | [`docs/pipeline-arquitectura.html`](docs/pipeline-arquitectura.html) | Abrir el boceto y la lista "Por definir" |
 | Hay 43 fuentes posibles, con su acceso revisado | [`docs/analisis-fuentes/Fuentes para el dataset del pipeline.md`](docs/analisis-fuentes/Fuentes%20para%20el%20dataset%20del%20pipeline.md) | Comparar cada fila con el `robots.txt` del medio |
-| Hay 4 datasets limpios y deduplicados; movilidad además tiene una versión sin el ruido obvio de diarios | Análisis de [residuos](docs/analisis-datasets/analisis-dataset-residuos.md), [biodiversidad](docs/analisis-datasets/analisis-dataset-biodiversidad.md), [movilidad](docs/analisis-datasets/analisis-dataset-movilidad.md) y [soluciones](docs/analisis-datasets/analisis-dataset-soluciones.md), y [`data/`](data/) | Leer el análisis y recontar los Parquet; los títulos permiten repetir la lectura de muestra |
+| Hay 4 datasets limpios y deduplicados; movilidad además tiene una versión sin el ruido obvio de diarios | Análisis de [residuos](docs/v1-residuos/analisis-dataset-residuos.md), [biodiversidad](docs/analisis-datasets/analisis-dataset-biodiversidad.md), [movilidad](docs/analisis-datasets/analisis-dataset-movilidad.md) y [soluciones](docs/analisis-datasets/analisis-dataset-soluciones.md), y [`data/`](data/) | Leer el análisis y recontar los Parquet; los títulos permiten repetir la lectura de muestra |
 | Cómo se limpió y qué se descartó | [`contexto-pipeline.md`](docs/analisis-datasets/contexto-pipeline.md#limpieza-y-consolidación-8112026) y [`scripts/limpiar.py`](scripts/limpiar.py) | Correr `python scripts/limpiar.py --selfcheck` y leer la tabla de descartes |
 | Cada fuente se lista por una vía que su `robots.txt` no excluye | [`docs/scrapping-webs.md`](docs/scrapping-webs.md) y [`scripts/`](scripts/) | Comparar la sección "Permisos" de cada fuente con su `robots.txt` |
 | Datos del evento y reglas confirmadas | [`CLAUDE.md`](CLAUDE.md) | Comparar con la [fuente oficial](https://cordobatechweek.com/side-events/hack-to-the-future/) y lo informado por la organización |
@@ -258,14 +258,24 @@ notas[notas["tracks"].map(lambda t: "agro" in t)]
 │   ├── residuos.parquet                             Notas de residuos, limpias
 │   ├── soluciones.parquet                           Soluciones de los cuatro tracks, con la columna tracks
 │   ├── soluciones/crudo/                            Descarga cruda de soluciones, fuera de Git
-│   └── logs/                                        Logs de los scripts, fuera de Git
+│   ├── logs/                                        Logs de los scripts, fuera de Git
+│   └── resultados/                                  Resultados de la clasificación, una carpeta por versión
+│       └── v1-residuos/                             Versión 1: piloto Qwen 2.5 3B (10/11), Parquet para Kaggle y análisis de grafo
+│           ├── residuos_listo_para_kaggle.parquet   Entrada del piloto: residuos empaquetados
+│           ├── residuos_clasificado_final.parquet   Salida del piloto, con categorías cortadas o inventadas
+│           ├── test_residuos_clasificado.parquet    Muestra de prueba del piloto
+│           ├── README.md                            Qué es la v1 y por qué no es la vigente
+│           └── no_patrones/                         Reporte, grafo, mapa UMAP y JSON de no-patrones
 ├── docs/
 │   ├── analisis-datasets/
 │   │   ├── analisis-dataset-biodiversidad.md       Pros y contras de las problemáticas de biodiversidad
 │   │   ├── analisis-dataset-movilidad.md           Pros y contras de las problemáticas de movilidad
-│   │   ├── analisis-dataset-residuos.md            Pros y contras del dataset de residuos
 │   │   ├── analisis-dataset-soluciones.md          Pros y contras del dataset de soluciones
 │   │   └── contexto-pipeline.md                     Objetivo, decisiones, hechos y dudas abiertas
+│   ├── v1-residuos/                                 Versión 1 del análisis de residuos
+│   │   ├── analisis-dataset-residuos.md            Pros y contras del dataset de residuos (foto del 8/11)
+│   │   ├── insights_auditoria_residuos.pdf         Auditoría de insights de residuos
+│   │   └── README.md                               Qué es la v1 y por qué no es la vigente
 │   ├── analisis-fuentes/
 │   │   ├── Fuentes para el dataset del pipeline.md  Fuentes posibles y su acceso
 │   │   └── otras-random/                            Análisis de Croma y resumen de 16 publicaciones
@@ -285,7 +295,8 @@ notas[notas["tracks"].map(lambda t: "agro" in t)]
 ├── .github/workflows/
 │   └── python-ci.yml                                CI de Python en cada PR: lint, límite de 100 MB y tests
 ├── scripts/                                         Scraping por fuente y limpieza (limpiar.py)
-│   ├── clasificacion/                               Filtro de ruido de movilidad, pipeline de clasificación y sus tests (test_*.py)
+│   ├── clasificacion/                               Filtro de ruido de movilidad, pipeline de clasificación, versión vigente (version.py) y sus tests (test_*.py)
+│   ├── grafo/                                       Grafo de conocimiento y no-patrones sobre la clasificación
 │   └── diccionarios/                                Términos por track y alcance geográfico por fuente (alcance_fuentes.py)
 ├── CLAUDE.md                       Datos del evento e indicaciones para Claude
 ├── requirements-ci.txt             Dependencias mínimas del job de CI
