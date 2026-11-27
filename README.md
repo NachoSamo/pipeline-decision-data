@@ -223,7 +223,11 @@ python etiquetado/calibrar.py --unir
 python scripts/clasificacion/clasificar_vllm.py --selfcheck
 ```
 
-El clasificador corre en Kaggle con `notebooks/kaggle_movilidad_v2.ipynb`.
+El clasificador corre en Kaggle con `notebooks/kaggle_movilidad_v2.ipynb`; los pasos están en [`docs/scrapping-webs.md`](docs/scrapping-webs.md#cómo-correrlo-en-kaggle-a-mano-en-la-web). Con la salida del gate en `data/resultados/v2-movilidad/gate/`:
+
+```bash
+python scripts/clasificacion/evaluar_movilidad.py
+```
 
 Para correr los mismos chequeos que el CI (requiere `pip install -r requirements-ci.txt`):
 
@@ -309,6 +313,7 @@ notas[notas["tracks"].map(lambda t: "agro" in t)]
 │   ├── muestrear_referencia.py                      Arma las 300 notas de referencia de movilidad
 │   ├── calibrar.py                                  Compara etiquetadores LLM con el gold y une la referencia
 │   └── referencia/                                  Muestra, prompt, etiquetas e informes de la referencia
+├── kaggle/movilidad-v2/                             Paquete para subir a Kaggle, fuera de Git
 ├── notebooks/
 │   ├── kaggle_movilidad_v2.ipynb                    Clasificación v2 de movilidad con vLLM en Kaggle, sin correr
 │   └── visualizacion_no_patrones.ipynb              Tablero de no-patrones de la v1 de residuos

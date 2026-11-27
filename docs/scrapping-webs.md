@@ -389,6 +389,24 @@ python scripts/clasificacion/clasificar_vllm.py --armar-ejemplos
 - **`--armar-ejemplos`:** escribe `ejemplos_movilidad.json` con 8 notas del gold como ejemplos few-shot.
 - **En Kaggle:** `--entradas`, `--salida`, `--ids` (solo las notas de un JSON, como la referencia), `--limite`, `--gpus` y `--etapa`. Sale `movilidad_clasificado.parquet`.
 
+### Cómo correrlo en Kaggle (a mano, en la web)
+
+1. Armar el paquete en `kaggle/movilidad-v2/`, que queda fuera de Git: los dos Parquet de `data/v1-samo-movilidad/`, `clasificar_vllm.py`, `ejemplos_movilidad.json` y `etiquetado/referencia/movilidad-referencia.json`.
+2. Crear un Kaggle Dataset **privado** con esos 5 archivos.
+3. Importar `notebooks/kaggle_movilidad_v2.ipynb`. En las opciones: GPU T4 x2, Internet On y el dataset como input.
+4. **Prueba de humo** (celda 0, 50 notas): verifica que vLLM corra el modelo en T4 y da una primera medida de notas/min. Si falla, se fija otra versión de vLLM en la celda de instalación.
+5. **Gate** (celda 1, solo las 300 de la referencia). Bajar `gate/movilidad_clasificado.parquet` de la pestaña Output a `data/resultados/v2-movilidad/gate/`.
+6. Evaluar localmente:
+
+```bash
+python scripts/clasificacion/evaluar_movilidad.py --selfcheck
+python scripts/clasificacion/evaluar_movilidad.py
+```
+
+[`evaluar_movilidad.py`](../scripts/clasificacion/evaluar_movilidad.py) compara con la referencia y escribe `gate-informe.md`: relevancia (recall, precisión y kappa, en total y por dataset), tipo, Jaccard de categorías, notas sin respuesta, JSON inválidos, motivos cruzados y desacuerdos con el comentario de Haiku. Umbrales propuestos: recall ≥ 0,85, precisión ≥ 0,70 y 0 JSON inválidos.
+
+7. Solo si el gate pasa: corrida completa (celda 2). Si se corta, relanzar la celda retoma desde los checkpoints.
+
 ## Pendiente de revisar
 
 - Los términos de uso de Visión Sustentable, Ecomundo, Futuro Sustentable, ECOBIZ, TN, Mongabay, CBA24N, Cadena 3, Resource Recycling, Circular Online, Mongabay en inglés y Grist.

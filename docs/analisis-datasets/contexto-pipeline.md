@@ -260,7 +260,7 @@ Esto da unas 60 notas relevantes por año si se mira solo la URL. La muestra es 
 
 - **Criterios que la guía no cubre:** tarifas y subsidios, paros gremiales, anuncios de producto, aviación eléctrica y proyectos sin aprobar. Hay que decidirlos y, si cambian, volver a etiquetar esas notas de la referencia.
 - **Qué categorías sugeridas entran a la taxonomía,** después de leer el informe de la referencia.
-- **Parte B:** fijar la versión de vLLM que corra en T4 con AWQ y salida guiada; correr el gate contra la referencia (umbrales propuestos: recall de relevancia ≥ 0,85, precisión ≥ 0,70, 100 % de JSON válidos, corrida completa estimada ≤ 4 h); corrida completa; embeddings y análisis de vacíos.
+- **Parte B:** el evaluador del gate ([`evaluar_movilidad.py`](../../scripts/clasificacion/evaluar_movilidad.py)) y el paquete para Kaggle están listos (26/11); falta subirlo y correrlo. Fijar la versión de vLLM que corra en T4 con AWQ y salida guiada; correr el gate contra la referencia (umbrales propuestos: recall de relevancia ≥ 0,85, precisión ≥ 0,70, 100 % de JSON válidos, corrida completa estimada ≤ 4 h); corrida completa; embeddings y análisis de vacíos.
 
 ### Fuentes
 
