@@ -260,6 +260,11 @@ Esto da unas 60 notas relevantes por año si se mira solo la URL. La muestra es 
 
 - **Criterios que la guía no cubre:** tarifas y subsidios, paros gremiales, anuncios de producto, aviación eléctrica y proyectos sin aprobar. Hay que decidirlos y, si cambian, volver a etiquetar esas notas de la referencia.
 - **Qué categorías sugeridas entran a la taxonomía,** después de leer el informe de la referencia.
+- **Prueba de humo en Kaggle (27/11):** vLLM corrió Qwen2.5-7B AWQ en las 2 T4 con salida guiada. Clasificó 50 notas en 6,5 min, incluida la descarga y la carga del modelo, sin JSON inválidos. Salida en `data/resultados/v2-movilidad/humo/`. Las 50 son de Clarín de 2010 (`--limite` toma las primeras), así que no sirven para medir calidad. Lo que se ve al leerlas:
+  - marcó 24 de 50 como relevantes, y entre ellas hay seguridad vial (pasos a nivel, límites de velocidad) y paros;
+  - las categorías se marcan de más, con tipo y categorías a veces inconsistentes (tipo `solucion` con categorías de problema);
+  - a veces el campo `problema` repite el nombre de la categoría, y `solucion` trae texto cuando no hay solución;
+  - algunas ubicaciones están mal (la Línea B del subte quedó en La Plata).
 - **Parte B:** el evaluador del gate ([`evaluar_movilidad.py`](../../scripts/clasificacion/evaluar_movilidad.py)) y el paquete para Kaggle están listos (26/11); falta subirlo y correrlo. Fijar la versión de vLLM que corra en T4 con AWQ y salida guiada; correr el gate contra la referencia (umbrales propuestos: recall de relevancia ≥ 0,85, precisión ≥ 0,70, 100 % de JSON válidos, corrida completa estimada ≤ 4 h); corrida completa; embeddings y análisis de vacíos.
 
 ### Fuentes
