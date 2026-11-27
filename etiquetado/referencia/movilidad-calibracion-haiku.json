@@ -1,0 +1,289 @@
+{
+ "track": "movilidad",
+ "etiquetador": "haiku",
+ "etiquetas": [
+  {
+   "id": "https://www.clarin.com/de-autos/videos-pasa-nino-accidente-proteccion-adecuada_0_BkGfynySG.html",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Regla 2: seguridad vial (sillas de retención infantil y cuerpo de un niño en un choque) queda afuera."
+  },
+  {
+   "id": "https://www.ecomundo.com.ar/el-70-de-los-ultimos-brotes-epidemicos-han-comenzado-con-la-deforestacion/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Otro track ambiental: deforestación y epidemias. La movilidad aparece solo como recomendación general."
+  },
+  {
+   "id": "https://ciclovivo.com.br/planeta/desenvolvimento/conheca-startups-do-hub-green-sampa-e-suas-tecnologias/",
+   "relevante": false,
+   "motivo": "movilidad_de_pasada",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Roundup de startups sustentables; movilidad es uno de nueve ejes y no el tema central (criterio estricto)."
+  },
+  {
+   "id": "RCTKVBJSMVBOBHJKO2HK72ZXQA",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Otro tema: fútbol (salida de Messi del Barcelona)."
+  },
+  {
+   "id": "https://www.visionsustentable.com/2021/09/02/santander-y-san-miguel-lideran-la-primera-obligacion-negociable-vinculada-a-la-sustentabilidad-de-argentina/",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Regla 1, economía y finanzas (bono vinculado a sustentabilidad) sin medida de transporte."
+  },
+  {
+   "id": "https://grist.org/sponsored/reinventing-coal-country-reclaiming-americas-abandoned-mine-lands/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Otro track ambiental: minas abandonadas y drenaje ácido."
+  },
+  {
+   "id": "https://www.clarin.com/autos/manual-del-buen-conductor-9-cosas-que-hay-que-saber-para-manejar-en-la-ciudad_0_yJg2h0NpK.html",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Regla 2: consejos y normas de manejo urbano, seguridad vial fuera del track."
+  },
+  {
+   "id": "3CEHBXFDVFHXPAVYEDZNBLG5HM",
+   "relevante": false,
+   "motivo": "nota_de_color",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Nota de color: operativo de tránsito inventado para una sorpresa familiar."
+  },
+  {
+   "id": "https://www.ecomundo.com.ar/las-poblaciones-de-aves-mamiferos-y-peces-cayeron-un-69-entre-1970-y-2018/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Otro track ambiental: pérdida de biodiversidad."
+  },
+  {
+   "id": "DVHKT2CSP5C6LHTJMCHSX2AIWU",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Regla 2: atropello de peatones al bajar de un colectivo, siniestro vial."
+  },
+  {
+   "id": "https://grist.org/energy/after-a-four-year-campaign-new-york-says-yes-to-publicly-owned-renewables-strong/",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Regla 1, política energética (renovables y ley de empresa pública) sin medida de transporte."
+  },
+  {
+   "id": "https://www.ecoticias.com/sostenibilidad/el-alcalde-de-valladolid-suspende-en-movilidad-sostenible",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Regla 1, crítica política al alcalde sin medida concreta de transporte propia (ejemplo explícito de la guía)."
+  },
+  {
+   "id": "https://www.cba24n.com.ar/argentina/caputo-amenazo-con-un-ajuste-a-las-provincias-si-no-se-aprueba-la-ley-omnibus_a65b161e16c6ae410c98879e3",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Regla 1, debate económico (Ley Ómnibus) sin medida de transporte."
+  },
+  {
+   "id": "https://ciclovivo.com.br/sem-categoria/triciclo-movido-a-energia-solar-e-opcao-para-servicos-de-entrega/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Regla 3: solución concreta (vehículo solar para entregas de último kilómetro)."
+  },
+  {
+   "id": "https://www.clarin.com/policiales/chocaron-camioneta-abandonaron-plena-panamericana-llevaban-tonelada-hojas-coca_0_mi2WLIMCYR.html",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Otro tema: caso policial de drogas que empieza con un choque; el tema central no es movilidad."
+  },
+  {
+   "id": "FHW47KDD5FHWVI44OAAYPN76FQ",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Regla 2: choque con heridos y atropellos, siniestro vial."
+  },
+  {
+   "id": "https://grist.org/accountability/la-county-lawsuit-pepsi-coca-cola-plastic-pollution/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Otro track ambiental: contaminación por plásticos."
+  },
+  {
+   "id": "https://www.lanacion.com.ar/seguridad/caos-de-transito-en-la-autopista-9-de-julio-sur-por-un-choque-a-la-altura-de-barracas-nid23112024/",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Regla 2: choque y caos de tránsito en autopista, siniestro vial."
+  },
+  {
+   "id": "https://www.cba24n.com.ar/cordoba/transporte--las-lineas-30-y-34-pasan-a-formar-parte-de-la-empresa-sibus_a68630bc18d20d6a19f70005e",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Gestión sin problema ni solución: cambio de operador de líneas sin cambio de recorridos."
+  },
+  {
+   "id": "https://www.lanacion.com.ar/el-mundo/video-una-argentina-increpo-con-insultos-racistas-a-un-agente-de-transito-en-mexico-nid07072025/",
+   "relevante": false,
+   "motivo": "nota_de_color",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Nota viral: insulto racista a un agente de tránsito; el tránsito es solo el escenario."
+  },
+  {
+   "id": "https://www.visionsustentable.com/2025/12/10/zurich-avanza-en-un-modelo-de-negocio-cada-vez-mas-sustentable/",
+   "relevante": false,
+   "motivo": "movilidad_de_pasada",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Reporte de sustentabilidad de una aseguradora; el seguro de micromovilidad es un detalle."
+  },
+  {
+   "id": "https://www.ecoticias.com/movilidad-electrica/el-configurador-online-del-silence-s04-revoluciona-la-movilidad-electrica-urbana",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Regla 3: solución concreta (microcoche eléctrico con configurador)."
+  },
+  {
+   "id": "https://www.lanacion.com.ar/sociedad/un-teleferico-y-un-subte-en-la-plata-el-proyecto-de-estilo-parisino-para-aliviar-el-transito-de-la-nid23072026/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "ambas",
+   "categorias_problema": [
+    "CONGESTION_Y_DEMORAS"
+   ],
+   "categorias_solucion": [
+    "REDES_FERROVIARIAS_Y_SUBTE"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Regla 3: problema de tránsito y solución concreta (teleférico y subte) que apunta a ese problema."
+  },
+  {
+   "id": "GZ6EODNMOBAFZD3YCZ433RPPEQ",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Regla 1, leyes económicas (BCRA, comercio, patentes) sin medida de transporte."
+  },
+  {
+   "id": "CIO2ZCEHW5G6HGUOFC7P47Q6UI",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Otro tema: diseño de videojuegos y publicidad de software."
+  }
+ ]
+}
