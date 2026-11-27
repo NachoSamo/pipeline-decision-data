@@ -33,7 +33,9 @@ AQUI = Path(__file__).resolve().parent
 RAIZ = AQUI.parents[1]
 MODELO = "Qwen/Qwen2.5-7B-Instruct-AWQ"
 EJEMPLOS = AQUI / "ejemplos_movilidad.json"
-MAX_CUERPO = 2000
+# Caracteres del cuerpo por etapa: para decidir relevancia alcanza el comienzo de la nota.
+MAX_CUERPO = {1: 1000, 2: 2000}
+MAX_CUERPO_EJEMPLO = 300
 TANDA = 500
 
 # Copias de etiquetado/config.js y de los motivos de etiquetado/calibrar.py: el selfcheck verifica que coincidan.
@@ -58,8 +60,9 @@ def texto_o_nulo(max_len):
 
 ESQUEMA_1 = {
     "type": "object",
-    "properties": {"motivo": {"enum": MOTIVOS}},
-    "required": ["motivo"],
+    # Primero escribe qué plantea la nota y después elige el motivo: obliga a justificar antes de decidir.
+    "properties": {"planteo": texto_o_nulo(200), "motivo": {"enum": MOTIVOS}},
+    "required": ["planteo", "motivo"],
     "additionalProperties": False,
 }
 # El orden importa: el modelo escribe primero el problema y la solución, y después elige tipo y categorías.
@@ -78,7 +81,7 @@ ESQUEMA_2 = {
                  "categoria_otra", "ubicacion"],
     "additionalProperties": False,
 }
-ETAPAS = {1: (ESQUEMA_1, 20), 2: (ESQUEMA_2, 400)}  # esquema y max_tokens
+ETAPAS = {1: (ESQUEMA_1, 90), 2: (ESQUEMA_2, 600)}  # esquema y max_tokens
 
 GUIA = """Analizás notas periodísticas para un estudio sobre movilidad sustentable. El track es el transporte
 de personas o de cargas: vehículos, transporte público, tránsito e infraestructura vial, ferroviaria,
@@ -95,16 +98,24 @@ economía y finanzas aunque digan "sustentable" → politica_o_economia_sin_medi
 (residuos, biodiversidad, energía sin transporte) → otro_track_ambiental. Otro tema → otro_tema. Nota de
 color o viral con el tránsito de escenario → nota_de_color.
 Entra una obra, un servicio o una medida de transporte concreta aunque la impulse un gobierno.
+No son relevantes: guías prácticas (cómo llegar, cómo pagar multas, qué auto comprar), avisos de cortes,
+desvíos u horarios, informes o estadísticas sin un problema ni una solución, y notas donde la movilidad
+es el escenario de otra historia.
 Ante la duda, la nota NO es relevante."""
 
 INSTRUCCION = {
-    1: "Respondé solo el JSON con el motivo. Si la nota es relevante, el motivo es " + RELEVANTE + ".",
+    1: f"""Respondé solo el JSON:
+- planteo: en una línea, el problema concreto de movilidad o la solución concreta que la nota plantea
+  como tema central; null si no plantea ninguno.
+- motivo: si el planteo es null, nunca es {RELEVANTE}. Si la nota es relevante, el motivo es {RELEVANTE}.""",
     2: f"""La nota ya es relevante. Respondé solo el JSON, en español:
 - problema: una oración con el problema de movilidad que plantea la nota o, si presenta una solución,
   el problema que esa solución ataca. Genérica y comparable entre notas, sin nombres de medios.
 - solucion: una oración con la solución concreta que presenta, o null si no presenta ninguna.
 - tipo: problema (describe un problema sin solución concreta), solucion (presenta una solución; el
   problema es solo contexto) o ambas (un problema concreto y una solución que apunta a ese problema).
+  Si el tipo es solucion, categorias_problema va vacía. Si es problema, solucion es null y
+  categorias_solucion va vacía.
 - categorias_problema: {CATEGORIAS_PROBLEMA}
 - categorias_solucion: {CATEGORIAS_SOLUCION}
   Marcá todas las que la nota describe, no las que menciona de pasada.
@@ -121,7 +132,7 @@ def limpio(valor):
     return "" if valor is None or (isinstance(valor, float) and pd.isna(valor)) else str(valor).strip()
 
 
-def texto_nota(nota, max_cuerpo=MAX_CUERPO):
+def texto_nota(nota, max_cuerpo):
     return (f"TÍTULO: {limpio(nota.get('titulo'))}\nBAJADA: {limpio(nota.get('bajada'))}\n"
             f"CUERPO: {limpio(nota.get('body'))[:max_cuerpo]}")
 
@@ -130,12 +141,12 @@ def prefijo(etapa, ejemplos):
     """Parte fija del prompt: igual para todas las notas, así vLLM la reusa con prefix caching."""
     partes = [GUIA, INSTRUCCION[etapa], "EJEMPLOS:"]
     for e in ejemplos[str(etapa)]:
-        partes.append(f"{texto_nota(e, 400)}\nRESPUESTA: {json.dumps(e['respuesta'], ensure_ascii=False)}")
+        partes.append(f"{texto_nota(e, MAX_CUERPO_EJEMPLO)}\nRESPUESTA: {json.dumps(e['respuesta'], ensure_ascii=False)}")
     return "\n\n".join(partes)
 
 
-def conversacion(sistema, nota):
-    return [{"role": "system", "content": sistema}, {"role": "user", "content": texto_nota(nota)}]
+def conversacion(sistema, nota, etapa):
+    return [{"role": "system", "content": sistema}, {"role": "user", "content": texto_nota(nota, MAX_CUERPO[etapa])}]
 
 
 def mitad(id_, gpu, gpus):
@@ -150,8 +161,21 @@ def parsear(etapa, txt):
     except (json.JSONDecodeError, TypeError):
         return {}, f"JSON inválido: {str(txt)[:80]}"
     if etapa == 1:
-        return {"motivo": datos.get("motivo"), "relevante": datos.get("motivo") == RELEVANTE}, None
-    return {k: datos.get(k) for k in ESQUEMA_2["properties"]}, None
+        motivo = datos.get("motivo")
+        return {"planteo": datos.get("planteo"), "motivo": motivo, "relevante": motivo == RELEVANTE}, None
+    return limpiar_etapa2({k: datos.get(k) for k in ESQUEMA_2["properties"]}), None
+
+
+def limpiar_etapa2(d):
+    """Coherencia entre tipo y categorías, según la guía (el modelo a veces marca de más)."""
+    if d.get("tipo") == "solucion":
+        d["categorias_problema"] = []
+    elif d.get("tipo") == "problema":
+        d["solucion"], d["categorias_solucion"] = None, []
+    cats = (d.get("categorias_problema") or []) + (d.get("categorias_solucion") or [])
+    if not any(c.startswith(("OTRO_", "OTRA_")) for c in cats):
+        d["categoria_otra"] = None
+    return d
 
 
 # ---------- notas y checkpoints ----------
@@ -219,7 +243,8 @@ def worker(args):
     sistema = prefijo(etapa, ejemplos)
     params = sampling(*ETAPAS[etapa])
     llm = LLM(model=args.modelo, quantization="awq", dtype="half", max_model_len=4096,
-              enable_prefix_caching=True, gpu_memory_utilization=0.90)
+              enable_prefix_caching=True, gpu_memory_utilization=0.90,
+              disable_log_stats=False)  # el log muestra la tasa de aciertos del prefix caching
     carpeta = Path(args.salida) / "checkpoints"
     carpeta.mkdir(parents=True, exist_ok=True)
 
@@ -227,7 +252,7 @@ def worker(args):
     comienzo, hechas = time.monotonic(), 0
     for inicio in range(0, len(filas), args.tanda):
         tanda = filas[inicio:inicio + args.tanda]
-        salidas = llm.chat([conversacion(sistema, n) for n in tanda], params, use_tqdm=False)
+        salidas = llm.chat([conversacion(sistema, n, etapa) for n in tanda], params, use_tqdm=False)
         registros = []
         for nota, salida in zip(tanda, salidas):
             datos, error = parsear(etapa, salida.outputs[0].text)
@@ -277,35 +302,48 @@ def unir(args):
 
 # ---------- ejemplos few-shot (local) ----------
 
-# Notas del gold del equipo que van como ejemplos (por eso el gold no sirve para evaluar al modelo).
-EJEMPLOS_GOLD = {
-    "Triciclo movido a energia solar": RELEVANTE,
-    "Un teleférico y un subte en La Plata": RELEVANTE,
-    "Conheça startups do Hub Green Sampa": RELEVANTE,
-    "Caos de tránsito en la autopista 9 de Julio Sur": "seguridad_vial",
-    "El alcalde de Valladolid suspende": "politica_o_economia_sin_medida",
-    "las líneas 30 y 34 pasan a formar parte": "gestion_sin_problema_ni_solucion",
-    "El 70% de los últimos brotes epidémicos": "otro_track_ambiental",
-    "llevaba años sin ver a su papá": "nota_de_color",
-}
+# Ejemplos few-shot: (origen, comienzo del título, motivo, planteo). Ninguno está en la referencia de 300.
+# Los del gold hacen que el gold no sirva para evaluar al modelo. Sin tarifas, paros ni lanzamientos de
+# producto: esos criterios los define el equipo.
+EJEMPLOS_NOTAS = [
+    ("gold", "Triciclo movido a energia solar", RELEVANTE, "Un triciclo solar para hacer entregas urbanas sin emisiones."),
+    ("gold", "Un teleférico y un subte en La Plata", RELEVANTE, "Proyecto de teleférico y subte para aliviar la congestión de La Plata."),
+    ("gold", "Conheça startups do Hub Green Sampa", RELEVANTE, "Startups de movilidad eléctrica, bicicletas y gestión del tránsito en São Paulo."),
+    ("gold", "Caos de tránsito en la autopista 9 de Julio Sur", "seguridad_vial", None),
+    ("gold", "El alcalde de Valladolid suspende", "politica_o_economia_sin_medida", None),
+    ("gold", "las líneas 30 y 34 pasan a formar parte", "gestion_sin_problema_ni_solucion", None),
+    ("gold", "El 70% de los últimos brotes epidémicos", "otro_track_ambiental", None),
+    ("gold", "llevaba años sin ver a su papá", "nota_de_color", None),
+    ("gold", "El emocionante video que se viralizó tras confirmarse la salida de Messi", "otro_tema", None),
+    ("filtrado", "Cómo ir al Parque de los Niños en transporte público", "gestion_sin_problema_ni_solucion", None),
+    ("filtrado", "Estados Unidos 2025: guía para consultar y pagar tus multas", "gestion_sin_problema_ni_solucion", None),
+    ("filtrado", "Armó un estacionamiento especial para la bicicleta de un nene", "nota_de_color", None),
+]
 
 
 def armar_ejemplos():
-    """Escribe ejemplos_movilidad.json con las notas del gold elegidas y su respuesta esperada."""
+    """Escribe ejemplos_movilidad.json con las notas elegidas y su respuesta esperada."""
     gold = {e["id"]: e for e in json.loads((RAIZ / "etiquetado/reconciliacion/movilidad-gold.json")
                                           .read_text(encoding="utf-8"))["etiquetas"]}
-    df = pd.read_parquet(RAIZ / "data" / "movilidad.parquet", columns=["id", "titulo", "bajada", "body"])
-    df = df[df["id"].isin(gold)]
+    referencia = {x["id"] for n in (1, 2, 3) for x in json.loads(
+        (RAIZ / f"etiquetado/referencia/movilidad-parte{n}.json").read_text(encoding="utf-8"))["notas"]} - gold.keys()
+    cols = ["id", "titulo", "bajada", "body"]
+    todo = pd.read_parquet(RAIZ / "data" / "movilidad.parquet", columns=cols)
+    fuentes = {
+        "gold": todo[todo["id"].isin(gold)],
+        "filtrado": pd.read_parquet(RAIZ / "data/v1-samo-movilidad/movilidad_filtrado.parquet", columns=cols),
+    }
     salida = {"1": [], "2": []}
-    for inicio, motivo in EJEMPLOS_GOLD.items():
+    for origen, inicio, motivo, planteo in EJEMPLOS_NOTAS:
+        df = fuentes[origen]
         fila = df[df["titulo"].str.contains(inicio, regex=False)].iloc[0].to_dict()
-        g = gold[fila["id"]]
-        assert g["relevante"] == (motivo == RELEVANTE), inicio
-        nota = {k: limpio(fila[k]) for k in ("titulo", "bajada")} | {"body": limpio(fila["body"])[:400]}
-        salida["1"].append(nota | {"respuesta": {"motivo": motivo}})
-        if g["relevante"]:
-            resp = {k: g[k] for k in ("tipo", "categorias_problema", "categorias_solucion")}
-            salida["2"].append(nota | {"respuesta": resp})
+        assert fila["id"] not in referencia, f"{inicio}: está en la referencia"
+        nota = {k: limpio(fila[k]) for k in ("titulo", "bajada")} | {"body": limpio(fila["body"])[:MAX_CUERPO_EJEMPLO]}
+        salida["1"].append(nota | {"respuesta": {"planteo": planteo, "motivo": motivo}})
+        if origen == "gold" and gold[fila["id"]]["relevante"]:
+            g = gold[fila["id"]]
+            assert motivo == RELEVANTE, inicio
+            salida["2"].append(nota | {"respuesta": {k: g[k] for k in ("tipo", "categorias_problema", "categorias_solucion")}})
     EJEMPLOS.write_text(json.dumps(salida, ensure_ascii=False, indent=1), encoding="utf-8")
     log(f"Escrito {EJEMPLOS.name}: {len(salida['1'])} ejemplos de etapa 1 y {len(salida['2'])} de etapa 2")
 
@@ -319,17 +357,24 @@ def selfcheck():
     probs, sols = categorias()
     assert set(CATEGORIAS_PROBLEMA) == probs and set(CATEGORIAS_SOLUCION) == sols, "categorías distintas de config.js"
     assert MOTIVOS == MOTIVOS_REF, "motivos distintos de etiquetado/calibrar.py"
-    assert parsear(1, '{"motivo": "seguridad_vial"}') == ({"motivo": "seguridad_vial", "relevante": False}, None)
-    assert parsear(1, '{"motivo": "' + RELEVANTE + '"}')[0]["relevante"] is True
+    assert parsear(1, '{"planteo": null, "motivo": "seguridad_vial"}') == (
+        {"planteo": None, "motivo": "seguridad_vial", "relevante": False}, None)
+    assert parsear(1, '{"planteo": "x", "motivo": "' + RELEVANTE + '"}')[0]["relevante"] is True
+    d = parsear(2, json.dumps({"tipo": "solucion", "categorias_problema": ["CONGESTION_Y_DEMORAS"],
+                               "categorias_solucion": ["REDES_FERROVIARIAS_Y_SUBTE"], "categoria_otra": "x"}))[0]
+    assert d["categorias_problema"] == [] and d["categoria_otra"] is None
+    d = parsear(2, json.dumps({"tipo": "problema", "solucion": "algo", "categorias_problema": ["OTRO_PROBLEMA_MOVILIDAD"],
+                               "categorias_solucion": ["REDES_FERROVIARIAS_Y_SUBTE"], "categoria_otra": "x"}))[0]
+    assert d["solucion"] is None and d["categorias_solucion"] == [] and d["categoria_otra"] == "x"
     assert parsear(2, "{roto")[1].startswith("JSON inválido")
     ids = [f"https://x/{i}" for i in range(1000)]
     a, b = [sum(mitad(i, g, 2) for i in ids) for g in (0, 1)]
     assert a + b == 1000 and 400 < a < 600, (a, b)
     ejemplos = json.loads(EJEMPLOS.read_text(encoding="utf-8"))
-    assert len(ejemplos["1"]) == len(EJEMPLOS_GOLD) and len(ejemplos["2"]) == 3
+    assert len(ejemplos["1"]) == len(EJEMPLOS_NOTAS) and len(ejemplos["2"]) == 3
     for etapa in (1, 2):
         s = prefijo(etapa, ejemplos)
-        c1, c2 = conversacion(s, {"titulo": "A"}), conversacion(s, {"titulo": "B"})
+        c1, c2 = conversacion(s, {"titulo": "A"}, etapa), conversacion(s, {"titulo": "B"}, etapa)
         assert c1[0] == c2[0] and c1[1] != c2[1], "el prefijo tiene que ser idéntico entre notas"
     for e in ejemplos["2"]:
         r = e["respuesta"]

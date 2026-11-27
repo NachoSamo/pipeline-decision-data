@@ -386,7 +386,9 @@ python scripts/clasificacion/clasificar_vllm.py --armar-ejemplos
 ```
 
 - **`--selfcheck`:** sin GPU. Verifica que las categorías coincidan con `etiquetado/config.js` y los motivos con `calibrar.py`, la partición por GPU y que el prefijo del prompt sea igual para todas las notas.
-- **`--armar-ejemplos`:** escribe `ejemplos_movilidad.json` con 8 notas del gold como ejemplos few-shot.
+- **`--armar-ejemplos`:** escribe `ejemplos_movilidad.json` con 12 ejemplos few-shot (9 del gold y 3 del filtrado, ninguno de la referencia).
+- **Etapa 1:** devuelve `planteo` (el problema o la solución concreta, o null) y `motivo`, con el cuerpo cortado a 1.000 caracteres. **Etapa 2:** 2.000 caracteres, y una limpieza fija deja las categorías coherentes con el tipo.
+- **Checkpoints:** el script saltea los id que ya tienen checkpoint en la carpeta de salida. Para repetir una corrida con otro prompt, hay que usar otra carpeta.
 - **En Kaggle:** `--entradas`, `--salida`, `--ids` (solo las notas de un JSON, como la referencia), `--limite`, `--gpus` y `--etapa`. Sale `movilidad_clasificado.parquet`.
 
 ### Cómo correrlo en Kaggle (a mano, en la web)

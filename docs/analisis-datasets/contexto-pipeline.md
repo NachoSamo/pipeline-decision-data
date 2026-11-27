@@ -272,6 +272,12 @@ Esto da unas 60 notas relevantes por año si se mira solo la URL. La muestra es 
   - **Los falsos relevantes:** sobre todo notas que la referencia toma como gestión sin problema ni solución (27), política sin medida (13), notas de color y otro tema. Muchos son errores claros de Qwen (un pato en una peatonal, un robot que viste personas, premios de telecomunicaciones); otros caen en los huecos de la guía (tarifas, paros, lanzamientos de producto).
   - **Velocidad, medida sin contar la carga del modelo (~1 min por etapa):** etapa 1, 42 y 45 notas/min por GPU; etapa 2, 30 y 35 notas/min, con vLLM 0.34.0 (atención Triton, porque la T4 no soporta FlashAttention 2). A ese ritmo, las 23.203 notas llevarían unas 4,3 h de etapa 1, más 1,5 h de etapa 2 si un 25 % sale relevante: cerca de 6 h, arriba del umbral de 4 h.
   - **Tipo y categorías:** en 60 de las 76 notas de tipo `solucion` marcó también categorías de problema, y la guía dice que ahí el problema es solo contexto.
+- **Ajustes para la segunda vuelta (27/11):**
+  - Etapa 1 más estricta: primero escribe el `planteo` (el problema o la solución concreta, o null) y después el motivo. La guía del prompt suma como no relevantes las guías prácticas, los avisos de cortes u horarios, los informes sin problema ni solución y las notas donde la movilidad es escenario.
+  - 12 ejemplos few-shot, 4 de ellos nuevos (Messi, una guía de cómo llegar, una guía de multas y una nota viral con bicicleta), todos fuera de la referencia. Sin ejemplos de tarifas, paros ni lanzamientos, porque esos criterios los define el equipo.
+  - Etapa 1 más liviana: el cuerpo se corta a 1.000 caracteres (la etapa 2 sigue en 2.000).
+  - Etapa 2 coherente: si el tipo es `solucion`, se vacían las categorías de problema; si es `problema`, la solución y sus categorías. `max_tokens` sube a 600.
+  - Estadísticas de vLLM activadas, para ver si el prefix caching funciona.
 - **Parte B:** el evaluador del gate ([`evaluar_movilidad.py`](../../scripts/clasificacion/evaluar_movilidad.py)) y el paquete para Kaggle están listos (26/11); falta subirlo y correrlo. Fijar la versión de vLLM que corra en T4 con AWQ y salida guiada; correr el gate contra la referencia (umbrales propuestos: recall de relevancia ≥ 0,85, precisión ≥ 0,70, 100 % de JSON válidos, corrida completa estimada ≤ 4 h); corrida completa; embeddings y análisis de vacíos.
 
 ### Fuentes
