@@ -12,6 +12,10 @@ Foto del 8/11/2026, después de la limpieza con [`limpiar.py`](../../scripts/lim
 | **Criterio para quedar** | Coincidir con la búsqueda, ser de 2024 en adelante, tener un track en título o bajada y pasar la limpieza |
 | **Tamaño aproximado** | 36 MB |
 
+## Filtro de movilidad (26/11/2026)
+
+`python scripts/clasificacion/filtrar_movilidad.py --soluciones` toma las 4.828 notas con movilidad en `tracks` y aplica las reglas del filtro de movilidad, solo a los diarios. Quedan **4.792** en `data/v1-samo-movilidad/movilidad_soluciones_filtrado.parquet`: se descartaron 15 por sección fuera del track y 21 por seguridad vial, casi todas de TN, El Doce e Infobae. El resto son medios especializados y pasan enteros. Alcance: 2.666 internacionales, 1.604 de América Latina, 493 nacionales y 29 de Córdoba. 298 de estas notas también están en las problemáticas filtradas.
+
 Para el dataset de residuos, ver [el análisis de residuos](../v1-residuos/analisis-dataset-residuos.md). Los criterios de limpieza están en [`contexto-pipeline.md`](contexto-pipeline.md#limpieza-y-consolidación-8112026).
 
 ## Cifras

@@ -342,12 +342,13 @@ python scripts/diccionarios/alcance_fuentes.py
 
 ## Filtro de ruido de movilidad
 
-[`scripts/clasificacion/filtrar_movilidad.py`](../scripts/clasificacion/filtrar_movilidad.py) saca de `data/movilidad.parquet` el ruido que la [guía de movilidad](../etiquetado/guia-movilidad.md) ya deja afuera, sin usar un LLM. Escribe solo las notas que pasan en `data/movilidad_filtrado.parquet`, con las mismas columnas. Los descartes no se guardan. Los criterios y las cifras están en [`contexto-pipeline.md`](analisis-datasets/contexto-pipeline.md#filtro-determinístico-de-ruido-en-movilidad-25112026).
+[`scripts/clasificacion/filtrar_movilidad.py`](../scripts/clasificacion/filtrar_movilidad.py) saca de `data/movilidad.parquet` el ruido que la [guía de movilidad](../etiquetado/guia-movilidad.md) ya deja afuera, sin usar un LLM. Escribe solo las notas que pasan en `data/v1-samo-movilidad/movilidad_filtrado.parquet`, con las mismas columnas. Los descartes no se guardan. Los criterios y las cifras están en [`contexto-pipeline.md`](analisis-datasets/contexto-pipeline.md#filtro-determinístico-de-ruido-en-movilidad-25112026).
 
 ```bash
 python scripts/clasificacion/filtrar_movilidad.py --selfcheck
 python scripts/clasificacion/filtrar_movilidad.py --muestra 20
 python scripts/clasificacion/filtrar_movilidad.py
+python scripts/clasificacion/filtrar_movilidad.py --soluciones
 ```
 
 - **Solo filtra diarios:** TN, El Doce, Clarín, La Nación y CBA24N. Los medios especializados pasan enteros.
@@ -356,6 +357,55 @@ python scripts/clasificacion/filtrar_movilidad.py
 - **`--muestra N`:** imprime N títulos al azar por motivo (semilla 42) para auditar a mano. No escribe nada.
 - **`--selfcheck`:** casos de prueba y verifica que las 4 notas relevantes del gold pasan.
 - **Log:** las líneas llevan la hora, como en el scraping, y se agregan a `data/logs/filtrar_movilidad.log`, que queda fuera de Git.
+- **Alcance:** agrega la columna `alcance` con [`alcance_fuentes.py`](../scripts/diccionarios/alcance_fuentes.py). Falla si aparece una fuente sin alcance.
+- **`--soluciones`:** toma las notas de movilidad de `data/soluciones.parquet` y escribe `data/v1-samo-movilidad/movilidad_soluciones_filtrado.parquet`. Infobae cuenta como diario.
+
+## Referencia para evaluar la clasificación de movilidad
+
+[`etiquetado/muestrear_referencia.py`](../etiquetado/muestrear_referencia.py) arma 300 notas al azar de los dos Parquet filtrados (240 de problemáticas y 60 de soluciones, semilla 42, sin las del gold) en `etiquetado/referencia/movilidad-parte{1,2,3}.json`. Cada parte suma las 25 del gold, mezcladas, para medir al etiquetador. También escribe `movilidad-calibracion.json`, solo con las 25 del gold. El cuerpo se corta a 6.000 caracteres.
+
+Un LLM grande etiqueta esos archivos con [`etiquetado/referencia/prompt-etiquetador.md`](../etiquetado/referencia/prompt-etiquetador.md), en Claude Code o en OpenCode. Después, [`etiquetado/calibrar.py`](../etiquetado/calibrar.py) compara con el gold (reusa kappa y Jaccard de `reconciliar.py`):
+
+```bash
+python etiquetado/muestrear_referencia.py
+python etiquetado/calibrar.py --selfcheck
+python etiquetado/calibrar.py
+python etiquetado/calibrar.py --unir
+```
+
+- **Sin flags:** lee `movilidad-calibracion-<modelo>.json` y escribe `calibracion-informe.md`, con el acuerdo de cada modelo con el equipo.
+- **`--unir`:** lee `movilidad-referencia-parte{1,2,3}.json`, valida el formato y escribe `movilidad-referencia.json` (las 300) y `movilidad-referencia-informe.md`, con las categorías sugeridas agrupadas.
+
+## Clasificación v2 de movilidad (vLLM en Kaggle)
+
+[`scripts/clasificacion/clasificar_vllm.py`](../scripts/clasificacion/clasificar_vllm.py) corre la cascada: etapa 1 (motivo y relevancia) en todas las notas y etapa 2 (problema, solución, tipo, categorías y ubicación) en las relevantes. Lanza un proceso por GPU, con Qwen2.5-7B-Instruct AWQ y salida JSON guiada. Guarda un checkpoint en Parquet por tanda de 500 notas y, al relanzar, saltea lo hecho. Se usa desde [`notebooks/kaggle_movilidad_v2.ipynb`](../notebooks/kaggle_movilidad_v2.ipynb). **Todavía no se corrió.**
+
+```bash
+python scripts/clasificacion/clasificar_vllm.py --selfcheck
+python scripts/clasificacion/clasificar_vllm.py --armar-ejemplos
+```
+
+- **`--selfcheck`:** sin GPU. Verifica que las categorías coincidan con `etiquetado/config.js` y los motivos con `calibrar.py`, la partición por GPU y que el prefijo del prompt sea igual para todas las notas.
+- **`--armar-ejemplos`:** escribe `ejemplos_movilidad.json` con 8 notas del gold como ejemplos few-shot.
+- **En Kaggle:** `--entradas`, `--salida`, `--ids` (solo las notas de un JSON, como la referencia), `--limite`, `--gpus` y `--etapa`. Sale `movilidad_clasificado.parquet`.
+
+### Cómo correrlo en Kaggle (a mano, en la web)
+
+1. Armar el paquete en `kaggle/movilidad-v2/`, que queda fuera de Git: los dos Parquet de `data/v1-samo-movilidad/`, `clasificar_vllm.py`, `ejemplos_movilidad.json` y `etiquetado/referencia/movilidad-referencia.json`.
+2. Crear un Kaggle Dataset **privado** con esos 5 archivos.
+3. Importar `notebooks/kaggle_movilidad_v2.ipynb`. En las opciones: GPU T4 x2, Internet On y el dataset como input.
+4. **Prueba de humo** (celda 0, 50 notas): verifica que vLLM corra el modelo en T4 y da una primera medida de notas/min. Si falla, se fija otra versión de vLLM en la celda de instalación.
+5. **Gate** (celda 1, solo las 300 de la referencia). Bajar `gate/movilidad_clasificado.parquet` de la pestaña Output a `data/resultados/v2-movilidad/gate/`.
+6. Evaluar localmente:
+
+```bash
+python scripts/clasificacion/evaluar_movilidad.py --selfcheck
+python scripts/clasificacion/evaluar_movilidad.py
+```
+
+[`evaluar_movilidad.py`](../scripts/clasificacion/evaluar_movilidad.py) compara con la referencia y escribe `gate-informe.md`: relevancia (recall, precisión y kappa, en total y por dataset), tipo, Jaccard de categorías, notas sin respuesta, JSON inválidos, motivos cruzados y desacuerdos con el comentario de Haiku. Umbrales propuestos: recall ≥ 0,85, precisión ≥ 0,70 y 0 JSON inválidos.
+
+7. Solo si el gate pasa: corrida completa (celda 2). Si se corta, relanzar la celda retoma desde los checkpoints.
 
 ## Pendiente de revisar
 

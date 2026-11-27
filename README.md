@@ -179,7 +179,7 @@ flowchart TB
 | Dataset | **Limpio y consolidado (8/11):** un Parquet por dataset, con el mismo esquema: residuos 40.232 notas, biodiversidad 33.620, movilidad 53.029 y soluciones 19.817 con su columna `tracks`. **Movilidad filtrada (25/11):** [`filtrar_movilidad.py`](scripts/clasificacion/filtrar_movilidad.py) deja 18.709 notas sin el ruido obvio de diarios (secciones fuera del track, seguridad vial y notas sin raíces del tema). Falta auditarlo y filtrar los otros tracks |
 | Limpieza | **Hecha:** [`limpiar.py`](scripts/limpiar.py) quitó pies de suscripción, notas sin cuerpo, títulos seriados y duplicados por `id`, título y cuerpo. Se eliminaron las señales de problema y de opinión, poco precisas. El circuito de problemáticas está en [`docs/circuito-problematicas.md`](docs/circuito-problematicas.md) |
 | CI de Python | **Implementado:** en cada PR corre lint de errores graves, el límite de 100 MB por Parquet y los tests de [`scripts/clasificacion/`](scripts/clasificacion). El test de integración se omite si falta la muestra local. Lean no iniciado |
-| Clasificación y segmentación | **Piloto de residuos (10/11):** Qwen 2.5 3B en Kaggle, en [`scripts/clasificacion/`](scripts/clasificacion), con resultados flojos. **Etiquetado manual hecho (25/11):** Ignacio y Lauti etiquetaron 25 notas por track de movilidad y residuos, en [`etiquetado/`](etiquetado). Coincidieron en todos los campos en 12 de 25 notas de movilidad y en 3 de 25 de residuos. Los dos tracks ya están reconciliados: 4 de 25 notas son relevantes en movilidad y 17 de 25 en residuos. Las reglas están en las guías de [movilidad](etiquetado/guia-movilidad.md) y [residuos](etiquetado/guia-residuos.md), que son la base del prompt. Falta escribir el prompt y evaluar al LLM contra el gold |
+| Clasificación y segmentación | **Piloto de residuos (10/11):** Qwen 2.5 3B en Kaggle, en [`scripts/clasificacion/`](scripts/clasificacion), con resultados flojos. **Etiquetado manual hecho (25/11):** Ignacio y Lauti etiquetaron 25 notas por track de movilidad y residuos, en [`etiquetado/`](etiquetado). Coincidieron en todos los campos en 12 de 25 notas de movilidad y en 3 de 25 de residuos. Los dos tracks ya están reconciliados: 4 de 25 notas son relevantes en movilidad y 17 de 25 en residuos. Las reglas están en las guías de [movilidad](etiquetado/guia-movilidad.md) y [residuos](etiquetado/guia-residuos.md), que son la base del prompt. **v2 de movilidad, parte A (26/11):** Haiku etiquetó 300 notas de referencia: 63 relevantes (21 %), con criterios dispares en tarifas, paros y anuncios. Coincidió con el gold en 23 a 24 de 25 notas, cifra inflada porque la guía cita notas del gold. El clasificador con vLLM está escrito y sin correr. Falta decidir esos criterios y la taxonomía, y la parte B en Kaggle |
 | Grafo y análisis | **No iniciado** |
 
 ---
@@ -206,11 +206,27 @@ python scripts/limpiar.py --simular
 python scripts/limpiar.py
 ```
 
-Para sacar el ruido obvio de movilidad antes del LLM (escribe `data/movilidad_filtrado.parquet` y deja el log en `data/logs/`):
+Para sacar el ruido obvio de movilidad antes del LLM (escribe `data/v1-samo-movilidad/movilidad_filtrado.parquet` y deja el log en `data/logs/`):
 
 ```bash
 python scripts/clasificacion/filtrar_movilidad.py --selfcheck
 python scripts/clasificacion/filtrar_movilidad.py
+python scripts/clasificacion/filtrar_movilidad.py --soluciones
+```
+
+Para la referencia de movilidad y el clasificador v2 (el etiquetado lo hace un LLM con `etiquetado/referencia/prompt-etiquetador.md`):
+
+```bash
+python etiquetado/muestrear_referencia.py
+python etiquetado/calibrar.py
+python etiquetado/calibrar.py --unir
+python scripts/clasificacion/clasificar_vllm.py --selfcheck
+```
+
+El clasificador corre en Kaggle con `notebooks/kaggle_movilidad_v2.ipynb`; los pasos están en [`docs/scrapping-webs.md`](docs/scrapping-webs.md#cómo-correrlo-en-kaggle-a-mano-en-la-web). Con la salida del gate en `data/resultados/v2-movilidad/gate/`:
+
+```bash
+python scripts/clasificacion/evaluar_movilidad.py
 ```
 
 Para correr los mismos chequeos que el CI (requiere `pip install -r requirements-ci.txt`):
@@ -254,7 +270,9 @@ notas[notas["tracks"].map(lambda t: "agro" in t)]
 ├── data/
 │   ├── biodiversidad.parquet                        Problemas de biodiversidad, limpios
 │   ├── movilidad.parquet                            Problemas de movilidad sustentable, limpios
-│   ├── movilidad_filtrado.parquet                   Movilidad sin el ruido obvio de diarios, lista para el LLM
+│   ├── v1-samo-movilidad/                           Entradas filtradas de movilidad para el LLM, con alcance
+│   │   ├── movilidad_filtrado.parquet               Movilidad sin el ruido obvio de diarios
+│   │   └── movilidad_soluciones_filtrado.parquet    Soluciones de movilidad con el mismo filtro
 │   ├── residuos.parquet                             Notas de residuos, limpias
 │   ├── soluciones.parquet                           Soluciones de los cuatro tracks, con la columna tracks
 │   ├── soluciones/crudo/                            Descarga cruda de soluciones, fuera de Git
@@ -291,11 +309,18 @@ notas[notas["tracks"].map(lambda t: "agro" in t)]
 │   ├── reconciliar.py                               Mide el acuerdo y guía la reconciliación
 │   ├── guia-movilidad.md                            Reglas de relevancia y clasificación de movilidad, base del prompt
 │   ├── guia-residuos.md                             Lo mismo para residuos
-│   └── reconciliacion/                              Gold e informe de acuerdo por track
+│   ├── reconciliacion/                              Gold e informe de acuerdo por track
+│   ├── muestrear_referencia.py                      Arma las 300 notas de referencia de movilidad
+│   ├── calibrar.py                                  Compara etiquetadores LLM con el gold y une la referencia
+│   └── referencia/                                  Muestra, prompt, etiquetas e informes de la referencia
+├── kaggle/movilidad-v2/                             Paquete para subir a Kaggle, fuera de Git
+├── notebooks/
+│   ├── kaggle_movilidad_v2.ipynb                    Clasificación v2 de movilidad con vLLM en Kaggle, sin correr
+│   └── visualizacion_no_patrones.ipynb              Tablero de no-patrones de la v1 de residuos
 ├── .github/workflows/
 │   └── python-ci.yml                                CI de Python en cada PR: lint, límite de 100 MB y tests
 ├── scripts/                                         Scraping por fuente y limpieza (limpiar.py)
-│   ├── clasificacion/                               Filtro de ruido de movilidad, pipeline de clasificación, versión vigente (version.py) y sus tests (test_*.py)
+│   ├── clasificacion/                               Filtro de ruido de movilidad, clasificador v2 con vLLM (clasificar_vllm.py), pipeline v1, versión vigente (version.py) y sus tests (test_*.py)
 │   ├── grafo/                                       Grafo de conocimiento y no-patrones sobre la clasificación
 │   └── diccionarios/                                Términos por track y alcance geográfico por fuente (alcance_fuentes.py)
 ├── CLAUDE.md                       Datos del evento e indicaciones para Claude

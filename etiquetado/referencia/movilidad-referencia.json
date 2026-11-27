@@ -1,0 +1,3462 @@
+{
+ "track": "movilidad",
+ "generado": "26/11/2026 22:44",
+ "etiquetas": [
+  {
+   "id": "IOTWOYWSUVHYFPWDDFW7GTDVVA",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "ambas",
+   "categorias_problema": [
+    "DEFICIT_TRANSPORTE_PUBLICO"
+   ],
+   "categorias_solucion": [
+    "OTRA_SOLUCION_MOVILIDAD"
+   ],
+   "categoria_otra": "Servicio de taxis y remises a tarifa reducida durante el paro de colectivos",
+   "categoria_sugerida": "TRANSPORTE_A_DEMANDA_TAXIS_Y_REMISES: taxis y remises de tarifa reducida durante paros",
+   "comentario": "Paro de colectivos que deja sin transporte a 500 mil personas y medida municipal concreta. Dudosa: la medida es de un servicio de taxis, no de transporte público."
+  },
+  {
+   "id": "https://www.lanacion.com.ar/economia/una-acusacion-entre-empresas-de-colectivos-amenaza-con-un-escandalo-por-los-subsidios-por-un-nid18012026/",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Disputa entre empresas de colectivos por subsidios y presunto desvío de fondos: economía y subsidios sin medida de transporte. Dudosa: la maniobra cambia validaciones de pasajeros."
+  },
+  {
+   "id": "https://www.clarin.com/ciudades/microcentro-entran-61-autos-ahora-grua-llevara-motos-mal-estacionadas_0_rkBPVKncx.html",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "ambas",
+   "categorias_problema": [
+    "OTRO_PROBLEMA_MOVILIDAD"
+   ],
+   "categorias_solucion": [
+    "OTRA_SOLUCION_MOVILIDAD"
+   ],
+   "categoria_otra": "Problema: motos mal estacionadas en el microcentro. Solución: grúas que retiran motos mal estacionadas",
+   "categoria_sugerida": "ESTACIONAMIENTO_Y_ACARREO_DE_MOTOS: grúas que retiran motos mal estacionadas",
+   "comentario": "Problema de estacionamiento de motos en el centro y medida concreta de acarreo. Tránsito y espacio público, no seguridad vial."
+  },
+  {
+   "id": "https://mobilidadesampa.com.br/2026/10/transporte-publico-gratuito-para-as-eleicoes-sjc/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "OTRA_SOLUCION_MOVILIDAD"
+   ],
+   "categoria_otra": "Gratuidad del transporte público municipal el día de elecciones",
+   "categoria_sugerida": "GRATUIDAD_TRANSPORTE_ELECCIONES: transporte público gratis el día de la votación",
+   "comentario": "Medida concreta de transporte (gratuidad en 101 líneas); el problema de llegar a votar aparece como contexto. Dudosa: es un aviso de un solo día con datos de horarios."
+  },
+  {
+   "id": "https://www.clarin.com/autos/sigue-llamas-barco-4-000-autos-lujo-perdidas-multimillonarias-calculan_0_AZ5szjOXV3.html",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Incendio de un buque con autos eléctricos y pérdidas de una automotriz: el tema es el incendio, sin problema de movilidad ni solución. Dudosa: los autos son la carga."
+  },
+  {
+   "id": "https://www.ambientum.com/ambientum/sostenibilidad/comercio-derechos-emision-ets2-espana-global-factor.asp",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Operación financiera de derechos de emisión (ETS2) de una empresa: economía sin medida de transporte."
+  },
+  {
+   "id": "HWRETQBOQNCSZDE7JTEDFLAR5U",
+   "relevante": false,
+   "motivo": "nota_de_color",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Incidente viral en el subte entre dos pasajeros; no describe problema de movilidad ni solución."
+  },
+  {
+   "id": "https://www.clarin.com/sociedad/empezamos-abajo-podiamos-conto-monja_0_HJj-9mjhDQg.html",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Accidente de un micro arrollado por un tren: seguridad vial, queda afuera."
+  },
+  {
+   "id": "https://www.lanacion.com.ar/sociedad/como-ir-al-malba-en-transporte-publico-y-auto-nid14082026/",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Guía práctica de cómo llegar al MALBA: consejos genéricos, sin problema ni solución. Dudosa: la movilidad es el eje de la nota, podría ser movilidad de pasada."
+  },
+  {
+   "id": "5YHHPFEZ6NCJPFB3DAK7AILTD4",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Impacto de la IA en el empleo; el transporte aparece como sector, sin medida de movilidad."
+  },
+  {
+   "id": "https://www.lanacion.com.ar/economia/la-uta-llego-a-un-acuerdo-por-los-salarios-y-no-habra-paro-de-colectivos-nid30012026/",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Acuerdo salarial de la UTA que evita un paro: disputa laboral y económica sin medida de transporte."
+  },
+  {
+   "id": "https://www.lanacion.com.ar/sociedad/seguridad-conducta-y-transporte-las-recomendaciones-de-cancilleria-para-los-argentinos-que-viajan-a-nid16072026/",
+   "relevante": false,
+   "motivo": "movilidad_de_pasada",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Recomendaciones de Cancillería para viajar al Mundial: seguridad, conducta y transporte. La movilidad es un punto entre otros, sin problema ni solución propia."
+  },
+  {
+   "id": "https://grist.org/regulation/utility-lobbying-ferc-rule-change-edison-electric-institute/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Lobby de asociaciones de empresas eléctricas sobre cargos en la factura: energía y clima, no movilidad."
+  },
+  {
+   "id": "O2EIXU27FBGXVF73GTYFDEFAAM",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Decreto de reforma laboral (registros, recibos, gremios): política laboral sin medida de transporte."
+  },
+  {
+   "id": "UB7CBHDLGJSL3SN3VQ3MQMLRRM",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Aviso de cortes de calles y cambios de recorrido por un acto en Plaza de Mayo: informa sin problema ni solución. Dudosa: son cortes de tránsito concretos."
+  },
+  {
+   "id": "https://ciclovivo.com.br/inovacao/negocios/garrafas-pet-viram-flutuadores-de-barcos-no-pr/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Reúso de botellas PET como flotadores de barcos: reciclaje de plástico y fabricación náutica, sin problema ni solución de movilidad."
+  },
+  {
+   "id": "4UX4VQ7NCJGMLORZMIA4YJTRWE",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Podcast promocional de un seguro para bicicletas (robo y siniestros). Dudosa: es un producto para ciclistas y podría ser solución; el problema es robo, no movilidad. Criterio estricto."
+  },
+  {
+   "id": "https://www.clarin.com/autos/insolito-auto-mujeres-presenta-equipamiento-referencias-sexistas_0_bfVpfWyKQB.html",
+   "relevante": false,
+   "motivo": "nota_de_color",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Auto eléctrico chino con equipamiento sexista: polémica y curiosidad, sin problema de movilidad ni solución."
+  },
+  {
+   "id": "https://www.clarin.com/politica/colectivos-servicio-reducido-gobierno-kicillof-asegura-pagara-hoy-deuda-empresas-deberia-normalizarse-servicio_0_pIy9wNzImj.html",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "problema",
+   "categorias_problema": [
+    "DEFICIT_TRANSPORTE_PUBLICO"
+   ],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Reducción de frecuencias de colectivos del AMBA por deuda de subsidios. Dudosa: el pago anunciado es un remedio transitorio y la nota es sobre subsidios."
+  },
+  {
+   "id": "L7D7762TIRBJHKPIQSDVYRB4GY",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Desalojo de un pato de una peatonal: tema municipal y animal, sin movilidad."
+  },
+  {
+   "id": "https://grist.org/health/how-climate-change-endangers-mothers-and-children/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Cambio climático y salud de madres e hijos: otro track ambiental."
+  },
+  {
+   "id": "https://ciclovivo.com.br/arq-urb/urbanismo/governo-de-sp-segue-com-concessao-de-parques-estaduais/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Concesión de parques estatales de São Paulo: áreas verdes y ecoturismo, otro track ambiental. Transporte solo como idea de conexión entre parques."
+  },
+  {
+   "id": "2DIQOMDQ2Y5A6E7BKEGDDVCBVE",
+   "relevante": false,
+   "motivo": "nota_de_color",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Video viral de insultos a inspectores de tránsito tras estacionar mal: nota de color con el tránsito de escenario."
+  },
+  {
+   "id": "46NFOD5E55G7VKRILEVMD4I7VU",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paro general de la CGT contra la reforma laboral: disputa política y laboral sin medida de transporte."
+  },
+  {
+   "id": "IJKOOHPY3NFWRASQJ256BB33KA",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Atentado terrorista en Nueva York y bloques de hormigón en cruces: el tema es la seguridad ante ataques, no movilidad. Dudosa: son barreras en bicisendas y cruces peatonales."
+  },
+  {
+   "id": "https://mobilidadesampa.com.br/2026/09/telemetria-em-onibus-identifica-excesso-de-velocidade/",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Telemetría de buses para detectar exceso de velocidad en la Semana Nacional de Tránsito: foco en prevención de siniestros. Dudosa: es un producto de gestión de flota de transporte público (ITS)."
+  },
+  {
+   "id": "https://www.clarin.com/ciudades/radiografia-peatones-dicen-respetan-percibe-irrespetuosos_0_fpdaAm1iT.html",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Encuesta sobre respeto de peatones y automovilistas a las normas de tránsito: educación vial, queda afuera."
+  },
+  {
+   "id": "ERUASILBAVH4BNRF7HFHXNYBHA",
+   "relevante": false,
+   "motivo": "nota_de_color",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Pelea viral entre chofer y pasajero por el barbijo en un colectivo: conflicto y protocolos COVID, sin problema ni solución de movilidad."
+  },
+  {
+   "id": "https://mobilidadesampa.com.br/2024/08/viacao-miracatiba-investe-em-30-novos-onibus-apache-vip-de-quinta-geracao-para-itapecerica-da-serra/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "OTRA_SOLUCION_MOVILIDAD"
+   ],
+   "categoria_otra": "Renovación de flota de colectivos Euro VI con accesibilidad y validadores",
+   "categoria_sugerida": "RENOVACION_DE_FLOTA_DE_BUSES: compra de colectivos nuevos para una concesión",
+   "comentario": "Compra concreta de 30 colectivos para transporte público. Dudosa: es un anuncio de fabricante, el problema no está planteado y no hay electromovilidad."
+  },
+  {
+   "id": "GC2D5RKK55ACJNXQNFVIYW2LR4",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Índice de costos del transporte de cargas y reclamo de aranceles de capacitación: economía del sector sin medida de transporte. Dudosa: transporte de cargas y capacitación de conductores."
+  },
+  {
+   "id": "YBWQWCTA75FLJFMOJN22Z4MM5Y",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Detención de un narco en una terminal de ómnibus: crimen, la terminal es solo el escenario."
+  },
+  {
+   "id": "https://grist.org/politics/as-states-line-up-to-battle-trump-over-climate-pennsylvania-could-be-on-the-sidelines/",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Estados y fiscales enfrentan políticas climáticas de Trump y finanzas de petroleras: política sin medida de transporte."
+  },
+  {
+   "id": "7B4KBIIJHNCRJGI6TYFR6QUZYE",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Actualización de subsidios y cuadro tarifario de colectivos AMBA: economía y subsidios, sin medida de transporte nueva. Dudosa: afecta el boleto."
+  },
+  {
+   "id": "https://www.clarin.com/servicios/bicicletas-8000-mes-nuevos-planes-30-cuotas-interes_0_jXUjREN8EQ.html",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Promociones de cuotas de bancos para comprar bicicletas: finanzas y comercio, sin medida de transporte. Dudosa: habla de movilidad sustentable."
+  },
+  {
+   "id": "https://www.lanacion.com.ar/estados-unidos/en-estados-unidos-los-seis-autos-electricos-usados-que-los-expertos-recomiendan-comprar-antes-de-que-nid07092025/",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Guía de compra de autos eléctricos usados en EE.UU.: consejos de consumo sin problema ni solución. Dudosa: los vehículos eléctricos son el tema."
+  },
+  {
+   "id": "AEBFV7A2O44KMKRWBI2XHGCYXY",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Video viral de un colectivero que maneja con mate y sin cinturón: conducta de manejo, seguridad vial. Dudosa: también es nota viral."
+  },
+  {
+   "id": "DQASFKKUHZBTTHCMPJAOLAAVIQ",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Listado de multas de tránsito en CABA: informa importes sin problema ni solución. Dudosa: menciona la movilidad de personas con discapacidad."
+  },
+  {
+   "id": "https://www.clarin.com/politica/jornada-discusion-diputados_0_Hk--geisDXl.html",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Jornada legislativa para recuperar el ferrocarril: foro político sin una medida concreta de transporte."
+  },
+  {
+   "id": "RDFOV7C2E5F47NKFHIK3QJ5XAE",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Costos y requisitos para la licencia de conducir en PBA: trámite informativo, sin problema ni solución de movilidad."
+  },
+  {
+   "id": "https://www.clarin.com/sociedad/prometen-diciembre-volvera-mar-plata_0_HyMwSqvlg.html",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "ambas",
+   "categorias_problema": [
+    "DEFICIT_TRANSPORTE_PUBLICO"
+   ],
+   "categorias_solucion": [
+    "REDES_FERROVIARIAS_Y_SUBTE"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Tren a Mar del Plata fuera de servicio por la caída de un puente, con obra concreta (puente de 250 m y 196 km de vías) para volver a operar."
+  },
+  {
+   "id": "https://mobilidadesampa.com.br/2024/06/mobilidade-eletrica-faz-parte-da-solucao/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "ambas",
+   "categorias_problema": [
+    "OTRO_PROBLEMA_MOVILIDAD"
+   ],
+   "categorias_solucion": [
+    "OTRA_SOLUCION_MOVILIDAD"
+   ],
+   "categoria_otra": "Problema: vehículos eléctricos livianos que compiten con peatones y ciclistas en ciclovías. Solución: límite de 40 km/h en avenidas, normatización y fiscalización de esos vehículos",
+   "categoria_sugerida": "NORMATIVA_VEHICULOS_ELECTRICOS_LIVIANOS: regulación de patinetes y bicis con acelerador en ciclovías",
+   "comentario": "Columna con problema concreto (conflicto en ciclovías) y propuestas concretas (límite de velocidad, normas y fiscalización). Dudosa: el eje está cerca de seguridad vial; es opinión."
+  },
+  {
+   "id": "https://mobilidadesampa.com.br/2026/04/higer-bus-company-expansao-onibus-eletricos-brasil/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Centro de desarrollo y producción local de buses eléctricos de un fabricante: solución concreta. Dudosa: anuncio corporativo, sin problema planteado; criterio igual al de la nota 30."
+  },
+  {
+   "id": "LTJBVSKCHJFHHNBSBU3F75ZEKI",
+   "relevante": false,
+   "motivo": "nota_de_color",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Video viral de inspectores de tránsito durmiendo en horario de trabajo: nota de color con el tránsito de escenario."
+  },
+  {
+   "id": "https://www.clarin.com/estados-unidos/evita-sorpresas-chequear-multas-transito-usa-2025_0_oJhmBzKmXk.html",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Guía para consultar multas de tránsito en EE.UU.: consejos genéricos sin problema ni solución."
+  },
+  {
+   "id": "https://mobilidadesampa.com.br/2026/08/jundiai-novos-horarios-linhas-704-528/",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Cambio de horarios de dos líneas de colectivo en Jundiaí: ajuste de programación, gestión sin problema ni solución de fondo. Dudosa: responde a pedidos de usuarios y suma un viaje."
+  },
+  {
+   "id": "4ZH7XBBVJFFPFNU6YHCDCCSZ6I",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Postergación del ingreso de carne a la Patagonia por sanidad animal: comercio agropecuario, sin medida de transporte."
+  },
+  {
+   "id": "HVGGJRAMLBHSZKLYX6ECC53HH4",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "ambas",
+   "categorias_problema": [
+    "OTRO_PROBLEMA_MOVILIDAD"
+   ],
+   "categorias_solucion": [
+    "INFRAESTRUCTURA_BICICLETAS_Y_PEATONAL"
+   ],
+   "categoria_otra": "Problema: personal de salud sin transporte seguro durante la pandemia, expuesto en el transporte público",
+   "categoria_sugerida": null,
+   "comentario": "App que conecta dueños de bicicletas con trabajadores de salud durante la cuarentena: problema concreto y servicio concreto para moverse en bici."
+  },
+  {
+   "id": "PWBXQTKSYVBO3H5LL5YEPCEIVA",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Renuncia voluntaria al subsidio del transporte: política de subsidios y redistribución. Dudosa: es una tarifa concreta para quienes renuncien."
+  },
+  {
+   "id": "https://grist.org/accountability/a-group-of-young-people-just-forced-hawai%ca%bbi-to-take-major-climate-action/",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Acuerdo judicial que obliga a Hawái a descarbonizar el transporte al 2045: meta y plan, sin medida concreta. Dudosa: el tema es transporte."
+  },
+  {
+   "id": "https://mobilidadesampa.com.br/2024/09/grupo-ccr-e-senai-sp-firmam-parceria-para-formacao-profissional-em-mobilidade/",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Convenio de formación profesional entre una concesionaria y un instituto: acuerdo de recursos humanos sin medida de movilidad para usuarios. Dudosa: es un programa del sector."
+  },
+  {
+   "id": "https://www.clarin.com/ciudades/demoras-filas-interminables-podra-conducir-vtv-vencida-provincia_0_Cbk7VyUEU8.html",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Excepción administrativa para circular con la VTV vencida por demoras de turnos: trámite de gestión sin problema ni solución de movilidad. Dudosa: la VTV es control técnico vehicular."
+  },
+  {
+   "id": "https://www.clarin.com/ciudades/guia-viajar-subte-estaciones-siguen-abiertas-cerradas_0_LzydVLjU-.html",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Guía de estaciones de subte abiertas y cerradas por la pandemia: informa sin problema ni solución planteados. Dudosa: los cierres son una restricción sistemática de cobertura."
+  },
+  {
+   "id": "PVLJTDTDZNDY7HRTA5P42WLTUY",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Robos de celulares en comercios de Córdoba: delito, sin movilidad."
+  },
+  {
+   "id": "SHAEFQXTK5CLBNGCZ7E5EVXHXQ",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Estado de rutas cortadas por nieve y habilitaciones: informa sin problema ni solución. Dudosa: son cortes de rutas concretos, como en el caso 15."
+  },
+  {
+   "id": "https://www.lanacion.com.ar/sociedad/anuncio-ya-tiene-fecha-la-reconversion-obligatoria-de-los-colectivos-portenos-a-energia-limpia-nid24072025/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "ambas",
+   "categorias_problema": [
+    "EMISIONES_Y_FLOTA_OBSOLETA"
+   ],
+   "categorias_solucion": [
+    "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Resolución que obliga a que las nuevas unidades de colectivo porteñas sean GNC o eléctricas desde 2027, contra un parque diésel casi total: problema y medida concretos."
+  },
+  {
+   "id": "https://www.lanacion.com.ar/autos/cuales-son-las-multas-de-transito-mas-caras-en-caba-nid03032025/",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Guía para consultar y pagar multas de tránsito en CABA: informa sin problema ni solución."
+  },
+  {
+   "id": "https://ciclovivo.com.br/arq-urb/design/pecas-com-madeira-substituem-louca-e-porcelana-em-banheiro/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Sanitarios de madera en lugar de cerámica: materiales de construcción, otro track ambiental."
+  },
+  {
+   "id": "https://ciclovivo.com.br/arq-urb/mobilidade/azul-lanca-servico-de-concierge-com-automoveis-da-byd/",
+   "relevante": false,
+   "motivo": "movilidad_de_pasada",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Servicio premium de concierge de una aerolínea con autos eléctricos para clientes frecuentes: anuncio comercial, la movilidad es un detalle. Dudosa."
+  },
+  {
+   "id": "https://grist.org/climate-energy/kentucky-becomes-the-newest-battleground-in-republicans-fight-against-green-investing/",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Kentucky y finanzas verdes (ESG): política y economía sin medida de transporte."
+  },
+  {
+   "id": "https://www.hdmotori.it/mercedes-benz-vle-debutto-ufficiale-10-marzo-2026/",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Lanzamiento de una van eléctrica premium: anuncio de producto sin problema de movilidad planteado. Dudosa: un vehículo eléctrico es un producto de la guía."
+  },
+  {
+   "id": "https://www.clarin.com/ciudades/vuelven-aumentar-colectivos-trenes-falta-suba-junio_0_HJFe7kjqf.html",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Aumentos de tarifas de colectivos y trenes en AMBA: precios y subsidios, sin medida de transporte nueva. Dudosa: afecta el boleto."
+  },
+  {
+   "id": "https://www.lanacion.com.ar/deportes/canchallena/tristan-suarez-vencio-por-1-0-a-ferrocarril-midland-por-la-primera-nacional-2026-nid27092026/",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Resultado de un partido de fútbol: otro tema."
+  },
+  {
+   "id": "PNJQMTIBJFBLPHLH23LZ4G57VQ",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Robot de asistencia para vestir personas: robótica asistencial, sin movilidad."
+  },
+  {
+   "id": "https://ciclovivo.com.br/fique-ligado/eventos/documentario-alerta-para-limites-do-desmatamento-da-amazonia/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Documental sobre límites planetarios y deforestación de la Amazonia: otro track ambiental."
+  },
+  {
+   "id": "MEGOAYENB5TMRY3KMCORUMLQDI",
+   "relevante": false,
+   "motivo": "nota_de_color",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Pelea viral entre un turista y un actor tras una discusión de tránsito: nota de color con el tránsito de escenario."
+  },
+  {
+   "id": "SJRHDWZANJG3FGC4GVI333TKMQ",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Pruebas de choque de sillitas infantiles y consejos de traslado de niños: seguridad vial, queda afuera."
+  },
+  {
+   "id": "https://www.visionsustentable.com/2023/09/21/el-cambio-climatico-no-puede-detenerse-sin-descarbonizar-el-transporte-urbano/",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Nota de prensa de una concesionaria del subte sobre huella de carbono y gestión ambiental: discurso general y medidas internas, sin problema ni solución concretos. Dudosa: hay medidas operativas (energía de frenado, LED)."
+  },
+  {
+   "id": "H7IM7SQIZBCHVHYWCES3NZOVE4",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Detención de menores por un robo en Villa María: delito, la bicicleta es una prueba."
+  },
+  {
+   "id": "BMSQSQVIXZDG3CIEB3KY6ZBECM",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Aumentos de boleto por inflación e indexación en AMBA y comparación con el interior: tarifas y subsidios, sin medida de transporte nueva."
+  },
+  {
+   "id": "HRVP7H3ZFFGWNHWMEAUTMAAJMA",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Incendio en un depósito municipal: incidente, el corte de camino es de pasada."
+  },
+  {
+   "id": "DL2UOH3QELL3IBTDU5KFEZ45WQ",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Aumentos de tarifas de gas en audiencias públicas: energía y tarifas, sin medida de transporte."
+  },
+  {
+   "id": "https://grist.org/extreme-weather/what-election-day-looked-like-for-voters-in-the-hurricane-battered-communities-of-florida-and-north-carolina/",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Votación después de huracanes en Florida y Carolina del Norte: elecciones y desastres, sin movilidad como tema central."
+  },
+  {
+   "id": "B4LFNCJPIZBRHBGMBU4UBQDQAA",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Anuncio de aumento del boleto urbano en Córdoba y reclamo de fondos nacionales: tarifas y subsidios, sin medida de transporte nueva."
+  },
+  {
+   "id": "Z6JFH7KO2FGBPDZCJYTTOOJV3U",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Incendio de un local comercial en la peatonal: incidente sin movilidad."
+  },
+  {
+   "id": "https://www.clarin.com/ultimo-momento/impacto-inflacion-sube-45-boleto-colectivos-trenes_0_PNzC9Q7E8V.html",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Aumento del 45% de tarifas de colectivos y trenes y política de subsidios: economía y tarifas sin medida de transporte nueva. Dudosa: afecta el boleto."
+  },
+  {
+   "id": "IB5MP5ZYNZE7JMMTOYXRJGO4NY",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Alergias de otoño: salud, sin movilidad."
+  },
+  {
+   "id": "https://www.ecoticias.com/movilidad-electrica/apostando-por-la-movilidad-sostenible",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Instalación concreta de 20 cargadores eléctricos en supermercados. Dudosa: anuncio corporativo; mismo criterio que la nota 30."
+  },
+  {
+   "id": "DOPAQ2NNGZHJ7KXOFLD7M7D6YU",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Congelamiento de tarifas de trenes interurbanos desde Córdoba: tarifas y política de precios, sin medida de transporte nueva. Dudosa."
+  },
+  {
+   "id": "https://ciclovivo.com.br/fique-ligado/eventos/inscricoes-para-virada-sustentavel-sp-vao-ate-31-05/",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Convocatoria a un festival de sustentabilidad: evento, sin problema ni solución de movilidad."
+  },
+  {
+   "id": "https://ciclovivo.com.br/mao-na-massa/faca-voce-mesmo/como-projetar-sua-propria-estufa-ou-viveiro/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Cómo construir una estufa o vivero: huerta y jardinería, otro track ambiental."
+  },
+  {
+   "id": "WMT6GEYQAJEWZA7V7R2Z34OQYI",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Proyecto de reforma laboral de la oposición (jornada, plataformas, indemnizaciones): política laboral sin medida de transporte."
+  },
+  {
+   "id": "ETAX7CQ3UVGWNKBXK5NSFE6GNI",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Cronograma de servicios municipales en Semana Santa (frecuencias, residuos, ITV): informa sin problema ni solución."
+  },
+  {
+   "id": "Q7X23SY2EZGAZP6Z4BJVGMNI3M",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Asambleas de choferes que cortan tres líneas por algunas horas: conflicto gremial sin medida ni problema de fondo planteado. Dudosa: hubo falta de unidades."
+  },
+  {
+   "id": "https://grist.org/extreme-weather/when-hurricane-evacuation-isnt-an-option/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Evacuación por huracanes y desigualdad: desastre climático; el transporte aparece como barrera de pasada."
+  },
+  {
+   "id": "https://mobilidadesampa.com.br/2025/05/taubate-melhorias-transporte-publico/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "OTRA_SOLUCION_MOVILIDAD"
+   ],
+   "categoria_otra": "Nuevas líneas, flota Euro 6, estación de conexión y atención digital en el transporte municipal de Taubaté",
+   "categoria_sugerida": "MEJORAS_TRANSPORTE_MUNICIPAL: nuevas líneas, flota y servicios digitales en una ciudad",
+   "comentario": "Medidas concretas de transporte municipal (líneas, flota, estación). Dudosa: es un anuncio de la prefectura sin problema planteado; mismo criterio que la nota 30."
+  },
+  {
+   "id": "https://www.lanacion.com.ar/sociedad/mucho-mas-prolija-estos-son-los-cambios-en-la-estacion-palermo-del-subte-d-reabierta-hoy-despues-de-nid25032025/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "ambas",
+   "categorias_problema": [
+    "DEFICIT_TRANSPORTE_PUBLICO"
+   ],
+   "categorias_solucion": [
+    "REDES_FERROVIARIAS_Y_SUBTE"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Obra de renovación de una estación de subte (pisos, iluminación, accesos) tras tres meses de cierre: problema de calidad del servicio y obra concreta. Dudosa: es mantenimiento y estética."
+  },
+  {
+   "id": "https://www.ecodallecitta.it/a-milano-nuove-colonnine-a-basso-impatto-per-la-ricarica-dei-veicoli-elettrici-previsti-4-000-nuovi-punti-in-2-anni/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Programa concreto de 4.000 puntos de recarga para autos eléctricos en una ciudad, con cifras. Dudosa: el problema no está planteado en la nota."
+  },
+  {
+   "id": "https://mobilidadesampa.com.br/2024/05/maio-amarelo-fretadao-seguranca-no-transito/",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Campaña de seguridad en el tránsito de una empresa de transporte fretado: seguridad vial, queda afuera."
+  },
+  {
+   "id": "RRQW5RV74PAQTX5GRERHDAPL6U",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Licencias para mayores de 60 y recomendaciones de manejo: seguridad vial, queda afuera."
+  },
+  {
+   "id": "BZ3AVQABE5CRDJGJ3UXER3OVTQ",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Historia de un chofer que vende barbijos durante un paro: conflicto laboral y económico, sin medida de transporte. Dudosa: el paro dejó sin servicio a interurbanos."
+  },
+  {
+   "id": "GU4T3XDOPBFYFCXOECLS4A6K3Y",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Montos de saldo negativo de la SUBE y tarifas vigentes: informa sin problema ni solución."
+  },
+  {
+   "id": "https://www.clarin.com/estados-unidos/nueva-ley-florida-licencias-conducir-firmada-desantis_0_6HpuLK6SUO.html",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Ley de Florida sobre licencias y cursos de manejo para conductores: seguridad vial y formación de conductores, queda afuera."
+  },
+  {
+   "id": "https://www.clarin.com/internacional/manejaba-coche-funebre-cadaver-llevaba-salvo-caer-vacio_0_iKvAPVAhh5.html",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Coche fúnebre que sale de la ruta por una maniobra en una nevada: siniestro vial, queda afuera."
+  },
+  {
+   "id": "QRVD4DUW4ZC5VFCH2TIQSY62ZM",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Historia de una migrante deportada: migración, sin movilidad."
+  },
+  {
+   "id": "https://www.clarin.com/internacional/solo-japon-dejo-bicicleta-pinchada-parte-lugar-robarsela-arreglan_0_lalv135vm.html",
+   "relevante": false,
+   "motivo": "nota_de_color",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Historia viral de una bicicleta reparada en Japón: nota de color, sin problema ni solución de movilidad."
+  },
+  {
+   "id": "H2QDWL64LZBK7KWPZOLFPI6INI",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paro de la línea D del subte por reclamos laborales (dos francos, personal, asbesto): conflicto gremial sin medida de movilidad propuesta por la autoridad. Dudosa: el servicio queda interrumpido."
+  },
+  {
+   "id": "Q4ZJZ5ZGLRC57GBH3LCQQMQF5M",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Aviso de corte parcial de un carril por obras de una empresa de energía: informa sin problema ni solución. Criterio igual al de la nota 15."
+  },
+  {
+   "id": "https://www.clarin.com/estados-unidos/funciona-nueva-ley-licencias-conducir-personas-mayores-70-anos_0_HMF0crt7HD.html",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Renovación de licencias para mayores de 70 y pruebas de manejo: seguridad vial, queda afuera."
+  },
+  {
+   "id": "https://grist.org/politics/nebraska-south-platte-river-canal-colorado/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Canal de agua entre estados de EE.UU. y disputa política por el agua: otro track ambiental."
+  },
+  {
+   "id": "VIV6CZWQWZHK7AXVTVJWGVWW4Q",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Prórroga administrativa del vencimiento de licencias de conducir por COVID: trámite de gestión sin problema ni solución de movilidad."
+  },
+  {
+   "id": "UJ66WHIZXRAFTAVCOBR5YS4IA4",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Hallazgo de un cadaver en un campo inundado; la bici es un detalle, no el tema."
+  },
+  {
+   "id": "https://www.cba24n.com.ar/cordoba/sube--desde-ahora--el-pasaje-podra-abonarse-con-el-qr-de-la-aplicacion_a6839e16d86cf3eda5f95b89e",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "SISTEMAS_INTELIGENTES_TRANSITO_ITS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Nueva forma de pago del transporte urbano (QR en la app SUBE): solucion concreta de software para el transporte."
+  },
+  {
+   "id": "https://www.lanacion.com.ar/politica/sin-cristina-kirchner-el-juicio-de-los-cuadernos-avanza-con-el-tramo-transporte-y-exhibe-los-pagos-a-nid23122025/",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: politica o economia sin medida de transporte: Juicio por coimas en subsidios de transporte: corrupcion y politica, sin una medida de transporte."
+  },
+  {
+   "id": "https://movilidadelectrica.com/suiza-prueba-carga-inductiva-con-proyecto-inlade/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Prueba real de carga inductiva para autos electricos: solucion concreta de electromovilidad."
+  },
+  {
+   "id": "https://www.visionsustentable.com/2024/12/20/desa-en-modo-sostenible-el-impacto-real-de-sus-acciones/",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Reporte de sostenibilidad de una distribuidora electrica: no es movilidad."
+  },
+  {
+   "id": "https://www.clarin.com/servicios/moto-transporte-publico-cuenta-tenes-hacer-saber-conviene-cambio_0_SOcDdW6z4L.html",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: informa sin problema ni solucion concreta: Comparativa de costos moto vs transporte publico: informa sin problema ni solucion concreta. Duda: podria leerse como consejo de consumo."
+  },
+  {
+   "id": "https://mobilidadesampa.com.br/2024/06/evento-em-sp-discute-seguranca-viaria-com-participacao-da-prefeitura-de-guarulhos/",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 2: seguridad vial, queda afuera: Evento sobre seguridad vial en Guarulhos: el tema central es la seguridad vial."
+  },
+  {
+   "id": "https://www.ecodallecitta.it/prmt-regione-lombardia-legambiente/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "problema",
+   "categorias_problema": [
+    "CONGESTION_Y_DEMORAS",
+    "DEFICIT_TRANSPORTE_PUBLICO",
+    "EMISIONES_Y_FLOTA_OBSOLETA",
+    "OTRO_PROBLEMA_MOVILIDAD"
+   ],
+   "categorias_solucion": [],
+   "categoria_otra": "Transporte de cargas dominado por camiones, con logistica creciente y sin estrategia industrial",
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Critica un plan regional concreto: congestion, contaminacion, auto en 85% de viajes e inversion insuficiente en transporte publico. Duda: podria ser ambas por las obras del plan."
+  },
+  {
+   "id": "https://www.clarin.com/ciudades/tercer-dia-protesta-subte-liberan-molinetes-estacion-rosas-manana-paro-linea_0_B1O_b6Vhf.html",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Conflicto paritario en el subte: disputa laboral, no un problema de movilidad. Duda: la interrupcion del servicio podria contar."
+  },
+  {
+   "id": "NATZNWKWBFH6ZJ7JWAVSPREQZQ",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Caso de negligencia medica: no es movilidad."
+  },
+  {
+   "id": "https://www.clarin.com/autos/sero-electric-patente-verde-vende-primer-auto-electrico-hecho-argentina_0_ZET8fWeO.html",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Auto electrico de fabricacion argentina ya a la venta: solucion concreta de electromovilidad."
+  },
+  {
+   "id": "2CQU4U4BBR6FR2B3GGKO3BLCKA",
+   "relevante": false,
+   "motivo": "nota_de_color",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Exclusion: nota de color o viral: Cronica de un viaje en bicicleta para ver al seleccionado: nota de color, sin problema ni solucion de movilidad."
+  },
+  {
+   "id": "https://www.clarin.com/internacional/deportes/turbulento-pasado-patrick-kluivert-culpable-homicidio-acusado-violacion_0_WxU61C77X.html",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Historial judicial de un ex futbolista: el accidente es antecedente, el tema central no es movilidad."
+  },
+  {
+   "id": "MVYGPRGG5ZCSNF2ZDEFP3ZNR2Q",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: informa sin problema ni solucion concreta: Cronograma de aumentos de tarifas de colectivos y trenes: informa sin problema ni solucion. Duda fuerte: es una medida de transporte concreta y podria ser relevante."
+  },
+  {
+   "id": "https://grist.org/accountability/the-problem-with-corporate-pledges-to-protect-abortion-access-and-the-climate/",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Empresas, aborto y clima: no es movilidad."
+  },
+  {
+   "id": "TEXHJTVOFBFQBD56GWV3AMM3FY",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "problema",
+   "categorias_problema": [
+    "DEFICIT_TRANSPORTE_PUBLICO"
+   ],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Falta de pasajes y pocos horarios de interurbanos el dia de la eleccion: deficit de servicio concreto. Duda: nota de un solo dia, podria ser nota de color."
+  },
+  {
+   "id": "https://www.cba24n.com.ar/argentina/alertaron-sobre-el-peligro-de-los--superpoderes--a-milei-que-podrian-aprobarse-en-la-ley-omnibus_a65b5117ec3facd8363f913ec",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: politica o economia sin medida de transporte: Debate de la Ley Omnibus y facultades delegadas: politica sin medida de transporte."
+  },
+  {
+   "id": "https://www.lanacion.com.ar/estados-unidos/el-debut-de-lewandowski-en-la-mls-se-pospone-por-la-mala-calidad-del-aire-en-chicago-nid16072026/",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Partido de MLS postergado por humo de incendios: el tema es deportivo y ambiental, no movilidad."
+  },
+  {
+   "id": "https://www.ecoportal.net/motor/cargar-coches-electricos-en-mexico-2/",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: informa sin problema ni solucion concreta: Guia de consumo sobre costo de cargar autos electricos en Mexico: consejos genericos, sin problema ni solucion nueva. Duda: el tema es movilidad y la infraestructura de carga podria contar como solucion."
+  },
+  {
+   "id": "https://grist.org/food/precision-fermentation-alt-dairy-from-milking-microbes/",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Proteina lactea por fermentacion de precision: alimentos, no movilidad."
+  },
+  {
+   "id": "https://www.ecoportal.net/motor/taxis-aereos-electricos-texas/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Piloto de taxis aereos electricos en Texas: solucion concreta de transporte electrico. Duda: categoria de tamano/tipo de vehiculo aereo; se uso electromovilidad."
+  },
+  {
+   "id": "https://www.clarin.com/ciudades/tren-recupera-pasajeros-sigue-lejos-mejor-momento_0_B1MWxE9P-.html",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "ambas",
+   "categorias_problema": [
+    "DEFICIT_TRANSPORTE_PUBLICO"
+   ],
+   "categorias_solucion": [
+    "REDES_FERROVIARIAS_Y_SUBTE"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Trenes que no recuperan frecuencias ni infraestructura (problema), con obras de electrificacion, expresos y eliminacion de pasos a nivel que apuntan a triplicar pasajeros (solucion)."
+  },
+  {
+   "id": "KLD6WIPT5FGBBA6VU5WP334F2U",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Entrega de repelentes contra el dengue: salud, no movilidad."
+  },
+  {
+   "id": "F6DVQWMHVZDUXMZOBHS2NJ3FKI",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 2: seguridad vial, queda afuera: Premios de seguridad de autos por crash test: informa sobre seguridad vehicular, no movilidad concreta. Duda: podria leerse como consumo sin problema ni solucion."
+  },
+  {
+   "id": "https://movilidadelectrica.com/musk-anuncia-un-coche-autonomo-sin-conductor-por-menos-de-30-000-euros/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Vehiculo electrico autonomo (Cybertaxi) presentado como producto de transporte. Duda fuerte: la nota es sobre la estrategia de la empresa y los plazos son inciertos."
+  },
+  {
+   "id": "https://www.visionsustentable.com/2026/08/18/microsoft-frena-80-la-compra-de-creditos-de-carbono-por-la-ia/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Exclusion: otro track ambiental: Creditos de carbono y compras corporativas: clima, no movilidad."
+  },
+  {
+   "id": "https://ciclovivo.com.br/vida-sustentavel/bem-estar/europa-reduz-poluicao-em-ate-59-e-melhora-qualidade-do-ar/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Exclusion: otro track ambiental: Calidad del aire en Europa: otro track ambiental; el transporte vial aparece como causa de la baja, no como tema central."
+  },
+  {
+   "id": "SOKAPMLFTFBU5BA2DZNOKMFQUY",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "SISTEMAS_INTELIGENTES_TRANSITO_ITS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: App SUBE que unifica funciones de la tarjeta de transporte: solucion concreta de software para el transporte publico. Nota de 2024, la fecha no cambia el criterio."
+  },
+  {
+   "id": "HTGF5ZVH2ZEPLD4IVMUUCMJIUE",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Estufas para calefaccion en Bariloche: no es movilidad."
+  },
+  {
+   "id": "https://www.lanacion.com.ar/estados-unidos/vamos-por-todo-dice-julian-alvarez-tras-conseguir-el-boleto-a-semifinales-nid12072026/",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Declaraciones de un jugador de futbol: deporte."
+  },
+  {
+   "id": "EWZT4JVH6BEW7JBR2C6SILJ6PU",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "problema",
+   "categorias_problema": [
+    "DEFICIT_TRANSPORTE_PUBLICO"
+   ],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Falta de colectivos en Cordoba (choferes dicen 60 a 70 por dia): deficit concreto de unidades. Duda: la nota presenta la version de la empresa y del gremio, sin medida nueva."
+  },
+  {
+   "id": "H5AII4SIRRGGJAIBHMHRGXXNUE",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 2: seguridad vial, queda afuera: Hombre que dejo manejar a un nene en autopista: seguridad vial, consejos y sancion."
+  },
+  {
+   "id": "https://www.clarin.com/ciudades/colectiveros-heroes-pandemia-transportan-esenciales-soportan-quejas_0_vIAUFNDoU.html",
+   "relevante": false,
+   "motivo": "nota_de_color",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Exclusion: nota de color o viral: Cronica humana de colectiveros en la pandemia. Duda fuerte: describe capacidad limitada y filas como problema concreto; se aplico criterio estricto."
+  },
+  {
+   "id": "https://thedriven.io/2025/04/17/ev-lobby-says-electric-car-owners-want-and-need-a-place-to-charge-at-work/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "problema",
+   "categorias_problema": [
+    "OTRO_PROBLEMA_MOVILIDAD"
+   ],
+   "categorias_solucion": [],
+   "categoria_otra": "Falta de cargadores para vehiculos electricos en el lugar de trabajo",
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Problema concreto: menos de un tercio de conductores de autos electricos tiene cargador en el trabajo. Duda: la nota es de Australia y pide incentivos fiscales, sin medida ya tomada."
+  },
+  {
+   "id": "https://www.lanacion.com.ar/sociedad/ciudad-hasta-cuando-funciona-el-boleto-educativo-nid15122025/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "OTRA_SOLUCION_MOVILIDAD"
+   ],
+   "categoria_otra": "Boleto educativo subsidiado para estudiantes en transporte publico",
+   "categoria_sugerida": "TARIFA_SUBSIDIADA_ESTUDIANTIL: boleto educativo para alumnos de CABA",
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Programa concreto de boleto subsidiado (ampliado a nivel superior). Duda: no plantea un problema explicito; el criterio de programa se tomo de la guia."
+  },
+  {
+   "id": "https://grist.org/cities/zoned-out-one-womans-half-century-fight-to-desegregate-berkeley/",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Zonificacion y vivienda en Berkeley: no es movilidad."
+  },
+  {
+   "id": "https://grist.org/transportation/nasa-leads-push-for-electric-planes-in-next-frontier-of-cutting-emissions/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "ambas",
+   "categorias_problema": [
+    "EMISIONES_Y_FLOTA_OBSOLETA"
+   ],
+   "categorias_solucion": [
+    "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Emisiones de la aviacion (problema) y programa de la NASA para aviones electricos (solucion). Duda: aviacion comercial como movilidad; se trato como vehiculo electrico, igual que el piloto de taxis aereos."
+  },
+  {
+   "id": "QB74TMMALJDGRPDEXFEDYAQVAQ",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Legado politico de Marielle Franco: no es movilidad."
+  },
+  {
+   "id": "55YW5KYK5BFRRJDJ25PSJA3H4Q",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 2: seguridad vial, queda afuera: Montos de multas y puntos de licencia por exceso de velocidad: regulacion de seguridad vial. Duda: podria verse como informacion sin problema ni solucion."
+  },
+  {
+   "id": "https://www.ecodallecitta.it/expo-ferroviaria-2025-milano/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "REDES_FERROVIARIAS_Y_SUBTE"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Feria ferroviaria con obras concretas (vinculo T2 Malpensa, estaciones, linea a hidrogeno, tren Coradia Stream). Duda: tono institucional de feria."
+  },
+  {
+   "id": "https://www.clarin.com/ciudades/trenes-prometida-san-martin-termina_0_SkqAjBiPml.html",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "ambas",
+   "categorias_problema": [
+    "DEFICIT_TRANSPORTE_PUBLICO"
+   ],
+   "categorias_solucion": [
+    "REDES_FERROVIARIAS_Y_SUBTE"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Falta de formaciones en la linea San Martin (problema) y trenes nuevos con obras de andenes (solucion). Duda: la nota pone foco en la gestion y la disputa sindical."
+  },
+  {
+   "id": "https://mobilidadesampa.com.br/2024/11/mogi-das-cruzes-garante-continuidade-do-transporte-publico-com-renovacao-de-contrato-da-princesa-do-norte/",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: informa sin problema ni solucion concreta: Renovacion de un contrato de concesion de colectivos: gestion sin problema ni solucion nueva, como el caso SiBuS. Duda: incluye compromisos de flota y tecnologia."
+  },
+  {
+   "id": "https://mobilidadesampa.com.br/2026/03/passagem-de-onibus-em-piracicaba-tecnologia-economica/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "SISTEMAS_INTELIGENTES_TRANSITO_ITS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Pago del colectivo con Carteira Google (QR en el celular): solucion digital de transporte, igual criterio que el caso SUBE QR."
+  },
+  {
+   "id": "H4MV5YERPDVITCT46ZIJ7L6OOM",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "problema",
+   "categorias_problema": [
+    "OTRO_PROBLEMA_MOVILIDAD"
+   ],
+   "categorias_solucion": [],
+   "categoria_otra": "Caida del sistema que informa la llegada de colectivos por ransomware en varias ciudades",
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Problema concreto: sin informacion de llegada de colectivos. Duda: el tema es ciberseguridad y podria contar como otro tema."
+  },
+  {
+   "id": "https://www.clarin.com/estados-unidos/multas-transito-usa-2025-guia-completa-comprender-tipo-violacion-ley_0_q2YiymVS5a.html",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: informa sin problema ni solucion concreta: Guia de como pagar multas de transito en EE. UU.: consejos genericos, sin problema ni solucion de movilidad."
+  },
+  {
+   "id": "HOEJCNGZYRE3LDDREFXDG6LISU",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Medida de fuerza gremial en trenes (velocidad limitada por paritaria): disputa laboral, igual criterio que el caso del subte. Duda: hay demoras de 40 minutos."
+  },
+  {
+   "id": "https://grist.org/housing/eviction-moratorium-cori-bush-environmental-justice/",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Moratoria de desalojos y vivienda: no es movilidad."
+  },
+  {
+   "id": "https://mobilidadesampa.com.br/2025/11/frota-eletrica-modernizacao-rodovias-sp/",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: informa sin problema ni solucion concreta: Estadistica de flota electrica en Sao Paulo con inversiones mencionadas en general. Duda: cita inversiones en recarga y senalizacion, sin detalle concreto."
+  },
+  {
+   "id": "https://grist.org/health/fertility-climate-change-heat-premature-birth-pregnant/",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Calor extremo y nacimientos prematuros: salud, no movilidad."
+  },
+  {
+   "id": "https://www.ecoportal.net/motor/este-motor-ultracompacto-avadi-destrozado/",
+   "relevante": false,
+   "motivo": "movilidad_de_pasada",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: movilidad de pasada: Motor rotativo de combustion para multiples usos (motos, generadores, drones). Duda fuerte: el titulo habla de movilidad y podria ser OTRA_SOLUCION_MOVILIDAD."
+  },
+  {
+   "id": "FMJXYNN3T24JP2PQA4Z6IBUJVU",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Atentado terrorista en el subte de Londres: seguridad publica, no movilidad."
+  },
+  {
+   "id": "https://www.clarin.com/internacional/mexico/misterio-mexico-hombre-aparecio-muerto-estacion-metro-confusas-versiones-causa_0_yyFkDtMUl.html",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Muerte de un hombre en una estacion de metro: caso policial, no problema de movilidad."
+  },
+  {
+   "id": "5XY3ABMIKNA7FM5AM5SR5H5BAM",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Protesta social de un dirigente frente a un ministerio: politica."
+  },
+  {
+   "id": "https://www.clarin.com/ciudades/historia-carlos-sanchez-llevaba-18-anos-chofer-hijos_0_BkqzNegXb.html",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Crimen de un chofer de colectivo: caso policial. Duda: el contexto es el transporte, pero el problema es delictivo, no de movilidad."
+  },
+  {
+   "id": "https://www.clarin.com/sociedad/meses-trabajos-ramales-tren-mitre-vuelven-llegar-estacion-retiro_0_LfM0NsrlVp.html",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "REDES_FERROVIARIAS_Y_SUBTE"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Nuevo sistema de senalizacion del Tren Mitre a Retiro con reemplazo de cables y vias: obra concreta. El problema (senalamiento de mas de 100 anos) aparece solo como contexto."
+  },
+  {
+   "id": "https://www.ecoportal.net/motor/electrico-cuesta-menos-gasolina/",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: informa sin problema ni solucion concreta: Informe que compara costo de operar autos electricos vs nafta: informa sin problema ni solucion concreta. Duda: el tema es movilidad y la conclusion es economica."
+  },
+  {
+   "id": "https://www.clarin.com/sociedad/vuelta-Costa-vez-demoras_0_By3eTNpsv7x.html",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "problema",
+   "categorias_problema": [
+    "CONGESTION_Y_DEMORAS"
+   ],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Demoras de casi dos horas en autopista y ruta 2 al regreso del fin de semana largo: congestion concreta. Duda: es un episodio puntual, con protesta y obras de por medio."
+  },
+  {
+   "id": "https://www.economyup.it/automotive/automotive-631-milioni-alla-ricerca-la-sfida-e-trasformare-gli-incentivi-in-nuova-capacita-industriale/",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: politica o economia sin medida de transporte: Fondo industrial de 631 millones para R&D del sector automotor: politica industrial, sin medida de transporte concreta. Duda: financia movilidad sostenible, autonoma y conectada."
+  },
+  {
+   "id": "4HJCJXQZFRCYNCDMHM6GCERHVQ",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "OTRA_SOLUCION_MOVILIDAD"
+   ],
+   "categoria_otra": "Obra de ampliacion del Puente Labruna con nueva rampa vial entre Cantilo, Lugones y Udaondo",
+   "categoria_sugerida": "INFRAESTRUCTURA_VIAL_AUTOPISTAS: obra de puentes y rampas para autos",
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Obra vial concreta, con corte de transito solo como contexto. Duda: la nota es informativa sobre cortes, no sobre la obra en si."
+  },
+  {
+   "id": "https://www.lanacion.com.ar/economia/asi-quedaron-los-nuevos-precios-del-subte-y-colectivos-de-la-ciudad-desde-este-miercoles-nid30092025/",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: informa sin problema ni solucion concreta: Actualizacion mensual de tarifas de colectivos y subte: informa sin problema ni solucion, igual criterio que el aumento de mayo. Duda fuerte: es una medida tarifaria concreta."
+  },
+  {
+   "id": "https://www.ecoportal.net/motor/aie-autos-electricos-ventas-2026/",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: informa sin problema ni solucion concreta: Proyeccion de ventas de autos electricos de la AIE: dato de mercado, informa sin problema ni solucion concreta."
+  },
+  {
+   "id": "https://www.economyup.it/startup/11-startup-che-si-sono-fatte-notare-nel-2025-e-potrebbero-fare-il-salto-nel-2026/",
+   "relevante": false,
+   "motivo": "movilidad_de_pasada",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: movilidad de pasada: Lista de 11 startups de distintos rubros, la movilidad es una categoria mas. Duda: el cuerpo del texto llega truncado por HTML y no se pudo leer la parte de movilidad."
+  },
+  {
+   "id": "https://www.lanacion.com.ar/sociedad/caos-de-transito-en-avenida-lugones-en-vivo-cortes-por-obras-kilometros-de-cola-e-importantes-nid14092026/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "problema",
+   "categorias_problema": [
+    "CONGESTION_Y_DEMORAS"
+   ],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Congestion de horas pico en Lugones por cierre de carriles para obras de gas: problema concreto de transito. Duda: origen en obra puntual, no estructural."
+  },
+  {
+   "id": "L2T6HYG7HVAWLHKMC3HK5DQFGA",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: politica o economia sin medida de transporte: Informe del jefe de Gabinete sobre subsidios y disparidad de fondos: politica y finanzas. Duda fuerte: anuncia un aumento del boleto de CABA, que es una medida tarifaria."
+  },
+  {
+   "id": "https://www.clarin.com/sociedad/suspenden-economico-mar-plata-vagones_0_r1zNp2iiPQg.html",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "problema",
+   "categorias_problema": [
+    "DEFICIT_TRANSPORTE_PUBLICO"
+   ],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Tren economico a Mar del Plata suspendido por mal estado de vagones, con reemplazo en micros: problema concreto de calidad y servicio. Duda: un solo servicio."
+  },
+  {
+   "id": "BXYL7FPGFBEFRMONTPWMJ4WQXM",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Caso judicial por homicidio tras una discusion de transito: crimen, no problema de movilidad."
+  },
+  {
+   "id": "D366QHAJCVDU7FXW6KSWMZHVH4",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: politica o economia sin medida de transporte: Reclamo de intendentes en el Congreso por reparto de fondos de combustibles para subsidios: politica y fiscal. Duda fuerte: el proyecto apunta a comprar colectivos y podria contar como medida de transporte."
+  },
+  {
+   "id": "VIGCIIA5RVEWVMLDXRQXM7NUEM",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Policia que repele un asalto a balazos: caso policial."
+  },
+  {
+   "id": "https://www.recoverweb.it/abb-acquisisce-brightloop/",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: politica o economia sin medida de transporte: Adquisicion empresarial de una firma de electronica de potencia: economia y negocios. Duda: la tecnologia es para vehiculos industriales y ferris."
+  },
+  {
+   "id": "RCWPW43FSZA6DFEHRACY6HFKXU",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 2: seguridad vial, queda afuera: Conductor que arrastra a dos policias en un control: imprudencia al volante, seguridad vial."
+  },
+  {
+   "id": "https://www.clarin.com/autos/cumbre-javier-milei-elon-musk-costaria-auto-electrico-tesla-argentina_0_FEg4vHXwLc.html",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: politica o economia sin medida de transporte: Encuentro Milei-Musk y estimacion de precio de un Tesla por impuestos: politica y economia, sin medida de transporte. Duda: la carga impositiva a autos electricos es un tema de politica publica."
+  },
+  {
+   "id": "2RVCPHESPFGJ5FE6REMBXTKJGE",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: informa sin problema ni solucion concreta: Aumento del boleto urbano de Cordoba: informa una tarifa, sin problema ni solucion nueva. Duda fuerte: es una medida tarifaria concreta, igual que el caso del AMBA."
+  },
+  {
+   "id": "https://grist.org/indigenous/its-been-a-place-of-worship-for-centuries-now-a-copper-mine-threatens-its-future/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Exclusion: otro track ambiental: Mina de cobre en un sitio sagrado: otro track ambiental, no movilidad."
+  },
+  {
+   "id": "https://ciclovivo.com.br/arq-urb/mobilidade/empresa-fara-entregas-com-avioes-de-carga-eletricos/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Compra de 12 aviones de carga electricos para entregas de DHL: solucion concreta de transporte electrico. Duda: aviacion, igual criterio que los taxis aereos."
+  },
+  {
+   "id": "https://www.lanacion.com.ar/sociedad/hay-subtes-el-jueves-10-de-abril-nid07042025/",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Paro general de la CGT: disputa gremial y politica. Duda: afecta subtes y trenes, pero la causa es el paro."
+  },
+  {
+   "id": "OKPWP4HFDWOEG4S64F6UOQBKZE",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 2: seguridad vial, queda afuera: Protesta de ciclistas por atropellos mortales: seguridad vial, aunque menciona 200 km de ciclovias como contexto."
+  },
+  {
+   "id": "https://www.ecoportal.net/motor/tesla-autos-electricos-elon-musk-optimus/",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: informa sin problema ni solucion concreta: Estrategia de Tesla que deja de lado autos electricos hacia robots: informa un cambio de negocio sin solucion de movilidad concreta. Duda: menciona el robotaxi Cybercab."
+  },
+  {
+   "id": "https://grist.org/energy/the-us-electric-grid-is-getting-a-3-5-billion-upgrade/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Exclusion: otro track ambiental: Inversion en la red electrica de EE. UU.: energia, no movilidad."
+  },
+  {
+   "id": "XLOEP6KS6VEIRND6YSJRFOBT3I",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: politica o economia sin medida de transporte: Cambios a la Ley Omnibus sobre YPF y empresas publicas: politica y economia."
+  },
+  {
+   "id": "https://bioplasticsnews.com/2025/09/23/portugal-to-invest-e30-million-to-strengthen-recycling-and-waste-recovery/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Exclusion: otro track ambiental: Fondo de 30 millones para reciclaje y compostaje en Portugal: residuos, otro track."
+  },
+  {
+   "id": "https://mobilidadesampa.com.br/2026/08/bicicletas-eletricas-watts-zera-estoque-em-48-horas/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Lanzamiento de una linea de e-bikes y vehiculos electricos de una marca: producto concreto. Duda: texto de prensa de la empresa."
+  },
+  {
+   "id": "AWDV7LLVE5E7VE3EDG7SZGONKA",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 2: seguridad vial, queda afuera: Adolescentes colgados de un colectivo en el Metrobus: riesgo vial. Duda: podria verse como problema de seguridad del servicio."
+  },
+  {
+   "id": "https://ciclovivo.com.br/inovacao/negocios/trailer-dobravel-bike/",
+   "relevante": false,
+   "motivo": "movilidad_de_pasada",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: movilidad de pasada: Trailer plegable para llevar de remolque en bici con fines de camping: la movilidad es de pasada, el tema es el campamento."
+  },
+  {
+   "id": "https://www.clarin.com/sociedad/empresa-TBA-sospechan-incidentes_0_rkJ_UgX6v7e.html",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "problema",
+   "categorias_problema": [
+    "OTRO_PROBLEMA_MOVILIDAD"
+   ],
+   "categorias_solucion": [],
+   "categoria_otra": "Incidentes de vandalismo que paralizan y reducen el servicio del tren Sarmiento",
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Problema concreto de servicio ferroviario (paralizacion y menos formaciones). Duda fuerte: el eje es el vandalismo y la denuncia de sabotaje."
+  },
+  {
+   "id": "7RZTZ4I4ORHBFDZLWCF4VUCF5Q",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Premio de Huawei a redes opticas: telecomunicaciones, no movilidad."
+  },
+  {
+   "id": "https://ciclovivo.com.br/arq-urb/arquitetura/esta-floresta-vertical-melhora-a-qualidade-de-vida-na-cidade/",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Edificio con bosque vertical: arquitectura verde, no movilidad."
+  },
+  {
+   "id": "SPNDPFLYKVCZBPZEAHIABZQUUI",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Protesta contra el hambre con corte de Corrientes: politica social. Duda: el titulo habla de caos de transito, pero la causa es la protesta."
+  },
+  {
+   "id": "https://www.clarin.com/ciudades/ezeiza-aeroparque-primera-vez-linea-colectivos-conectara-ambas-terminales_0_73pv611jF0.html",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "ambas",
+   "categorias_problema": [
+    "DEFICIT_TRANSPORTE_PUBLICO"
+   ],
+   "categorias_solucion": [
+    "OTRA_SOLUCION_MOVILIDAD"
+   ],
+   "categoria_otra": "Conexion de colectivos entre Aeroparque y Ezeiza",
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Hoy no hay transporte publico entre Ezeiza y Aeroparque (problema) y se crea una conexion de colectivos 8 y 5 con nuevos recorridos (solucion)."
+  },
+  {
+   "id": "EUNQJCRZK5GOFF27WKCZZ4DWDQ",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Paro de UTA por salarios: disputa gremial. Duda: afecta el servicio de colectivos, igual que el paro de trenes."
+  },
+  {
+   "id": "https://www.clarin.com/ciudades/trenes-exigidos-hoy-transportan-54-pasajeros-2015_0_BJUAn1lZX.html",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: informa sin problema ni solucion concreta: Informe oficial de crecimiento de pasajeros en trenes: informa cifras sin problema ni solucion nueva. Duda: cita obras concretas (soterramiento, senalamiento, frenado automatico) como contexto."
+  },
+  {
+   "id": "GVR73TGTAVBVTE6EWVKINTH3PE",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 2: seguridad vial, queda afuera: Propuesta de etiquetar autos con resultados de crash test: seguridad vehicular, igual criterio que el caso de premios de seguridad."
+  },
+  {
+   "id": "https://www.clarin.com/sociedad/auto-cayo-barranco-60-metros-jujuy-murio-mujer_0_Sy4R5n4Xms.html",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 2: seguridad vial, queda afuera: Auto que cae por un barranco con victimas: siniestro, seguridad vial."
+  },
+  {
+   "id": "https://www.ambientum.com/ambientum/movilidad-sostenible/galp-y-little-electric-energy-impulsan-la-recarga-ultrarrapida-portatil-en-el-porto-de-vigo.asp",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Electrolinera portatil de recarga ultrarrapida inaugurada en Vigo: solucion concreta de carga para vehiculos electricos."
+  },
+  {
+   "id": "666J3YM3JZCKRJ2ANXVLQDGUE4",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Agresion de pareja con tijera: policial, no movilidad."
+  },
+  {
+   "id": "https://www.clarin.com/sociedad/uta-amenaza-paro-transporte-tiempo-indeterminado-rosario-conflictos-provincias_0_xJX8ETLz5Z.html",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 1: el tema central no es movilidad: Amenaza de paro de UTA por sueldos adeudados en Rosario: disputa laboral y financiera. Duda: afecta el servicio de colectivos."
+  },
+  {
+   "id": "https://www.clarin.com/ciudades/tren-mitre-ramales-ferrocarril-van-funcionar-dias-obras-sabado-30-agosto_0_lZzIHtOlfg.html",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "REDES_FERROVIARIAS_Y_SUBTE"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Obras concretas en dos ramales del Tren Mitre (puente y vias) dentro de la emergencia ferroviaria: solucion con corte de servicio como contexto. Igual criterio que el caso de senalamiento."
+  },
+  {
+   "id": "https://www.lanacion.com.ar/autos/tendencias/axion-energy-apuesta-a-digitalizar-el-abastecimiento-de-combustible-de-las-flotas-nid25082026/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "SISTEMAS_INTELIGENTES_TRANSITO_ITS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: TAG NFC para automatizar la carga de combustible de flotas de transporte de cargas, con datos en tiempo real. Duda fuerte: es contenido pagado de un anunciante."
+  },
+  {
+   "id": "https://www.clarin.com/ciudades/funcionarios-empresarios-promesas-incumplidas_0_BJnHQkD6P7e.html",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 2: seguridad vial, queda afuera: Promesas incumplidas para reducir accidentes de colectivos: el tema es la siniestralidad. Duda: tambien menciona GPS y limites de velocidad."
+  },
+  {
+   "id": "Y5TVKNDA3JET7KF74ZJQKNRPO4",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Exencion de peaje en autopistas porteñas para autos electricos e hibridos (descuento): medida concreta de electromovilidad."
+  },
+  {
+   "id": "https://www.hdmotori.it/yamaha-tricity-125-2025-nuovo-scooter-tre-novita/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "OTRA_SOLUCION_MOVILIDAD"
+   ],
+   "categoria_otra": "Scooter urbano de tres ruedas de 125 cc a combustion",
+   "categoria_sugerida": null,
+   "comentario": "Paso 1, pregunta 3: problema o solucion concreta: Producto concreto de movilidad urbana. Duda: vehiculo de combustion, no electrico."
+  },
+  {
+   "id": "https://www.lanacion.com.ar/sociedad/es-un-esfuerzo-colectivo-la-argentina-se-suma-a-una-red-global-que-utiliza-camaras-trampa-para-nid13092026/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Monitoreo de fauna con cámaras trampa: biodiversidad, otro track ambiental."
+  },
+  {
+   "id": "TKNJJEVG7VHJZNRPH6CQHLAHH4",
+   "relevante": false,
+   "motivo": "movilidad_de_pasada",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Crimen policial; el colectivo es solo el medio usado por el acusado."
+  },
+  {
+   "id": "https://www.clarin.com/economia/gobierno-acelera-privatizacion-trenes-pasajeros-divide-negocio-cargas_0_xTwFjajlnq.html",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "REDES_FERROVIARIAS_Y_SUBTE"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Medida concreta de transporte (concesión de trenes de pasajeros y división de cargas). Duda fuerte: el foco es económico."
+  },
+  {
+   "id": "R3AVAP7N5NFL3B43YC2EZHZQSA",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Aviso de corte de calle por repavimentación: informa desvíos sin plantear problema ni solución."
+  },
+  {
+   "id": "3N35RGR2H5D2ZOMS27X4BXUEOU",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Agresión entre conductores en el tránsito: seguridad vial, fuera del track."
+  },
+  {
+   "id": "G2PFK2U6TJDKFKENADOTWGNQDY",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Atropello con fuga: seguridad vial, fuera del track."
+  },
+  {
+   "id": "https://www.cba24n.com.ar/cordoba-motor/renault-lanzara-tres-autos-electricos-en-2023-en-argentina_a632088256203d431dd13aa19",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Regla 3: producto concreto (lanzamiento de autos eléctricos). Duda: anuncio comercial."
+  },
+  {
+   "id": "https://www.hdmotori.it/dove-nasce-la-mobilita-del-futuro-dalla-cina-le-lezioni-che-leuropa-non-puo-ignorare/",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Entrevista de opinión sobre el futuro de la mobilidad: reflexión general sin problema ni solución concreta. Duda fuerte."
+  },
+  {
+   "id": "https://www.clarin.com/ciudades/subte-2-caro-autopistas-portenas-aumentaran-55-enero_0_TmUiKAZ3T.html",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Aumento de boleto de subte y peajes: tarifas sin problema ni solución de movilidad planteada."
+  },
+  {
+   "id": "https://ciclovivo.com.br/fique-ligado/eventos/greve-pelo-clima-chega-de-promessas-vazias/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Huelga climática global: política climática, sin medida concreta de transporte."
+  },
+  {
+   "id": "https://www.clarin.com/espectaculos/cine/murio-anne-heche-relacion-ellen-degeneres_0_7u8oiOpIIp.html",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Noticia de farándula."
+  },
+  {
+   "id": "https://grist.org/technology/the-overlooked-climate-consequences-of-ai/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Emisiones de IA y desinformación: otro tema ambiental, sin movilidad como tema central."
+  },
+  {
+   "id": "https://grist.org/politics/infrastructure-deal-environmental-justice/",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Plan federal de infraestructura con justicia ambiental: el transporte es un componente entre agua, contaminación y clima. Duda fuerte: contiene medidas de transporte."
+  },
+  {
+   "id": "https://ciclovivo.com.br/vida-sustentavel/equilibrio/turismo-rural-em-sp-o-que-fazer-em-jundiai/",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Guía de turismo rural y cafés: sin problema ni solución de movilidad."
+  },
+  {
+   "id": "F3H32XF44NFZDO7ZKCV3RMJLYE",
+   "relevante": false,
+   "motivo": "nota_de_color",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Nota de color: bicicleta colgada de un poste para evitar robos; el tránsito es solo escenario."
+  },
+  {
+   "id": "https://recyclingportal.eu/archive/89984",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "SISTEMAS_INTELIGENTES_TRANSITO_ITS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Regla 3: proyecto de IA para gestionar flujos de tránsito y datos de movilidad. Problema solo como contexto."
+  },
+  {
+   "id": "https://mobilidadesampa.com.br/2026/07/alstom-inicio-operacao-linha-6-laranja-taubate-trens/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "REDES_FERROVIARIAS_Y_SUBTE"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Regla 3: puesta en operación de una línea de metro con trenes concretos. Comunicado de empresa."
+  },
+  {
+   "id": "JHMAOLW3QVHVDIYB7FLSVLLIWM",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Aumento de tarifa de boleto urbano y reclamo de subsidios: gestión tarifaria, sin problema ni solución de movilidad nueva. Duda moderada."
+  },
+  {
+   "id": "OU32YD2XUBGYJGYNVYFS7QQM3Q",
+   "relevante": false,
+   "motivo": "nota_de_color",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Historia personal durante un paro de transporte: nota de color."
+  },
+  {
+   "id": "https://movilidadelectrica.com/todo-lo-que-puedes-hacer-con-la-byd-app/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Regla 3: funciones de una app que gestiona un vehículo eléctrico (carga programada, precalentamiento). Duda fuerte: explicativa, tipo consejos de producto."
+  },
+  {
+   "id": "https://www.clarin.com/new-york-times-international-weekly/orlando-revela-planes-primer-centro-coches-voladores-ee-uu-_0_T9gjEut9y.html",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "ambas",
+   "categorias_problema": [
+    "CONGESTION_Y_DEMORAS"
+   ],
+   "categorias_solucion": [
+    "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Regla 3, tipo ambas: vertipuerto y taxis aéreos eléctricos para evitar autopistas congestionadas. Proyecto en desarrollo; artículo antiguo."
+  },
+  {
+   "id": "https://mamstartup.pl/arobs-polska-zabezpieczy-komunikacje-satelitarna-esa-w-oparciu-o-algorytmy-postkwantowe/",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Criptografía satelital para la ESA: otro tema."
+  },
+  {
+   "id": "https://grist.org/health/wildfire-smoke-engulfed-their-cities-did-it-make-their-babies-sick/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Humo de incendios y salud de bebés: otro track ambiental."
+  },
+  {
+   "id": "https://mobilidadesampa.com.br/2024/04/autolotacoes-morros-santos-integracao-vlt/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "OTRA_SOLUCION_MOVILIDAD"
+   ],
+   "categoria_otra": "Integración tarifaria y de validadores entre autolotaciones y VLT",
+   "categoria_sugerida": "INTEGRACION_TARIFARIA_TRANSPORTE: integración de tarifa y validadores entre modos de transporte público",
+   "comentario": "Regla 3: integración concreta de servicios de transporte público (tarifa y validadores). No encaja en ninguna categoría de solución."
+  },
+  {
+   "id": "Q46GEQ46U5HCLETEKAMYZRWZ5U",
+   "relevante": false,
+   "motivo": "nota_de_color",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Historia viral de un abuelo que acompaña a su nieta al colectivo: nota de color."
+  },
+  {
+   "id": "https://www.clarin.com/viajes/tren-recorre-paisajes-mayores-alturas-planeta_0_MGuai9fz3L.html",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Nota turística sobre el Tren a las Nubes: informa sin problema ni solución de movilidad. Duda moderada."
+  },
+  {
+   "id": "https://www.clarin.com/ciudades/paro-sorpresivo-linea_0_SyhUx5fsD7e.html",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paro gremial en la línea A del subte: conflicto laboral sin problema ni solución de movilidad."
+  },
+  {
+   "id": "https://www.cba24n.com.ar/cordoba/cordoba--buscan-identificar-a-un-hombre-fallecido-en-circunvalacion_a65c144881a0eb224ad8ee033",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Búsqueda de identidad de un fallecido: policial, otro tema."
+  },
+  {
+   "id": "https://www.cba24n.com.ar/opinion/el-costo-politico-del-veto-a-la-movilidad-jubilatoria--segun-las-ultimas-encuestas_a66e423969bcd044b5caa0147",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Encuestas sobre el veto a la movilidad jubilatoria: política sin medida de transporte."
+  },
+  {
+   "id": "Q7D7T2LXOYPZJWAJM7IRYUUHKU",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Trámite de constancia para circulación de trabajadores agropecuarios durante la pandemia: gestión sin problema ni solución. Duda moderada."
+  },
+  {
+   "id": "https://www.lanacion.com.ar/economia/una-escala-mas-del-incierto-derrotero-vialidad-volveria-a-depender-de-la-secretaria-de-transporte-nid22012026/",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Reorganización institucional del organismo vial: política de Estado sin medida concreta de transporte. Duda moderada."
+  },
+  {
+   "id": "https://dialogue.earth/en/business/two-sessions-evs-dominate-chinese-provincial-plans/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Regla 3: planes provinciales concretos de vehículos eléctricos y carga. Duda fuerte: el enfoque es industrial."
+  },
+  {
+   "id": "ESAFEKREANCGRGGHJQHL3RFXIM",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Cambio en el cálculo del descuento de tarifa social SUBE: gestión tarifaria sin problema ni solución de movilidad. Duda moderada."
+  },
+  {
+   "id": "https://grist.org/buildings/in-michigan-a-new-housing-project-shows-that-sustainable-development-isnt-only-for-the-rich/",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Proyecto de vivienda sostenible: el transporte es un detalle del barrio."
+  },
+  {
+   "id": "https://www.hdmotori.it/mercedes-benz-articoli-n603420-mercedes-futuro-elettrico-diesel/",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Estrategia y evolución histórica de motores diésel de una marca: informa sin problema ni solución concreta. Duda moderada."
+  },
+  {
+   "id": "https://www.clarin.com/sociedad/fabricaron-bicicleta-sidecar-chico-pueda-pasear-primo-usa-silla-ruedas_0_Hk3LDRdQm.html",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "INFRAESTRUCTURA_BICICLETAS_Y_PEATONAL"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Regla 3: bicicleta adaptada con sidecar para movilidad de una persona en silla de ruedas. Duda: el problema (veredas) aparece solo de pasada."
+  },
+  {
+   "id": "CM7RJHDSJJG4BFXDIKRSOHDHYI",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Paro de choferes por aguinaldo y reclamo tarifario de cámaras: conflicto laboral y tarifa, sin problema ni solución nueva. Duda moderada."
+  },
+  {
+   "id": "W2JF3LETZJFDPPEYP2TMBJKU5Y",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Consejos de nutrición: otro tema."
+  },
+  {
+   "id": "CHMWJ5TA55EHJAR33G6C53MJQM",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Asalto en una parada de colectivo: policial, el transporte es solo escenario."
+  },
+  {
+   "id": "ESJRCNH2RESKTQKN2X2XPF7M6U",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Calculadora de gasto en transporte tras aumentos: informa tarifas sin problema ni solución nueva."
+  },
+  {
+   "id": "https://www.clarin.com/informacion-general/aumenta-subte-queda-boleto-septiembre-2025_0_YdkOBfDJlq.html",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Aumento de tarifa de subte: gestión tarifaria."
+  },
+  {
+   "id": "2CV7WXSOJT27LT73VEEVECEE4U",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Explosión y detención en una terminal de Nueva York: caso policial y de seguridad, no de movilidad."
+  },
+  {
+   "id": "4SQ6BY235JD7BAFQZNMVVVFAA4",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Búsqueda de una persona desaparecida: policial."
+  },
+  {
+   "id": "https://mobilidadesampa.com.br/2025/09/celular-ao-volante-multas-riscos-legislacao/",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Uso del celular al conducir y multas: seguridad vial, fuera del track."
+  },
+  {
+   "id": "https://www.ecoportal.net/motor/pnuma-vehiculos-electricos/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "problema",
+   "categorias_problema": [
+    "OTRO_PROBLEMA_MOVILIDAD"
+   ],
+   "categorias_solucion": [],
+   "categoria_otra": "Costo de financiamiento y falta de redes de recarga para vehículos eléctricos",
+   "categoria_sugerida": null,
+   "comentario": "Regla 3: describe obstáculos concretos a la movilidad eléctrica (financiamiento, recarga) sin solución de movilidad. Las recomendaciones sobre baterías son de residuos. Duda moderada."
+  },
+  {
+   "id": "QSCEN7DRSFEMXJYRISDNRGSMZU",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Aumento tarifario del boleto interurbano: gestión tarifaria sin problema ni solución nueva."
+  },
+  {
+   "id": "https://www.clarin.com/ciudades/hoy-corren-trenes-nuevos-ramal-suarez-mitre-chinos-transporte_0_S1VQjB9P7l.html",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "REDES_FERROVIARIAS_Y_SUBTE"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Regla 3: incorporación de nuevas formaciones ferroviarias con más capacidad. El problema de saturación no está nombrado; duda moderada."
+  },
+  {
+   "id": "J3XNUFBFXFH3VBCJE4G6OTDAUY",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Conflicto entre ciclista y automovilistas y viralización: seguridad vial, fuera del track."
+  },
+  {
+   "id": "https://www.clarin.com/estados-unidos/descubri-lugares-pagar-multas-transito-usa-2025_0_Rp6woslKbC.html",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Guía para pagar multas de tránsito en EE.UU.: trámite, sin problema ni solución de movilidad."
+  },
+  {
+   "id": "RKBWDSX6WJCBJAEACJDMQYH4Q4",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Normas de presencia del personal municipal de tránsito: gestión interna sin problema ni solución de movilidad."
+  },
+  {
+   "id": "SB2ZRQGZ3NBYHGUGQTVB2RADYQ",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Asamblea de choferes tras una agresión: medida gremial de tres horas, sin problema estructural de movilidad. Duda moderada."
+  },
+  {
+   "id": "https://www.visionsustentable.com/2023/03/07/packaging-informacion-y-salud-tres-claves-que-ayudaron-a-los-productos-plant-based-a-adaptarse-al-mercado/",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Marketing de productos vegetales: otro tema."
+  },
+  {
+   "id": "https://grist.org/energy/big-oil-record-2022-profits-methane-emissions-iea/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Emisiones de metano de la industria petrolera: otro track ambiental."
+  },
+  {
+   "id": "CERGEGHGRBAMHIZL2OWABSJOPQ",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Aumento de tarifas de colectivos, trenes y subte: gestión tarifaria."
+  },
+  {
+   "id": "https://www.clarin.com/ciudades/incidentes-estacion-constitucion-subte-demoras_0_B1wIkmXjw7g.html",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Incidente puntual por demora de una formación en el subte: no describe un problema estructural ni una solución. Duda moderada."
+  },
+  {
+   "id": "https://movilidadelectrica.com/red-recarga-coches-electricos-crece-en-espana/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": "INFRAESTRUCTURA_DE_RECARGA: red de puntos de carga para vehículos eléctricos",
+   "comentario": "Regla 3: despliegue concreto de puntos de recarga para vehículos eléctricos. La recarga no está en ninguna categoría de solución; se usa la más cercana."
+  },
+  {
+   "id": "https://www.recoverweb.it/allison-transmission-lancia-allison-ventures-e-annuncia-il-primo-investimento-in-niron-magnetics/",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Inversión de venture capital en imanes para motores eléctricos: economía sin medida de transporte. Duda moderada."
+  },
+  {
+   "id": "https://movilidadelectrica.com/comienzan-obras-gigafactoria-stellantis-catl-figueruelas-que-producira-un-millon-de-baterias-al-ano/",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Inversión industrial en una fábrica de baterías: economía sin medida de transporte. Duda fuerte: es una inversión para movilidad eléctrica."
+  },
+  {
+   "id": "H6ABFFHXCBDMRCB2E7N3GSD3IY",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Opinión política sobre un paro de la UTA y los subsidios: política sin medida de transporte nueva."
+  },
+  {
+   "id": "https://www.ecoticias.com/movilidad-electrica/el-centro-de-vehiculos-electricos-ford-ya-es-una-realidad",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Inauguración de una planta industrial de vehículos eléctricos: economía e inversión, sin medida de transporte ni problema. Duda moderada."
+  },
+  {
+   "id": "76SRS2S2AFAFBOXEYACYUVLKWI",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Definición de casos de coronavirus: salud, otro tema."
+  },
+  {
+   "id": "MSUGJLGWHNABNBRIS4THQDYURI",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Cómo tramitar el boleto estudiantil bonaerense: instructivo de trámite. Duda moderada, es un programa existente."
+  },
+  {
+   "id": "F3INAUSVZVHYRBIV3BXPL6WKRI",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Teoría conspirativa sobre la muerte de un músico: otro tema."
+  },
+  {
+   "id": "I2LZM2HFZVGEJLUZ4CX3KBG65U",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Caso de narcotráfico con encomiendas en terminal de ómnibus: policial."
+  },
+  {
+   "id": "Y25GCLZUK5HHHLW4KHSYYOBQUQ",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Atropello de un peatón por una moto: seguridad vial, fuera del track."
+  },
+  {
+   "id": "https://www.lanacion.com.ar/sociedad/boleto-estudiantil-universitario-a-partir-de-cuando-regira-el-nuevo-beneficio-en-la-ciudad-de-buenos-nid13122024/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "ambas",
+   "categorias_problema": [
+    "OTRO_PROBLEMA_MOVILIDAD"
+   ],
+   "categorias_solucion": [
+    "OTRA_SOLUCION_MOVILIDAD"
+   ],
+   "categoria_otra": "Problema: costo del transporte para estudiantes universitarios. Solución: boleto gratuito para estudiantes universitarios y terciarios",
+   "categoria_sugerida": null,
+   "comentario": "Regla 3, tipo ambas: boleto gratuito para estudiantes universitarios frente al costo del transporte. Duda fuerte: es una tarifa social."
+  },
+  {
+   "id": "https://mobilidadesampa.com.br/2024/06/prefeitura-de-araraquara-amplia-horarios-de-linha-de-onibus-para-atender-unidade-de-saude/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "OTRA_SOLUCION_MOVILIDAD"
+   ],
+   "categoria_otra": "Ampliación de horarios de una línea de colectivo para llegar a un centro de salud",
+   "categoria_sugerida": null,
+   "comentario": "Regla 3: cambio concreto de servicio de colectivo (de 16 a 37 horarios). Duda moderada: la categoría de solución es la de otro."
+  },
+  {
+   "id": "NLZSVD7S35CZFELMY2ZTRAZSEE",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Geopolítica y petróleo en Medio Oriente: otro tema."
+  },
+  {
+   "id": "https://mobilidadesampa.com.br/2024/06/renault-group-revela-estrategia-ambiciosa-para-veiculos-autonomos-no-transporte-publico/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS",
+    "SISTEMAS_INTELIGENTES_TRANSITO_ITS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Regla 3: micro-buses eléctricos autónomos con piloto concreto y sistemas de asistencia. Duda moderada: parte es estrategia corporativa."
+  },
+  {
+   "id": "3ALKNW6ENZCFXDTPB63RMHGCLM",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Conflicto salarial y amenaza de paro en transporte interurbano: gestión laboral."
+  },
+  {
+   "id": "https://www.visionsustentable.com/2022/10/17/fundacion-grupo-volkswagen-avanza-con-la-creacion-del-bosque-volkswagen/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Reforestación de una fundación automotriz: otro track ambiental."
+  },
+  {
+   "id": "https://grist.org/economics/how-washington-raised-300-million-for-climate-action-from-polluters/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Subasta de carbono de un estado: política climática, sin medida de transporte."
+  },
+  {
+   "id": "QMNCDDMPUETYEWNLSIO7BCILRU",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Equipamiento de seguridad obligatorio para autos: seguridad vial, excluida por la guía."
+  },
+  {
+   "id": "https://grist.org/health/outdoor-industry-ditches-forever-chemicals-rei-pfas/",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Químicos PFAS en ropa de montaña: otro tema."
+  },
+  {
+   "id": "https://www.clarin.com/politica/uta-adhiere-paro-general-transporte-25-septiembre_0_ZSWO0QI2Q.html",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Adhesión de la UTA a un paro general: medida gremial sin problema ni solución de movilidad."
+  },
+  {
+   "id": "https://www.clarin.com/internacional/tren-carga-largo-historia-76-kilometros-largo-compuesto-696-vagones_0_BuLyBFzPyr.html",
+   "relevante": false,
+   "motivo": "nota_de_color",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Récord de tren de carga en un viaje de prueba: nota de color, sin problema ni solución planteados. Duda moderada."
+  },
+  {
+   "id": "https://www.clarin.com/politica/ciudad-salio-manzur-dichos-aumento-colectivos-kirchnerismo-manual-_0_R6lOWRLshw.html",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Disputa política entre Nación y Ciudad por subsidios y traspaso de líneas: política sin medida concreta."
+  },
+  {
+   "id": "https://www.hdmotori.it/renault-articoli-n588250-luca-del-meo-europa-flessibilita-auto-elettriche/",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Opinión de un ejecutivo sobre la regulación europea del auto eléctrico: política sin medida concreta. Duda moderada."
+  },
+  {
+   "id": "https://www.hdmotori.it/bosch-ces-2026-las-vegas-innovazioni-ia-cockpit-mal-dauto-mems-guida-autonoma/",
+   "relevante": false,
+   "motivo": "movilidad_de_pasada",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Anuncios tecnológicos de una empresa en varios rubros: la movilidad es una parte. Duda fuerte."
+  },
+  {
+   "id": "https://grist.org/extreme-weather/marshall-islands-national-adaptation-plan-sea-level-rise-cop28/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Plan de adaptación climática de un país insular: otro track ambiental."
+  },
+  {
+   "id": "https://www.ecomundo.com.ar/crean-una-marca-de-ropa-exclusiva-y-reutilizan-todos-los-desperdicios/",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Marca de ropa y diseño textil: otro tema."
+  },
+  {
+   "id": "https://www.clarin.com/ciudades/conflictos-subsidios-colectivos-amba-empresas-advierten-partir-domingo-1-septimbre-reduciran-servicios-nocturnos_0_MjAa3DH4Qj.html",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Quita de subsidios y reducción de servicios nocturnos: disputa económica entre jurisdicciones. Duda fuerte; el criterio estricto la deja fuera."
+  },
+  {
+   "id": "https://africasustainabilitymatters.com/kenya-rolls-out-national-electric-mobility-policy-to-drive-low-carbon-transport-and-cut-5bn-fuel-import-bill/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Regla 3: política nacional de movilidad eléctrica con incentivos e infraestructura de carga. Duda moderada: mezcla política y economía."
+  },
+  {
+   "id": "https://ciclovivo.com.br/vida-sustentavel/equilibrio/criancas-comecam-a-se-desconectar-das-telas-por-conta-propria/",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Uso de pantallas en jóvenes: otro tema."
+  },
+  {
+   "id": "https://grist.org/health/intensifying-atmospheric-rivers-are-leading-to-a-surge-in-valley-fever-cases-in-california/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Clima y hongos patógenos: otro track ambiental y salud."
+  },
+  {
+   "id": "https://grist.org/politics/a-push-for-public-power-stalled-in-new-york-but-activists-say-theyre-just-getting-started/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Política de energía pública en Nueva York: otro track ambiental, sin medida de transporte."
+  },
+  {
+   "id": "https://www.clarin.com/estados-unidos/buenas-noticias-california-newsom-destina-140-millones-dolares-proyectos-seguridad-vial_0_XMKJDqAWbx.html",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Fondos estatales para proyectos de seguridad vial: la guía excluye la seguridad vial aunque incluya ciclovías y veredas. Duda moderada."
+  },
+  {
+   "id": "https://grist.org/accountability/held-v-montana/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Demanda climática de jóvenes contra un estado: otro track ambiental y político."
+  },
+  {
+   "id": "KV7RU5GE65E6VPS3YNRJSFXFSI",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Cronograma de servicios en feriado: informa sin problema ni solución."
+  },
+  {
+   "id": "K2P6QUYBA5HWJCDJGCARAMHXI4",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Aumento de tarifas del boleto urbano y otros trámites: gestión tarifaria."
+  },
+  {
+   "id": "XWG7ESKVIRFAVDFMFIXKREHERQ",
+   "relevante": false,
+   "motivo": "seguridad_vial",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Uso de cámaras para labrar multas de tránsito: control de seguridad vial, sin problema ni solución de movilidad. Duda moderada."
+  },
+  {
+   "id": "https://ciclovivo.com.br/vida-sustentavel/bem-estar/conheca-os-beneficios-de-praticar-yoga/",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Beneficios de la yoga: otro tema."
+  },
+  {
+   "id": "https://www.clarin.com/estados-unidos/firmada-gavin-newsom-nueva-ley-autoriza-prestamo-emergencia-590-millones-dolares-bay-area-transit_0_Wv18rNmeZU.html",
+   "relevante": false,
+   "motivo": "politica_o_economia_sin_medida",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Préstamo de emergencia para sostener un sistema de transporte: medida financiera sin medida de transporte nueva. Duda fuerte."
+  },
+  {
+   "id": "https://mobilidadesampa.com.br/2025/07/localiza-destaque-sustentabilidade-global/",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Ranking de sustentabilidad de una empresa: otro tema."
+  },
+  {
+   "id": "https://grist.org/politics/heres-whats-in-the-senates-joe-manchins-369-billion-for-climate-and-energy/",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Ley climática federal: energía y clima; los incentivos a autos eléctricos son un componente. Duda fuerte."
+  },
+  {
+   "id": "https://movilidadelectrica.com/invicta-electric-logistar-ls100-por-5995-euros/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Regla 3: furgoneta eléctrica concreta para reparto urbano."
+  },
+  {
+   "id": "https://www.clarin.com/ciudades/saldo-negativo-sube-quedo-desactualizado-vez-alcanza-viajes-colectivo_0_H1pWRDxL7.html",
+   "relevante": false,
+   "motivo": "gestion_sin_problema_ni_solucion",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Cambio del saldo negativo de la SUBE: gestión tarifaria."
+  },
+  {
+   "id": "https://www.ambientum.com/ambientum/energia/comunidades-energeticas-el-nuevo-modelo-de-autoconsumo-colectivo.asp",
+   "relevante": false,
+   "motivo": "otro_track_ambiental",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Comunidades energéticas de autoconsumo: energía, sin medida de transporte."
+  },
+  {
+   "id": "https://movilidadelectrica.com/coches-electricos-altos-precios-vehiculos-electricos-futuro-del-electrico-low-cost/",
+   "relevante": true,
+   "motivo": "problema_o_solucion_concreta",
+   "tipo": "solucion",
+   "categorias_problema": [],
+   "categorias_solucion": [
+    "ELECTROMOVILIDAD_Y_BUSES_ELECTRICOS"
+   ],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Regla 3: nuevo modelo de auto eléctrico con batería semisólida. Duda moderada: anuncio de producto."
+  },
+  {
+   "id": "https://www.lanacion.com.ar/estados-unidos/california/vive-en-un-bunker-subterraneo-en-california-para-ahorrar-dinero-del-alquiler-y-revela-por-que-vale-nid19072025/",
+   "relevante": false,
+   "motivo": "otro_tema",
+   "tipo": null,
+   "categorias_problema": [],
+   "categorias_solucion": [],
+   "categoria_otra": null,
+   "categoria_sugerida": null,
+   "comentario": "Vivienda en un búnker: otro tema."
+  }
+ ]
+}

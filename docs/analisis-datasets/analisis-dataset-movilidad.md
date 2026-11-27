@@ -25,7 +25,7 @@ Es el dataset que más cambió (−21 %). Las notas sin cuerpo eran casi todas v
 
 ## Filtro de ruido (25/11/2026)
 
-[`filtrar_movilidad.py`](../../scripts/clasificacion/filtrar_movilidad.py) saca sin LLM el ruido de los diarios y escribe `data/movilidad_filtrado.parquet`. Quedan **18.709 de 53.029 notas (35 %)**, en 23,5 MB. Los medios especializados pasan enteros. Los criterios están en [`contexto-pipeline.md`](contexto-pipeline.md#filtro-determinístico-de-ruido-en-movilidad-25112026).
+[`filtrar_movilidad.py`](../../scripts/clasificacion/filtrar_movilidad.py) saca sin LLM el ruido de los diarios y escribe `data/v1-samo-movilidad/movilidad_filtrado.parquet`. Quedan **18.709 de 53.029 notas (35 %)**, en 23,5 MB. Los medios especializados pasan enteros. Los criterios están en [`contexto-pipeline.md`](contexto-pipeline.md#filtro-determinístico-de-ruido-en-movilidad-25112026).
 
 | Motivo | Notas | % del total |
 |---|---:|---:|
@@ -47,6 +47,7 @@ Es el dataset que más cambió (−21 %). Las notas sin cuerpo eran casi todas v
 - **Córdoba:** quedan 3.672 notas de El Doce y CBA24N.
 - **Las 4 relevantes del gold pasan.** Es un chequeo débil: solo una es de un diario.
 - **Lectura de control:** Claude leyó 15 títulos al azar por motivo (semilla 42) y no encontró ninguno relevante según la guía. El más dudoso, el choque de trenes en Palermo, igual es seguridad vial. Falta que el equipo lea su propia muestra con `--muestra 20`.
+- **Alcance (26/11):** el Parquet filtrado tiene la columna `alcance`, que sale de la fuente: 11.431 notas nacionales, 3.672 de Córdoba, 2.418 internacionales y 1.188 de América Latina.
 - **Sigue habiendo ruido:** quedan política o economía sin medida de transporte, notas de otros tracks y consejos de manejo sin palabras de choque. Eso lo descarta el LLM.
 
 ## Cifras

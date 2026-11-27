@@ -149,8 +149,28 @@ El gold de movilidad tiene 4 relevantes de 25, y 1 de 14 en diarios. Para no gas
 - **Sin corte por largo del cuerpo:** puede haber notas útiles cortas.
 - **No se guardan los descartes:** se pueden recalcular en un minuto, y `--muestra N` los muestra para auditar.
 - **Resultado:** quedan 18.709 de 53.029 notas (35 %). Las cifras por motivo y fuente están en el [análisis de movilidad](analisis-dataset-movilidad.md#filtro-de-ruido-25112026).
-- **Esquema:** `data/movilidad_filtrado.parquet` tiene las mismas columnas que `data/movilidad.parquet`.
+- **Esquema:** `data/v1-samo-movilidad/movilidad_filtrado.parquet` tiene las mismas columnas que `data/movilidad.parquet`, más `alcance`, que sale de la fuente (26/11).
+- **Soluciones (26/11):** con `--soluciones`, las mismas reglas se aplican a las 4.828 notas de movilidad de `data/soluciones.parquet` (Infobae se sumó a los diarios). Quedan 4.792 en `data/v1-samo-movilidad/movilidad_soluciones_filtrado.parquet`, con el mismo esquema. Se sumaron al diccionario de alcance las 28 fuentes de soluciones que faltaban; Ecoportal y Movilidad Eléctrica quedaron como internacionales con origen sin confirmar.
 - **Falta:** que el equipo audite una muestra por motivo. Las reglas no sacan la política sin medida ni las notas de otros tracks.
+
+### Clasificación v2 de movilidad, parte A (26/11/2026)
+
+La v1 (Kaggle, 10/11) clasificó 12.714 notas de residuos en 7 h 14 min sobre 2×T4 (29 notas/min en total), con transformers + bitsandbytes 4-bit y el cuerpo cortado a 500 caracteres. Solo 547 quedaron clasificadas, con categorías cortadas o inventadas. La v2 cambia el motor y agrega una referencia para evaluar antes de correr todo.
+
+- **Objetivo de fondo:** proyectar problemas y soluciones en un mismo espacio de embeddings, agrupar notas del mismo problema, emparejar soluciones con problemas, buscar zonas con problemas y sin soluciones, y ubicarlas en el territorio.
+- **Motor:** vLLM, una copia de Qwen2.5-7B-Instruct AWQ por GPU, en dos procesos. Salida JSON guiada contra un esquema con listas cerradas y prefix caching para el prompt fijo. Código en [`clasificar_vllm.py`](../../scripts/clasificacion/clasificar_vllm.py) y [`notebooks/kaggle_movilidad_v2.ipynb`](../../notebooks/kaggle_movilidad_v2.ipynb). **Todavía no se corrió.**
+- **Cascada:** la etapa 1 elige un `motivo` en todas las notas; la nota es relevante si el motivo es `problema_o_solucion_concreta`. La etapa 2, solo en las relevantes, escribe el problema en una oración normalizada, la solución, el tipo, las categorías y la ubicación. Sin causas ni actores. Los embeddings se calculan después, en CPU.
+- **Entradas:** problemáticas y soluciones filtradas, con una columna `dataset`. Sin soluciones no hay qué emparejar.
+- **Ejemplos few-shot:** 8 notas del gold del equipo (3 relevantes), en `scripts/clasificacion/ejemplos_movilidad.json`. Por eso el gold no sirve para evaluar al modelo de Kaggle.
+- **Referencia:** 300 notas al azar de los Parquet filtrados (240 de problemáticas y 60 de soluciones, semilla 42), en 3 partes de 100, cada una con las 25 del gold mezcladas. Las etiqueta un LLM grande con la guía, usando [`prompt-etiquetador.md`](../../etiquetado/referencia/prompt-etiquetador.md). Se arma con [`muestrear_referencia.py`](../../etiquetado/muestrear_referencia.py).
+- **Categorías:** lista cerrada más una `categoria_sugerida` libre y opcional en la referencia. El equipo decide qué sugerencias entran a la taxonomía antes de Kaggle.
+- **Calibración del etiquetador (26/11):** Haiku etiquetó las 25 notas del gold. Coincidió en relevancia en 24 (kappa 0,83), en tipo en 3 de 3 y en categorías con Jaccard 1,00. Solo difirió en el Hub Green Sampa, que marcó como movilidad de pasada. **Está inflado:** la guía cita por nombre varias notas del gold (La Plata, Valladolid, SiBuS, Silence), así que el modelo vio parte de las respuestas. Informe en [`calibracion-informe.md`](../../etiquetado/referencia/calibracion-informe.md). Los gratuitos de OpenCode (DeepSeek V4.1 Flash, MiMo-V2.6-Flash) no se midieron: el equipo eligió Haiku.
+- **Referencia etiquetada por Haiku (26/11):** 3 subagentes, uno por parte. Informe en [`movilidad-referencia-informe.md`](../../etiquetado/referencia/movilidad-referencia-informe.md).
+  - **Relevantes:** 63 de 300 (21 %): 33 de 240 problemáticas (14 %) y 30 de 60 soluciones (50 %). Tipos: 39 solución, 13 ambas y 11 problema.
+  - **Acuerdo de cada parte con el gold:** 23, 24 y 24 de 25 en relevancia (kappa 0,63, 0,83 y 0,83). Las tres marcaron como no relevante el Hub Green Sampa, que el gold tiene como relevante.
+  - **Las partes no aplican el mismo criterio:** sin contar las del gold, marcaron 14, 31 y 18 relevantes de 100. La parte 2 tenía 25 notas de soluciones contra 13 y 22, lo que explica parte de la diferencia, no toda.
+  - **Huecos de la guía que aparecieron:** tarifas y subsidios (una parte los toma como gestión, otra como política sin medida, otra como relevantes), paros y conflictos gremiales que cortan el servicio, anuncios de producto con tono publicitario, aviación eléctrica y proyectos sin aprobar. Fijar estos criterios mueve la cifra de relevantes.
+  - **Categorías:** `OTRA_SOLUCION_MOVILIDAD` se usó en 13 de 63 relevantes y `OTRO_PROBLEMA_MOVILIDAD` en 9. Hubo 10 categorías sugeridas, ninguna repetida: entre otras, tarifas (estudiantil, integración), renovación de flota de buses, infraestructura de recarga e infraestructura vial.
 
 ### Versionado de resultados (26/11/2026)
 
@@ -235,6 +255,12 @@ Esto da unas 60 notas relevantes por año si se mira solo la URL. La muestra es 
 - Que una solución no aparezca en las noticias no significa que no exista.
 
 ## Falta aclarar
+
+### Clasificación v2 de movilidad
+
+- **Criterios que la guía no cubre:** tarifas y subsidios, paros gremiales, anuncios de producto, aviación eléctrica y proyectos sin aprobar. Hay que decidirlos y, si cambian, volver a etiquetar esas notas de la referencia.
+- **Qué categorías sugeridas entran a la taxonomía,** después de leer el informe de la referencia.
+- **Parte B:** el evaluador del gate ([`evaluar_movilidad.py`](../../scripts/clasificacion/evaluar_movilidad.py)) y el paquete para Kaggle están listos (26/11); falta subirlo y correrlo. Fijar la versión de vLLM que corra en T4 con AWQ y salida guiada; correr el gate contra la referencia (umbrales propuestos: recall de relevancia ≥ 0,85, precisión ≥ 0,70, 100 % de JSON válidos, corrida completa estimada ≤ 4 h); corrida completa; embeddings y análisis de vacíos.
 
 ### Fuentes
 

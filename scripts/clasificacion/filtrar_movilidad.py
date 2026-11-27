@@ -2,12 +2,14 @@
 
 Las reglas solo se aplican a diarios. Las fuentes especializadas (Grist, CicloVivo,
 Ecoticias, Visión Sustentable, Ecomundo) pasan siempre. No hay corte por longitud del cuerpo.
-Las notas descartadas no se guardan en ningún archivo.
+Las notas descartadas no se guardan en ningún archivo. Agrega la columna `alcance`, que sale
+de la fuente (scripts/diccionarios/alcance_fuentes.py).
 
 Uso, desde la raíz del repo:
     python scripts/clasificacion/filtrar_movilidad.py               filtra y escribe el Parquet
     python scripts/clasificacion/filtrar_movilidad.py --selfcheck   casos sintéticos y gold
     python scripts/clasificacion/filtrar_movilidad.py --muestra 20  auditoría, sin escribir el Parquet
+    python scripts/clasificacion/filtrar_movilidad.py --soluciones  lo mismo con las soluciones de movilidad
 """
 
 import argparse
@@ -27,15 +29,18 @@ import pandas as pd
 RAIZ = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(RAIZ / "scripts"))
 
+from diccionarios.alcance_fuentes import alcance  # noqa: E402
 from diccionarios.keywords_movilidad import RAICES_MOVILIDAD  # noqa: E402
 from progreso import Avance, normalizar  # noqa: E402
 
 ENTRADA = RAIZ / "data" / "movilidad.parquet"
-SALIDA = RAIZ / "data" / "movilidad_filtrado.parquet"
+SALIDA = RAIZ / "data" / "v1-samo-movilidad" / "movilidad_filtrado.parquet"
+ENTRADA_SOLUCIONES = RAIZ / "data" / "soluciones.parquet"
+SALIDA_SOLUCIONES = RAIZ / "data" / "v1-samo-movilidad" / "movilidad_soluciones_filtrado.parquet"
 LOG = RAIZ / "data" / "logs" / "filtrar_movilidad.log"
 GOLD = RAIZ / "etiquetado" / "reconciliacion" / "movilidad-gold.json"
 
-DIARIOS = {"TN", "El Doce", "Clarín", "La Nación", "CBA24N"}
+DIARIOS = {"TN", "El Doce", "Clarín", "La Nación", "CBA24N", "Infobae"}
 SECCIONES_FUERA = {
     "deportes", "futbol", "polideportivo", "boxeo", "toda pasion", "famosos", "show",
     "el show del lagarto", "celebridades", "cuarteteando", "hollywood", "television",
@@ -137,7 +142,16 @@ def mostrar_muestra(filas, motivos, n):
             imprimir(f"  [{fila['fuente']}] ({_texto(fila.get('seccion'))}) {_texto(fila.get('titulo'))}")
 
 
-def correr(muestra=None):
+def leer(soluciones):
+    """Notas de entrada: el dataset de movilidad o las soluciones del track de movilidad."""
+    if not soluciones:
+        return pd.read_parquet(ENTRADA)
+    df = pd.read_parquet(ENTRADA_SOLUCIONES)
+    return df[df["tracks"].map(lambda t: "movilidad" in list(t))].reset_index(drop=True)
+
+
+def correr(muestra=None, soluciones=False):
+    entrada, salida = (ENTRADA_SOLUCIONES, SALIDA_SOLUCIONES) if soluciones else (ENTRADA, SALIDA)
     comienzo = time.monotonic()
     LOG.parent.mkdir(parents=True, exist_ok=True)
     consola = sys.stdout
@@ -145,8 +159,8 @@ def correr(muestra=None):
         with contextlib.redirect_stdout(tee(consola, archivo)):
             imprimir("=" * 60)
             imprimir(f"Inicio: {datetime.now():%d/%m/%Y %H:%M:%S}")
-            imprimir(f"Entrada: {ENTRADA}")
-            df = pd.read_parquet(ENTRADA)
+            imprimir(f"Entrada: {entrada}" + (" (track movilidad)" if soluciones else ""))
+            df = leer(soluciones)
             filas = df.to_dict("records")
             imprimir(f"Total de notas: {len(filas)}")
             avance = Avance("Movilidad", total=len(filas), mide_tema=False)
@@ -155,9 +169,10 @@ def correr(muestra=None):
                 resumen(filas, motivos, comienzo)
                 mostrar_muestra(filas, motivos, muestra)
             else:
-                mascara = [m is None for m in motivos]
-                df[mascara].to_parquet(SALIDA, index=False, compression="zstd", compression_level=19)
-                resumen(filas, motivos, comienzo, SALIDA)
+                filtrado = df[[m is None for m in motivos]].copy()
+                filtrado["alcance"] = filtrado["fuente"].map(alcance)
+                filtrado.to_parquet(salida, index=False, compression="zstd", compression_level=19)
+                resumen(filas, motivos, comienzo, salida)
 
 
 def selfcheck():
@@ -178,6 +193,7 @@ def selfcheck():
     assert len(filas) == len(ids), "faltan ids del gold en movilidad.parquet"
     for fila in filas:
         assert motivo(fila) is None, (fila["id"], motivo(fila))
+    assert alcance("El Doce") == "CORDOBA_LOCAL" and alcance("Mobilidade Sampa") == "LATAM_REGIONAL"
     imprimir("selfcheck ok")
 
 
@@ -185,8 +201,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Filtro de ruido para movilidad.parquet.")
     parser.add_argument("--selfcheck", action="store_true", help="casos sintéticos y gold, sin escribir")
     parser.add_argument("--muestra", type=int, metavar="N", help="imprime N títulos por motivo, sin escribir")
+    parser.add_argument("--soluciones", action="store_true", help="filtra las soluciones del track de movilidad")
     args = parser.parse_args()
     if args.selfcheck:
         selfcheck()
     else:
-        correr(args.muestra)
+        correr(args.muestra, args.soluciones)
