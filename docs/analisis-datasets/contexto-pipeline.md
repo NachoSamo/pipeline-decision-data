@@ -265,6 +265,12 @@ Esto da unas 60 notas relevantes por año si se mira solo la URL. La muestra es 
   - las categorías se marcan de más, con tipo y categorías a veces inconsistentes (tipo `solucion` con categorías de problema);
   - a veces el campo `problema` repite el nombre de la categoría, y `solucion` trae texto cuando no hay solución;
   - algunas ubicaciones están mal (la Línea B del subte quedó en La Plata).
+- **Primer gate en Kaggle (27/11):** Qwen sobre las 300 notas de referencia. Informe en `data/resultados/v2-movilidad/gate/gate-informe.md`. **No pasa:**
+  - recall 0,89 (≥ 0,85, pasa) y precisión 0,45 (≥ 0,70, no pasa), con kappa 0,44: marcó 125 relevantes contra 63 de la referencia;
+  - tipo coincide en 73 % y Jaccard de categorías 0,39;
+  - 1 JSON inválido, cortado en la etapa 2.
+  - **Los falsos relevantes:** sobre todo notas que la referencia toma como gestión sin problema ni solución (27), política sin medida (13), notas de color y otro tema. Muchos son errores claros de Qwen (un pato en una peatonal, un robot que viste personas, premios de telecomunicaciones); otros caen en los huecos de la guía (tarifas, paros, lanzamientos de producto).
+  - **Tipo y categorías:** en 60 de las 76 notas de tipo `solucion` marcó también categorías de problema, y la guía dice que ahí el problema es solo contexto.
 - **Parte B:** el evaluador del gate ([`evaluar_movilidad.py`](../../scripts/clasificacion/evaluar_movilidad.py)) y el paquete para Kaggle están listos (26/11); falta subirlo y correrlo. Fijar la versión de vLLM que corra en T4 con AWQ y salida guiada; correr el gate contra la referencia (umbrales propuestos: recall de relevancia ≥ 0,85, precisión ≥ 0,70, 100 % de JSON válidos, corrida completa estimada ≤ 4 h); corrida completa; embeddings y análisis de vacíos.
 
 ### Fuentes

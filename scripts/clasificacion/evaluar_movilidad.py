@@ -61,7 +61,7 @@ def cargar_pred(ruta):
             "categorias_problema": lista(f.get("categorias_problema")),
             "categorias_solucion": lista(f.get("categorias_solucion")),
             "problema": f.get("problema"),
-            "error": f.get("error_1") or f.get("error_2"),
+            "error": next((e for e in (f.get("error_1"), f.get("error_2")) if isinstance(e, str) and e), None),
         }
     return pred
 
@@ -128,6 +128,10 @@ def selfcheck():
     m = metricas(ref, pred)
     assert m["recall"] == 0.5 and m["precision"] == 0.5 and m["tipo"] == 0 and m["jaccard"] == 0.5
     assert lista(None) == [] and lista(float("nan")) == [] and lista(("A",)) == ["A"]
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:  # los nulos del Parquet (NaN) no son errores
+        pd.DataFrame([{"id": "a", "relevante": True, "error_1": None, "error_2": float("nan")}]).to_parquet(f"{d}/x.parquet")
+        assert cargar_pred(f"{d}/x.parquet")["a"]["error"] is None
 
     # Con la referencia real: una predicción perfecta da 1 en todo.
     referencia = {e["id"]: e for e in json.loads(REFERENCIA.read_text(encoding="utf-8"))["etiquetas"]}
