@@ -407,7 +407,8 @@ python scripts/clasificacion/evaluar_movilidad.py
 
 [`evaluar_movilidad.py`](../scripts/clasificacion/evaluar_movilidad.py) compara con la referencia y escribe `gate-informe.md`: relevancia (recall, precisión y kappa, en total y por dataset), tipo, Jaccard de categorías, notas sin respuesta, JSON inválidos, motivos cruzados y desacuerdos con el comentario de Haiku. Umbrales propuestos: recall ≥ 0,85, precisión ≥ 0,70 y 0 JSON inválidos.
 
-7. Solo si el gate pasa: corrida completa (celda 2). Si se corta, relanzar la celda retoma desde los checkpoints.
+7. Solo si el gate pasa: corrida completa (celda 2). Correrla con **Save Version → Save & Run All (Commit)**: corre en la nube sin el navegador, hasta 12 h. Una sesión interactiva se corta si la compu se bloquea.
+8. **Reanudar después de un fallo:** cada commit arranca con `/kaggle/working` vacío. Con **Add Input → Your Work → Notebooks**, sumar como input este mismo notebook (su salida, incluso la de una versión fallida) y volver a hacer commit. La celda de configuración copia `resultados/v2-movilidad/` de ese input y cada celda saltea las notas que ya tienen checkpoint.
 
 ## Pendiente de revisar
 
