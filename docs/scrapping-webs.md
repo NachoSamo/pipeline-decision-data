@@ -407,6 +407,23 @@ python scripts/clasificacion/evaluar_movilidad.py
 
 7. Solo si el gate pasa: corrida completa (celda 2). Si se corta, relanzar la celda retoma desde los checkpoints.
 
+## Exportar el grafo a la web
+
+[`Frontend/exportar_web.py`](../Frontend/exportar_web.py) convierte la salida de [`scripts/grafo/ejecutar_analisis.py`](../scripts/grafo/ejecutar_analisis.py) (el `.gexf` y `reporte_no_patrones.json`) en el JSON que lee la web de `Frontend/web/`. Solo usa la biblioteca estándar y no recalcula nada.
+
+```bash
+python Frontend/exportar_web.py --dir-resultados data/resultados/v1-residuos/no_patrones --version v1 --tema residuos --advertencia "..."
+python Frontend/test_exportar_web.py
+python -m http.server 8765 -d Frontend/web
+```
+
+- **`--vigente`:** marca la versión como vigente. Sin él, la web muestra "no vigente".
+- **`--advertencia`:** un límite conocido que la web muestra en "Qué tan confiable es". Es repetible.
+- **Embudo:** si existe `Frontend/recorridos/<version>-<tema>.json`, se copia a `meta.recorrido`. Tiene la cifra medida de cada etapa.
+- **Salida:** `Frontend/web/data/<version>-<tema>.json`, con `meta`, `nodos`, `aristas` y `rankings`. Además, `index.json` se actualiza con la lista de datasets.
+- **Validación:** antes de escribir, comprueba que cada arista apunte a nodos existentes, que los tipos estén en la lista permitida y que `meta` tenga sus campos.
+- `ejecutar_analisis.py` llama al exportador al final, sin advertencias y como no vigente. Para publicar, hay que volver a correrlo a mano con las advertencias.
+
 ## Pendiente de revisar
 
 - Los términos de uso de Visión Sustentable, Ecomundo, Futuro Sustentable, ECOBIZ, TN, Mongabay, CBA24N, Cadena 3, Resource Recycling, Circular Online, Mongabay en inglés y Grist.

@@ -1,0 +1,41 @@
+{
+  "fuente": "docs/v1-residuos/analisis-dataset-residuos.md y docs/analisis-datasets/contexto-pipeline.md; cifras medidas sobre los Parquet de data/",
+  "pasos": [
+    {
+      "etapa": "Descarga",
+      "cifra": 47944,
+      "unidad": "notas",
+      "detalle": "Scraping de diarios argentinos, medios especializados e internacionales, respetando robots.txt."
+    },
+    {
+      "etapa": "Limpieza",
+      "cifra": 40232,
+      "unidad": "notas",
+      "detalle": "Sin duplicados de título o cuerpo y sin el pie de suscripción de cada medio (8/11/2026)."
+    },
+    {
+      "etapa": "Pre-limpieza",
+      "cifra": 37856,
+      "unidad": "notas",
+      "detalle": "Filtro heurístico antes de mandar al modelo."
+    },
+    {
+      "etapa": "Clasificación con LLM",
+      "cifra": 12714,
+      "unidad": "notas leídas",
+      "detalle": "Qwen 2.5 3B en Kaggle, 2×T4, 7 h 14 min. Leía solo 500 caracteres del cuerpo."
+    },
+    {
+      "etapa": "Clasificadas",
+      "cifra": 547,
+      "unidad": "notas",
+      "detalle": "414 marcadas como problema y 133 como solución. Muchas categorías salieron cortadas o inventadas."
+    },
+    {
+      "etapa": "Grafo",
+      "cifra": 1169,
+      "unidad": "nodos",
+      "detalle": "409 problemas y 133 soluciones: antes de armarlo se descartaron 5 problemas que eran crónica policial. 1.838 relaciones: categorías, causas, actores y 618 aristas de posible mitigación por similitud semántica."
+    }
+  ]
+}

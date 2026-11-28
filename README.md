@@ -124,8 +124,10 @@ flowchart TB
         F["Problemas: agrupar<br/>y medir recurrencia"]
         G["Soluciones: agrupar<br/>y registrar evidencia"]
         H["Ranking, grafo y<br/>mapa de embeddings"]
+        W["Web del grafo:<br/>JSON + three.js"]
         F --> H
         G --> H
+        H --> W
     end
 
     subgraph Decision["4 · Decisión"]
@@ -163,6 +165,7 @@ flowchart TB
 | Hay 4 datasets limpios y deduplicados; movilidad además tiene una versión sin el ruido obvio de diarios | Análisis de [residuos](docs/v1-residuos/analisis-dataset-residuos.md), [biodiversidad](docs/analisis-datasets/analisis-dataset-biodiversidad.md), [movilidad](docs/analisis-datasets/analisis-dataset-movilidad.md) y [soluciones](docs/analisis-datasets/analisis-dataset-soluciones.md), y [`data/`](data/) | Leer el análisis y recontar los Parquet; los títulos permiten repetir la lectura de muestra |
 | Cómo se limpió y qué se descartó | [`contexto-pipeline.md`](docs/analisis-datasets/contexto-pipeline.md#limpieza-y-consolidación-8112026) y [`scripts/limpiar.py`](scripts/limpiar.py) | Correr `python scripts/limpiar.py --selfcheck` y leer la tabla de descartes |
 | Cada fuente se lista por una vía que su `robots.txt` no excluye | [`docs/scrapping-webs.md`](docs/scrapping-webs.md) y [`scripts/`](scripts/) | Comparar la sección "Permisos" de cada fuente con su `robots.txt` |
+| La web solo muestra cifras medidas, con los límites a la vista | [`Frontend/exportar_web.py`](Frontend/exportar_web.py), [`Frontend/recorridos/`](Frontend/recorridos) y [`Frontend/web/data/`](Frontend/web/data) | Correr `python Frontend/test_exportar_web.py` y comparar el embudo con los análisis de la v1 |
 | Datos del evento y reglas confirmadas | [`CLAUDE.md`](CLAUDE.md) | Comparar con la [fuente oficial](https://cordobatechweek.com/side-events/hack-to-the-future/) y lo informado por la organización |
 
 ---
@@ -180,7 +183,8 @@ flowchart TB
 | Limpieza | **Hecha:** [`limpiar.py`](scripts/limpiar.py) quitó pies de suscripción, notas sin cuerpo, títulos seriados y duplicados por `id`, título y cuerpo. Se eliminaron las señales de problema y de opinión, poco precisas. El circuito de problemáticas está en [`docs/circuito-problematicas.md`](docs/circuito-problematicas.md) |
 | CI de Python | **Implementado:** en cada PR corre lint de errores graves, el límite de 100 MB por Parquet y los tests de [`scripts/clasificacion/`](scripts/clasificacion). El test de integración se omite si falta la muestra local. Lean no iniciado |
 | Clasificación y segmentación | **Piloto de residuos (10/11):** Qwen 2.5 3B en Kaggle, en [`scripts/clasificacion/`](scripts/clasificacion), con resultados flojos. **Etiquetado manual hecho (25/11):** Ignacio y Lauti etiquetaron 25 notas por track de movilidad y residuos, en [`etiquetado/`](etiquetado). Coincidieron en todos los campos en 12 de 25 notas de movilidad y en 3 de 25 de residuos. Los dos tracks ya están reconciliados: 4 de 25 notas son relevantes en movilidad y 17 de 25 en residuos. Las reglas están en las guías de [movilidad](etiquetado/guia-movilidad.md) y [residuos](etiquetado/guia-residuos.md), que son la base del prompt. **v2 de movilidad, parte A (26/11):** Haiku etiquetó 300 notas de referencia: 63 relevantes (21 %), con criterios dispares en tarifas, paros y anuncios. Coincidió con el gold en 23 a 24 de 25 notas, cifra inflada porque la guía cita notas del gold. El clasificador con vLLM está escrito y sin correr. Falta decidir esos criterios y la taxonomía, y la parte B en Kaggle |
-| Grafo y análisis | **No iniciado** |
+| Grafo y análisis | **Hecho para la v1 de residuos (10/11), sobre una clasificación floja:** [`scripts/grafo/`](scripts/grafo) arma el grafo (1.169 nodos, 1.838 aristas) y los rankings de no-patrones en [`no_patrones/`](data/resultados/v1-residuos/no_patrones). Falta repetirlo con la v2 |
+| Web del grafo | **Hecha (27/11), sin desplegar:** [`Frontend/`](Frontend) exporta el grafo a un JSON con contrato fijo y lo muestra en una web estática con three.js, con el método y los límites. El deploy en Vercel lo hace el equipo. Hoy solo tiene la v1 de residuos, marcada como no vigente |
 
 ---
 
@@ -228,6 +232,16 @@ El clasificador corre en Kaggle con `notebooks/kaggle_movilidad_v2.ipynb`; los p
 ```bash
 python scripts/clasificacion/evaluar_movilidad.py
 ```
+
+Para exportar el grafo a la web y verla en local (el exportador solo usa la biblioteca estándar):
+
+```bash
+python Frontend/exportar_web.py --dir-resultados data/resultados/v1-residuos/no_patrones --version v1 --tema residuos --advertencia "Versión no vigente: ..."
+python Frontend/test_exportar_web.py
+python -m http.server 8765 -d Frontend/web
+```
+
+Después se abre `http://localhost:8765`. Una URL como `?ds=v1-residuos&nodo=P_247` abre ese dataset con ese nodo seleccionado. Las advertencias y `--vigente` se pasan a mano en cada exportación; [`ejecutar_analisis.py`](scripts/grafo/ejecutar_analisis.py) exporta sin ellas. Para publicar, en Vercel se crea un proyecto con `Root Directory = Frontend/web` y sin comando de build. Después del primer deploy, en `Frontend/web/index.html` hay que cambiar `og:image` por la URL absoluta (`https://<dominio>/og.jpg`). Sin eso, LinkedIn y X no muestran la vista previa.
 
 Para correr los mismos chequeos que el CI (requiere `pip install -r requirements-ci.txt`):
 
@@ -283,7 +297,16 @@ notas[notas["tracks"].map(lambda t: "agro" in t)]
 │           ├── residuos_clasificado_final.parquet   Salida del piloto, con categorías cortadas o inventadas
 │           ├── test_residuos_clasificado.parquet    Muestra de prueba del piloto
 │           ├── README.md                            Qué es la v1 y por qué no es la vigente
-│           └── no_patrones/                         Reporte, grafo, mapa UMAP y JSON de no-patrones
+│           └── no_patrones/                         Reporte, grafo GEXF, mapa UMAP y JSON de no-patrones
+├── Frontend/                                        Web del grafo, lista para Vercel
+│   ├── exportar_web.py                              Exporta el GEXF y el reporte de no-patrones al JSON de la web
+│   ├── test_exportar_web.py                         Comprueba el contrato del JSON
+│   ├── recorridos/                                  Embudo medido de cada versión (notas por etapa), opcional
+│   ├── PRODUCT.md                                   Público, propósito y principios de la web
+│   ├── DESIGN.md                                    Sistema visual de la web: colores, tipografía y reglas
+│   ├── .impeccable/                                 Contrato de diseño y capturas de revisión
+│   └── web/                                         Lo que se publica: index.html, style.css, app.js y og.jpg (vista previa en redes)
+│       └── data/                                    index.json y un JSON por versión y tema
 ├── docs/
 │   ├── analisis-datasets/
 │   │   ├── analisis-dataset-biodiversidad.md       Pros y contras de las problemáticas de biodiversidad

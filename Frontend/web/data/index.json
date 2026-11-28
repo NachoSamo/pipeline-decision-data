@@ -1,0 +1,10 @@
+[
+  {
+    "id": "v1-residuos",
+    "version": "v1",
+    "tema": "residuos",
+    "vigente": false,
+    "fecha": "2026-11-10",
+    "archivo": "v1-residuos.json"
+  }
+]
