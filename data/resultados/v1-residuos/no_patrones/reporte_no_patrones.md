@@ -65,7 +65,7 @@
 
 ---
 ## 5. Archivos de Visualización Generados
-- **Grafo Web Interactivo:** `data/resultados/v1-residuos/no_patrones/grafo_interactivo.html` (Abrir en cualquier navegador para explorar nodos).
+- **Grafo web interactivo:** `Frontend/web/data/v1-residuos.json`, que dibuja la web de `Frontend/web/` (el HTML anterior se eliminó el 27/11/2026).
 - **Mapa 2D de Desiertos (UMAP):** `data/resultados/v1-residuos/no_patrones/mapa_desiertos_2d.png`.
 - **Exportación estándar de Red:** `data/resultados/v1-residuos/no_patrones/grafo_residuos.gexf`.
 - **Dataset de No-Patrones JSON:** `data/resultados/v1-residuos/no_patrones/reporte_no_patrones.json`.

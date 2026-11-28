@@ -178,6 +178,14 @@ La v1 (Kaggle, 10/11) clasificó 12.714 notas de residuos en 7 h 14 min sobre 2�
 - **Cómo:** la versión vigente es `VERSION` en [`scripts/clasificacion/version.py`](../../scripts/clasificacion/version.py). Cada versión escribe en `data/resultados/<version>-<tema>/`, así que la v2 no pisa la v1.
 - **Qué no se versiona:** los Parquet limpios de `data/` (`residuos.parquet`, etc.) son la entrada compartida y quedan en su lugar.
 
+### Web del grafo (27/11/2026)
+
+- **Qué se decidió:** el grafo se publica como web estática para difundir el análisis en redes, con el foco en **cómo lo hicimos**. Público: comunidad tech y público general.
+- **Contrato de datos:** [`Frontend/exportar_web.py`](../../Frontend/exportar_web.py) lee el `.gexf` y `reporte_no_patrones.json` de una versión y escribe `Frontend/web/data/<version>-<tema>.json`. Ese JSON tiene `meta` (versión, tema, vigente, fechas, totales, advertencias y el embudo de `Frontend/recorridos/`), `nodos`, `aristas` y `rankings`. También actualiza `index.json`. La web solo lee esos JSON, así que una versión nueva se suma corriendo el exportador.
+- **Stack:** HTML, CSS y JS sin build, con `3d-force-graph` (three.js) desde esm.sh. El deploy en Vercel (`Root Directory = Frontend/web`) lo hace el equipo.
+- **Diseño:** el estándar de la categoría, con Obsidian Graph View y The Pudding como nivel de referencia. No toma nada de la UI del grafo vis.js anterior, que se eliminó junto con `generar_grafo_html_interactivo`.
+- **Honestidad:** la v1 se exporta como no vigente, con sus límites como advertencias visibles. Las cifras del embudo salen de los análisis medidos, no de estimaciones.
+
 ### Plan de scraping
 
 Cómo funciona cada script: [scrapping-webs.md](../scrapping-webs.md).

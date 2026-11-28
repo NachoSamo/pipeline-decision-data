@@ -15,10 +15,13 @@ import networkx as nx
 
 from const_grafo import construir_grafo_conocimiento
 from motor_no_patrones import ejecutar_analisis_no_patrones
-from visualizador import generar_mapa_umap_2d, generar_grafo_html_interactivo
+from visualizador import generar_mapa_umap_2d
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "clasificacion"))
 from version import VERSION
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "Frontend"))
+from exportar_web import exportar as exportar_web
 
 
 def generar_reporte_markdown(
@@ -79,7 +82,7 @@ def generar_reporte_markdown(
     md.append("\n---")
     md.append("## 5. Archivos de Visualización Generados")
     carpeta_md = f"data/resultados/{VERSION}-residuos/no_patrones"
-    md.append(f"- **Grafo Web Interactivo:** `{carpeta_md}/grafo_interactivo.html` (Abrir en cualquier navegador para explorar nodos).")
+    md.append(f"- **Grafo web interactivo:** `Frontend/web/data/{VERSION}-residuos.json`, que dibuja la web de `Frontend/web/`.")
     md.append(f"- **Mapa 2D de Desiertos (UMAP):** `{carpeta_md}/mapa_desiertos_2d.png`.")
     md.append(f"- **Exportación estándar de Red:** `{carpeta_md}/grafo_residuos.gexf`.")
     md.append(f"- **Dataset de No-Patrones JSON:** `{carpeta_md}/reporte_no_patrones.json`.")
@@ -137,9 +140,6 @@ def main():
     ruta_umap = dir_out / "mapa_desiertos_2d.png"
     generar_mapa_umap_2d(emb_prob, emb_sol, df_prob, df_sol, resultados["vacios_solucion"], ruta_umap)
     
-    ruta_html = dir_out / "grafo_interactivo.html"
-    generar_grafo_html_interactivo(G, resultados["vacios_solucion"], resultados["gemas_ocultas"], ruta_html)
-    
     # 5. Exportar Grafo GEXF
     ruta_gexf = dir_out / "grafo_residuos.gexf"
     # Limpiar atributos para compatibilidad estricta de GEXF
@@ -177,6 +177,10 @@ def main():
         G.number_of_edges(),
         ruta_md
     )
+    
+    # 7. Exportar al contrato JSON de la web (Frontend/web/data/). Se marca no vigente:
+    # para publicarla como vigente, volver a correr Frontend/exportar_web.py con --vigente.
+    exportar_web(dir_out, VERSION, "residuos")
     
     t_tot = time.time() - t0
     print(f"\n{'='*75}")

@@ -1,0 +1,511 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-27T22:40:00-03:00",
+  "title": "Design System: Grafo del método",
+  "extensions": {
+    "colorMeta": {
+      "fondo": {
+        "role": "neutral",
+        "displayName": "Fondo Nocturno",
+        "canonical": "oklch(16.3% 0.014 264.1)",
+        "tonalRamp": [
+          "oklch(15.0% 0.014 264.1)",
+          "oklch(26.4% 0.014 264.1)",
+          "oklch(37.9% 0.014 264.1)",
+          "oklch(49.3% 0.014 264.1)",
+          "oklch(60.7% 0.014 264.1)",
+          "oklch(72.1% 0.014 264.1)",
+          "oklch(83.6% 0.014 264.1)",
+          "oklch(95.0% 0.014 264.1)"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Panel",
+        "canonical": "oklch(19.5% 0.017 264.0)",
+        "tonalRamp": [
+          "oklch(15.0% 0.017 264.0)",
+          "oklch(26.4% 0.017 264.0)",
+          "oklch(37.9% 0.017 264.0)",
+          "oklch(49.3% 0.017 264.0)",
+          "oklch(60.7% 0.017 264.0)",
+          "oklch(72.1% 0.017 264.0)",
+          "oklch(83.6% 0.017 264.0)",
+          "oklch(95.0% 0.017 264.0)"
+        ]
+      },
+      "panel-alto": {
+        "role": "neutral",
+        "displayName": "Panel Alto",
+        "canonical": "oklch(22.6% 0.021 264.0)",
+        "tonalRamp": [
+          "oklch(15.0% 0.021 264.0)",
+          "oklch(26.4% 0.021 264.0)",
+          "oklch(37.9% 0.021 264.0)",
+          "oklch(49.3% 0.021 264.0)",
+          "oklch(60.7% 0.021 264.0)",
+          "oklch(72.1% 0.021 264.0)",
+          "oklch(83.6% 0.021 264.0)",
+          "oklch(95.0% 0.021 264.0)"
+        ]
+      },
+      "fila-activa": {
+        "role": "neutral",
+        "displayName": "Fila Activa",
+        "canonical": "oklch(28.4% 0.028 261.5)",
+        "tonalRamp": [
+          "oklch(15.0% 0.028 261.5)",
+          "oklch(26.4% 0.028 261.5)",
+          "oklch(37.9% 0.028 261.5)",
+          "oklch(49.3% 0.028 261.5)",
+          "oklch(60.7% 0.028 261.5)",
+          "oklch(72.1% 0.028 261.5)",
+          "oklch(83.6% 0.028 261.5)",
+          "oklch(95.0% 0.028 261.5)"
+        ]
+      },
+      "borde": {
+        "role": "neutral",
+        "displayName": "Borde",
+        "canonical": "oklch(28.7% 0.026 260.0)",
+        "tonalRamp": [
+          "oklch(15.0% 0.026 260.0)",
+          "oklch(26.4% 0.026 260.0)",
+          "oklch(37.9% 0.026 260.0)",
+          "oklch(49.3% 0.026 260.0)",
+          "oklch(60.7% 0.026 260.0)",
+          "oklch(72.1% 0.026 260.0)",
+          "oklch(83.6% 0.026 260.0)",
+          "oklch(95.0% 0.026 260.0)"
+        ]
+      },
+      "borde-hover": {
+        "role": "neutral",
+        "displayName": "Borde Hover",
+        "canonical": "oklch(37.2% 0.048 263.7)",
+        "tonalRamp": [
+          "oklch(15.0% 0.048 263.7)",
+          "oklch(26.4% 0.048 263.7)",
+          "oklch(37.9% 0.048 263.7)",
+          "oklch(49.3% 0.048 263.7)",
+          "oklch(60.7% 0.048 263.7)",
+          "oklch(72.1% 0.048 263.7)",
+          "oklch(83.6% 0.048 263.7)",
+          "oklch(95.0% 0.048 263.7)"
+        ]
+      },
+      "texto": {
+        "role": "neutral",
+        "displayName": "Texto",
+        "canonical": "oklch(94.2% 0.009 258.3)",
+        "tonalRamp": [
+          "oklch(15.0% 0.009 258.3)",
+          "oklch(26.4% 0.009 258.3)",
+          "oklch(37.9% 0.009 258.3)",
+          "oklch(49.3% 0.009 258.3)",
+          "oklch(60.7% 0.009 258.3)",
+          "oklch(72.1% 0.009 258.3)",
+          "oklch(83.6% 0.009 258.3)",
+          "oklch(95.0% 0.009 258.3)"
+        ]
+      },
+      "texto-ensayo": {
+        "role": "neutral",
+        "displayName": "Texto Ensayo",
+        "canonical": "oklch(85.8% 0.019 258.4)",
+        "tonalRamp": [
+          "oklch(15.0% 0.019 258.4)",
+          "oklch(26.4% 0.019 258.4)",
+          "oklch(37.9% 0.019 258.4)",
+          "oklch(49.3% 0.019 258.4)",
+          "oklch(60.7% 0.019 258.4)",
+          "oklch(72.1% 0.019 258.4)",
+          "oklch(83.6% 0.019 258.4)",
+          "oklch(95.0% 0.019 258.4)"
+        ]
+      },
+      "texto-2": {
+        "role": "neutral",
+        "displayName": "Texto 2",
+        "canonical": "oklch(72.2% 0.03 258.4)",
+        "tonalRamp": [
+          "oklch(15.0% 0.03 258.4)",
+          "oklch(26.4% 0.03 258.4)",
+          "oklch(37.9% 0.03 258.4)",
+          "oklch(49.3% 0.03 258.4)",
+          "oklch(60.7% 0.03 258.4)",
+          "oklch(72.1% 0.03 258.4)",
+          "oklch(83.6% 0.03 258.4)",
+          "oklch(95.0% 0.03 258.4)"
+        ]
+      },
+      "texto-3": {
+        "role": "neutral",
+        "displayName": "Texto 3",
+        "canonical": "oklch(63.7% 0.032 259.6)",
+        "tonalRamp": [
+          "oklch(15.0% 0.032 259.6)",
+          "oklch(26.4% 0.032 259.6)",
+          "oklch(37.9% 0.032 259.6)",
+          "oklch(49.3% 0.032 259.6)",
+          "oklch(60.7% 0.032 259.6)",
+          "oklch(72.1% 0.032 259.6)",
+          "oklch(83.6% 0.032 259.6)",
+          "oklch(95.0% 0.032 259.6)"
+        ]
+      },
+      "problema": {
+        "role": "primary",
+        "displayName": "Coral Problema",
+        "canonical": "oklch(73.2% 0.165 28.3)",
+        "tonalRamp": [
+          "oklch(15.0% 0.165 28.3)",
+          "oklch(26.4% 0.165 28.3)",
+          "oklch(37.9% 0.165 28.3)",
+          "oklch(49.3% 0.165 28.3)",
+          "oklch(60.7% 0.165 28.3)",
+          "oklch(72.1% 0.165 28.3)",
+          "oklch(83.6% 0.165 28.3)",
+          "oklch(95.0% 0.165 28.3)"
+        ]
+      },
+      "problema-hover": {
+        "role": "primary",
+        "displayName": "Coral Claro",
+        "canonical": "oklch(77.1% 0.135 27.7)",
+        "tonalRamp": [
+          "oklch(15.0% 0.135 27.7)",
+          "oklch(26.4% 0.135 27.7)",
+          "oklch(37.9% 0.135 27.7)",
+          "oklch(49.3% 0.135 27.7)",
+          "oklch(60.7% 0.135 27.7)",
+          "oklch(72.1% 0.135 27.7)",
+          "oklch(83.6% 0.135 27.7)",
+          "oklch(95.0% 0.135 27.7)"
+        ]
+      },
+      "tinta-sobre-coral": {
+        "role": "primary",
+        "displayName": "Tinta sobre Coral",
+        "canonical": "oklch(17.7% 0.023 29.1)",
+        "tonalRamp": [
+          "oklch(15.0% 0.023 29.1)",
+          "oklch(26.4% 0.023 29.1)",
+          "oklch(37.9% 0.023 29.1)",
+          "oklch(49.3% 0.023 29.1)",
+          "oklch(60.7% 0.023 29.1)",
+          "oklch(72.1% 0.023 29.1)",
+          "oklch(83.6% 0.023 29.1)",
+          "oklch(95.0% 0.023 29.1)"
+        ]
+      },
+      "solucion": {
+        "role": "secondary",
+        "displayName": "Menta Solución",
+        "canonical": "oklch(79.0% 0.125 165.8)",
+        "tonalRamp": [
+          "oklch(15.0% 0.125 165.8)",
+          "oklch(26.4% 0.125 165.8)",
+          "oklch(37.9% 0.125 165.8)",
+          "oklch(49.3% 0.125 165.8)",
+          "oklch(60.7% 0.125 165.8)",
+          "oklch(72.1% 0.125 165.8)",
+          "oklch(83.6% 0.125 165.8)",
+          "oklch(95.0% 0.125 165.8)"
+        ]
+      },
+      "causa": {
+        "role": "tertiary",
+        "displayName": "Ámbar Causa",
+        "canonical": "oklch(81.7% 0.14 80.1)",
+        "tonalRamp": [
+          "oklch(15.0% 0.14 80.1)",
+          "oklch(26.4% 0.14 80.1)",
+          "oklch(37.9% 0.14 80.1)",
+          "oklch(49.3% 0.14 80.1)",
+          "oklch(60.7% 0.14 80.1)",
+          "oklch(72.1% 0.14 80.1)",
+          "oklch(83.6% 0.14 80.1)",
+          "oklch(95.0% 0.14 80.1)"
+        ]
+      },
+      "actor": {
+        "role": "tertiary",
+        "displayName": "Azul Acero Actor",
+        "canonical": "oklch(65.8% 0.062 258.9)",
+        "tonalRamp": [
+          "oklch(15.0% 0.062 258.9)",
+          "oklch(26.4% 0.062 258.9)",
+          "oklch(37.9% 0.062 258.9)",
+          "oklch(49.3% 0.062 258.9)",
+          "oklch(60.7% 0.062 258.9)",
+          "oklch(72.1% 0.062 258.9)",
+          "oklch(83.6% 0.062 258.9)",
+          "oklch(95.0% 0.062 258.9)"
+        ]
+      },
+      "categoria": {
+        "role": "tertiary",
+        "displayName": "Violeta Categoría",
+        "canonical": "oklch(70.9% 0.159 293.5)",
+        "tonalRamp": [
+          "oklch(15.0% 0.159 293.5)",
+          "oklch(26.4% 0.159 293.5)",
+          "oklch(37.9% 0.159 293.5)",
+          "oklch(49.3% 0.159 293.5)",
+          "oklch(60.7% 0.159 293.5)",
+          "oklch(72.1% 0.159 293.5)",
+          "oklch(83.6% 0.159 293.5)",
+          "oklch(95.0% 0.159 293.5)"
+        ]
+      },
+      "ubicacion": {
+        "role": "tertiary",
+        "displayName": "Cian Ubicación",
+        "canonical": "oklch(76.0% 0.107 212.3)",
+        "tonalRamp": [
+          "oklch(15.0% 0.107 212.3)",
+          "oklch(26.4% 0.107 212.3)",
+          "oklch(37.9% 0.107 212.3)",
+          "oklch(49.3% 0.107 212.3)",
+          "oklch(60.7% 0.107 212.3)",
+          "oklch(72.1% 0.107 212.3)",
+          "oklch(83.6% 0.107 212.3)",
+          "oklch(95.0% 0.107 212.3)"
+        ]
+      },
+      "arista-activa": {
+        "role": "neutral",
+        "displayName": "Arista Activa",
+        "canonical": "oklch(84.3% 0.022 259.2)",
+        "tonalRamp": [
+          "oklch(15.0% 0.022 259.2)",
+          "oklch(26.4% 0.022 259.2)",
+          "oklch(37.9% 0.022 259.2)",
+          "oklch(49.3% 0.022 259.2)",
+          "oklch(60.7% 0.022 259.2)",
+          "oklch(72.1% 0.022 259.2)",
+          "oklch(83.6% 0.022 259.2)",
+          "oklch(95.0% 0.022 259.2)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Titular del grafo; 28px fijos en el celular."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Títulos de sección del ensayo."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Título del panel de detalle (19px) y subtítulos del ensayo (20px)."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Párrafo de entrada del ensayo."
+      },
+      "body-ensayo": {
+        "displayName": "Body ensayo",
+        "purpose": "Párrafos del método, máximo 68ch, en Texto Ensayo."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Base de la página."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Botones, filtros, leyenda y pastillas; 12 a 13px, sin mayúsculas forzadas."
+      },
+      "cifra": {
+        "displayName": "Cifra",
+        "purpose": "Geist Mono tabular: conteos, valores, embudo y contador del recorrido."
+      }
+    },
+    "shadows": [
+      {
+        "name": "desplegable",
+        "value": "0 12px 32px rgb(0 0 0 / 0.45)",
+        "purpose": "Resultados del buscador."
+      },
+      {
+        "name": "panel-flotante",
+        "value": "0 16px 40px rgb(0 0 0 / 0.4)",
+        "purpose": "Panel de detalle sobre el grafo."
+      }
+    ],
+    "motion": [
+      {
+        "name": "salida",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Curva única para todas las transiciones."
+      },
+      {
+        "name": "detalle-entrada",
+        "value": "transform 0.45s, opacity 0.3s",
+        "purpose": "Panel de detalle que se desliza."
+      },
+      {
+        "name": "hover-control",
+        "value": "background 0.2s, border-color 0.2s",
+        "purpose": "Botones."
+      },
+      {
+        "name": "embudo",
+        "value": "transform 1.2s",
+        "purpose": "Relleno de barras al entrar en vista."
+      },
+      {
+        "name": "vuelo-camara",
+        "value": "1100ms (800ms al restaurar desde la URL)",
+        "purpose": "Cámara hacia el nodo seleccionado; 0 con movimiento reducido."
+      },
+      {
+        "name": "orbita-intro",
+        "value": "hasta 14s, se corta al primer toque",
+        "purpose": "Órbita de entrada; desactivada con movimiento reducido."
+      },
+      {
+        "name": "respiracion-aros",
+        "value": "escala 1 ± 0.08, sin(t * 1.6)",
+        "purpose": "Aros de destacados; desactivada con movimiento reducido."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "celular",
+        "value": "900px"
+      }
+    ],
+    "viewOffset": {
+      "escritorio-con-seleccion": "dx 40px",
+      "celular-sin-seleccion": "dy -10% del alto",
+      "celular-con-seleccion": "dy +16% del alto",
+      "og": "dx -20% del ancho",
+      "nota": "Se reaplica en cada cuadro porque three-render-objects lo borra."
+    }
+  },
+  "components": [
+    {
+      "name": "Botón",
+      "kind": "button",
+      "refersTo": "boton",
+      "description": "Acción neutra (Descargar imagen).",
+      "html": "<button class=\"ds-boton\">Descargar imagen</button>",
+      "css": ".ds-boton{font:500 13px/1.35 var(--sans, Geist, sans-serif);color:#e8ecf2;background:#11151d;border:1px solid #232b38;border-radius:8px;padding:8px 14px;cursor:pointer;transition:background .2s,border-color .2s;white-space:nowrap}.ds-boton:hover{background:#171c26;border-color:#33405a}.ds-boton:focus-visible{outline:2px solid #5fd4a8;outline-offset:2px}"
+    },
+    {
+      "name": "Botón primario",
+      "kind": "button",
+      "refersTo": "boton-primario",
+      "description": "Única acción en color: lanza el recorrido de vacíos.",
+      "html": "<button class=\"ds-boton-primario\" aria-pressed=\"false\">Recorrer vacíos</button>",
+      "css": ".ds-boton-primario{font:500 13px/1.35 var(--sans, Geist, sans-serif);color:#1a0d0b;background:#ff7a6b;border:1px solid #ff7a6b;border-radius:8px;padding:8px 14px;cursor:pointer;transition:background .2s,border-color .2s}.ds-boton-primario:hover{background:#ff9184}.ds-boton-primario[aria-pressed=true]{background:#171c26;color:#ff7a6b;border-color:color-mix(in srgb,#ff7a6b 50%,transparent)}.ds-boton-primario:focus-visible{outline:2px solid #5fd4a8;outline-offset:2px}"
+    },
+    {
+      "name": "Buscador",
+      "kind": "input",
+      "refersTo": "buscador",
+      "description": "Campo de búsqueda del riel, con lupa SVG.",
+      "html": "<div class=\"ds-buscador\"><svg viewBox=\"0 0 16 16\" aria-hidden=\"true\"><circle cx=\"7\" cy=\"7\" r=\"4.5\"/><path d=\"m10.5 10.5 3 3\"/></svg><input placeholder=\"Buscar en el grafo\"></div>",
+      "css": ".ds-buscador{position:relative;display:flex;align-items:center;width:280px}.ds-buscador svg{position:absolute;left:11px;width:16px;height:16px;fill:none;stroke:#808c9f;stroke-width:1.6;stroke-linecap:round}.ds-buscador input{width:100%;font:400 14px/1.4 var(--sans, Geist, sans-serif);color:#e8ecf2;background:#11151d;border:1px solid #232b38;border-radius:8px;padding:9px 12px 9px 34px}.ds-buscador input::placeholder{color:#808c9f}.ds-buscador input:hover{border-color:#33405a}.ds-buscador input:focus-visible{outline:2px solid #5fd4a8;outline-offset:2px}"
+    },
+    {
+      "name": "Pastilla de estado",
+      "kind": "chip",
+      "refersTo": "pastilla-estado",
+      "description": "Vigencia de la versión del dataset.",
+      "html": "<span class=\"ds-estado\">v1 · no vigente</span> <span class=\"ds-estado ds-vigente\">vigente</span>",
+      "css": ".ds-estado{font:500 12px/1.4 var(--sans, Geist, sans-serif);padding:4px 9px;border-radius:999px;border:1px solid color-mix(in srgb,#f2b84b 40%,transparent);color:#f2b84b;background:color-mix(in srgb,#f2b84b 10%,transparent);white-space:nowrap}.ds-vigente{color:#5fd4a8;border-color:color-mix(in srgb,#5fd4a8 40%,transparent);background:color-mix(in srgb,#5fd4a8 10%,transparent)}"
+    },
+    {
+      "name": "Filtro por tipo",
+      "kind": "nav",
+      "refersTo": "fila-lista",
+      "description": "Fila del riel: punto de tipo, nombre y conteo mono; apagado deja el punto hueco.",
+      "html": "<div class=\"ds-filtros\"><label class=\"ds-filtro\"><span class=\"ds-punto\" style=\"--c:#ff7a6b\"></span><span class=\"ds-nombre\">Problemas</span><span class=\"ds-cuenta\">409</span></label><label class=\"ds-filtro ds-apagado\"><span class=\"ds-punto\" style=\"--c:#5fd4a8\"></span><span class=\"ds-nombre\">Soluciones</span><span class=\"ds-cuenta\">133</span></label></div>",
+      "css": ".ds-filtros{border:1px solid #232b38;border-radius:8px;background:color-mix(in srgb,#11151d 88%,transparent);padding:6px;width:260px}.ds-filtro{display:flex;align-items:center;padding:7px 8px;border-radius:6px;cursor:pointer;font:400 13px/1.4 var(--sans, Geist, sans-serif);color:#e8ecf2}.ds-filtro:hover{background:#171c26}.ds-punto{width:8px;height:8px;border-radius:50%;background:var(--c);margin-right:8px}.ds-nombre{flex:1}.ds-cuenta{font:400 12px var(--mono, 'Geist Mono', monospace);color:#808c9f;font-variant-numeric:tabular-nums}.ds-apagado{color:#808c9f}.ds-apagado .ds-punto{background:transparent;box-shadow:inset 0 0 0 1.5px var(--c)}"
+    },
+    {
+      "name": "Panel de detalle",
+      "kind": "card",
+      "refersTo": "panel-detalle",
+      "description": "Panel flotante que se desliza al seleccionar un nodo.",
+      "html": "<aside class=\"ds-detalle\"><h2>Basurales a cielo abierto</h2><p>Ejemplo de descripción del nodo.</p><dl><dt>Tipo</dt><dd>Problema</dd><dt>Grado</dt><dd class=\"ds-mono\">12</dd></dl></aside>",
+      "css": ".ds-detalle{width:340px;background:color-mix(in srgb,#11151d 94%,transparent);border:1px solid #232b38;border-radius:8px;padding:18px 18px 14px;box-shadow:0 16px 40px rgb(0 0 0 / .4);color:#e8ecf2;font-family:var(--sans, Geist, sans-serif)}.ds-detalle h2{margin:0;font-size:19px;line-height:1.25;font-weight:600;letter-spacing:-.01em}.ds-detalle p{color:#9aa6b8;font-size:14px;margin:10px 0 0}.ds-detalle dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:14px 0 0;font-size:13px}.ds-detalle dt{color:#808c9f}.ds-detalle dd{margin:0}.ds-mono{font-family:var(--mono, 'Geist Mono', monospace);font-variant-numeric:tabular-nums}"
+    },
+    {
+      "name": "Límite",
+      "kind": "card",
+      "refersTo": "",
+      "description": "Tarjeta plana de la sección de límites, con rombo ámbar de contorno.",
+      "html": "<ul class=\"ds-limites\"><li>Ejemplo de límite del método, siempre a la vista.</li></ul>",
+      "css": ".ds-limites{list-style:none;margin:0;padding:0;width:480px}.ds-limites li{position:relative;padding:14px 16px 14px 44px;background:#11151d;border:1px solid #232b38;border-radius:8px;font:400 15px/1.55 var(--sans, Geist, sans-serif);color:#e8ecf2}.ds-limites li::before{content:'';position:absolute;left:18px;top:21px;width:10px;height:10px;border-radius:2px;transform:rotate(45deg);border:1.5px solid #f2b84b}"
+    },
+    {
+      "name": "Etapa del embudo",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Fila del embudo de método: etapa, cifra mono tabular y barra que crece.",
+      "html": "<ol class=\"ds-embudo\"><li><span class=\"ds-etapa\">Notas</span><span class=\"ds-cifra\">47.944</span><div class=\"ds-pista\"><div class=\"ds-relleno\" style=\"--w:100%\"></div></div></li><li><span class=\"ds-etapa\">Clasificadas</span><span class=\"ds-cifra\">547</span><div class=\"ds-pista\"><div class=\"ds-relleno ds-final\" style=\"--w:2%\"></div></div></li></ol>",
+      "css": ".ds-embudo{list-style:none;padding:0;margin:0;display:grid;gap:22px;width:480px;color:#e8ecf2;font-family:var(--sans, Geist, sans-serif)}.ds-embudo li{display:grid;grid-template-columns:1fr auto;gap:4px 16px;align-items:baseline}.ds-etapa{font-weight:600;font-size:15px}.ds-cifra{font:400 15px var(--mono, 'Geist Mono', monospace);font-variant-numeric:tabular-nums}.ds-pista{grid-column:1/-1;height:10px;border-radius:3px;background:#11151d;overflow:hidden}.ds-relleno{height:100%;width:var(--w);min-width:2px;border-radius:3px;background:#7b93b8;transform-origin:left;transition:transform 1.2s cubic-bezier(.16,1,.3,1)}.ds-final{background:#5fd4a8}"
+    }
+  ],
+  "narrative": {
+    "northStar": "La sala de observación",
+    "overview": "Un suelo azul negro donde el dato es la única fuente de luz. El grafo ocupa todo el primer viewport y la interfaz flota encima en paneles de línea fina, sin peso propio: el color pertenece a los nodos, no a los controles. Debajo, el ensayo de método se lee como una columna tranquila de 68 caracteres, con las cifras en mono tabular para que se puedan comparar de un vistazo.\n\nLa densidad es de herramienta: textos de 12 a 14 px en la interfaz, filas de 6 a 8 px de relleno, paneles de 8 px de radio. El ensayo cambia de registro: cuerpo de 17 px con interlineado 1,7 y aire vertical generoso entre secciones. El movimiento es de salida suave, la misma curva en todo, y se apaga con movimiento reducido.\n\nEs el estándar de la categoría ejecutado sin ironía: grafo con terminación de Obsidian, ensayo con terminación de The Pudding.",
+    "keyCharacteristics": [
+      "Fondo azul negro único (#0b0e14) compartido por la página y el lienzo 3D.",
+      "Seis tonos de nodo por tipo; los controles son neutros.",
+      "Paneles de 1 px a 8 px de radio, translúcidos sobre el grafo.",
+      "Geist para todo el texto, Geist Mono solo para cifras e identificadores.",
+      "Una sola curva de salida para todas las transiciones."
+    ],
+    "rules": [
+      {
+        "name": "The Color Es Dato Rule",
+        "body": "Los seis tonos de tipo solo identifican tipos de nodo y sus métricas (vacío coral, gema menta, cuello ámbar). Un control nunca toma un tono de tipo para decorar; la excepción es el botón primario coral, que lanza el recorrido de vacíos.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mismo Hex Rule",
+        "body": "Los colores de tipo son idénticos en style.css y en app.js. Un tono nuevo se agrega en los dos lados a la vez.",
+        "section": "colors"
+      },
+      {
+        "name": "The Atenuado Translúcido Rule",
+        "body": "Con una selección, el resto de los nodos pasa a gris azulado translúcido (rgba(60,70,88,0.14)) y las aristas ajenas a rgba(40,48,62,0.25): quedan de fondo sin tapar lo resaltado.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mono Es Número Rule",
+        "body": "Geist Mono aparece solo en cifras, identificadores de versión y contadores, siempre con números tabulares. Nunca en titulares ni en prosa.",
+        "section": "typography"
+      },
+      {
+        "name": "The Plano Salvo Que Flote Rule",
+        "body": "Botones, campos, filtros y tarjetas de límites no llevan sombra. La sombra queda para lo que se superpone al grafo y puede taparlo.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do usar una sola curva para todo el movimiento: cubic-bezier(0.16, 1, 0.3, 1).",
+      "Do mantener los colores de tipo idénticos en style.css y app.js.",
+      "Do poner toda cifra en Geist Mono con números tabulares.",
+      "Do dibujar los paneles sobre el grafo con 1px de Borde, 8px de radio y fondo Panel translúcido.",
+      "Do marcar los destacados con aros finos que miran a la cámara, en el color de su métrica.",
+      "Do atenuar lo no seleccionado con translucidez, no con un gris opaco.",
+      "Do correr el centro de la cámara con view offset para que lo enfocado no quede detrás de un panel.",
+      "Do desactivar órbita, partículas y respiración con prefers-reduced-motion."
+    ],
+    "donts": [
+      "Don't usar un tono de tipo de nodo para decorar controles, fondos o titulares.",
+      "Don't agregar sombras a botones, campos o tarjetas planas.",
+      "Don't usar Geist Mono en prosa o titulares.",
+      "Don't bajar de Texto 3 (#808c9f) para texto legible sobre Fondo Nocturno.",
+      "Don't forzar mayúsculas ni tracking abierto en labels."
+    ]
+  }
+}

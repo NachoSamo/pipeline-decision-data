@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Residuos en los medios, hecho grafo · pipeline-decision-data</title>
+  <meta name="description" content="Notas periodísticas sobre residuos, clasificadas con un modelo de lenguaje y unidas en un grafo de problemas, soluciones, causas y actores. Cómo lo hicimos y qué tan confiable es.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Residuos en los medios, hecho grafo">
+  <meta property="og:description" content="Del scraping de miles de notas a un grafo de problemas y soluciones. Cómo lo hicimos, con los límites a la vista.">
+  <!-- Cambiar por la URL absoluta del deploy (https://<dominio>/og.jpg): LinkedIn y X no aceptan rutas relativas. -->
+  <meta property="og:image" content="og.jpg">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="425">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0b0e14">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='9' cy='10' r='5' fill='%23ff7a6b'/%3E%3Ccircle cx='23' cy='14' r='4' fill='%235fd4a8'/%3E%3Ccircle cx='13' cy='24' r='3.5' fill='%23a78bfa'/%3E%3Cpath d='M9 10L23 14M9 10L13 24M23 14L13 24' stroke='%239aa6b8' stroke-width='1.2'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://esm.sh/three@0.180.0",
+        "three/": "https://esm.sh/three@0.180.0/",
+        "3d-force-graph": "https://esm.sh/3d-force-graph@1.80.3?external=three"
+      }
+    }
+  </script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="saltar" href="#metodo">Saltar al texto</a>
+
+  <section class="escena" aria-label="Grafo interactivo">
+    <div id="grafo" class="lienzo" role="img" aria-label="Grafo 3D de problemas, soluciones, causas, actores y categorías. Hay una versión en texto más abajo, en Rankings."></div>
+
+    <div class="cargando" id="cargando" aria-live="polite">Cargando el grafo…</div>
+
+    <header class="titulo">
+      <h1>Lo que los medios cuentan sobre la basura, <span>hecho grafo.</span></h1>
+      <p class="bajada" id="bajada">Notas periodísticas clasificadas con un modelo de lenguaje y unidas por categoría, causa, actor y similitud.</p>
+      <a class="enlace-metodo" href="#metodo">Cómo lo hicimos <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3.5 8.5 8 13l4.5-4.5"/></svg></a>
+    </header>
+
+    <div class="dataset">
+      <label class="visual-oculto" for="selector-dataset">Dataset</label>
+      <select id="selector-dataset"></select>
+      <span class="estado" id="estado-version"></span>
+    </div>
+
+    <aside class="riel" aria-label="Filtros y búsqueda">
+      <div class="buscador">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>
+        <label class="visual-oculto" for="buscar">Buscar en el grafo</label>
+        <input id="buscar" type="search" placeholder="Buscar un problema, causa…" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="resultados">
+        <ul id="resultados" class="resultados" role="listbox" hidden></ul>
+      </div>
+      <fieldset class="filtros">
+        <legend>Mostrar</legend>
+        <div id="filtros"></div>
+      </fieldset>
+    </aside>
+
+    <aside class="detalle" id="detalle" aria-label="Detalle del nodo" aria-hidden="true">
+      <button class="cerrar" id="cerrar-detalle" aria-label="Cerrar detalle"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 4 8 8M12 4l-8 8"/></svg></button>
+      <h2 id="detalle-titulo"></h2>
+      <p class="detalle-marca" id="detalle-marca" hidden></p>
+      <p class="detalle-desc" id="detalle-desc"></p>
+      <dl class="detalle-datos" id="detalle-datos"></dl>
+      <a class="detalle-fuente" id="detalle-fuente" target="_blank" rel="noopener noreferrer" hidden>Leer la nota original <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3h7v7M13 3 4 12"/></svg></a>
+      <h3 id="vecinos-titulo">Conectado con</h3>
+      <ul class="vecinos" id="vecinos"></ul>
+    </aside>
+
+    <div class="barra">
+      <div class="leyenda" id="leyenda" aria-hidden="true"></div>
+      <div class="acciones">
+        <div class="recorrido-vacios" id="recorrido" hidden>
+          <button id="vacio-anterior" aria-label="Vacío anterior"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3.5 5.5 8l4.5 4.5"/></svg></button>
+          <span id="vacio-contador" aria-live="polite"></span>
+          <button id="vacio-siguiente" aria-label="Vacío siguiente"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg></button>
+        </div>
+        <button class="boton primario" id="recorrer-vacios">Recorrer vacíos</button>
+        <button class="boton" id="descargar">Descargar imagen</button>
+      </div>
+    </div>
+  </section>
+
+  <main class="ensayo">
+    <article id="metodo">
+      <h2>Cómo lo hicimos</h2>
+      <p class="entrada">Somos un equipo de la hackathon Hack to the Future, en la Córdoba Tech Week 2026. Antes de elegir qué problema resolver, quisimos saber qué problemas se repiten. Leímos lo que publican los medios sobre residuos y lo convertimos en algo que se puede recorrer.</p>
+
+      <h3>Del archivo al grafo, paso a paso</h3>
+      <p>Cada barra es una etapa del pipeline. El largo es proporcional a lo que queda, sin escala logarítmica: así se ve cuánto se pierde en el camino.</p>
+      <ol class="embudo" id="embudo"></ol>
+      <p class="nota-fuente" id="embudo-fuente"></p>
+
+      <h3>De texto a vecindad</h3>
+      <p>Cada problema y cada solución se convierte en un vector: TF-IDF sobre título y descripción, reducido a 64 dimensiones con SVD. Dos notas quedan cerca si usan palabras parecidas. No es comprensión, es vocabulario compartido.</p>
+      <p>Para cada problema buscamos las tres soluciones más cercanas. Si la similitud pasa de 0,32, las unimos con una arista de <em>posible mitigación</em>, las líneas verdes con partículas que se ven en el grafo. El resto de las relaciones sale de lo que el modelo extrajo de cada nota: su categoría, sus causas y a quién afecta.</p>
+
+      <h3>Tres formas de buscar lo que falta</h3>
+      <p>No buscamos lo que más aparece, sino lo que no encaja. Por eso los llamamos <em>no-patrones</em>.</p>
+      <dl class="formulas">
+        <div>
+          <dt><span class="punto" style="--c: var(--problema)"></span>Vacío de solución</dt>
+          <dd>Un problema lejos de cualquier solución. Puntaje de 0 a 100: 50 % por distancia semántica a la solución más cercana, 30 % si no tiene ninguna arista de mitigación y 20 % por cuánto se repite su categoría.</dd>
+        </div>
+        <div>
+          <dt><span class="punto" style="--c: var(--solucion)"></span>Gema oculta</dt>
+          <dd>Una solución rara que igual se parece a varios problemas. 40 % por singularidad (Local Outlier Factor sobre los vectores), 35 % por rareza de su categoría y 25 % por afinidad con sus cinco problemas más cercanos.</dd>
+        </div>
+        <div>
+          <dt><span class="punto" style="--c: var(--causa)"></span>Cuello de botella</dt>
+          <dd>Una causa que comparten muchos problemas y casi ninguna solución toca. Índice: problemas que la padecen dividido por soluciones que los mitigan, más uno.</dd>
+        </div>
+      </dl>
+    </article>
+
+    <section id="limites" class="limites" aria-labelledby="limites-titulo">
+      <h2 id="limites-titulo">Qué tan confiable es</h2>
+      <p>Esto es lo que sabemos que está mal o incompleto en los datos que estás viendo.</p>
+      <ul id="advertencias"></ul>
+    </section>
+
+    <section id="rankings" aria-labelledby="rankings-titulo">
+      <h2 id="rankings-titulo">Rankings</h2>
+      <p>La versión en texto del grafo. Cada fila lo enfoca arriba.</p>
+      <div class="rankings">
+        <div>
+          <h3><span class="punto" style="--c: var(--problema)"></span>Vacíos de solución</h3>
+          <ol id="ranking-vacios"></ol>
+        </div>
+        <div>
+          <h3><span class="punto" style="--c: var(--solucion)"></span>Gemas ocultas</h3>
+          <ol id="ranking-gemas"></ol>
+        </div>
+        <div>
+          <h3><span class="punto" style="--c: var(--causa)"></span>Cuellos de botella</h3>
+          <p class="col-nota">Problemas que la padecen / soluciones que los mitigan</p>
+          <ol id="ranking-cuellos"></ol>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p><strong>pipeline-decision-data</strong> · Hack to the Future · Córdoba Tech Week 2026</p>
+    <p id="pie-fechas"></p>
+  </footer>
+</body>
+</html>
